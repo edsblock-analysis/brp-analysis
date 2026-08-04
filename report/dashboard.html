@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRP-World → EDS · Detailed Blocks, Templates & Variations Dashboard</title>
+<style>
+:root{--brand:#ffcb00;--ink:#0b0f19;--edge:#e2e6ee;--blue:#2563eb;--muted:#5b6472;--bg:#f4f6fa;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--blue)}
+header.hero{background:linear-gradient(135deg,#0b0f19,#1c2541 60%,#22357a);color:#fff;padding:46px 40px 40px}
+header.hero h1{margin:0 0 8px;font-size:30px;letter-spacing:-.5px}
+header.hero .sub{color:#a9b8d1;font-size:14.5px;max-width:900px}
+header.hero .badge{display:inline-block;background:var(--brand);color:#111;font-weight:700;padding:3px 11px;border-radius:5px;font-size:12px;margin-bottom:14px;letter-spacing:.5px}
+nav.toc{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--edge);z-index:60;padding:10px 24px;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px}
+nav.toc a{color:var(--muted);text-decoration:none;white-space:nowrap}
+nav.toc a:hover{color:var(--blue)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px 80px}
+section{background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:26px 30px;margin:22px 0;box-shadow:0 1px 3px rgba(10,15,25,.05)}
+h2.sec{font-size:22px;margin:0 0 4px;padding-bottom:10px;border-bottom:3px solid var(--brand);display:inline-block}
+.lead{color:#28303d;max-width:920px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:20px 0}
+.kpi{background:linear-gradient(160deg,#f8fafc,#eef2f9);border:1px solid var(--edge);border-radius:12px;padding:16px}
+.kpi .n{font-size:27px;font-weight:800;color:var(--blue);line-height:1}
+.kpi .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:6px}
+.kpi.warn .n{color:#b42318}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px}
+.dash-grid.three{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:900px){.dash-grid,.dash-grid.three{grid-template-columns:1fr}}
+.panel{border:1px solid var(--edge);border-radius:12px;padding:16px 18px;background:#fff}
+.panel h4{margin:0 0 10px;font-size:14px;color:#333}
+.chart .lbl{font-size:11px;fill:#3a4453}.chart .val{font-size:11px;fill:#5b6472;font-weight:700}
+.donut{max-width:200px;margin:0 auto;display:block}.dnum{font-size:26px;font-weight:800;fill:var(--ink)}.dlbl{font-size:11px;fill:var(--muted)}
+.legend2{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12px}
+.legend2 .lg{display:flex;align-items:center;gap:5px;color:#3a4453}.legend2 i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.donut-wrap{display:flex;flex-direction:column;align-items:center}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0}
+th,td{border:1px solid var(--edge);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#f0f3f8;font-weight:700}
+td.num,th.num{text-align:center;white-space:nowrap}
+tr:nth-child(even){background:#fafbfd}
+.cx{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;display:inline-block}
+.cx-Low{background:#dcfce7;color:#166534}.cx-Medium{background:#fef9c3;color:#854d0e}.cx-High{background:#ffedd5;color:#9a3412}.cx-VeryHigh{background:#ede9fe;color:#5b21b6}
+.card{border:1px solid var(--edge);border-radius:12px;padding:20px 22px;margin:16px 0;background:#fff;scroll-margin-top:60px}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid #eef1f6;padding-bottom:10px;margin-bottom:12px}
+.card-head h3{margin:0;font-size:18px}
+.card-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tag{background:#eef2f9;border:1px solid #dfe6f1;color:#3a4453;font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px}
+.purpose{color:#33404f;margin:4px 0 14px;font-size:14px}
+.split2{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+@media(max-width:900px){.split2{grid-template-columns:1fr}}
+.var-tbl td.diff{color:#4a5563;font-size:12px}
+.chartbox{background:#fbfcfe;border:1px solid #eef1f6;border-radius:10px;padding:12px 14px}
+.chart-title{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:8px;font-weight:700}
+.caps{margin-top:10px;font-size:12px}.caps-h{color:var(--muted);display:block;margin-bottom:5px;font-weight:600}
+.cap{display:inline-block;background:#f0f6ff;border:1px solid #d6e4fb;color:#1a4bcc;font-size:11px;padding:2px 8px;border-radius:6px;margin:2px}
+.chip{display:inline-block;background:#eef1f6;border:1px solid #dfe4ec;color:#3a4453;font-size:11.5px;padding:2px 9px;border-radius:6px;margin:1px}
+.primary-row{margin:6px 0 12px;font-size:13px}.pk{color:var(--muted);font-weight:600;margin-right:6px}
+.metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.metric{background:#f8fafc;border:1px solid var(--edge);border-radius:8px;padding:8px;text-align:center}
+.metric .mn{font-size:17px;font-weight:800;color:var(--blue)}.metric .ml{font-size:10.5px;color:var(--muted);margin-top:2px}
+.hygiene{font-size:12px;background:#fff7ed;border-left:3px solid #f97316;padding:7px 10px;border-radius:0 6px 6px 0;margin-bottom:8px}
+.hygiene.ok{background:#f0fdf4;border-color:#22c55e}
+.samples{font-size:11px;color:var(--muted)}.samples code{background:#f3f5f9;padding:1px 5px;border-radius:4px;font-size:10.5px;margin-right:4px;display:inline-block;margin-top:2px}
+.tablewrap{max-height:640px;overflow:auto;border:1px solid var(--edge);border-radius:8px}
+.rot{height:96px;padding:0}.rot>span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;font-size:11px}
+td.sticky{position:sticky;left:0;background:#fff;font-weight:600;max-width:190px;font-size:12px}
+.mx{text-align:center;font-weight:600;font-size:11px}
+.note{background:#f0f6ff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13.5px}
+.note.disc{background:#fef2f2;border-color:#ef4444}
+.subnav{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.subnav a{font-size:12px;background:#eef2f9;border:1px solid #dfe6f1;color:#3a4453;padding:3px 10px;border-radius:20px;text-decoration:none}
+.subnav a:hover{background:var(--blue);color:#fff}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:26px}
+h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:24px 0 4px}
+</style></head>
+<body>
+<header class="hero">
+  <div class="badge">ADOBE EDGE DELIVERY SERVICES · DETAILED ANALYSIS & DASHBOARD</div>
+  <h1>BRP-World.com → EDS · Blocks, Templates & Variations</h1>
+  <div class="sub">Evidence-backed breakdown from DOM analysis of all <b>1,172</b> in-scope URLs. Every variation below is detected from real component markers (BEM modifiers, <code>data-*</code> attributes, structural signatures) with page-level counts — not assumed. Complexity and effort are planning-grade EDS build estimates.</div>
+</header>
+<nav class="toc">
+  <a href="#dash">Dashboard</a>
+  <a href="#blocks">Blocks & Variations</a>
+  <a href="#templates">Templates</a>
+  <a href="#matrix">Mapping Matrix</a>
+  <a href="#method">Method & Evidence</a>
+</nav>
+<div class="wrap">
+
+<section id="dash">
+<h2 class="sec">Executive Dashboard</h2>
+<div class="kpis">
+  <div class="kpi"><div class="n">1,172</div><div class="l">URLs analyzed</div></div>
+  <div class="kpi"><div class="n">22</div><div class="l">Templates</div></div>
+  <div class="kpi"><div class="n">10</div><div class="l">Core blocks</div></div>
+  <div class="kpi"><div class="n">25</div><div class="l">Distinct variations</div></div>
+  <div class="kpi"><div class="n">13</div><div class="l">Optional capabilities</div></div>
+  <div class="kpi"><div class="n">143.5d</div><div class="l">Blocks + templates build</div></div>
+  <div class="kpi warn"><div class="n">779</div><div class="l">Pages w/o meta-desc</div></div>
+  <div class="kpi warn"><div class="n">402</div><div class="l">Pages w/ multiple H1</div></div>
+</div>
+<div class="dash-grid">
+  <div class="panel"><h4>Pages per template (top 12)</h4><svg viewBox="0 0 600 336" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Product Detail (Model)</text>
+<rect x="190" y="0" width="350" height="22" rx="4" fill="#2563eb"/>
+<text x="546" y="11" dominant-baseline="central" class="val">335</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Experience / Editorial</text>
+<rect x="190" y="28" width="295.67164179104475" height="22" rx="4" fill="#0ea5e9"/>
+<text x="491.67164179104475" y="39" dominant-baseline="central" class="val">283</text><text x="182" y="67" text-anchor="end" dominant-baseline="central" class="lbl">Owner Zone / Support Article</text>
+<rect x="190" y="56" width="205.82089552238804" height="22" rx="4" fill="#14b8a6"/>
+<text x="401.820895522388" y="67" dominant-baseline="central" class="val">197</text><text x="182" y="95" text-anchor="end" dominant-baseline="central" class="lbl">Product Configurator (BYO)</text>
+<rect x="190" y="84" width="191.19402985074626" height="22" rx="4" fill="#22c55e"/>
+<text x="387.19402985074623" y="95" dominant-baseline="central" class="val">183</text><text x="182" y="123" text-anchor="end" dominant-baseline="central" class="lbl">Blog / Article</text>
+<rect x="190" y="112" width="64.77611940298507" height="22" rx="4" fill="#eab308"/>
+<text x="260.77611940298505" y="123" dominant-baseline="central" class="val">62</text><text x="182" y="151" text-anchor="end" dominant-baseline="central" class="lbl">Content Page (Generic)</text>
+<rect x="190" y="140" width="19.850746268656717" height="22" rx="4" fill="#f97316"/>
+<text x="215.8507462686567" y="151" dominant-baseline="central" class="val">19</text><text x="182" y="179" text-anchor="end" dominant-baseline="central" class="lbl">News</text>
+<rect x="190" y="168" width="18.80597014925373" height="22" rx="4" fill="#ef4444"/>
+<text x="214.80597014925374" y="179" dominant-baseline="central" class="val">18</text><text x="182" y="207" text-anchor="end" dominant-baseline="central" class="lbl">Product Listing (Model Year)</text>
+<rect x="190" y="196" width="16.71641791044776" height="22" rx="4" fill="#ec4899"/>
+<text x="212.71641791044777" y="207" dominant-baseline="central" class="val">16</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">Parts, Accessories &amp; Apparel</text>
+<rect x="190" y="224" width="8.35820895522388" height="22" rx="4" fill="#8b5cf6"/>
+<text x="204.3582089552239" y="235" dominant-baseline="central" class="val">8</text><text x="182" y="263" text-anchor="end" dominant-baseline="central" class="lbl">Events</text>
+<rect x="190" y="252" width="8.35820895522388" height="22" rx="4" fill="#64748b"/>
+<text x="204.3582089552239" y="263" dominant-baseline="central" class="val">8</text><text x="182" y="291" text-anchor="end" dominant-baseline="central" class="lbl">Press Release</text>
+<rect x="190" y="280" width="8.35820895522388" height="22" rx="4" fill="#2563eb"/>
+<text x="204.3582089552239" y="291" dominant-baseline="central" class="val">8</text><text x="182" y="319" text-anchor="end" dominant-baseline="central" class="lbl">Section Landing</text>
+<rect x="190" y="308" width="6.268656716417911" height="22" rx="4" fill="#0ea5e9"/>
+<text x="202.26865671641792" y="319" dominant-baseline="central" class="val">6</text></svg></div>
+  <div class="panel"><h4>Block footprint — pages containing each block</h4><svg viewBox="0 0 600 280" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="350" height="22" rx="4" fill="#2563eb"/>
+<text x="546" y="11" dominant-baseline="central" class="val">1023</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Image (Core)</text>
+<rect x="190" y="28" width="318.86608015640275" height="22" rx="4" fill="#0ea5e9"/>
+<text x="514.8660801564027" y="39" dominant-baseline="central" class="val">932</text><text x="182" y="67" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="56" width="202.88367546432065" height="22" rx="4" fill="#14b8a6"/>
+<text x="398.8836754643206" y="67" dominant-baseline="central" class="val">593</text><text x="182" y="95" text-anchor="end" dominant-baseline="central" class="lbl">Configurator Package Selector</text>
+<rect x="190" y="84" width="102.98142717497556" height="22" rx="4" fill="#22c55e"/>
+<text x="298.9814271749756" y="95" dominant-baseline="central" class="val">301</text><text x="182" y="123" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="112" width="95.11241446725317" height="22" rx="4" fill="#eab308"/>
+<text x="291.1124144672532" y="123" dominant-baseline="central" class="val">278</text><text x="182" y="151" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="140" width="88.6119257086999" height="22" rx="4" fill="#f97316"/>
+<text x="284.6119257086999" y="151" dominant-baseline="central" class="val">259</text><text x="182" y="179" text-anchor="end" dominant-baseline="central" class="lbl">Dealer Locator</text>
+<rect x="190" y="168" width="62.95210166177908" height="22" rx="4" fill="#ef4444"/>
+<text x="258.95210166177907" y="179" dominant-baseline="central" class="val">184</text><text x="182" y="207" text-anchor="end" dominant-baseline="central" class="lbl">Iframe</text>
+<rect x="190" y="196" width="57.47800586510264" height="22" rx="4" fill="#ec4899"/>
+<text x="253.47800586510263" y="207" dominant-baseline="central" class="val">168</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="224" width="36.26588465298143" height="22" rx="4" fill="#8b5cf6"/>
+<text x="232.2658846529814" y="235" dominant-baseline="central" class="val">106</text><text x="182" y="263" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="252" width="24.29130009775171" height="22" rx="4" fill="#64748b"/>
+<text x="220.2913000977517" y="263" dominant-baseline="central" class="val">71</text></svg></div>
+</div>
+<div class="dash-grid three">
+  <div class="panel donut-wrap"><h4>Templates by complexity</h4><svg viewBox="0 0 200 200" class="donut" role="img"><circle cx="100" cy="100" r="83" fill="none" stroke="#22c55e" stroke-width="34" stroke-dasharray="71.11423370398714 450.3901467919186" stroke-dashoffset="0" transform="rotate(-90 100 100)"><title>Low: 3</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#eab308" stroke-width="34" stroke-dasharray="284.45693481594856 237.04744567995715" stroke-dashoffset="-71.11423370398714" transform="rotate(-90 100 100)"><title>Medium: 12</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#f97316" stroke-width="34" stroke-dasharray="142.22846740797428 379.27591308793143" stroke-dashoffset="-355.57116851993567" transform="rotate(-90 100 100)"><title>High: 6</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#8b5cf6" stroke-width="34" stroke-dasharray="23.704744567995714 497.79963592791" stroke-dashoffset="-497.79963592790995" transform="rotate(-90 100 100)"><title>Very High: 1</title></circle><text x="100" y="94" text-anchor="middle" class="dnum">22</text><text x="100" y="114" text-anchor="middle" class="dlbl">pages</text></svg><div class="legend2"><span class="lg"><i style="background:#22c55e"></i>Low <b>3</b></span><span class="lg"><i style="background:#eab308"></i>Medium <b>12</b></span><span class="lg"><i style="background:#f97316"></i>High <b>6</b></span><span class="lg"><i style="background:#8b5cf6"></i>Very High <b>1</b></span></div></div>
+  <div class="panel donut-wrap"><h4>Pages by brand world</h4><svg viewBox="0 0 200 200" class="donut" role="img"><circle cx="100" cy="100" r="83" fill="none" stroke="#2563eb" stroke-width="34" stroke-dasharray="112.57731080671002 408.9270696891957" stroke-dashoffset="0" transform="rotate(-90 100 100)"><title>corporate/other: 253</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#0ea5e9" stroke-width="34" stroke-dasharray="99.22822256876022 422.2761579271455" stroke-dashoffset="-112.57731080671002" transform="rotate(-90 100 100)"><title>ski-doo: 223</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#14b8a6" stroke-width="34" stroke-dasharray="94.33355688151195 427.1708236143937" stroke-dashoffset="-211.80553337547025" transform="rotate(-90 100 100)"><title>sea-doo: 212</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#22c55e" stroke-width="34" stroke-dasharray="82.7643470752888 438.7400334206169" stroke-dashoffset="-306.1390902569822" transform="rotate(-90 100 100)"><title>can-am-off-road: 186</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#eab308" stroke-width="34" stroke-dasharray="76.53477256424554 444.96960793166016" stroke-dashoffset="-388.903437332271" transform="rotate(-90 100 100)"><title>lynx: 172</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#f97316" stroke-width="34" stroke-dasharray="56.06617059938918 465.4382098965165" stroke-dashoffset="-465.4382098965165" transform="rotate(-90 100 100)"><title>can-am-on-road: 126</title></circle><text x="100" y="94" text-anchor="middle" class="dnum">1,172</text><text x="100" y="114" text-anchor="middle" class="dlbl">pages</text></svg><div class="legend2"><span class="lg"><i style="background:#2563eb"></i>corporate/other <b>253</b></span><span class="lg"><i style="background:#0ea5e9"></i>ski-doo <b>223</b></span><span class="lg"><i style="background:#14b8a6"></i>sea-doo <b>212</b></span><span class="lg"><i style="background:#22c55e"></i>can-am-off-road <b>186</b></span><span class="lg"><i style="background:#eab308"></i>lynx <b>172</b></span><span class="lg"><i style="background:#f97316"></i>can-am-on-road <b>126</b></span></div></div>
+  <div class="panel"><h4>Third-party integrations (pages)</h4><svg viewBox="0 0 560 230" class="chart" role="img"><text x="182" y="9" text-anchor="end" dominant-baseline="central" class="lbl">Google Tag Manager</text>
+<rect x="190" y="0" width="310" height="18" rx="4" fill="#2563eb"/>
+<text x="506" y="9" dominant-baseline="central" class="val">1172</text><text x="182" y="32" text-anchor="end" dominant-baseline="central" class="lbl">Adobe RUM (helix-rum)</text>
+<rect x="190" y="23" width="310" height="18" rx="4" fill="#0ea5e9"/>
+<text x="506" y="32" dominant-baseline="central" class="val">1172</text><text x="182" y="55" text-anchor="end" dominant-baseline="central" class="lbl">Dynatrace (ruxit)</text>
+<rect x="190" y="46" width="310" height="18" rx="4" fill="#14b8a6"/>
+<text x="506" y="55" dominant-baseline="central" class="val">1172</text><text x="182" y="78" text-anchor="end" dominant-baseline="central" class="lbl">Typekit</text>
+<rect x="190" y="69" width="310" height="18" rx="4" fill="#22c55e"/>
+<text x="506" y="78" dominant-baseline="central" class="val">1172</text><text x="182" y="101" text-anchor="end" dominant-baseline="central" class="lbl">BRP Dealer Marketing (Azure)</text>
+<rect x="190" y="92" width="310" height="18" rx="4" fill="#eab308"/>
+<text x="506" y="101" dominant-baseline="central" class="val">1172</text><text x="182" y="124" text-anchor="end" dominant-baseline="central" class="lbl">YouTube</text>
+<rect x="190" y="115" width="309.2064846416382" height="18" rx="4" fill="#f97316"/>
+<text x="505.2064846416382" y="124" dominant-baseline="central" class="val">1169</text><text x="182" y="147" text-anchor="end" dominant-baseline="central" class="lbl">Google Analytics (gtag)</text>
+<rect x="190" y="138" width="5.290102389078498" height="18" rx="4" fill="#ef4444"/>
+<text x="201.2901023890785" y="147" dominant-baseline="central" class="val">20</text><text x="182" y="170" text-anchor="end" dominant-baseline="central" class="lbl">Adobe Scene7 / Dynamic Media</text>
+<rect x="190" y="161" width="4.2320819112627985" height="18" rx="4" fill="#ec4899"/>
+<text x="200.2320819112628" y="170" dominant-baseline="central" class="val">16</text><text x="182" y="193" text-anchor="end" dominant-baseline="central" class="lbl">BRP DAM CDN</text>
+<rect x="190" y="184" width="4.2320819112627985" height="18" rx="4" fill="#8b5cf6"/>
+<text x="200.2320819112628" y="193" dominant-baseline="central" class="val">16</text><text x="182" y="216" text-anchor="end" dominant-baseline="central" class="lbl">Adobe DTM/Launch</text>
+<rect x="190" y="207" width="2" height="18" rx="4" fill="#64748b"/>
+<text x="198" y="216" dominant-baseline="central" class="val">3</text></svg></div>
+</div>
+<div class="note disc"><b>Key discovery this pass:</b> <b>Adobe Commerce (Magento) middleware is present on 100% of pages</b> (<code>data-magento-middleware-base-url</code>) — the site is commerce-enabled, not purely editorial. Combined with the external BYO configurator (168 pages) and Google Maps dealer locator (168 pages), the "dynamic" surface is larger than a first pass suggests and must be scoped with the commerce/product teams.</div>
+</section>
+
+<section id="blocks">
+<h2 class="sec">Blocks & Their Variations — Deep Dive</h2>
+<p class="lead">10 core blocks carry <b>25 distinct variations</b> plus 13 optional capabilities. A <b>variation</b> is a structurally different configuration (e.g. image hero vs video hero); a <b>capability</b> is an optional feature that can be toggled on the same instance (e.g. a hero that also has a CTA bar). Percentages are share of pages that contain that block.</p>
+<div class="subnav"><a href="#blk-teaser-card">Teaser</a><a href="#blk-image-core-">Image (Core)</a><a href="#blk-hero-hero-block">Hero</a><a href="#blk-configurator-package-selector">Configurator Package Selector</a><a href="#blk-video-video-embed">Video</a><a href="#blk-carousel-slider">Carousel</a><a href="#blk-dealer-locator-map">Dealer Locator</a><a href="#blk-iframe-byo-configurator-embed">Iframe</a><a href="#blk-gallery-image-grid">Gallery</a><a href="#blk-accordion">Accordion</a></div>
+<div class="card" id="blk-teaser-card">
+<div class="card-head">
+  <h3>Teaser / Card</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">1023 pages</span> <span class="tag">4 variations</span> <span class="tag">9d build</span></div>
+</div>
+<p class="purpose">The universal content promo/navigation unit. Renders image + optional pretitle/title/description + optional CTA, and composes into 2/3/4-up grids and horizontal rails everywhere on the site.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>CTA teaser (with action link)</b></td><td class="num">990</td><td class="num">97%</td><td class="diff">Includes explicit CTA link(s) — a promotional card that drives a click. The dominant teaser form.</td></tr><tr><td><b>Descriptive teaser</b></td><td class="num">592</td><td class="num">58%</td><td class="diff">Adds a body-copy paragraph under the title (editorial / feature promo).</td></tr><tr><td><b>Title-only navigation teaser</b></td><td class="num">350</td><td class="num">34%</td><td class="diff">Minimal tile — image + linked title only, no description or CTA. Used as menu/navigation tiles.</td></tr><tr><td><b>Image Card (named component)</b></td><td class="num">296</td><td class="num">29%</td><td class="diff">An explicitly named &quot;Image Card&quot; variant used inside product/model rails and grids.</td></tr></tbody></table>
+    <div class="caps"><span class="caps-h">Optional capabilities (can co-occur on one instance):</span><span class="cap">Image slot <b>100%</b></span></div>
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 112" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">CTA teaser (with action link)</text>
+<rect x="190" y="0" width="358.06451612903226" height="22" rx="4" fill="#2563eb"/>
+<text x="554.0645161290322" y="11" dominant-baseline="central" class="val">990</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Descriptive teaser</text>
+<rect x="190" y="28" width="214.11534701857283" height="22" rx="4" fill="#0ea5e9"/>
+<text x="410.11534701857283" y="39" dominant-baseline="central" class="val">592</text><text x="182" y="67" text-anchor="end" dominant-baseline="central" class="lbl">Title-only navigation teaser</text>
+<rect x="190" y="56" width="126.58846529814271" height="22" rx="4" fill="#14b8a6"/>
+<text x="322.5884652981427" y="67" dominant-baseline="central" class="val">350</text><text x="182" y="95" text-anchor="end" dominant-baseline="central" class="lbl">Image Card (named component)</text>
+<rect x="190" y="84" width="107.05767350928642" height="22" rx="4" fill="#22c55e"/>
+<text x="303.0576735092864" y="95" dominant-baseline="central" class="val">296</text></svg></div>
+</div>
+</div><div class="card" id="blk-image-core-">
+<div class="card-head">
+  <h3>Image (Core)</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">932 pages</span> <span class="tag">2 variations</span> <span class="tag">2.5d build</span></div>
+</div>
+<p class="purpose">Responsive core image bound to the AEM DAM/rendition service, with lazy-loading and optional Scene7 delivery.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Responsive DAM image</b></td><td class="num">932</td><td class="num">100%</td><td class="diff">srcset generated from AEM DAM renditions.</td></tr><tr><td><b>Scene7 / Dynamic Media image</b></td><td class="num">16</td><td class="num">2%</td><td class="diff">Served via Adobe Scene7 (smart-crop / auto-format).</td></tr></tbody></table>
+    <div class="caps"><span class="caps-h">Optional capabilities (can co-occur on one instance):</span><span class="cap">Lazy loading <b>100%</b></span><span class="cap">Focal-position modifiers <b>63%</b></span></div>
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 56" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Responsive DAM image</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">932</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Scene7 / Dynamic Media image</text>
+<rect x="190" y="28" width="6.351931330472103" height="22" rx="4" fill="#0ea5e9"/>
+<text x="202.3519313304721" y="39" dominant-baseline="central" class="val">16</text></svg></div>
+</div>
+</div><div class="card" id="blk-hero-hero-block">
+<div class="card-head">
+  <h3>Hero / Hero-Block</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">593 pages</span> <span class="tag">2 variations</span> <span class="tag">7.5d build</span></div>
+</div>
+<p class="purpose">Full-width brand statement at the top of a page: media (image/video) with an animated headline, optional eyebrow/subtitle, sub-content overlay and CTA actions. The single most brand-critical block.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Standard image hero</b></td><td class="num">593</td><td class="num">100%</td><td class="diff">Static background image in the media slot. The default hero used across product &amp; editorial pages.</td></tr><tr><td><b>Video hero (inline autoplay)</b></td><td class="num">55</td><td class="num">9%</td><td class="diff">A muted, looping &lt;video&gt; replaces the background image. Needs poster frame, reduced-motion fallback and lazy source loading for LCP.</td></tr></tbody></table>
+    <div class="caps"><span class="caps-h">Optional capabilities (can co-occur on one instance):</span><span class="cap">Sticky / scroll-pinned media <b>100%</b></span><span class="cap">Two-line animated headline <b>100%</b></span><span class="cap">Sub-content overlay <b>100%</b></span><span class="cap">Eyebrow / subtitle <b>58%</b></span><span class="cap">CTA actions bar <b>30%</b></span></div>
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 56" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Standard image hero</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">593</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Video hero (inline autoplay)</text>
+<rect x="190" y="28" width="34.31703204047217" height="22" rx="4" fill="#0ea5e9"/>
+<text x="230.31703204047216" y="39" dominant-baseline="central" class="val">55</text></svg></div>
+</div>
+</div><div class="card" id="blk-configurator-package-selector">
+<div class="card-head">
+  <h3>Configurator Package Selector</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">301 pages</span> <span class="tag">2 variations</span> <span class="tag">6d build</span></div>
+</div>
+<p class="purpose">In-page selector for model packages/trims that feeds the configurator and lead flows.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Package lead selector</b></td><td class="num">301</td><td class="num">100%</td><td class="diff">Selects a lead package/trim and captures intent.</td></tr><tr><td><b>Multi-package chooser</b></td><td class="num">90</td><td class="num">30%</td><td class="diff">Presents multiple packages/trims for comparison/selection.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 56" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Package lead selector</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">301</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Multi-package chooser</text>
+<rect x="190" y="28" width="110.63122923588041" height="22" rx="4" fill="#0ea5e9"/>
+<text x="306.6312292358804" y="39" dominant-baseline="central" class="val">90</text></svg></div>
+</div>
+</div><div class="card" id="blk-video-video-embed">
+<div class="card-head">
+  <h3>Video / Video Embed</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">278 pages</span> <span class="tag">3 variations</span> <span class="tag">6d build</span></div>
+</div>
+<p class="purpose">Video delivery via YouTube façade, self-hosted WebM/MP4, hero background loops, or click-to-play modals.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>YouTube embed (façade)</b></td><td class="num">244</td><td class="num">88%</td><td class="diff">Stores a YouTube id and swaps to an iframe on play — keeps LCP light.</td></tr><tr><td><b>Self-hosted WebM/MP4</b></td><td class="num">55</td><td class="num">20%</td><td class="diff">Local video source (webm/mp4), no third-party player.</td></tr><tr><td><b>Inline hero background video</b></td><td class="num">55</td><td class="num">20%</td><td class="diff">Muted autoplay loop used as a hero background.</td></tr></tbody></table>
+    <div class="caps"><span class="caps-h">Optional capabilities (can co-occur on one instance):</span><span class="cap">Click-to-play modal <b>88%</b></span></div>
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 84" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">YouTube embed (façade)</text>
+<rect x="190" y="0" width="324.7482014388489" height="22" rx="4" fill="#2563eb"/>
+<text x="520.7482014388489" y="11" dominant-baseline="central" class="val">244</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Self-hosted WebM/MP4</text>
+<rect x="190" y="28" width="73.20143884892086" height="22" rx="4" fill="#0ea5e9"/>
+<text x="269.2014388489209" y="39" dominant-baseline="central" class="val">55</text><text x="182" y="67" text-anchor="end" dominant-baseline="central" class="lbl">Inline hero background video</text>
+<rect x="190" y="56" width="73.20143884892086" height="22" rx="4" fill="#14b8a6"/>
+<text x="269.2014388489209" y="67" dominant-baseline="central" class="val">55</text></svg></div>
+</div>
+</div><div class="card" id="blk-carousel-slider">
+<div class="card-head">
+  <h3>Carousel / Slider</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">259 pages</span> <span class="tag">2 variations</span> <span class="tag">7.5d build</span></div>
+</div>
+<p class="purpose">Horizontal slider for media, product rails and spec switching. BRP uses one rich carousel component that bundles arrows, dot indicators, peek/blur edges, tabbed navigation and 5-second auto-advance.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Standard media carousel</b></td><td class="num">259</td><td class="num">100%</td><td class="diff">WCM core carousel driven by arrows + dot indicators.</td></tr><tr><td><b>Tabbed carousel</b></td><td class="num">259</td><td class="num">100%</td><td class="diff">Slides switched via tab controls instead of arrows — used for spec/feature switching on product pages.</td></tr></tbody></table>
+    <div class="caps"><span class="caps-h">Optional capabilities (can co-occur on one instance):</span><span class="cap">Peek / blurry edges <b>100%</b></span><span class="cap">Dot indicators <b>100%</b></span><span class="cap">Auto-advance (5s) <b>100%</b></span></div>
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 56" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Standard media carousel</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">259</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Tabbed carousel</text>
+<rect x="190" y="28" width="370" height="22" rx="4" fill="#0ea5e9"/>
+<text x="566" y="39" dominant-baseline="central" class="val">259</text></svg></div>
+</div>
+</div><div class="card" id="blk-dealer-locator-map">
+<div class="card-head">
+  <h3>Dealer Locator / Map</h3>
+  <div class="card-meta"><span class="cx cx-VeryHigh">Very High</span> <span class="tag">184 pages</span> <span class="tag">3 variations</span> <span class="tag">11d build</span></div>
+</div>
+<p class="purpose">Interactive Google Maps surfaces for finding dealers, plotting event locations and showing points of interest.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Google Maps locator</b></td><td class="num">168</td><td class="num">91%</td><td class="diff">Interactive map initialised with a Maps API key.</td></tr><tr><td><b>Marker/pin dataset map</b></td><td class="num">9</td><td class="num">5%</td><td class="diff">Map seeded with multiple marker/pin datasets (dealers/POIs).</td></tr><tr><td><b>Single event-location map</b></td><td class="num">7</td><td class="num">4%</td><td class="diff">Bound to one lat/lng for an event location.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 84" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Google Maps locator</text>
+<rect x="190" y="0" width="337.8260869565217" height="22" rx="4" fill="#2563eb"/>
+<text x="533.8260869565217" y="11" dominant-baseline="central" class="val">168</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Marker/pin dataset map</text>
+<rect x="190" y="28" width="18.097826086956523" height="22" rx="4" fill="#0ea5e9"/>
+<text x="214.09782608695653" y="39" dominant-baseline="central" class="val">9</text><text x="182" y="67" text-anchor="end" dominant-baseline="central" class="lbl">Single event-location map</text>
+<rect x="190" y="56" width="14.07608695652174" height="22" rx="4" fill="#14b8a6"/>
+<text x="210.07608695652175" y="67" dominant-baseline="central" class="val">7</text></svg></div>
+</div>
+</div><div class="card" id="blk-iframe-byo-configurator-embed">
+<div class="card-head">
+  <h3>Iframe / BYO Configurator Embed</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">168 pages</span> <span class="tag">2 variations</span> <span class="tag">6d build</span></div>
+</div>
+<p class="purpose">Embeds the external Build-Your-Own configurator application (product-finder service) and other third-party tools inside the page shell.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>BYO configurator embed</b></td><td class="num">168</td><td class="num">100%</td><td class="diff">Full external configurator app (sitebuild-*.brp.zlthunder.net) embedded via iframe.</td></tr><tr><td><b>Generic content iframe</b></td><td class="num">168</td><td class="num">100%</td><td class="diff">Core iframe component for arbitrary embedded content.</td></tr></tbody></table>
+    <div class="caps"><span class="caps-h">Optional capabilities (can co-occur on one instance):</span><span class="cap">Locale parameterisation <b>100%</b></span></div>
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 56" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">BYO configurator embed</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">168</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Generic content iframe</text>
+<rect x="190" y="28" width="370" height="22" rx="4" fill="#0ea5e9"/>
+<text x="566" y="39" dominant-baseline="central" class="val">168</text></svg></div>
+</div>
+</div><div class="card" id="blk-gallery-image-grid">
+<div class="card-head">
+  <h3>Gallery / Image Grid</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">106 pages</span> <span class="tag">3 variations</span> <span class="tag">6d build</span></div>
+</div>
+<p class="purpose">Clustered image presentation — grids, lightbox galleries and marketing mosaics.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Lightbox gallery</b></td><td class="num">96</td><td class="num">91%</td><td class="diff">Image cluster that opens a modal/lightbox on click.</td></tr><tr><td><b>Image grid</b></td><td class="num">9</td><td class="num">8%</td><td class="diff">Fixed responsive grid of images (no lightbox).</td></tr><tr><td><b>Tile mosaic</b></td><td class="num">1</td><td class="num">1%</td><td class="diff">Mixed-size mosaic of feature/marketing tiles.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 84" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Lightbox gallery</text>
+<rect x="190" y="0" width="335.09433962264154" height="22" rx="4" fill="#2563eb"/>
+<text x="531.0943396226415" y="11" dominant-baseline="central" class="val">96</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Image grid</text>
+<rect x="190" y="28" width="31.41509433962264" height="22" rx="4" fill="#0ea5e9"/>
+<text x="227.41509433962264" y="39" dominant-baseline="central" class="val">9</text><text x="182" y="67" text-anchor="end" dominant-baseline="central" class="lbl">Tile mosaic</text>
+<rect x="190" y="56" width="3.490566037735849" height="22" rx="4" fill="#14b8a6"/>
+<text x="199.49056603773585" y="67" dominant-baseline="central" class="val">1</text></svg></div>
+</div>
+</div><div class="card" id="blk-accordion">
+<div class="card-head">
+  <h3>Accordion</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">71 pages</span> <span class="tag">2 variations</span> <span class="tag">3.5d build</span></div>
+</div>
+<p class="purpose">Collapsible panels for dense content — specifications, support how-tos and FAQs. Core WCM accordion.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Standard accordion</b></td><td class="num">71</td><td class="num">100%</td><td class="diff">Single-open collapsible panel set (default).</td></tr><tr><td><b>FAQ accordion</b></td><td class="num">46</td><td class="num">65%</td><td class="diff">Q&amp;A-styled accordion on support/FAQ pages (heading = question).</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 56" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Standard accordion</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">71</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">FAQ accordion</text>
+<rect x="190" y="28" width="239.71830985915494" height="22" rx="4" fill="#0ea5e9"/>
+<text x="435.71830985915494" y="39" dominant-baseline="central" class="val">46</text></svg></div>
+</div>
+</div>
+</section>
+
+<section id="templates">
+<h2 class="sec">Templates — Deep Dive</h2>
+<p class="lead">22 templates across 1,172 pages. Each card shows the template's purpose, primary blocks, real block-composition profile (% of pages in the template containing each block), quantitative content metrics and content-hygiene flags found during analysis.</p>
+<div class="subnav"><a href="#tpl-product-detail-model-">Product Detail (Model) (335)</a><a href="#tpl-experience-editorial">Experience / Editorial (283)</a><a href="#tpl-owner-zone-support-article">Owner Zone / Support Article (197)</a><a href="#tpl-product-configurator-byo-">Product Configurator (BYO) (183)</a><a href="#tpl-blog-article">Blog / Article (62)</a><a href="#tpl-content-page-generic-">Content Page (Generic) (19)</a><a href="#tpl-news">News (18)</a><a href="#tpl-product-listing-model-year-">Product Listing (Model Year) (16)</a><a href="#tpl-parts-accessories-apparel">Parts, Accessories &amp; Apparel (8)</a><a href="#tpl-events">Events (8)</a><a href="#tpl-press-release">Press Release (8)</a><a href="#tpl-section-landing">Section Landing (6)</a><a href="#tpl-about-corporate">About / Corporate (6)</a><a href="#tpl-brand-home">Brand Home (5)</a><a href="#tpl-promotion-campaign">Promotion / Campaign (5)</a><a href="#tpl-legal-utility">Legal / Utility (5)</a><a href="#tpl-form-lead-gen">Form / Lead Gen (2)</a><a href="#tpl-faq">FAQ (2)</a><a href="#tpl-home">Home (1)</a><a href="#tpl-shopping-tool">Shopping Tool (1)</a><a href="#tpl-dealer-locator">Dealer Locator (1)</a><a href="#tpl-downloads-brochures">Downloads / Brochures (1)</a></div>
+<div class="card" id="tpl-product-detail-model-">
+<div class="card-head">
+  <h3>Product Detail (Model)</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">335 pages (28.6%)</span> <span class="tag">5d</span></div>
+</div>
+<p class="purpose">Model &amp; lineup pages for each vehicle family — the commercial core of the site. Hero + tabbed/blurry carousels for gallery &amp; specs, spec teasers, feature accordions.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Hero</span><span class="chip">Teaser</span><span class="chip">Carousel</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 275" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="306.9" height="20" rx="4" fill="#14b8a6"/>
+<text x="502.9" y="60" dominant-baseline="central" class="val">99</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="75" width="269.7" height="20" rx="4" fill="#22c55e"/>
+<text x="465.7" y="85" dominant-baseline="central" class="val">87</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="100" width="238.70000000000002" height="20" rx="4" fill="#eab308"/>
+<text x="434.70000000000005" y="110" dominant-baseline="central" class="val">77</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="125" width="217" height="20" rx="4" fill="#f97316"/>
+<text x="413" y="135" dominant-baseline="central" class="val">70</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="150" width="62" height="20" rx="4" fill="#ef4444"/>
+<text x="258" y="160" dominant-baseline="central" class="val">20</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="175" width="46.5" height="20" rx="4" fill="#ec4899"/>
+<text x="242.5" y="185" dominant-baseline="central" class="val">15</text><text x="182" y="210" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="200" width="31" height="20" rx="4" fill="#8b5cf6"/>
+<text x="227" y="210" dominant-baseline="central" class="val">10</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="225" width="21.700000000000003" height="20" rx="4" fill="#64748b"/>
+<text x="217.7" y="235" dominant-baseline="central" class="val">7</text><text x="182" y="260" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="250" width="12.4" height="20" rx="4" fill="#2563eb"/>
+<text x="208.4" y="260" dominant-baseline="central" class="val">4</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">29.3</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">22.2</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">2.7</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">12.9</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">2</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">4–6</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 90 missing meta-desc · 164 multi-H1 · 40 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brands/ski-doo/models-2025/deep-snow</code> <code>/brands/ski-doo/models-2025/deep-snow/summit</code> <code>/brands/ski-doo/models-2025/deep-snow/freeride</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-experience-editorial">
+<div class="card-head">
+  <h3>Experience / Editorial</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">283 pages (24.1%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Brand storytelling &amp; lifestyle content (&quot;experience&quot; hubs). Hero-led, teaser navigation, galleries and rich text.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Hero</span><span class="chip">Teaser</span><span class="chip">Gallery</span><span class="chip">Text</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 275" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="303.8" height="20" rx="4" fill="#2563eb"/>
+<text x="499.8" y="10" dominant-baseline="central" class="val">98</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="300.7" height="20" rx="4" fill="#0ea5e9"/>
+<text x="496.7" y="35" dominant-baseline="central" class="val">97</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="275.9" height="20" rx="4" fill="#14b8a6"/>
+<text x="471.9" y="60" dominant-baseline="central" class="val">89</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="75" width="204.60000000000002" height="20" rx="4" fill="#22c55e"/>
+<text x="400.6" y="85" dominant-baseline="central" class="val">66</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="100" width="195.3" height="20" rx="4" fill="#eab308"/>
+<text x="391.3" y="110" dominant-baseline="central" class="val">63</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="125" width="114.7" height="20" rx="4" fill="#f97316"/>
+<text x="310.7" y="135" dominant-baseline="central" class="val">37</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="150" width="105.4" height="20" rx="4" fill="#ef4444"/>
+<text x="301.4" y="160" dominant-baseline="central" class="val">34</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="175" width="105.4" height="20" rx="4" fill="#ec4899"/>
+<text x="301.4" y="185" dominant-baseline="central" class="val">34</text><text x="182" y="210" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="200" width="62" height="20" rx="4" fill="#8b5cf6"/>
+<text x="258" y="210" dominant-baseline="central" class="val">20</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="225" width="49.6" height="20" rx="4" fill="#64748b"/>
+<text x="245.6" y="235" dominant-baseline="central" class="val">16</text><text x="182" y="260" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="250" width="18.599999999999998" height="20" rx="4" fill="#2563eb"/>
+<text x="214.6" y="260" dominant-baseline="central" class="val">6</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">24.2</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">8.1</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">10.4</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">4.5</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0.1</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">3–7</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 238 missing meta-desc · 130 multi-H1 · 25 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brands/ski-doo/experience</code> <code>/brands/ski-doo/experience/smart-shox</code> <code>/brands/ski-doo/experience/Rotax-Engines</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-owner-zone-support-article">
+<div class="card-head">
+  <h3>Owner Zone / Support Article</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">197 pages (16.8%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Post-purchase support &amp; how-to articles. Text-heavy with images and accordions; light on hero.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Text</span><span class="chip">Image</span><span class="chip">Accordion</span><span class="chip">Teaser</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 275" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="306.9" height="20" rx="4" fill="#2563eb"/>
+<text x="502.9" y="10" dominant-baseline="central" class="val">99</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="303.8" height="20" rx="4" fill="#0ea5e9"/>
+<text x="499.8" y="35" dominant-baseline="central" class="val">98</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="303.8" height="20" rx="4" fill="#14b8a6"/>
+<text x="499.8" y="60" dominant-baseline="central" class="val">98</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="75" width="223.2" height="20" rx="4" fill="#22c55e"/>
+<text x="419.2" y="85" dominant-baseline="central" class="val">72</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="100" width="198.4" height="20" rx="4" fill="#eab308"/>
+<text x="394.4" y="110" dominant-baseline="central" class="val">64</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="125" width="148.79999999999998" height="20" rx="4" fill="#f97316"/>
+<text x="344.79999999999995" y="135" dominant-baseline="central" class="val">48</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="150" width="120.9" height="20" rx="4" fill="#ef4444"/>
+<text x="316.9" y="160" dominant-baseline="central" class="val">39</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="175" width="120.9" height="20" rx="4" fill="#ec4899"/>
+<text x="316.9" y="185" dominant-baseline="central" class="val">39</text><text x="182" y="210" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="200" width="24.8" height="20" rx="4" fill="#8b5cf6"/>
+<text x="220.8" y="210" dominant-baseline="central" class="val">8</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="225" width="12.4" height="20" rx="4" fill="#64748b"/>
+<text x="208.4" y="235" dominant-baseline="central" class="val">4</text><text x="182" y="260" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="250" width="9.299999999999999" height="20" rx="4" fill="#2563eb"/>
+<text x="205.3" y="260" dominant-baseline="central" class="val">3</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">27.5</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">1.3</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">5.6</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">7.4</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">3–6</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 175 missing meta-desc · 78 multi-H1 · 6 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brands/ski-doo/owner-zone</code> <code>/brands/ski-doo/owner-zone/safety-information</code> <code>/brands/ski-doo/owner-zone/getting-started</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-product-configurator-byo-">
+<div class="card-head">
+  <h3>Product Configurator (BYO)</h3>
+  <div class="card-meta"><span class="cx cx-VeryHigh">Very High</span> <span class="tag">183 pages (15.6%)</span> <span class="tag">8d</span></div>
+</div>
+<p class="purpose">&quot;Customise-Your-Own&quot; build flows. Thin AEM shell that embeds the external configurator app via iframe.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Iframe/Embed</span><span class="chip">Teaser</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 150" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="303.8" height="20" rx="4" fill="#2563eb"/>
+<text x="499.8" y="10" dominant-baseline="central" class="val">98</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="303.8" height="20" rx="4" fill="#0ea5e9"/>
+<text x="499.8" y="35" dominant-baseline="central" class="val">98</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="303.8" height="20" rx="4" fill="#14b8a6"/>
+<text x="499.8" y="60" dominant-baseline="central" class="val">98</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Iframe/Embed</text>
+<rect x="190" y="75" width="285.2" height="20" rx="4" fill="#22c55e"/>
+<text x="481.2" y="85" dominant-baseline="central" class="val">92</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="100" width="9.299999999999999" height="20" rx="4" fill="#eab308"/>
+<text x="205.3" y="110" dominant-baseline="central" class="val">3</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="125" width="9.299999999999999" height="20" rx="4" fill="#f97316"/>
+<text x="205.3" y="135" dominant-baseline="central" class="val">3</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">16.3</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">0.4</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–5</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 175 missing meta-desc · 7 multi-H1 · 3 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/shopping-tools/Customise-Your-Own</code> <code>/shopping-tools/customise-your-own-on-road-2025</code> <code>/shopping-tools/customise-your-own-lynx-my26</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-blog-article">
+<div class="card-head">
+  <h3>Blog / Article</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">62 pages (5.3%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Editorial blog posts (buying guides, tips). Hero, rich text, galleries and accordions.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Hero</span><span class="chip">Text</span><span class="chip">Gallery</span><span class="chip">Teaser</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 275" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="275.9" height="20" rx="4" fill="#2563eb"/>
+<text x="471.9" y="10" dominant-baseline="central" class="val">89</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="275.9" height="20" rx="4" fill="#0ea5e9"/>
+<text x="471.9" y="35" dominant-baseline="central" class="val">89</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="210.8" height="20" rx="4" fill="#14b8a6"/>
+<text x="406.8" y="60" dominant-baseline="central" class="val">68</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="75" width="189.1" height="20" rx="4" fill="#22c55e"/>
+<text x="385.1" y="85" dominant-baseline="central" class="val">61</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="100" width="155" height="20" rx="4" fill="#eab308"/>
+<text x="351" y="110" dominant-baseline="central" class="val">50</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="125" width="136.4" height="20" rx="4" fill="#f97316"/>
+<text x="332.4" y="135" dominant-baseline="central" class="val">44</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="150" width="124" height="20" rx="4" fill="#ef4444"/>
+<text x="320" y="160" dominant-baseline="central" class="val">40</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="175" width="71.3" height="20" rx="4" fill="#ec4899"/>
+<text x="267.3" y="185" dominant-baseline="central" class="val">23</text><text x="182" y="210" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="200" width="34.1" height="20" rx="4" fill="#8b5cf6"/>
+<text x="230.1" y="210" dominant-baseline="central" class="val">11</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="225" width="24.8" height="20" rx="4" fill="#64748b"/>
+<text x="220.8" y="235" dominant-baseline="central" class="val">8</text><text x="182" y="260" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="250" width="24.8" height="20" rx="4" fill="#2563eb"/>
+<text x="220.8" y="260" dominant-baseline="central" class="val">8</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">22.8</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0.7</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">8.9</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">5.6</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">3–5</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 62 missing meta-desc · 1 multi-H1 · 37 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brands/ski-doo/experience/blog</code> <code>/brands/ski-doo/experience/blog/chicks-and-machines</code> <code>/brands/ski-doo/experience/blog/hay-days-2021</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-content-page-generic-">
+<div class="card-head">
+  <h3>Content Page (Generic)</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">19 pages (1.6%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Generic content pages on the master template that don’t fit a specialised pattern.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Hero</span><span class="chip">Teaser</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 250" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="275.9" height="20" rx="4" fill="#2563eb"/>
+<text x="471.9" y="10" dominant-baseline="central" class="val">89</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="275.9" height="20" rx="4" fill="#0ea5e9"/>
+<text x="471.9" y="35" dominant-baseline="central" class="val">89</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="50" width="244.9" height="20" rx="4" fill="#14b8a6"/>
+<text x="440.9" y="60" dominant-baseline="central" class="val">79</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="75" width="229.4" height="20" rx="4" fill="#22c55e"/>
+<text x="425.4" y="85" dominant-baseline="central" class="val">74</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="100" width="164.3" height="20" rx="4" fill="#eab308"/>
+<text x="360.3" y="110" dominant-baseline="central" class="val">53</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="125" width="114.7" height="20" rx="4" fill="#f97316"/>
+<text x="310.7" y="135" dominant-baseline="central" class="val">37</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="150" width="80.60000000000001" height="20" rx="4" fill="#ef4444"/>
+<text x="276.6" y="160" dominant-baseline="central" class="val">26</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="175" width="34.1" height="20" rx="4" fill="#ec4899"/>
+<text x="230.1" y="185" dominant-baseline="central" class="val">11</text><text x="182" y="210" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="200" width="34.1" height="20" rx="4" fill="#8b5cf6"/>
+<text x="230.1" y="210" dominant-baseline="central" class="val">11</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="225" width="15.5" height="20" rx="4" fill="#64748b"/>
+<text x="211.5" y="235" dominant-baseline="central" class="val">5</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">23.1</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">7.8</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">6.2</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0.2</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–4</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 6 missing meta-desc · 2 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brands/ski-doo/virtual-show</code> <code>/brands/ski-doo/accessories-gear</code> <code>/brands/ski-doo/accessories-gear/whats-new</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-news">
+<div class="card-head">
+  <h3>News</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">18 pages (1.5%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">BRP Universe corporate news items. Gallery-heavy with teaser cards and rich text.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Gallery</span><span class="chip">Image</span><span class="chip">Text</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 200" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="50" width="275.9" height="20" rx="4" fill="#14b8a6"/>
+<text x="471.9" y="60" dominant-baseline="central" class="val">89</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="75" width="275.9" height="20" rx="4" fill="#22c55e"/>
+<text x="471.9" y="85" dominant-baseline="central" class="val">89</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="100" width="136.4" height="20" rx="4" fill="#eab308"/>
+<text x="332.4" y="110" dominant-baseline="central" class="val">44</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="125" width="136.4" height="20" rx="4" fill="#f97316"/>
+<text x="332.4" y="135" dominant-baseline="central" class="val">44</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="150" width="52.7" height="20" rx="4" fill="#ef4444"/>
+<text x="248.7" y="160" dominant-baseline="central" class="val">17</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="175" width="18.599999999999998" height="20" rx="4" fill="#ec4899"/>
+<text x="214.6" y="185" dominant-baseline="central" class="val">6</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">22.8</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">5</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">1.8</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–3</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 15 missing meta-desc · 9 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brp-universe/news</code> <code>/brp-universe/news/Successful-start-of-the-season-for-elias-bacher</code> <code>/brp-universe/news/dakar-2020-completed</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-product-listing-model-year-">
+<div class="card-head">
+  <h3>Product Listing (Model Year)</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">16 pages (1.4%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Model-year index pages listing all models in a family. Teaser card grids linking to detail pages.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Image</span><span class="chip">Title</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 150" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="75" width="251.10000000000002" height="20" rx="4" fill="#22c55e"/>
+<text x="447.1" y="85" dominant-baseline="central" class="val">81</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="100" width="232.5" height="20" rx="4" fill="#eab308"/>
+<text x="428.5" y="110" dominant-baseline="central" class="val">75</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="125" width="77.5" height="20" rx="4" fill="#f97316"/>
+<text x="273.5" y="135" dominant-baseline="central" class="val">25</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">29.7</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">4.3</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">8.4</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">3–3</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 missing meta-desc · 10 multi-H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brands/ski-doo/models-2025</code> <code>/brands/ski-doo/models-2026</code> <code>/brands/ski-doo/models-2027</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-parts-accessories-apparel">
+<div class="card-head">
+  <h3>Parts, Accessories &amp; Apparel</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">8 pages (0.7%)</span> <span class="tag">5d</span></div>
+</div>
+<p class="purpose">PA&amp;A catalogue landing pages. Extremely carousel/rail-heavy product merchandising.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Carousel</span><span class="chip">Teaser</span><span class="chip">Hero</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 225" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="272.8" height="20" rx="4" fill="#14b8a6"/>
+<text x="468.8" y="60" dominant-baseline="central" class="val">88</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="75" width="232.5" height="20" rx="4" fill="#22c55e"/>
+<text x="428.5" y="85" dominant-baseline="central" class="val">75</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="100" width="232.5" height="20" rx="4" fill="#eab308"/>
+<text x="428.5" y="110" dominant-baseline="central" class="val">75</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="125" width="195.3" height="20" rx="4" fill="#f97316"/>
+<text x="391.3" y="135" dominant-baseline="central" class="val">63</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="150" width="195.3" height="20" rx="4" fill="#ef4444"/>
+<text x="391.3" y="160" dominant-baseline="central" class="val">63</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="175" width="77.5" height="20" rx="4" fill="#ec4899"/>
+<text x="273.5" y="185" dominant-baseline="central" class="val">25</text><text x="182" y="210" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="200" width="77.5" height="20" rx="4" fill="#8b5cf6"/>
+<text x="273.5" y="210" dominant-baseline="central" class="val">25</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">42.8</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">119.1</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">15</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">6.3</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">1.8</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">1–2</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 missing meta-desc · 2 multi-H1</div>
+    <div class="samples"><b>Examples:</b> <code>/pa-a</code> <code>/pa-a/catalogues-orv</code> <code>/pa-a/top-accessories-sea-doo</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-events">
+<div class="card-head">
+  <h3>Events</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">8 pages (0.7%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">BRP Universe events. Galleries, teasers and event-location maps.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Gallery</span><span class="chip">Teaser</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 225" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="50" width="195.3" height="20" rx="4" fill="#14b8a6"/>
+<text x="391.3" y="60" dominant-baseline="central" class="val">63</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="75" width="195.3" height="20" rx="4" fill="#22c55e"/>
+<text x="391.3" y="85" dominant-baseline="central" class="val">63</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="100" width="195.3" height="20" rx="4" fill="#eab308"/>
+<text x="391.3" y="110" dominant-baseline="central" class="val">63</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="125" width="77.5" height="20" rx="4" fill="#f97316"/>
+<text x="273.5" y="135" dominant-baseline="central" class="val">25</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="150" width="77.5" height="20" rx="4" fill="#ef4444"/>
+<text x="273.5" y="160" dominant-baseline="central" class="val">25</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="175" width="40.300000000000004" height="20" rx="4" fill="#ec4899"/>
+<text x="236.3" y="185" dominant-baseline="central" class="val">13</text><text x="182" y="210" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="200" width="40.300000000000004" height="20" rx="4" fill="#8b5cf6"/>
+<text x="236.3" y="210" dominant-baseline="central" class="val">13</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">20.9</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">5.6</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">4.9</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">1.4</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–3</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 6 missing meta-desc · 1 multi-H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brp-universe/events</code> <code>/brp-universe/events/Spyder-Grossglockner-Challenge-2022</code> <code>/brp-universe/events/2021-spyder-grossglockner-challenge</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-press-release">
+<div class="card-head">
+  <h3>Press Release</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">8 pages (0.7%)</span> <span class="tag">1.5d</span></div>
+</div>
+<p class="purpose">Corporate press releases. Text-dominant with minimal blocks.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Text</span><span class="chip">Teaser</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 150" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="272.8" height="20" rx="4" fill="#2563eb"/>
+<text x="468.8" y="10" dominant-baseline="central" class="val">88</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="25" width="272.8" height="20" rx="4" fill="#0ea5e9"/>
+<text x="468.8" y="35" dominant-baseline="central" class="val">88</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="50" width="232.5" height="20" rx="4" fill="#14b8a6"/>
+<text x="428.5" y="60" dominant-baseline="central" class="val">75</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="75" width="232.5" height="20" rx="4" fill="#22c55e"/>
+<text x="428.5" y="85" dominant-baseline="central" class="val">75</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="100" width="40.300000000000004" height="20" rx="4" fill="#eab308"/>
+<text x="236.3" y="110" dominant-baseline="central" class="val">13</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="125" width="40.300000000000004" height="20" rx="4" fill="#f97316"/>
+<text x="236.3" y="135" dominant-baseline="central" class="val">13</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">16.1</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">0.9</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">1–4</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 7 missing meta-desc · 1 multi-H1 · 1 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/press-releases</code> <code>/press-releases/2020/01</code> <code>/press-releases/2020/01/dakar-rally</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-section-landing">
+<div class="card-head">
+  <h3>Section Landing</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">6 pages (0.5%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Section index / hub pages. Teaser navigation grids into sub-sections.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Image</span><span class="chip">Hero</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 200" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="50" width="102.30000000000001" height="20" rx="4" fill="#14b8a6"/>
+<text x="298.3" y="60" dominant-baseline="central" class="val">33</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="75" width="102.30000000000001" height="20" rx="4" fill="#22c55e"/>
+<text x="298.3" y="85" dominant-baseline="central" class="val">33</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="100" width="102.30000000000001" height="20" rx="4" fill="#eab308"/>
+<text x="298.3" y="110" dominant-baseline="central" class="val">33</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="125" width="52.7" height="20" rx="4" fill="#f97316"/>
+<text x="248.7" y="135" dominant-baseline="central" class="val">17</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="150" width="52.7" height="20" rx="4" fill="#ef4444"/>
+<text x="248.7" y="160" dominant-baseline="central" class="val">17</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="175" width="52.7" height="20" rx="4" fill="#ec4899"/>
+<text x="248.7" y="185" dominant-baseline="central" class="val">17</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">14.2</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">7.5</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">1–1</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 missing meta-desc</div>
+    <div class="samples"><b>Examples:</b> <code>/brands</code> <code>/brp-universe</code> <code>/playgrounds</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-about-corporate">
+<div class="card-head">
+  <h3>About / Corporate</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">6 pages (0.5%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Corporate &quot;About BRP&quot; pages. Hero on every page with accordion-rich content.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Hero</span><span class="chip">Teaser</span><span class="chip">Accordion</span><span class="chip">Text</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 225" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="75" width="310" height="20" rx="4" fill="#22c55e"/>
+<text x="506" y="85" dominant-baseline="central" class="val">100</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="100" width="310" height="20" rx="4" fill="#eab308"/>
+<text x="506" y="110" dominant-baseline="central" class="val">100</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="125" width="155" height="20" rx="4" fill="#f97316"/>
+<text x="351" y="135" dominant-baseline="central" class="val">50</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="150" width="155" height="20" rx="4" fill="#ef4444"/>
+<text x="351" y="160" dominant-baseline="central" class="val">50</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="175" width="52.7" height="20" rx="4" fill="#ec4899"/>
+<text x="248.7" y="185" dominant-baseline="central" class="val">17</text><text x="182" y="210" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="200" width="52.7" height="20" rx="4" fill="#8b5cf6"/>
+<text x="248.7" y="210" dominant-baseline="central" class="val">17</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">20.2</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">5.2</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">29.3</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">8.2</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">2</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">1–2</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 missing meta-desc · 2 multi-H1</div>
+    <div class="samples"><b>Examples:</b> <code>/about-us</code> <code>/about-us/brp-20-campaign</code> <code>/about-us/ethics-compliance</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-brand-home">
+<div class="card-head">
+  <h3>Brand Home</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">5 pages (0.4%)</span> <span class="tag">5d</span></div>
+</div>
+<p class="purpose">Per-brand landing pages (Ski-Doo, Sea-Doo, Can-Am ORV/On-Road, Lynx). Hero carousels + teaser navigation into the brand world.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Hero</span><span class="chip">Teaser</span><span class="chip">Carousel</span><span class="chip">Video</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 200" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="75" width="310" height="20" rx="4" fill="#22c55e"/>
+<text x="506" y="85" dominant-baseline="central" class="val">100</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="100" width="310" height="20" rx="4" fill="#eab308"/>
+<text x="506" y="110" dominant-baseline="central" class="val">100</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="125" width="186" height="20" rx="4" fill="#f97316"/>
+<text x="382" y="135" dominant-baseline="central" class="val">60</text><text x="182" y="160" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="150" width="186" height="20" rx="4" fill="#ef4444"/>
+<text x="382" y="160" dominant-baseline="central" class="val">60</text><text x="182" y="185" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="175" width="124" height="20" rx="4" fill="#ec4899"/>
+<text x="320" y="185" dominant-baseline="central" class="val">40</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">27.2</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">21.2</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">8.2</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–2</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 3 multi-H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brands/ski-doo</code> <code>/brands/lynx</code> <code>/brands/sea-doo</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-promotion-campaign">
+<div class="card-head">
+  <h3>Promotion / Campaign</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">5 pages (0.4%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Time-boxed promo/campaign pages. Hero + CTA teaser driven.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Title</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 100" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="75" width="124" height="20" rx="4" fill="#22c55e"/>
+<text x="320" y="85" dominant-baseline="central" class="val">40</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">17.4</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">0.8</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">3–3</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 multi-H1</div>
+    <div class="samples"><b>Examples:</b> <code>/brands/ski-doo/promotions</code> <code>/brands/lynx/promotions</code> <code>/brands/sea-doo/promotions</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-legal-utility">
+<div class="card-head">
+  <h3>Legal / Utility</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">5 pages (0.4%)</span> <span class="tag">1.5d</span></div>
+</div>
+<p class="purpose">Privacy, cookie, legal and accessibility pages. Long-form text with nested lists.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Text</span><span class="chip">List</span><span class="chip">Title</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 150" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="25" width="248" height="20" rx="4" fill="#0ea5e9"/>
+<text x="444" y="35" dominant-baseline="central" class="val">80</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="124" height="20" rx="4" fill="#14b8a6"/>
+<text x="320" y="60" dominant-baseline="central" class="val">40</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="75" width="62" height="20" rx="4" fill="#22c55e"/>
+<text x="258" y="85" dominant-baseline="central" class="val">20</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="100" width="62" height="20" rx="4" fill="#eab308"/>
+<text x="258" y="110" dominant-baseline="central" class="val">20</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="125" width="62" height="20" rx="4" fill="#f97316"/>
+<text x="258" y="135" dominant-baseline="central" class="val">20</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">16.6</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">240</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">9.4</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">2.6</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">1–1</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene ok">No major content-hygiene flags.</div>
+    <div class="samples"><b>Examples:</b> <code>/contact-us</code> <code>/legal-notice</code> <code>/cookie-policy</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-form-lead-gen">
+<div class="card-head">
+  <h3>Form / Lead Gen</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">2 pages (0.2%)</span> <span class="tag">5d</span></div>
+</div>
+<p class="purpose">Request-a-quote / pre-order lead capture. Forms plus supporting accordions.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Image</span><span class="chip">Accordion</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 150" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="75" width="155" height="20" rx="4" fill="#22c55e"/>
+<text x="351" y="85" dominant-baseline="central" class="val">50</text><text x="182" y="110" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="100" width="155" height="20" rx="4" fill="#eab308"/>
+<text x="351" y="110" dominant-baseline="central" class="val">50</text><text x="182" y="135" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="125" width="155" height="20" rx="4" fill="#f97316"/>
+<text x="351" y="135" dominant-baseline="central" class="val">50</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">15.5</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">11.5</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">2.5</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–2</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 missing meta-desc</div>
+    <div class="samples"><b>Examples:</b> <code>/shopping-tools/request-a-quote-demo-ride</code> <code>/shopping-tools/pre-order-motorcycles-2025</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-faq">
+<div class="card-head">
+  <h3>FAQ</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">2 pages (0.2%)</span> <span class="tag">1.5d</span></div>
+</div>
+<p class="purpose">Standalone FAQ pages. Accordion Q&amp;A.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 75" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">7</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">1</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–2</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene ok">No major content-hygiene flags.</div>
+    <div class="samples"><b>Examples:</b> <code>/brp-go-app/faq</code> <code>/brp-go-app-fr/faq</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-home">
+<div class="card-head">
+  <h3>Home</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">1 pages (0.1%)</span> <span class="tag">5d</span></div>
+</div>
+<p class="purpose">Global homepage. Multi-brand hero carousel (8 headlines) + teaser grids + segment blocks.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Hero</span><span class="chip">Teaser</span><span class="chip">Video</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 100" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text><text x="182" y="85" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="75" width="310" height="20" rx="4" fill="#22c55e"/>
+<text x="506" y="85" dominant-baseline="central" class="val">100</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">23</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">14</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">0–0</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 multi-H1</div>
+    <div class="samples"><b>Examples:</b> <code>/</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-shopping-tool">
+<div class="card-head">
+  <h3>Shopping Tool</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">1 pages (0.1%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Misc shopping tool landing page.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 75" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">18</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">1–1</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 multi-H1</div>
+    <div class="samples"><b>Examples:</b> <code>/shopping-tools</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-dealer-locator">
+<div class="card-head">
+  <h3>Dealer Locator</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">1 pages (0.1%)</span> <span class="tag">5d</span></div>
+</div>
+<p class="purpose">Find-a-dealer. Interactive Google Maps locator with search — fully dynamic.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Image</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 50" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">14</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">1</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–2</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene"><b>Content hygiene:</b> 1 no H1</div>
+    <div class="samples"><b>Examples:</b> <code>/shopping-tools/find-a-dealer-rental</code></div>
+  </div>
+</div>
+</div><div class="card" id="tpl-downloads-brochures">
+<div class="card-head">
+  <h3>Downloads / Brochures</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">1 pages (0.1%)</span> <span class="tag">3d</span></div>
+</div>
+<p class="purpose">Brochure download hub. PDF link lists organised by brand/model.</p>
+<div class="primary-row"><span class="pk">Primary blocks:</span> <span class="chip">Teaser</span><span class="chip">Image</span><span class="chip">Title</span></div>
+<div class="split2">
+  <div class="chartbox"><div class="chart-title">Block composition (% of pages in template)</div><svg viewBox="0 0 560 75" class="chart" role="img"><text x="182" y="10" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="0" width="310" height="20" rx="4" fill="#2563eb"/>
+<text x="506" y="10" dominant-baseline="central" class="val">100</text><text x="182" y="35" text-anchor="end" dominant-baseline="central" class="lbl">Image</text>
+<rect x="190" y="25" width="310" height="20" rx="4" fill="#0ea5e9"/>
+<text x="506" y="35" dominant-baseline="central" class="val">100</text><text x="182" y="60" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="50" width="310" height="20" rx="4" fill="#14b8a6"/>
+<text x="506" y="60" dominant-baseline="central" class="val">100</text></svg></div>
+  <div>
+    <div class="metrics"><div class="metric"><div class="mn">22</div><div class="ml">Avg images/page</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg carousels</div></div><div class="metric"><div class="mn">0</div><div class="ml">Avg accordions</div></div><div class="metric"><div class="mn">7</div><div class="ml">Avg H2 headings</div></div><div class="metric"><div class="mn">37</div><div class="ml">Avg PDF links</div></div><div class="metric"><div class="mn">2–2</div><div class="ml">Depth range</div></div></div>
+    <div class="hygiene ok">No major content-hygiene flags.</div>
+    <div class="samples"><b>Examples:</b> <code>/shopping-tools/brochures</code></div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="matrix">
+<h2 class="sec">Template → Block Mapping Matrix</h2>
+<p class="lead">Cell = % of pages in the template whose DOM contains the block. Darker = more prevalent. This is the master reference for which blocks must render correctly on which templates.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th class="sticky">Template</th><th class="num">Pages</th><th class="num">Complexity</th><th class="rot"><span>Hero</span></th><th class="rot"><span>Teaser</span></th><th class="rot"><span>Carousel</span></th><th class="rot"><span>Accordion</span></th><th class="rot"><span>Gallery</span></th><th class="rot"><span>Image</span></th><th class="rot"><span>Video</span></th><th class="rot"><span>Iframe/Embed</span></th><th class="rot"><span>Title</span></th><th class="rot"><span>Text</span></th><th class="rot"><span>List</span></th></tr></thead>
+<tbody><tr><td class="sticky">Product Detail (Model)</td><td class="num">335</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:rgba(37,99,235,0.7745);color:#fff">77</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.715);color:#fff">70</td><td class="mx" style="background:rgba(37,99,235,0.20500000000000002);color:#111">10</td><td class="mx" style="background:rgba(37,99,235,0.1795);color:#111">7</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.2475);color:#111">15</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.8594999999999999);color:#fff">87</td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:rgba(37,99,235,0.154);color:#111">4</td></tr><tr><td class="sticky">Experience / Editorial</td><td class="num">283</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:rgba(37,99,235,0.40900000000000003);color:#111">34</td><td class="mx" style="background:rgba(37,99,235,0.17099999999999999);color:#111">6</td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:rgba(37,99,235,0.9445);color:#fff">97</td><td class="mx" style="background:rgba(37,99,235,0.4345);color:#111">37</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.40900000000000003);color:#111">34</td><td class="mx" style="background:rgba(37,99,235,0.681);color:#fff">66</td><td class="mx" style="background:rgba(37,99,235,0.256);color:#111">16</td></tr><tr><td class="sticky">Owner Zone / Support Article</td><td class="num">197</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.528);color:#111">48</td><td class="mx" style="background:rgba(37,99,235,0.9615);color:#fff">99</td><td class="mx" style="background:rgba(37,99,235,0.188);color:#111">8</td><td class="mx" style="background:rgba(37,99,235,0.154);color:#111">4</td><td class="mx" style="background:rgba(37,99,235,0.1455);color:#111">3</td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:rgba(37,99,235,0.4515);color:#111">39</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.4515);color:#111">39</td><td class="mx" style="background:rgba(37,99,235,0.664);color:#fff">64</td><td class="mx" style="background:rgba(37,99,235,0.732);color:#fff">72</td></tr><tr><td class="sticky">Product Configurator (BYO)</td><td class="num">183</td><td class="num"><span class="cx cx-VeryHigh">Very High</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.902);color:#fff">92</td><td class="mx" style="background:rgba(37,99,235,0.1455);color:#111">3</td><td class="mx" style="background:rgba(37,99,235,0.1455);color:#111">3</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Blog / Article</td><td class="num">62</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.494);color:#111">44</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.188);color:#111">8</td><td class="mx" style="background:rgba(37,99,235,0.2135);color:#111">11</td><td class="mx" style="background:rgba(37,99,235,0.188);color:#111">8</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.3155);color:#111">23</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.46);color:#111">40</td><td class="mx" style="background:rgba(37,99,235,0.6385);color:#fff">61</td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td></tr><tr><td class="sticky">Content Page (Generic)</td><td class="num">19</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.7915);color:#fff">79</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.34099999999999997);color:#111">26</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.2135);color:#111">11</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.5705);color:#111">53</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.4345);color:#111">37</td><td class="mx" style="background:rgba(37,99,235,0.2135);color:#111">11</td><td class="mx" style="background:rgba(37,99,235,0.1625);color:#111">5</td></tr><tr><td class="sticky">News</td><td class="num">18</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.494);color:#111">44</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.494);color:#111">44</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.17099999999999999);color:#111">6</td></tr><tr><td class="sticky">Product Listing (Model Year)</td><td class="num">16</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.8085);color:#fff">81</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Parts, Accessories &amp; Apparel</td><td class="num">8</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Events</td><td class="num">8</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.23049999999999998);color:#111">13</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.23049999999999998);color:#111">13</td></tr><tr><td class="sticky">Press Release</td><td class="num">8</td><td class="num"><span class="cx cx-Low">Low</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.868);color:#fff">88</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.23049999999999998);color:#111">13</td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.23049999999999998);color:#111">13</td></tr><tr><td class="sticky">Section Landing</td><td class="num">6</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.4005);color:#111">33</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.4005);color:#111">33</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td></tr><tr><td class="sticky">About / Corporate</td><td class="num">6</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Brand Home</td><td class="num">5</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.63);color:#fff">60</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.63);color:#fff">60</td><td class="mx" style="background:rgba(37,99,235,0.46);color:#111">40</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Promotion / Campaign</td><td class="num">5</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.46);color:#111">40</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Legal / Utility</td><td class="num">5</td><td class="num"><span class="cx cx-Low">Low</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.8);color:#fff">80</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Form / Lead Gen</td><td class="num">2</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">FAQ</td><td class="num">2</td><td class="num"><span class="cx cx-Low">Low</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Home</td><td class="num">1</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Shopping Tool</td><td class="num">1</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Dealer Locator</td><td class="num">1</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Downloads / Brochures</td><td class="num">1</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr></tbody>
+</table>
+</div>
+</section>
+
+<section id="method">
+<h2 class="sec">Method & Evidence</h2>
+<p class="lead">This report is generated deterministically from the raw HTML of all 1,172 URLs (fetched HTTP 200, 0 errors). Variations are detected by concrete DOM markers, not inference:</p>
+<table>
+<thead><tr><th>Signal type</th><th>Example marker</th><th>Used to detect</th></tr></thead>
+<tbody>
+<tr><td>WCM component id</td><td><code>data-cmp-is="carousel"</code></td><td>Authoritative block identity (image, carousel, accordion, tabs, tilemosaic)</td></tr>
+<tr><td>BEM modifier / sub-element</td><td><code>cmp-hero-block__sticky-container</code>, <code>cmp-teaser__action-link</code></td><td>Hero/teaser variations & capabilities</td></tr>
+<tr><td>Behaviour data-attrs</td><td><code>data-cmp-delay</code>, <code>data-yt-id</code>, <code>data-webm</code></td><td>Auto-advance carousels, YouTube vs self-hosted video</td></tr>
+<tr><td>Integration data-attrs</td><td><code>data-google-maps-api-key</code>, <code>data-byo-productfinderservice</code>, <code>data-magento-middleware-base-url</code></td><td>Maps, external configurator, commerce middleware</td></tr>
+<tr><td>Named component</td><td><code>data-component-name="Image Card"</code></td><td>Explicitly named card variant</td></tr>
+</tbody>
+</table>
+<div class="note">Effort figures are planning-grade for a senior EDS team and cover block + template build only (foundation, integrations, testing, content migration and per-locale translation are estimated separately in the full assessment, <code>report/index.html</code>).</div>
+</section>
+
+<footer>Generated from independent DOM analysis of all 1,172 in-scope URLs · Every variation count is evidence-backed · Estimates are planning-grade.</footer>
+</div>
+</body></html>

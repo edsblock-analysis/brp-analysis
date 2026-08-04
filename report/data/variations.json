@@ -1,0 +1,348 @@
+{
+  "Hero / Hero-Block": {
+    "blockPages": 593,
+    "purpose": "Full-width brand statement at the top of a page: media (image/video) with an animated headline, optional eyebrow/subtitle, sub-content overlay and CTA actions. The single most brand-critical block.",
+    "variations": [
+      {
+        "name": "Standard image hero",
+        "diff": "Static background image in the media slot. The default hero used across product & editorial pages.",
+        "pages": 593,
+        "occ": 593,
+        "pct": 100
+      },
+      {
+        "name": "Video hero (inline autoplay)",
+        "diff": "A muted, looping <video> replaces the background image. Needs poster frame, reduced-motion fallback and lazy source loading for LCP.",
+        "pages": 55,
+        "occ": 55,
+        "pct": 9
+      }
+    ],
+    "capabilities": [
+      {
+        "name": "Sticky / scroll-pinned media",
+        "diff": "Media pins while sub-content scrolls over it — scroll-driven, IntersectionObserver.",
+        "pages": 593,
+        "occ": 593,
+        "pct": 100
+      },
+      {
+        "name": "Two-line animated headline",
+        "diff": "Headline split into two lines for a staggered reveal animation.",
+        "pages": 593,
+        "occ": 593,
+        "pct": 100
+      },
+      {
+        "name": "Sub-content overlay",
+        "diff": "Secondary content layered over the hero (badges/copy).",
+        "pages": 593,
+        "occ": 593,
+        "pct": 100
+      },
+      {
+        "name": "Eyebrow / subtitle",
+        "diff": "Small label above the main title.",
+        "pages": 345,
+        "occ": 345,
+        "pct": 58
+      },
+      {
+        "name": "CTA actions bar",
+        "diff": "One or more CTA buttons in a dedicated container.",
+        "pages": 178,
+        "occ": 178,
+        "pct": 30
+      }
+    ]
+  },
+  "Teaser / Card": {
+    "blockPages": 1023,
+    "purpose": "The universal content promo/navigation unit. Renders image + optional pretitle/title/description + optional CTA, and composes into 2/3/4-up grids and horizontal rails everywhere on the site.",
+    "variations": [
+      {
+        "name": "CTA teaser (with action link)",
+        "diff": "Includes explicit CTA link(s) — a promotional card that drives a click. The dominant teaser form.",
+        "pages": 990,
+        "occ": 990,
+        "pct": 97
+      },
+      {
+        "name": "Descriptive teaser",
+        "diff": "Adds a body-copy paragraph under the title (editorial / feature promo).",
+        "pages": 592,
+        "occ": 592,
+        "pct": 58
+      },
+      {
+        "name": "Title-only navigation teaser",
+        "diff": "Minimal tile — image + linked title only, no description or CTA. Used as menu/navigation tiles.",
+        "pages": 350,
+        "occ": 350,
+        "pct": 34
+      },
+      {
+        "name": "Image Card (named component)",
+        "diff": "An explicitly named \"Image Card\" variant used inside product/model rails and grids.",
+        "pages": 296,
+        "occ": 296,
+        "pct": 29
+      }
+    ],
+    "capabilities": [
+      {
+        "name": "Image slot",
+        "diff": "Teaser leads with an image (vs text-only).",
+        "pages": 1020,
+        "occ": 1020,
+        "pct": 100
+      }
+    ]
+  },
+  "Carousel / Slider": {
+    "blockPages": 259,
+    "purpose": "Horizontal slider for media, product rails and spec switching. BRP uses one rich carousel component that bundles arrows, dot indicators, peek/blur edges, tabbed navigation and 5-second auto-advance.",
+    "variations": [
+      {
+        "name": "Standard media carousel",
+        "diff": "WCM core carousel driven by arrows + dot indicators.",
+        "pages": 259,
+        "occ": 259,
+        "pct": 100
+      },
+      {
+        "name": "Tabbed carousel",
+        "diff": "Slides switched via tab controls instead of arrows — used for spec/feature switching on product pages.",
+        "pages": 259,
+        "occ": 259,
+        "pct": 100
+      }
+    ],
+    "capabilities": [
+      {
+        "name": "Peek / blurry edges",
+        "diff": "Adjacent slides peek in with a blur (product-rail styling).",
+        "pages": 259,
+        "occ": 259,
+        "pct": 100
+      },
+      {
+        "name": "Dot indicators",
+        "diff": "Dot indicators show position/state.",
+        "pages": 259,
+        "occ": 259,
+        "pct": 100
+      },
+      {
+        "name": "Auto-advance (5s)",
+        "diff": "Rotates automatically every 5s; must pause on interaction for a11y.",
+        "pages": 259,
+        "occ": 259,
+        "pct": 100
+      }
+    ]
+  },
+  "Accordion": {
+    "blockPages": 71,
+    "purpose": "Collapsible panels for dense content — specifications, support how-tos and FAQs. Core WCM accordion.",
+    "variations": [
+      {
+        "name": "Standard accordion",
+        "diff": "Single-open collapsible panel set (default).",
+        "pages": 71,
+        "occ": 71,
+        "pct": 100
+      },
+      {
+        "name": "FAQ accordion",
+        "diff": "Q&A-styled accordion on support/FAQ pages (heading = question).",
+        "pages": 46,
+        "occ": 46,
+        "pct": 65
+      }
+    ],
+    "capabilities": []
+  },
+  "Gallery / Image Grid": {
+    "blockPages": 106,
+    "purpose": "Clustered image presentation — grids, lightbox galleries and marketing mosaics.",
+    "variations": [
+      {
+        "name": "Lightbox gallery",
+        "diff": "Image cluster that opens a modal/lightbox on click.",
+        "pages": 96,
+        "occ": 96,
+        "pct": 91
+      },
+      {
+        "name": "Image grid",
+        "diff": "Fixed responsive grid of images (no lightbox).",
+        "pages": 9,
+        "occ": 9,
+        "pct": 8
+      },
+      {
+        "name": "Tile mosaic",
+        "diff": "Mixed-size mosaic of feature/marketing tiles.",
+        "pages": 1,
+        "occ": 1,
+        "pct": 1
+      }
+    ],
+    "capabilities": []
+  },
+  "Video / Video Embed": {
+    "blockPages": 278,
+    "purpose": "Video delivery via YouTube façade, self-hosted WebM/MP4, hero background loops, or click-to-play modals.",
+    "variations": [
+      {
+        "name": "YouTube embed (façade)",
+        "diff": "Stores a YouTube id and swaps to an iframe on play — keeps LCP light.",
+        "pages": 244,
+        "occ": 244,
+        "pct": 88
+      },
+      {
+        "name": "Self-hosted WebM/MP4",
+        "diff": "Local video source (webm/mp4), no third-party player.",
+        "pages": 55,
+        "occ": 55,
+        "pct": 20
+      },
+      {
+        "name": "Inline hero background video",
+        "diff": "Muted autoplay loop used as a hero background.",
+        "pages": 55,
+        "occ": 55,
+        "pct": 20
+      }
+    ],
+    "capabilities": [
+      {
+        "name": "Click-to-play modal",
+        "diff": "Opens the video in a modal dialog.",
+        "pages": 244,
+        "occ": 244,
+        "pct": 88
+      }
+    ]
+  },
+  "Image (Core)": {
+    "blockPages": 932,
+    "purpose": "Responsive core image bound to the AEM DAM/rendition service, with lazy-loading and optional Scene7 delivery.",
+    "variations": [
+      {
+        "name": "Responsive DAM image",
+        "diff": "srcset generated from AEM DAM renditions.",
+        "pages": 932,
+        "occ": 932,
+        "pct": 100
+      },
+      {
+        "name": "Scene7 / Dynamic Media image",
+        "diff": "Served via Adobe Scene7 (smart-crop / auto-format).",
+        "pages": 16,
+        "occ": 16,
+        "pct": 2
+      }
+    ],
+    "capabilities": [
+      {
+        "name": "Lazy loading",
+        "diff": "Deferred load for below-the-fold images.",
+        "pages": 932,
+        "occ": 932,
+        "pct": 100
+      },
+      {
+        "name": "Focal-position modifiers",
+        "diff": "Controls focal point of background/cover images.",
+        "pages": 584,
+        "occ": 1168,
+        "pct": 63
+      }
+    ]
+  },
+  "Iframe / BYO Configurator Embed": {
+    "blockPages": 168,
+    "purpose": "Embeds the external Build-Your-Own configurator application (product-finder service) and other third-party tools inside the page shell.",
+    "variations": [
+      {
+        "name": "BYO configurator embed",
+        "diff": "Full external configurator app (sitebuild-*.brp.zlthunder.net) embedded via iframe.",
+        "pages": 168,
+        "occ": 168,
+        "pct": 100
+      },
+      {
+        "name": "Generic content iframe",
+        "diff": "Core iframe component for arbitrary embedded content.",
+        "pages": 168,
+        "occ": 168,
+        "pct": 100
+      }
+    ],
+    "capabilities": [
+      {
+        "name": "Locale parameterisation",
+        "diff": "Passes a locale param to localize the embedded app.",
+        "pages": 168,
+        "occ": 168,
+        "pct": 100
+      }
+    ]
+  },
+  "Dealer Locator / Map": {
+    "blockPages": 184,
+    "purpose": "Interactive Google Maps surfaces for finding dealers, plotting event locations and showing points of interest.",
+    "variations": [
+      {
+        "name": "Google Maps locator",
+        "diff": "Interactive map initialised with a Maps API key.",
+        "pages": 168,
+        "occ": 168,
+        "pct": 91
+      },
+      {
+        "name": "Marker/pin dataset map",
+        "diff": "Map seeded with multiple marker/pin datasets (dealers/POIs).",
+        "pages": 9,
+        "occ": 9,
+        "pct": 5
+      },
+      {
+        "name": "Single event-location map",
+        "diff": "Bound to one lat/lng for an event location.",
+        "pages": 7,
+        "occ": 7,
+        "pct": 4
+      }
+    ],
+    "capabilities": []
+  },
+  "Configurator Package Selector": {
+    "blockPages": 301,
+    "purpose": "In-page selector for model packages/trims that feeds the configurator and lead flows.",
+    "variations": [
+      {
+        "name": "Package lead selector",
+        "diff": "Selects a lead package/trim and captures intent.",
+        "pages": 301,
+        "occ": 301,
+        "pct": 100
+      },
+      {
+        "name": "Multi-package chooser",
+        "diff": "Presents multiple packages/trims for comparison/selection.",
+        "pages": 90,
+        "occ": 90,
+        "pct": 30
+      }
+    ],
+    "capabilities": []
+  },
+  "__meta": {
+    "totalPages": 1172,
+    "commercePages": 1172
+  }
+}
