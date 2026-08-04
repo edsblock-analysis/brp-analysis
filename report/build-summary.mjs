@@ -123,74 +123,61 @@ const contentRows = [
 ];
 const contentDays = contentRows.reduce((s, r) => s + r[2], 0);
 
-// ---------------- ROLL-UP ----------------
-const buildSubtotal = foundationDays + blockDays + templateDays + integDays;
-const qa = Math.round(buildSubtotal * 0.25);
-const docs = Math.round(buildSubtotal * 0.08);
-const pm = Math.round(buildSubtotal * 0.12);
-const devContingency = Math.round((buildSubtotal + qa + docs + pm) * 0.15);
-const totalDev = buildSubtotal + qa + docs + pm + devContingency;
-const grand = totalDev + contentDays;
+// ---------------- PRODUCTION ESTIMATE (single column, AI-assisted delivery) ----------------
+// Client-committed production numbers, all in HOURS. Foundation and content
+// migration are fixed to agreed targets; blocks/templates/integrations use the
+// per-item build effort; a production-readiness line is added.
+const toDays = (h) => +(h / HPD).toFixed(1);
+const foundationHrs = 100; // agreed: repo, header, nav, footer, theming, i18n setup
+const blockHrs = H(blockDays); // 736
+const templateHrs = H(templateDays); // 628
+const integHrs = H(integDays); // 168
+const prodReadyHrs = 40; // production readiness: perf/CWV, a11y, cross-browser, launch hardening
+const contentHrs = 400; // agreed content migration target
 
-// ---------------- AI-ASSISTED (Claude-leveraged) DELIVERY MODEL ----------------
-// Transparent per-category productivity factors: fraction of baseline effort
-// that REMAINS when delivery is AI-accelerated. Lower = more AI leverage.
-// Grounded in where LLM codegen genuinely helps most (block/template code,
-// import parsers, docs) vs where human judgement still dominates (nav UX,
-// commerce integration, PM, author QA).
-const AI = {
-  foundation: 0.65, // nav/theming need human UX; scaffolding & decoration accelerate
-  blocks: 0.45, // strong: generate block JS/CSS + variations from patterns
-  templates: 0.45, // strong: template scaffolding + block wiring
-  integrations: 0.70, // moderate: config/glue helps; external systems need coordination
-  qa: 0.75, // moderate: test generation helps; manual UAT remains
-  docs: 0.40, // strong: auto-generated docs
-  pm: 0.90, // minimal: coordination stays human
-  contentImport: 0.45, // strong: import parsers/transformers auto-generated
-  contentManual: 0.70, // moderate: complex pages still assisted, not free
-  contentOther: 0.65, // cleanup/metadata/validation partly automated
-};
-const r0 = (n) => Math.round(n);
-const aiFoundation = r0(foundationDays * AI.foundation);
-const aiBlocks = r0(blockDays * AI.blocks);
-const aiTemplates = r0(templateDays * AI.templates);
-const aiInteg = r0(integDays * AI.integrations);
-const aiBuildSubtotal = aiFoundation + aiBlocks + aiTemplates + aiInteg;
-const aiQa = r0(aiBuildSubtotal * 0.25 * AI.qa / 1); // QA scales with (reduced) build, then AI factor
-const aiDocs = r0(aiBuildSubtotal * 0.08 * AI.docs / 1);
-const aiPm = r0(aiBuildSubtotal * 0.12 * AI.pm / 1);
-const aiContingency = r0((aiBuildSubtotal + aiQa + aiDocs + aiPm) * 0.12); // lower risk → 12%
-const aiTotalDev = aiBuildSubtotal + aiQa + aiDocs + aiPm + aiContingency;
-// content migration AI split
-const cImport = contentRows[0][2];
-const cManual = contentRows[1][2];
-const cOther = contentDays - cImport - cManual;
-const aiContent = r0(cImport * AI.contentImport) + r0(cManual * AI.contentManual) + r0(cOther * AI.contentOther);
-const aiGrand = aiTotalDev + aiContent;
-const savePct = Math.round((1 - aiGrand / grand) * 100);
+const buildSubtotalHrs = foundationHrs + blockHrs + templateHrs + integHrs + prodReadyHrs;
+const qaHrs = Math.round(buildSubtotalHrs * 0.25);
+const docsHrs = Math.round(buildSubtotalHrs * 0.08);
+const pmHrs = Math.round(buildSubtotalHrs * 0.12);
+const contingencyHrs = Math.round((buildSubtotalHrs + qaHrs + docsHrs + pmHrs) * 0.15);
+const devTotalHrs = buildSubtotalHrs + qaHrs + docsHrs + pmHrs + contingencyHrs;
+const grandHrs = devTotalHrs + contentHrs;
+
+// distribute a target across items proportional to base weights; integers summing exactly to target
+function scaleTo(weights, target) {
+  const sum = weights.reduce((s, w) => s + w, 0) || 1;
+  const raw = weights.map((w) => (w / sum) * target);
+  const out = raw.map((x) => Math.floor(x));
+  let rem = target - out.reduce((s, x) => s + x, 0);
+  const order = raw.map((x, i) => [i, x - Math.floor(x)]).sort((a, b) => b[1] - a[1]);
+  for (let k = 0; k < order.length && rem > 0; k += 1, rem -= 1) out[order[k][0]] += 1;
+  return out;
+}
+const foundationHrsItems = scaleTo(foundation.map((f) => f[2]), foundationHrs);
+const contentHrsItems = scaleTo(contentRows.map((c) => c[2]), contentHrs);
 
 // ---------------- RENDER ----------------
 const row = (cells) => `<tr>${cells.map((c, i) => (i === 0 ? `<td>${c}</td>` : `<td class="num">${c}</td>`)).join('')}</tr>`;
 
 const blockTable = blockRows.map((b) => `<tr><td><b>${esc(b.name)}</b></td><td class="num">${b.pages}</td><td class="num">${b.nVar}</td><td class="num">${b.nCap || '—'}</td><td>${cxBadge(b.cx)}</td><td class="num">${hh(b.days)}</td></tr>`).join('');
 const templateTable = templateRows.map((r) => `<tr><td><b>${esc(r.t)}</b></td><td class="num">${r.n}</td><td class="num">${(r.n / pages.length * 100).toFixed(1)}%</td><td>${cxBadge(r.cx)}</td><td class="num">${hh(r.days)}</td></tr>`).join('');
-const foundationTable = foundation.map((f) => `<tr><td>${esc(f[0])}</td><td>${cxBadge(f[1])}</td><td class="num">${hh(f[2])}</td></tr>`).join('');
+const foundationTable = foundation.map((f, i) => `<tr><td>${esc(f[0])}</td><td>${cxBadge(f[1])}</td><td class="num">${foundationHrsItems[i]}h</td></tr>`).join('');
 const integTable = integRows.map((r) => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.pages}</td><td>${esc(r.purpose)}</td><td>${esc(r.strategy)}</td><td>${cxBadge(r.impact === 'None' ? 'Low' : r.impact)}</td><td class="num">${hh(r.days)}</td></tr>`).join('');
-const contentTable = contentRows.map((c) => `<tr><td>${esc(c[0])}</td><td class="num">${esc(c[1])}</td><td class="num">${hh(c[2])}</td></tr>`).join('');
+const contentTable = contentRows.map((c, i) => `<tr><td>${esc(c[0])}</td><td class="num">${esc(c[1])}</td><td class="num">${contentHrsItems[i]}h</td></tr>`).join('');
 
-// [label, baselineDays, aiDays, factorPct, notes]
+// [label, hours, notes]
 const rollup = [
-  ['Project setup / Foundation', foundationDays, aiFoundation, AI.foundation, `${foundation.length} global work items`],
-  ['Block development', blockDays, aiBlocks, AI.blocks, `${blockRows.length} blocks · ${totalVariations} variations`],
-  ['Template development', templateDays, aiTemplates, AI.templates, `${templateRows.length} templates`],
-  ['3rd-party integrations', integDays, aiInteg, AI.integrations, `${integRows.length} integrations`],
-  ['QA & Testing (a11y, responsive, cross-browser, perf, regression, UAT)', qa, aiQa, AI.qa, '~25% of build'],
-  ['Documentation', docs, aiDocs, AI.docs, '~8%'],
-  ['Project management', pm, aiPm, AI.pm, '~12%'],
-  ['Contingency', devContingency, aiContingency, 0.12 / 0.15, '15% → 12% (lower risk)'],
+  ['Project setup / Foundation', foundationHrs, 'Repo, header, nav, footer, theming, i18n setup'],
+  ['Block development', blockHrs, `${blockRows.length} blocks · ${totalVariations} variations`],
+  ['Template development', templateHrs, `${templateRows.length} templates`],
+  ['3rd-party integrations', integHrs, `${integRows.length} integrations`],
+  ['Production readiness', prodReadyHrs, 'Perf/CWV, a11y, cross-browser, launch hardening'],
+  ['QA & Testing (a11y, responsive, cross-browser, perf, regression, UAT)', qaHrs, '~25% of build'],
+  ['Documentation', docsHrs, '~8%'],
+  ['Project management', pmHrs, '~12%'],
+  ['Contingency', contingencyHrs, '15%'],
 ];
-const factorBadge = (f) => `<span class="fac">−${Math.round((1 - f) * 100)}%</span>`;
-const rollupTable = rollup.map((r) => `<tr><td>${esc(r[0])}</td><td class="num base">${hh(r[1])}</td><td class="num ai">${hh(r[2])} ${factorBadge(r[3])}</td><td class="found">${esc(r[4])}</td></tr>`).join('');
+const rollupTable = rollup.map((r) => `<tr><td>${esc(r[0])}</td><td class="num ai">${r[1]}h</td><td class="found">${esc(r[2])}</td></tr>`).join('');
 
 const html = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -245,7 +232,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <header class="hero">
   <div class="badge">ADOBE EDGE DELIVERY SERVICES · ESTIMATION SUMMARY</div>
   <h1>BRP-World.com → EDS · Migration Estimation Summary</h1>
-  <div class="sub">Sales-ready effort summary for migrating <code>www.brp-world.com/int/en/</code> to Adobe Edge Delivery Services. Based on analysis of <b>all ${pages.length.toLocaleString()}</b> in-scope URLs. All effort in <b>hours</b> (8h/day). Shows a traditional <b>baseline</b> alongside the recommended <b>AI-assisted (Claude-leveraged)</b> estimate. Evidence links to the detailed reports are provided in each section.</div>
+  <div class="sub">Sales-ready effort summary for migrating <code>www.brp-world.com/int/en/</code> to Adobe Edge Delivery Services. Based on analysis of <b>all ${pages.length.toLocaleString()}</b> in-scope URLs. All effort in <b>hours</b> (8h/day), delivered <b>AI-assisted (Claude-leveraged)</b>. Evidence links to the detailed reports are provided in each section.</div>
 </header>
 <nav class="toc">
   <a href="#top">Top-line</a>
@@ -268,12 +255,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">${totalVariations}</div><div class="l">Variations</div></div>
   <div class="kpi"><div class="n">${templateRows.length}</div><div class="l">Templates</div></div>
   <div class="kpi"><div class="n">${integRows.length}</div><div class="l">Integrations</div></div>
-  <div class="kpi"><div class="n">${H(grand).toLocaleString()}h</div><div class="l">Baseline total</div></div>
-  <div class="kpi big"><div class="n">${H(aiGrand).toLocaleString()}h</div><div class="l">AI-assisted total</div></div>
-  <div class="kpi big"><div class="n">−${savePct}%</div><div class="l">Efficiency gain</div></div>
+  <div class="kpi big"><div class="n">${devTotalHrs.toLocaleString()}h</div><div class="l">Development</div></div>
+  <div class="kpi big"><div class="n">${contentHrs.toLocaleString()}h</div><div class="l">Content migration</div></div>
+  <div class="kpi big"><div class="n">${grandHrs.toLocaleString()}h</div><div class="l">Grand total</div></div>
 </div>
-<div class="note reco"><b>Recommended (AI-assisted) estimate: ≈ ${H(aiGrand).toLocaleString()}h (${aiGrand}d, ~${(aiGrand / 20).toFixed(1)} person-months)</b> — a <b>${savePct}% reduction</b> vs the ${H(grand).toLocaleString()}h traditional baseline, achieved by leveraging Claude for block/template code generation, import parsers/transformers and documentation. Split: AI-assisted development ≈ <b>${H(aiTotalDev).toLocaleString()}h</b> + content migration ≈ <b>${H(aiContent).toLocaleString()}h</b>.</div>
-<div class="note"><b>How the reduction is derived:</b> we apply a transparent productivity factor per work category (see §6) rather than a flat cut. AI leverage is highest where code/config is pattern-generated (blocks, templates, import parsers, docs ≈ 55–60% saved) and lowest where human judgement dominates (navigation UX, commerce integration, project management, author QA). The baseline column remains visible so the assumptions are auditable.</div>
+<div class="note reco"><b>Production estimate: ≈ ${grandHrs.toLocaleString()}h (${toDays(grandHrs)}d, ~${(toDays(grandHrs) / 20).toFixed(1)} person-months)</b> — AI-assisted (Claude-leveraged) delivery. Split: development ≈ <b>${devTotalHrs.toLocaleString()}h</b> + content migration ≈ <b>${contentHrs.toLocaleString()}h</b>. Foundation setup ${foundationHrs}h, ${blockRows.length} blocks ${blockHrs}h, ${templateRows.length} templates ${templateHrs}h, integrations ${integHrs}h, production readiness ${prodReadyHrs}h.</div>
 </section>
 
 <section id="setup">
@@ -282,7 +268,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <table>
 <thead><tr><th>Work item</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
 <tbody>${foundationTable}
-<tr class="total-row"><td>Foundation subtotal</td><td>—</td><td class="num">${hh(foundationDays)}</td></tr>
+<tr class="total-row"><td>Foundation subtotal</td><td>—</td><td class="num">${foundationHrs}h</td></tr>
 </tbody></table>
 </section>
 
@@ -326,23 +312,23 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <table>
 <thead><tr><th>Work stream</th><th class="num">Volume</th><th class="num">Effort</th></tr></thead>
 <tbody>${contentTable}
-<tr class="total-row"><td>TOTAL CONTENT MIGRATION</td><td class="num">—</td><td class="num">${hh(contentDays)}</td></tr>
+<tr class="total-row"><td>TOTAL CONTENT MIGRATION</td><td class="num">—</td><td class="num">${contentHrs}h</td></tr>
 </tbody></table>
 <div class="evidence"><a href="index.html#content" target="_blank">▸ Content migration report (full)</a><a href="index.html#urls" target="_blank">▸ Per-URL analysis (all 1,172)</a></div>
 </section>
 
 <section id="rollup">
-<h2 class="sec">6 · Total Estimate — Baseline vs AI-Assisted</h2>
-<p class="lead">The <b>Baseline</b> column is a traditional senior-team estimate. The <b>AI-assisted</b> column applies a per-category productivity factor (shown as −%) for delivery leveraging Claude. The recommended figure for this engagement is the AI-assisted total.</p>
+<h2 class="sec">6 · Total Estimate</h2>
+<p class="lead">AI-assisted (Claude-leveraged) production estimate. QA is ~25% of build, documentation ~8%, project management ~12%, contingency 15%.</p>
 <table>
-<thead><tr><th>Category</th><th class="num">Baseline</th><th class="num">AI-assisted (Claude)</th><th>Notes</th></tr></thead>
+<thead><tr><th>Category</th><th class="num">Effort (hours)</th><th>Notes</th></tr></thead>
 <tbody>
 ${rollupTable}
-<tr class="subtotal"><td>Development subtotal</td><td class="num base">${hh(totalDev)}</td><td class="num ai">${hh(aiTotalDev)}</td><td class="found">${totalDev}d → ${aiTotalDev}d</td></tr>
-<tr class="subtotal"><td>Content migration</td><td class="num base">${hh(contentDays)}</td><td class="num ai">${hh(aiContent)}</td><td class="found">${contentDays}d → ${aiContent}d</td></tr>
-<tr class="grand"><td>GRAND TOTAL</td><td class="num">${H(grand).toLocaleString()}h</td><td class="num">${H(aiGrand).toLocaleString()}h</td><td>${aiGrand}d · ~${(aiGrand / 20).toFixed(1)} pm · <b>−${savePct}%</b></td></tr>
+<tr class="subtotal"><td>Development subtotal</td><td class="num ai">${devTotalHrs.toLocaleString()}h</td><td class="found">${toDays(devTotalHrs)} person-days</td></tr>
+<tr class="total-row"><td>Content migration</td><td class="num">${contentHrs.toLocaleString()}h</td><td>${toDays(contentHrs)} person-days</td></tr>
+<tr class="grand"><td>GRAND TOTAL</td><td class="num">${grandHrs.toLocaleString()}h</td><td>${toDays(grandHrs)} person-days · ~${(toDays(grandHrs) / 20).toFixed(1)} person-months</td></tr>
 </tbody></table>
-<div class="note">Figures assume a senior EDS delivery team leveraging Claude, an 8-hour person-day, and ~20 working days/month. The AI-assisted column reflects code/parser/documentation generation acceleration; it is not a flat discount. Excludes per-locale content translation, rebuild of the external configurator app, and any net-new visual design. To be confirmed in a discovery workshop.</div>
+<div class="note">Figures assume a senior EDS delivery team leveraging Claude for code/parser/documentation generation, an 8-hour person-day, and ~20 working days/month. Excludes per-locale content translation, rebuild of the external configurator app, and any net-new visual design. To be confirmed in a discovery workshop.</div>
 </section>
 
 <section id="assume">
@@ -381,6 +367,7 @@ ${rollupTable}
 
 fs.writeFileSync(path.join(ROOT, 'report', 'summary.html'), html);
 console.log('Written report/summary.html', (html.length / 1024).toFixed(0), 'KB');
-console.log('Foundation:', hh(foundationDays), '| Blocks:', hh(blockDays), '| Templates:', hh(templateDays), '| Integrations:', hh(integDays));
-console.log('Content:', hh(contentDays), '| Dev total:', hh(totalDev), '| GRAND baseline:', hh(grand));
-console.log('AI-assisted → Dev:', hh(aiTotalDev), '| Content:', hh(aiContent), '| GRAND:', hh(aiGrand), `(−${savePct}%)`);
+console.log('Foundation:', foundationHrs + 'h', '| Blocks:', blockHrs + 'h', '| Templates:', templateHrs + 'h', '| Integrations:', integHrs + 'h', '| Prod-ready:', prodReadyHrs + 'h');
+console.log('QA:', qaHrs + 'h', '| Docs:', docsHrs + 'h', '| PM:', pmHrs + 'h', '| Contingency:', contingencyHrs + 'h');
+console.log('Dev total:', devTotalHrs + 'h', '| Content:', contentHrs + 'h', '| GRAND:', grandHrs + 'h', `(${toDays(grandHrs)}d)`);
+console.log('Foundation items sum:', foundationHrsItems.reduce((s, x) => s + x, 0), '| Content items sum:', contentHrsItems.reduce((s, x) => s + x, 0));

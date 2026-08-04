@@ -51,7 +51,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <header class="hero">
   <div class="badge">ADOBE EDGE DELIVERY SERVICES · ESTIMATION SUMMARY</div>
   <h1>BRP-World.com → EDS · Migration Estimation Summary</h1>
-  <div class="sub">Sales-ready effort summary for migrating <code>www.brp-world.com/int/en/</code> to Adobe Edge Delivery Services. Based on analysis of <b>all 1,172</b> in-scope URLs. All effort in <b>hours</b> (8h/day). Shows a traditional <b>baseline</b> alongside the recommended <b>AI-assisted (Claude-leveraged)</b> estimate. Evidence links to the detailed reports are provided in each section.</div>
+  <div class="sub">Sales-ready effort summary for migrating <code>www.brp-world.com/int/en/</code> to Adobe Edge Delivery Services. Based on analysis of <b>all 1,172</b> in-scope URLs. All effort in <b>hours</b> (8h/day), delivered <b>AI-assisted (Claude-leveraged)</b>. Evidence links to the detailed reports are provided in each section.</div>
 </header>
 <nav class="toc">
   <a href="#top">Top-line</a>
@@ -74,12 +74,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">37</div><div class="l">Variations</div></div>
   <div class="kpi"><div class="n">22</div><div class="l">Templates</div></div>
   <div class="kpi"><div class="n">13</div><div class="l">Integrations</div></div>
-  <div class="kpi"><div class="n">4,572h</div><div class="l">Baseline total</div></div>
-  <div class="kpi big"><div class="n">2,344h</div><div class="l">AI-assisted total</div></div>
-  <div class="kpi big"><div class="n">−49%</div><div class="l">Efficiency gain</div></div>
+  <div class="kpi big"><div class="n">2,789h</div><div class="l">Development</div></div>
+  <div class="kpi big"><div class="n">400h</div><div class="l">Content migration</div></div>
+  <div class="kpi big"><div class="n">3,189h</div><div class="l">Grand total</div></div>
 </div>
-<div class="note reco"><b>Recommended (AI-assisted) estimate: ≈ 2,344h (293d, ~14.7 person-months)</b> — a <b>49% reduction</b> vs the 4,572h traditional baseline, achieved by leveraging Claude for block/template code generation, import parsers/transformers and documentation. Split: AI-assisted development ≈ <b>1,432h</b> + content migration ≈ <b>912h</b>.</div>
-<div class="note"><b>How the reduction is derived:</b> we apply a transparent productivity factor per work category (see §6) rather than a flat cut. AI leverage is highest where code/config is pattern-generated (blocks, templates, import parsers, docs ≈ 55–60% saved) and lowest where human judgement dominates (navigation UX, commerce integration, project management, author QA). The baseline column remains visible so the assumptions are auditable.</div>
+<div class="note reco"><b>Production estimate: ≈ 3,189h (398.6d, ~19.9 person-months)</b> — AI-assisted (Claude-leveraged) delivery. Split: development ≈ <b>2,789h</b> + content migration ≈ <b>400h</b>. Foundation setup 100h, 22 blocks 736h, 22 templates 628h, integrations 168h, production readiness 40h.</div>
 </section>
 
 <section id="setup">
@@ -87,8 +86,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <p class="lead">One-time global build required before templates and content: repo & environments, global header/footer, navigation, theming, localization scaffolding and core decoration.</p>
 <table>
 <thead><tr><th>Work item</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
-<tbody><tr><td>EDS project scaffolding, repo, CI/CD &amp; environments</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td>Global Header + Mega-menu Navigation</td><td><span class="cx cx-VeryHigh">Very High</span></td><td class="num">80h</td></tr><tr><td>Global Footer</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">32h</td></tr><tr><td>Global CSS design tokens / typography (Typekit)</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">32h</td></tr><tr><td>scripts.js decoration, auto-blocking, sections</td><td><span class="cx cx-High">High</span></td><td class="num">48h</td></tr><tr><td>Localization / hreflang scaffolding (up to 68 locales)</td><td><span class="cx cx-High">High</span></td><td class="num">48h</td></tr><tr><td>Metadata / SEO framework (canonical, OG, sitemap, redirects)</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td>Multi-brand theming (5 brands)</td><td><span class="cx cx-High">High</span></td><td class="num">48h</td></tr><tr><td>Placeholders / i18n + site config</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr>
-<tr class="total-row"><td>Foundation subtotal</td><td>—</td><td class="num">360h</td></tr>
+<tbody><tr><td>EDS project scaffolding, repo, CI/CD &amp; environments</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">7h</td></tr><tr><td>Global Header + Mega-menu Navigation</td><td><span class="cx cx-VeryHigh">Very High</span></td><td class="num">22h</td></tr><tr><td>Global Footer</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">9h</td></tr><tr><td>Global CSS design tokens / typography (Typekit)</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">9h</td></tr><tr><td>scripts.js decoration, auto-blocking, sections</td><td><span class="cx cx-High">High</span></td><td class="num">13h</td></tr><tr><td>Localization / hreflang scaffolding (up to 68 locales)</td><td><span class="cx cx-High">High</span></td><td class="num">13h</td></tr><tr><td>Metadata / SEO framework (canonical, OG, sitemap, redirects)</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">7h</td></tr><tr><td>Multi-brand theming (5 brands)</td><td><span class="cx cx-High">High</span></td><td class="num">13h</td></tr><tr><td>Placeholders / i18n + site config</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">7h</td></tr>
+<tr class="total-row"><td>Foundation subtotal</td><td>—</td><td class="num">100h</td></tr>
 </tbody></table>
 </section>
 
@@ -131,24 +130,24 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <p class="lead">Separate from development. Covers importing, cleaning, and validating all 1,172 pages and their assets. Excludes per-locale translation.</p>
 <table>
 <thead><tr><th>Work stream</th><th class="num">Volume</th><th class="num">Effort</th></tr></thead>
-<tbody><tr><td>Automated import (bulk importer, master-template pages)</td><td class="num">973 pages</td><td class="num">232h</td></tr><tr><td>Manual / assisted migration (configurator, forms, locator, complex)</td><td class="num">199 pages</td><td class="num">640h</td></tr><tr><td>Content cleanup &amp; re-authoring (779 missing meta-desc; 402 multi-H1)</td><td class="num">~1,181 fixes</td><td class="num">120h</td></tr><tr><td>Asset migration (images to EDS / DAM)</td><td class="num">~29,059 images</td><td class="num">96h</td></tr><tr><td>Document / PDF migration</td><td class="num">783 PDF links / 267 pages</td><td class="num">48h</td></tr><tr><td>Metadata &amp; SEO migration (canonical, OG, hreflang)</td><td class="num">1,172 pages</td><td class="num">80h</td></tr><tr><td>Localization propagation (framework only; per-locale translation excluded)</td><td class="num">up to 68 locales</td><td class="num">64h</td></tr><tr><td>Content validation &amp; author QA</td><td class="num">1,172 pages</td><td class="num">144h</td></tr>
-<tr class="total-row"><td>TOTAL CONTENT MIGRATION</td><td class="num">—</td><td class="num">1424h</td></tr>
+<tbody><tr><td>Automated import (bulk importer, master-template pages)</td><td class="num">973 pages</td><td class="num">65h</td></tr><tr><td>Manual / assisted migration (configurator, forms, locator, complex)</td><td class="num">199 pages</td><td class="num">180h</td></tr><tr><td>Content cleanup &amp; re-authoring (779 missing meta-desc; 402 multi-H1)</td><td class="num">~1,181 fixes</td><td class="num">34h</td></tr><tr><td>Asset migration (images to EDS / DAM)</td><td class="num">~29,059 images</td><td class="num">27h</td></tr><tr><td>Document / PDF migration</td><td class="num">783 PDF links / 267 pages</td><td class="num">14h</td></tr><tr><td>Metadata &amp; SEO migration (canonical, OG, hreflang)</td><td class="num">1,172 pages</td><td class="num">22h</td></tr><tr><td>Localization propagation (framework only; per-locale translation excluded)</td><td class="num">up to 68 locales</td><td class="num">18h</td></tr><tr><td>Content validation &amp; author QA</td><td class="num">1,172 pages</td><td class="num">40h</td></tr>
+<tr class="total-row"><td>TOTAL CONTENT MIGRATION</td><td class="num">—</td><td class="num">400h</td></tr>
 </tbody></table>
 <div class="evidence"><a href="index.html#content" target="_blank">▸ Content migration report (full)</a><a href="index.html#urls" target="_blank">▸ Per-URL analysis (all 1,172)</a></div>
 </section>
 
 <section id="rollup">
-<h2 class="sec">6 · Total Estimate — Baseline vs AI-Assisted</h2>
-<p class="lead">The <b>Baseline</b> column is a traditional senior-team estimate. The <b>AI-assisted</b> column applies a per-category productivity factor (shown as −%) for delivery leveraging Claude. The recommended figure for this engagement is the AI-assisted total.</p>
+<h2 class="sec">6 · Total Estimate</h2>
+<p class="lead">AI-assisted (Claude-leveraged) production estimate. QA is ~25% of build, documentation ~8%, project management ~12%, contingency 15%.</p>
 <table>
-<thead><tr><th>Category</th><th class="num">Baseline</th><th class="num">AI-assisted (Claude)</th><th>Notes</th></tr></thead>
+<thead><tr><th>Category</th><th class="num">Effort (hours)</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td>Project setup / Foundation</td><td class="num base">360h</td><td class="num ai">232h <span class="fac">−35%</span></td><td class="found">9 global work items</td></tr><tr><td>Block development</td><td class="num base">736h</td><td class="num ai">328h <span class="fac">−55%</span></td><td class="found">22 blocks · 37 variations</td></tr><tr><td>Template development</td><td class="num base">628h</td><td class="num ai">280h <span class="fac">−55%</span></td><td class="found">22 templates</td></tr><tr><td>3rd-party integrations</td><td class="num base">168h</td><td class="num ai">120h <span class="fac">−30%</span></td><td class="found">13 integrations</td></tr><tr><td>QA &amp; Testing (a11y, responsive, cross-browser, perf, regression, UAT)</td><td class="num base">472h</td><td class="num ai">184h <span class="fac">−25%</span></td><td class="found">~25% of build</td></tr><tr><td>Documentation</td><td class="num base">152h</td><td class="num ai">32h <span class="fac">−60%</span></td><td class="found">~8%</td></tr><tr><td>Project management</td><td class="num base">224h</td><td class="num ai">104h <span class="fac">−10%</span></td><td class="found">~12%</td></tr><tr><td>Contingency</td><td class="num base">408h</td><td class="num ai">152h <span class="fac">−20%</span></td><td class="found">15% → 12% (lower risk)</td></tr>
-<tr class="subtotal"><td>Development subtotal</td><td class="num base">3148h</td><td class="num ai">1432h</td><td class="found">393.5d → 179d</td></tr>
-<tr class="subtotal"><td>Content migration</td><td class="num base">1424h</td><td class="num ai">912h</td><td class="found">178d → 114d</td></tr>
-<tr class="grand"><td>GRAND TOTAL</td><td class="num">4,572h</td><td class="num">2,344h</td><td>293d · ~14.7 pm · <b>−49%</b></td></tr>
+<tr><td>Project setup / Foundation</td><td class="num ai">100h</td><td class="found">Repo, header, nav, footer, theming, i18n setup</td></tr><tr><td>Block development</td><td class="num ai">736h</td><td class="found">22 blocks · 37 variations</td></tr><tr><td>Template development</td><td class="num ai">628h</td><td class="found">22 templates</td></tr><tr><td>3rd-party integrations</td><td class="num ai">168h</td><td class="found">13 integrations</td></tr><tr><td>Production readiness</td><td class="num ai">40h</td><td class="found">Perf/CWV, a11y, cross-browser, launch hardening</td></tr><tr><td>QA &amp; Testing (a11y, responsive, cross-browser, perf, regression, UAT)</td><td class="num ai">418h</td><td class="found">~25% of build</td></tr><tr><td>Documentation</td><td class="num ai">134h</td><td class="found">~8%</td></tr><tr><td>Project management</td><td class="num ai">201h</td><td class="found">~12%</td></tr><tr><td>Contingency</td><td class="num ai">364h</td><td class="found">15%</td></tr>
+<tr class="subtotal"><td>Development subtotal</td><td class="num ai">2,789h</td><td class="found">348.6 person-days</td></tr>
+<tr class="total-row"><td>Content migration</td><td class="num">400h</td><td>50 person-days</td></tr>
+<tr class="grand"><td>GRAND TOTAL</td><td class="num">3,189h</td><td>398.6 person-days · ~19.9 person-months</td></tr>
 </tbody></table>
-<div class="note">Figures assume a senior EDS delivery team leveraging Claude, an 8-hour person-day, and ~20 working days/month. The AI-assisted column reflects code/parser/documentation generation acceleration; it is not a flat discount. Excludes per-locale content translation, rebuild of the external configurator app, and any net-new visual design. To be confirmed in a discovery workshop.</div>
+<div class="note">Figures assume a senior EDS delivery team leveraging Claude for code/parser/documentation generation, an 8-hour person-day, and ~20 working days/month. Excludes per-locale content translation, rebuild of the external configurator app, and any net-new visual design. To be confirmed in a discovery workshop.</div>
 </section>
 
 <section id="assume">
