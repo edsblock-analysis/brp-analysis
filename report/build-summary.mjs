@@ -89,7 +89,7 @@ const integModel = {
   'BRP Dealer Marketing (Azure)': ['Dealer tracking iframe (0×0)', 'Re-add hidden iframe in delayed phase', 'Low', 0.5],
   'YouTube': ['Video embeds', 'Lite-embed / facade pattern for LCP', 'Medium', 2],
   'Google Analytics (gtag)': ['GA4 analytics', 'Via GTM / delayed.js', 'Low', 0.5],
-  'Adobe Scene7 / Dynamic Media': ['DAM image/video delivery', 'Keep Scene7 URLs or move to EDS images', 'Medium', 3],
+  'Adobe Scene7 / Dynamic Media': ['DAM image/video delivery', 'Keep Scene7 URLs or move to EDS images', 'Medium', 7.5],
   'BRP DAM CDN': ['Digital asset delivery (cdn-dam.brp.com)', 'Reference or migrate assets to EDS', 'Medium', 2],
   'Adobe DTM/Launch': ['Legacy tag manager', 'Consolidate into GTM / delayed', 'Low', 1],
   'Facebook': ['Social pixel / embed', 'Delayed phase', 'Low', 0.5],
