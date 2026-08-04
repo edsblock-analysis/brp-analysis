@@ -71,10 +71,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">24</div><div class="l">Blocks</div></div>
   <div class="kpi"><div class="n">37</div><div class="l">Variations</div></div>
   <div class="kpi"><div class="n">22</div><div class="l">Templates</div></div>
-  <div class="kpi"><div class="n">12</div><div class="l">Integrations</div></div>
-  <div class="kpi big"><div class="n">1,267h</div><div class="l">Development</div></div>
+  <div class="kpi"><div class="n">3</div><div class="l">Integrations</div></div>
+  <div class="kpi big"><div class="n">1,199h</div><div class="l">Development</div></div>
   <div class="kpi big"><div class="n">400h</div><div class="l">Content migration</div></div>
-  <div class="kpi big"><div class="n">1,667h</div><div class="l">Grand total</div></div>
+  <div class="kpi big"><div class="n">1,599h</div><div class="l">Grand total</div></div>
 </div>
 </section>
 
@@ -112,11 +112,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 
 <section id="integ">
 <h2 class="sec">4 · Third-Party Integrations & Effort</h2>
-<p class="lead">12 integrations detected across the site. "Pages" = pages where the integration was observed.</p>
+<p class="lead">The <b>3 integrations below are in scope</b> for this estimate. All other third-party integrations observed on the site are <b>out of scope</b> and would be estimated separately if required (see Assumptions §7). "Pages" = pages where the integration was observed.</p>
 <table>
 <thead><tr><th>Integration</th><th class="num">Pages</th><th>Purpose</th><th>Migration strategy</th><th>Impact</th><th class="num">Effort</th></tr></thead>
-<tbody><tr><td><b>Google Tag Manager</b></td><td class="num">1172</td><td>Tag management / analytics container</td><td>Re-add via delayed.js; keep GTM container ID</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>Adobe RUM (helix-rum)</b></td><td class="num">1172</td><td>Real User Monitoring — already Helix RUM</td><td>Native to EDS; already present</td><td><span class="cx cx-Low">Low</span></td><td class="num">0h</td></tr><tr><td><b>Dynatrace (ruxit)</b></td><td class="num">1172</td><td>APM / performance monitoring</td><td>Load in delayed phase; verify perf budget</td><td><span class="cx cx-Low">Low</span></td><td class="num">8h</td></tr><tr><td><b>Typekit</b></td><td class="num">1172</td><td>Adobe Fonts (Typekit)</td><td>Move to fonts.css, font-display:swap; self-host if possible</td><td><span class="cx cx-Low">Low</span></td><td class="num">8h</td></tr><tr><td><b>BRP Dealer Marketing (Azure)</b></td><td class="num">1172</td><td>Dealer tracking iframe (0×0)</td><td>Re-add hidden iframe in delayed phase</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>YouTube</b></td><td class="num">1169</td><td>Video embeds</td><td>Lite-embed / facade pattern for LCP</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16h</td></tr><tr><td><b>Google Analytics (gtag)</b></td><td class="num">20</td><td>GA4 analytics</td><td>Via GTM / delayed.js</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>Adobe Scene7 / Dynamic Media</b></td><td class="num">16</td><td>DAM image/video delivery</td><td>Keep Scene7 URLs or move to EDS images</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">60h</td></tr><tr><td><b>BRP DAM CDN</b></td><td class="num">16</td><td>Digital asset delivery (cdn-dam.brp.com)</td><td>Reference or migrate assets to EDS</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16h</td></tr><tr><td><b>Adobe DTM/Launch</b></td><td class="num">3</td><td>Legacy tag manager</td><td>Consolidate into GTM / delayed</td><td><span class="cx cx-Low">Low</span></td><td class="num">8h</td></tr><tr><td><b>Facebook</b></td><td class="num">1</td><td>Social pixel / embed</td><td>Delayed phase</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>Google Maps</b></td><td class="num">1</td><td>Dealer / location map</td><td>Dealer-locator block (facade + API)</td><td><span class="cx cx-High">High</span></td><td class="num">32h</td></tr>
-<tr class="total-row"><td>TOTAL — 12 integrations</td><td class="num">—</td><td colspan="3"></td><td class="num">164h</td></tr>
+<tbody><tr><td><b>Google Tag Manager</b></td><td class="num">1172</td><td>Tag management / analytics container</td><td>Re-add via delayed.js; keep GTM container ID</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>Adobe Scene7 / Dynamic Media</b></td><td class="num">16</td><td>DAM image/video delivery</td><td>Keep Scene7 URLs or move to EDS images</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">60h</td></tr><tr><td><b>Google Maps</b></td><td class="num">1</td><td>Dealer / location map</td><td>Dealer-locator block (facade + API)</td><td><span class="cx cx-High">High</span></td><td class="num">32h</td></tr>
+<tr class="total-row"><td>TOTAL — 3 integrations</td><td class="num">—</td><td colspan="3"></td><td class="num">96h</td></tr>
 </tbody></table>
 <div class="evidence"><a href="index.html#integ" target="_blank">▸ Integration report (full)</a><a href="data/aggregates.json" target="_blank">▸ aggregates.json (raw evidence)</a></div>
 </section>
@@ -138,10 +138,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <table>
 <thead><tr><th>Category</th><th class="num">Effort (hours)</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td>Project setup / Foundation</td><td class="num ai">120h</td><td class="found">Repo, header, nav, footer, theming, i18n setup</td></tr><tr><td>Block development</td><td class="num ai">763h</td><td class="found">24 blocks (incl. 2 commerce) · 37 variations</td></tr><tr><td>Template development</td><td class="num ai">180h</td><td class="found">22 templates</td></tr><tr><td>3rd-party integrations</td><td class="num ai">164h</td><td class="found">12 integrations</td></tr><tr><td>Production readiness</td><td class="num ai">40h</td><td class="found">Perf/CWV, a11y, cross-browser, launch hardening</td></tr>
-<tr class="subtotal"><td>Development subtotal</td><td class="num ai">1,267h</td><td class="found">158.4 person-days</td></tr>
+<tr><td>Project setup / Foundation</td><td class="num ai">120h</td><td class="found">Repo, header, nav, footer, theming, i18n setup</td></tr><tr><td>Block development</td><td class="num ai">763h</td><td class="found">24 blocks (incl. 2 commerce) · 37 variations</td></tr><tr><td>Template development</td><td class="num ai">180h</td><td class="found">22 templates</td></tr><tr><td>3rd-party integrations</td><td class="num ai">96h</td><td class="found">3 integrations</td></tr><tr><td>Production readiness</td><td class="num ai">40h</td><td class="found">Perf/CWV, a11y, cross-browser, launch hardening</td></tr>
+<tr class="subtotal"><td>Development subtotal</td><td class="num ai">1,199h</td><td class="found">149.9 person-days</td></tr>
 <tr class="total-row"><td>Content migration</td><td class="num">400h</td><td>50 person-days</td></tr>
-<tr class="grand"><td>GRAND TOTAL</td><td class="num">1,667h</td><td>208.4 person-days · ~10.4 person-months</td></tr>
+<tr class="grand"><td>GRAND TOTAL</td><td class="num">1,599h</td><td>199.9 person-days · ~10.0 person-months</td></tr>
 </tbody></table>
 </section>
 
@@ -157,7 +157,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <li><b>Analytics tracking:</b> the estimate covers re-instating existing tags/containers as observed. Any <b>customization to analytics tracking</b> (new events, data-layer changes, custom dimensions, tag-manager rework) will be <b>estimated separately</b>.</li>
 <li><b>New blocks / scope:</b> the estimate covers the 22 blocks and 37 variations identified in this analysis. Any <b>new block or variation</b> discovered beyond this list (e.g. from unreleased pages, future campaigns, or authoring needs) will be <b>estimated separately</b>.</li>
 <li><b>Content authoring &amp; translation:</b> per-locale content translation and net-new content authoring are <b>excluded</b>; the estimate assumes migration of existing published content only.</li>
-<li><b>Third-party dependencies:</b> external systems (BYO configurator, Adobe Commerce endpoints, Google Maps, DAM/CDN) remain available and functional; changes to those systems or their APIs are <b>out of scope</b>.</li>
+<li><b>Third-party integrations in scope:</b> only <b>Google Tag Manager</b>, <b>Adobe Scene7 / Dynamic Media</b> and <b>Google Maps</b> are included in this estimate. All other third-party integrations (e.g. Dynatrace, Typekit, YouTube, GA4, DAM/CDN, dealer-marketing pixel, legacy tag managers) are <b>out of scope</b>; if any are required they will be <b>estimated separately</b>. External systems are assumed available and functional; changes to those systems or their APIs are out of scope.</li>
 <li><b>Access &amp; environments:</b> timely access to source content, DAM assets, credentials, GitHub/EDS environments and the required tag-manager/analytics accounts is assumed; delays may impact the timeline.</li>
 <li><b>Browser &amp; device support:</b> current-generation evergreen browsers and standard responsive breakpoints; legacy-browser support is <b>excluded</b>.</li>
 <li>Estimates are <b>planning-grade</b> and to be refined in discovery.</li>

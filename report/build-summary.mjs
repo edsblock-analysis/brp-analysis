@@ -95,10 +95,15 @@ const integModel = {
   'Facebook': ['Social pixel / embed', 'Delayed phase', 'Low', 0.5],
   'Google Maps': ['Dealer / location map', 'Dealer-locator block (facade + API)', 'High', 4],
 };
-const integRows = Object.entries(agg.integrations).map(([name, pg]) => {
-  const m = integModel[name] || ['—', 'Assess during discovery', 'Medium', 2];
-  return { name, pages: pg, purpose: m[0], strategy: m[1], impact: m[2], days: m[3] };
-}).sort((a, b) => b.pages - a.pages);
+// Only these integrations are taken in scope; everything else is out of scope
+// (to be estimated separately if required) — see Assumptions §7.
+const IN_SCOPE_INTEGRATIONS = ['Google Tag Manager', 'Adobe Scene7 / Dynamic Media', 'Google Maps'];
+const integRows = Object.entries(agg.integrations)
+  .filter(([name]) => IN_SCOPE_INTEGRATIONS.includes(name))
+  .map(([name, pg]) => {
+    const m = integModel[name] || ['—', 'Assess during discovery', 'Medium', 2];
+    return { name, pages: pg, purpose: m[0], strategy: m[1], impact: m[2], days: m[3] };
+  }).sort((a, b) => b.pages - a.pages);
 const integDays = integRows.reduce((s, r) => s + r.days, 0);
 
 // ---------------- CONTENT MIGRATION ----------------
@@ -305,7 +310,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 
 <section id="integ">
 <h2 class="sec">4 · Third-Party Integrations & Effort</h2>
-<p class="lead">${integRows.length} integrations detected across the site. "Pages" = pages where the integration was observed.</p>
+<p class="lead">The <b>${integRows.length} integrations below are in scope</b> for this estimate. All other third-party integrations observed on the site are <b>out of scope</b> and would be estimated separately if required (see Assumptions §7). "Pages" = pages where the integration was observed.</p>
 <table>
 <thead><tr><th>Integration</th><th class="num">Pages</th><th>Purpose</th><th>Migration strategy</th><th>Impact</th><th class="num">Effort</th></tr></thead>
 <tbody>${integTable}
@@ -350,7 +355,7 @@ ${rollupTable}
 <li><b>Analytics tracking:</b> the estimate covers re-instating existing tags/containers as observed. Any <b>customization to analytics tracking</b> (new events, data-layer changes, custom dimensions, tag-manager rework) will be <b>estimated separately</b>.</li>
 <li><b>New blocks / scope:</b> the estimate covers the ${blockRows.length} blocks and ${totalVariations} variations identified in this analysis. Any <b>new block or variation</b> discovered beyond this list (e.g. from unreleased pages, future campaigns, or authoring needs) will be <b>estimated separately</b>.</li>
 <li><b>Content authoring &amp; translation:</b> per-locale content translation and net-new content authoring are <b>excluded</b>; the estimate assumes migration of existing published content only.</li>
-<li><b>Third-party dependencies:</b> external systems (BYO configurator, Adobe Commerce endpoints, Google Maps, DAM/CDN) remain available and functional; changes to those systems or their APIs are <b>out of scope</b>.</li>
+<li><b>Third-party integrations in scope:</b> only <b>Google Tag Manager</b>, <b>Adobe Scene7 / Dynamic Media</b> and <b>Google Maps</b> are included in this estimate. All other third-party integrations (e.g. Dynatrace, Typekit, YouTube, GA4, DAM/CDN, dealer-marketing pixel, legacy tag managers) are <b>out of scope</b>; if any are required they will be <b>estimated separately</b>. External systems are assumed available and functional; changes to those systems or their APIs are out of scope.</li>
 <li><b>Access &amp; environments:</b> timely access to source content, DAM assets, credentials, GitHub/EDS environments and the required tag-manager/analytics accounts is assumed; delays may impact the timeline.</li>
 <li><b>Browser &amp; device support:</b> current-generation evergreen browsers and standard responsive breakpoints; legacy-browser support is <b>excluded</b>.</li>
 <li>Estimates are <b>planning-grade</b> and to be refined in discovery.</li>
