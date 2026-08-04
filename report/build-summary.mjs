@@ -136,11 +136,7 @@ const prodReadyHrs = 40; // production readiness: perf/CWV, a11y, cross-browser,
 const contentHrs = 400; // agreed content migration target
 
 const buildSubtotalHrs = foundationHrs + blockHrs + templateHrs + integHrs + prodReadyHrs;
-const qaHrs = Math.round(buildSubtotalHrs * 0.25);
-const docsHrs = Math.round(buildSubtotalHrs * 0.08);
-const pmHrs = Math.round(buildSubtotalHrs * 0.12);
-const contingencyHrs = Math.round((buildSubtotalHrs + qaHrs + docsHrs + pmHrs) * 0.15);
-const devTotalHrs = buildSubtotalHrs + qaHrs + docsHrs + pmHrs + contingencyHrs;
+const devTotalHrs = buildSubtotalHrs;
 const grandHrs = devTotalHrs + contentHrs;
 
 // distribute a target across items proportional to base weights; integers summing exactly to target
@@ -172,10 +168,6 @@ const rollup = [
   ['Template development', templateHrs, `${templateRows.length} templates`],
   ['3rd-party integrations', integHrs, `${integRows.length} integrations`],
   ['Production readiness', prodReadyHrs, 'Perf/CWV, a11y, cross-browser, launch hardening'],
-  ['QA & Testing (a11y, responsive, cross-browser, perf, regression, UAT)', qaHrs, '~25% of build'],
-  ['Documentation', docsHrs, '~8%'],
-  ['Project management', pmHrs, '~12%'],
-  ['Contingency', contingencyHrs, '15%'],
 ];
 const rollupTable = rollup.map((r) => `<tr><td>${esc(r[0])}</td><td class="num ai">${r[1]}h</td><td class="found">${esc(r[2])}</td></tr>`).join('');
 
@@ -319,7 +311,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 
 <section id="rollup">
 <h2 class="sec">6 · Total Estimate</h2>
-<p class="lead">AI-assisted (Claude-leveraged) production estimate. QA is ~25% of build, documentation ~8%, project management ~12%, contingency 15%.</p>
+<p class="lead">AI-assisted (Claude-leveraged) production estimate covering direct build and delivery.</p>
 <table>
 <thead><tr><th>Category</th><th class="num">Effort (hours)</th><th>Notes</th></tr></thead>
 <tbody>
@@ -368,6 +360,5 @@ ${rollupTable}
 fs.writeFileSync(path.join(ROOT, 'report', 'summary.html'), html);
 console.log('Written report/summary.html', (html.length / 1024).toFixed(0), 'KB');
 console.log('Foundation:', foundationHrs + 'h', '| Blocks:', blockHrs + 'h', '| Templates:', templateHrs + 'h', '| Integrations:', integHrs + 'h', '| Prod-ready:', prodReadyHrs + 'h');
-console.log('QA:', qaHrs + 'h', '| Docs:', docsHrs + 'h', '| PM:', pmHrs + 'h', '| Contingency:', contingencyHrs + 'h');
 console.log('Dev total:', devTotalHrs + 'h', '| Content:', contentHrs + 'h', '| GRAND:', grandHrs + 'h', `(${toDays(grandHrs)}d)`);
 console.log('Foundation items sum:', foundationHrsItems.reduce((s, x) => s + x, 0), '| Content items sum:', contentHrsItems.reduce((s, x) => s + x, 0));
