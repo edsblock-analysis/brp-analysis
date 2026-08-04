@@ -1,0 +1,1957 @@
+{
+  "templateCounts": {
+    "Home": 1,
+    "Parts, Accessories & Apparel": 8,
+    "Section Landing": 6,
+    "Brand Home": 5,
+    "Owner Zone / Support Article": 197,
+    "Promotion / Campaign": 5,
+    "Experience / Editorial": 283,
+    "Blog / Article": 62,
+    "Content Page (Generic)": 19,
+    "Product Listing (Model Year)": 16,
+    "Product Detail (Model)": 335,
+    "Shopping Tool": 1,
+    "Form / Lead Gen": 2,
+    "Dealer Locator": 1,
+    "Downloads / Brochures": 1,
+    "Product Configurator (BYO)": 183,
+    "News": 18,
+    "Events": 8,
+    "About / Corporate": 6,
+    "Legal / Utility": 5,
+    "Press Release": 8,
+    "FAQ": 2
+  },
+  "map": {
+    "Home": {
+      "Hero": {
+        "blockPages": 1,
+        "variations": {
+          "Standard image hero": 1,
+          "Video hero (inline autoplay)": 1
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 1,
+          "Two-line animated headline": 1,
+          "Sub-content overlay": 1,
+          "Eyebrow/subtitle": 1,
+          "CTA actions bar": 1
+        }
+      },
+      "Video": {
+        "blockPages": 1,
+        "variations": {
+          "YouTube embed (façade)": 1,
+          "Self-hosted WebM/MP4": 1,
+          "Inline hero background video": 1
+        },
+        "capabilities": {
+          "Click-to-play modal": 1
+        }
+      },
+      "Image": {
+        "blockPages": 1,
+        "variations": {
+          "Responsive DAM image": 1,
+          "Scene7 / Dynamic Media": 1
+        },
+        "capabilities": {
+          "Lazy loading": 1,
+          "Focal-position modifier": 1
+        }
+      },
+      "Container / Section": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Parts, Accessories & Apparel": {
+      "Teaser": {
+        "blockPages": 8,
+        "variations": {
+          "CTA teaser": 8,
+          "Descriptive teaser": 8,
+          "Title-only nav teaser": 4,
+          "Image Card (named)": 2
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 8,
+        "variations": {
+          "Responsive DAM image": 8
+        },
+        "capabilities": {
+          "Lazy loading": 8,
+          "Focal-position modifier": 6
+        }
+      },
+      "Container / Section": {
+        "blockPages": 8,
+        "variations": {
+          "Standard": 8
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 8,
+        "variations": {
+          "Standard": 8
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 6,
+        "variations": {
+          "Standard": 6
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 6,
+        "variations": {
+          "Standard": 6
+        },
+        "capabilities": {}
+      },
+      "Hero": {
+        "blockPages": 6,
+        "variations": {
+          "Standard image hero": 6,
+          "Video hero (inline autoplay)": 1
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 6,
+          "Two-line animated headline": 6,
+          "Sub-content overlay": 6,
+          "Eyebrow/subtitle": 3,
+          "CTA actions bar": 2
+        }
+      },
+      "Carousel": {
+        "blockPages": 6,
+        "variations": {
+          "Standard media carousel": 6,
+          "Tabbed carousel": 6
+        },
+        "capabilities": {
+          "Peek/blurry edges": 6,
+          "Auto-advance (5s)": 6
+        }
+      },
+      "Accordion": {
+        "blockPages": 2,
+        "variations": {
+          "Standard accordion": 2,
+          "FAQ accordion": 1
+        },
+        "capabilities": {}
+      },
+      "Video": {
+        "blockPages": 2,
+        "variations": {
+          "YouTube embed (façade)": 2,
+          "Self-hosted WebM/MP4": 1,
+          "Inline hero background video": 1
+        },
+        "capabilities": {
+          "Click-to-play modal": 2
+        }
+      },
+      "Configurator Package Selector": {
+        "blockPages": 6,
+        "variations": {
+          "Package lead selector": 6
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      }
+    },
+    "Section Landing": {
+      "Teaser": {
+        "blockPages": 6,
+        "variations": {
+          "CTA teaser": 6,
+          "Descriptive teaser": 3,
+          "Image Card (named)": 2,
+          "Title-only nav teaser": 2
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 6,
+        "variations": {
+          "Responsive DAM image": 6
+        },
+        "capabilities": {
+          "Lazy loading": 6,
+          "Focal-position modifier": 2
+        }
+      },
+      "Container / Section": {
+        "blockPages": 6,
+        "variations": {
+          "Standard": 6
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 6,
+        "variations": {
+          "Standard": 6
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Hero": {
+        "blockPages": 2,
+        "variations": {
+          "Standard image hero": 2,
+          "Video hero (inline autoplay)": 1
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 2,
+          "Two-line animated headline": 2,
+          "Sub-content overlay": 2
+        }
+      },
+      "Video": {
+        "blockPages": 1,
+        "variations": {
+          "Self-hosted WebM/MP4": 1,
+          "Inline hero background video": 1
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Brand Home": {
+      "Hero": {
+        "blockPages": 5,
+        "variations": {
+          "Standard image hero": 5,
+          "Video hero (inline autoplay)": 4
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 5,
+          "Two-line animated headline": 5,
+          "Sub-content overlay": 5,
+          "CTA actions bar": 5,
+          "Eyebrow/subtitle": 4
+        }
+      },
+      "Teaser": {
+        "blockPages": 5,
+        "variations": {
+          "CTA teaser": 5,
+          "Descriptive teaser": 4,
+          "Title-only nav teaser": 5,
+          "Image Card (named)": 3
+        },
+        "capabilities": {}
+      },
+      "Video": {
+        "blockPages": 5,
+        "variations": {
+          "Self-hosted WebM/MP4": 4,
+          "Inline hero background video": 4,
+          "YouTube embed (façade)": 1
+        },
+        "capabilities": {
+          "Click-to-play modal": 1
+        }
+      },
+      "Image": {
+        "blockPages": 5,
+        "variations": {
+          "Responsive DAM image": 5
+        },
+        "capabilities": {
+          "Lazy loading": 5,
+          "Focal-position modifier": 5
+        }
+      },
+      "Container / Section": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 3,
+        "variations": {
+          "Standard": 3
+        },
+        "capabilities": {}
+      },
+      "Carousel": {
+        "blockPages": 3,
+        "variations": {
+          "Standard media carousel": 3,
+          "Tabbed carousel": 3
+        },
+        "capabilities": {
+          "Peek/blurry edges": 3,
+          "Auto-advance (5s)": 3
+        }
+      },
+      "Configurator Package Selector": {
+        "blockPages": 3,
+        "variations": {
+          "Package lead selector": 3
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Owner Zone / Support Article": {
+      "Hero": {
+        "blockPages": 95,
+        "variations": {
+          "Standard image hero": 95,
+          "Video hero (inline autoplay)": 5
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 95,
+          "Two-line animated headline": 95,
+          "Sub-content overlay": 95,
+          "Eyebrow/subtitle": 16,
+          "CTA actions bar": 20
+        }
+      },
+      "Teaser": {
+        "blockPages": 167,
+        "variations": {
+          "CTA teaser": 165,
+          "Descriptive teaser": 30,
+          "Title-only nav teaser": 84,
+          "Image Card (named)": 52
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 171,
+        "variations": {
+          "Responsive DAM image": 171
+        },
+        "capabilities": {
+          "Lazy loading": 171,
+          "Focal-position modifier": 95
+        }
+      },
+      "Container / Section": {
+        "blockPages": 196,
+        "variations": {
+          "Standard": 196
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 192,
+        "variations": {
+          "Standard": 192
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 194,
+        "variations": {
+          "Standard": 194
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 142,
+        "variations": {
+          "Standard": 142
+        },
+        "capabilities": {}
+      },
+      "Video": {
+        "blockPages": 77,
+        "variations": {
+          "YouTube embed (façade)": 72,
+          "Self-hosted WebM/MP4": 5,
+          "Inline hero background video": 5
+        },
+        "capabilities": {
+          "Click-to-play modal": 72
+        }
+      },
+      "Title / Heading": {
+        "blockPages": 77,
+        "variations": {
+          "Standard": 77
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 72,
+        "variations": {
+          "Standard": 72
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 127,
+        "variations": {
+          "Standard": 127
+        },
+        "capabilities": {}
+      },
+      "Accordion": {
+        "blockPages": 8,
+        "variations": {
+          "Standard accordion": 8,
+          "FAQ accordion": 5
+        },
+        "capabilities": {}
+      },
+      "Dealer Locator / Map": {
+        "blockPages": 1,
+        "variations": {
+          "Marker/pin dataset map": 1
+        },
+        "capabilities": {}
+      },
+      "Gallery": {
+        "blockPages": 5,
+        "variations": {
+          "Image grid": 4,
+          "Lightbox gallery": 1
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 3,
+        "variations": {
+          "Standard": 3
+        },
+        "capabilities": {}
+      }
+    },
+    "Promotion / Campaign": {
+      "Teaser": {
+        "blockPages": 5,
+        "variations": {
+          "Image Card (named)": 5,
+          "CTA teaser": 2,
+          "Descriptive teaser": 2
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 5,
+        "variations": {
+          "Responsive DAM image": 5
+        },
+        "capabilities": {
+          "Lazy loading": 5
+        }
+      },
+      "Container / Section": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Configurator Package Selector": {
+        "blockPages": 1,
+        "variations": {
+          "Package lead selector": 1
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      }
+    },
+    "Experience / Editorial": {
+      "Hero": {
+        "blockPages": 177,
+        "variations": {
+          "Standard image hero": 177,
+          "Video hero (inline autoplay)": 25
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 177,
+          "Two-line animated headline": 177,
+          "Sub-content overlay": 177,
+          "Eyebrow/subtitle": 87,
+          "CTA actions bar": 55
+        }
+      },
+      "Teaser": {
+        "blockPages": 239,
+        "variations": {
+          "CTA teaser": 223,
+          "Descriptive teaser": 173,
+          "Title-only nav teaser": 108,
+          "Image Card (named)": 52
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 264,
+        "variations": {
+          "Responsive DAM image": 264
+        },
+        "capabilities": {
+          "Lazy loading": 264,
+          "Focal-position modifier": 174
+        }
+      },
+      "Container / Section": {
+        "blockPages": 283,
+        "variations": {
+          "Standard": 283
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 264,
+        "variations": {
+          "Standard": 264
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 252,
+        "variations": {
+          "Standard": 252
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 95,
+        "variations": {
+          "Standard": 95
+        },
+        "capabilities": {}
+      },
+      "Accordion": {
+        "blockPages": 18,
+        "variations": {
+          "Standard accordion": 18,
+          "FAQ accordion": 13
+        },
+        "capabilities": {}
+      },
+      "Video": {
+        "blockPages": 106,
+        "variations": {
+          "YouTube embed (façade)": 98,
+          "Self-hosted WebM/MP4": 25,
+          "Inline hero background video": 25
+        },
+        "capabilities": {
+          "Click-to-play modal": 98
+        }
+      },
+      "Text / Rich Text": {
+        "blockPages": 187,
+        "variations": {
+          "Standard": 187
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 98,
+        "variations": {
+          "Standard": 98
+        },
+        "capabilities": {}
+      },
+      "Carousel": {
+        "blockPages": 44,
+        "variations": {
+          "Standard media carousel": 44,
+          "Tabbed carousel": 44
+        },
+        "capabilities": {
+          "Peek/blurry edges": 44,
+          "Auto-advance (5s)": 44
+        }
+      },
+      "Configurator Package Selector": {
+        "blockPages": 57,
+        "variations": {
+          "Package lead selector": 57,
+          "Multi-package chooser": 2
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 45,
+        "variations": {
+          "Standard": 45
+        },
+        "capabilities": {}
+      },
+      "Gallery": {
+        "blockPages": 58,
+        "variations": {
+          "Lightbox gallery": 53,
+          "Image grid": 5
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 13,
+        "variations": {
+          "Standard": 13
+        },
+        "capabilities": {}
+      },
+      "Dealer Locator / Map": {
+        "blockPages": 5,
+        "variations": {
+          "Marker/pin dataset map": 5
+        },
+        "capabilities": {}
+      },
+      "Page-Level Navigation": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Blog / Article": {
+      "Teaser": {
+        "blockPages": 25,
+        "variations": {
+          "CTA teaser": 24,
+          "Descriptive teaser": 18,
+          "Title-only nav teaser": 19,
+          "Image Card (named)": 16
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 62,
+        "variations": {
+          "Standard": 62
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 52,
+        "variations": {
+          "Standard": 52
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 42,
+        "variations": {
+          "Standard": 42
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 31,
+        "variations": {
+          "Standard": 31
+        },
+        "capabilities": {}
+      },
+      "Video": {
+        "blockPages": 14,
+        "variations": {
+          "YouTube embed (façade)": 14
+        },
+        "capabilities": {
+          "Click-to-play modal": 14
+        }
+      },
+      "Image": {
+        "blockPages": 54,
+        "variations": {
+          "Responsive DAM image": 54
+        },
+        "capabilities": {
+          "Lazy loading": 54,
+          "Focal-position modifier": 27
+        }
+      },
+      "Title / Heading": {
+        "blockPages": 25,
+        "variations": {
+          "Standard": 25
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 38,
+        "variations": {
+          "Standard": 38
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 14,
+        "variations": {
+          "Standard": 14
+        },
+        "capabilities": {}
+      },
+      "Hero": {
+        "blockPages": 27,
+        "variations": {
+          "Standard image hero": 27
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 27,
+          "Two-line animated headline": 27,
+          "Sub-content overlay": 27,
+          "CTA actions bar": 16
+        }
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Configurator Package Selector": {
+        "blockPages": 1,
+        "variations": {
+          "Package lead selector": 1
+        },
+        "capabilities": {}
+      },
+      "Dealer Locator / Map": {
+        "blockPages": 1,
+        "variations": {
+          "Marker/pin dataset map": 1
+        },
+        "capabilities": {}
+      },
+      "Accordion": {
+        "blockPages": 7,
+        "variations": {
+          "Standard accordion": 7,
+          "FAQ accordion": 7
+        },
+        "capabilities": {}
+      },
+      "Gallery": {
+        "blockPages": 5,
+        "variations": {
+          "Lightbox gallery": 5
+        },
+        "capabilities": {}
+      }
+    },
+    "Content Page (Generic)": {
+      "Hero": {
+        "blockPages": 15,
+        "variations": {
+          "Standard image hero": 15,
+          "Video hero (inline autoplay)": 6
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 15,
+          "Two-line animated headline": 15,
+          "Sub-content overlay": 15,
+          "Eyebrow/subtitle": 7,
+          "CTA actions bar": 11
+        }
+      },
+      "Teaser": {
+        "blockPages": 17,
+        "variations": {
+          "CTA teaser": 15,
+          "Descriptive teaser": 14,
+          "Title-only nav teaser": 15,
+          "Image Card (named)": 3
+        },
+        "capabilities": {}
+      },
+      "Carousel": {
+        "blockPages": 3,
+        "variations": {
+          "Standard media carousel": 3,
+          "Tabbed carousel": 3
+        },
+        "capabilities": {
+          "Peek/blurry edges": 3,
+          "Auto-advance (5s)": 3
+        }
+      },
+      "Video": {
+        "blockPages": 10,
+        "variations": {
+          "YouTube embed (façade)": 5,
+          "Self-hosted WebM/MP4": 6,
+          "Inline hero background video": 6
+        },
+        "capabilities": {
+          "Click-to-play modal": 5
+        }
+      },
+      "Image": {
+        "blockPages": 17,
+        "variations": {
+          "Responsive DAM image": 17,
+          "Scene7 / Dynamic Media": 1
+        },
+        "capabilities": {
+          "Lazy loading": 17,
+          "Focal-position modifier": 15
+        }
+      },
+      "Configurator Package Selector": {
+        "blockPages": 4,
+        "variations": {
+          "Package lead selector": 4
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 19,
+        "variations": {
+          "Standard": 19
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 17,
+        "variations": {
+          "Standard": 17
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 14,
+        "variations": {
+          "Standard": 14
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 7,
+        "variations": {
+          "Standard": 7
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 3,
+        "variations": {
+          "Standard": 3
+        },
+        "capabilities": {}
+      },
+      "Gallery": {
+        "blockPages": 3,
+        "variations": {
+          "Tile mosaic": 1,
+          "Lightbox gallery": 2
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Tabs": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      }
+    },
+    "Product Listing (Model Year)": {
+      "Teaser": {
+        "blockPages": 16,
+        "variations": {
+          "CTA teaser": 16,
+          "Descriptive teaser": 7,
+          "Image Card (named)": 10
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 16,
+        "variations": {
+          "Responsive DAM image": 16
+        },
+        "capabilities": {
+          "Lazy loading": 16
+        }
+      },
+      "Container / Section": {
+        "blockPages": 16,
+        "variations": {
+          "Standard": 16
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 16,
+        "variations": {
+          "Standard": 16
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 16,
+        "variations": {
+          "Standard": 16
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 13,
+        "variations": {
+          "Standard": 13
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 12,
+        "variations": {
+          "Standard": 12
+        },
+        "capabilities": {}
+      }
+    },
+    "Product Detail (Model)": {
+      "Hero": {
+        "blockPages": 257,
+        "variations": {
+          "Standard image hero": 257,
+          "Video hero (inline autoplay)": 10
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 257,
+          "Two-line animated headline": 257,
+          "Sub-content overlay": 257,
+          "Eyebrow/subtitle": 227,
+          "CTA actions bar": 64
+        }
+      },
+      "Teaser": {
+        "blockPages": 334,
+        "variations": {
+          "CTA teaser": 327,
+          "Descriptive teaser": 327,
+          "Title-only nav teaser": 109,
+          "Image Card (named)": 145
+        },
+        "capabilities": {}
+      },
+      "Carousel": {
+        "blockPages": 202,
+        "variations": {
+          "Standard media carousel": 202,
+          "Tabbed carousel": 202
+        },
+        "capabilities": {
+          "Peek/blurry edges": 202,
+          "Auto-advance (5s)": 202
+        }
+      },
+      "Accordion": {
+        "blockPages": 33,
+        "variations": {
+          "Standard accordion": 33,
+          "FAQ accordion": 19
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 333,
+        "variations": {
+          "Responsive DAM image": 333,
+          "Scene7 / Dynamic Media": 14
+        },
+        "capabilities": {
+          "Lazy loading": 333,
+          "Focal-position modifier": 252
+        }
+      },
+      "Configurator Package Selector": {
+        "blockPages": 223,
+        "variations": {
+          "Package lead selector": 223,
+          "Multi-package chooser": 88
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 335,
+        "variations": {
+          "Standard": 335
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 327,
+        "variations": {
+          "Standard": 327
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 330,
+        "variations": {
+          "Standard": 330
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 291,
+        "variations": {
+          "Standard": 291
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 66,
+        "variations": {
+          "Standard": 66
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 15,
+        "variations": {
+          "Standard": 15
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 232,
+        "variations": {
+          "Standard": 232
+        },
+        "capabilities": {}
+      },
+      "Video": {
+        "blockPages": 52,
+        "variations": {
+          "YouTube embed (façade)": 43,
+          "Self-hosted WebM/MP4": 10,
+          "Inline hero background video": 10
+        },
+        "capabilities": {
+          "Click-to-play modal": 43
+        }
+      },
+      "Modal / Dialog": {
+        "blockPages": 43,
+        "variations": {
+          "Standard": 43
+        },
+        "capabilities": {}
+      },
+      "Table": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Gallery": {
+        "blockPages": 22,
+        "variations": {
+          "Lightbox gallery": 22
+        },
+        "capabilities": {}
+      }
+    },
+    "Shopping Tool": {
+      "Teaser": {
+        "blockPages": 1,
+        "variations": {
+          "CTA teaser": 1,
+          "Image Card (named)": 1
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 1,
+        "variations": {
+          "Responsive DAM image": 1
+        },
+        "capabilities": {
+          "Lazy loading": 1
+        }
+      },
+      "Dealer Locator / Map": {
+        "blockPages": 1,
+        "variations": {
+          "Marker/pin dataset map": 1
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Form / Lead Gen": {
+      "Teaser": {
+        "blockPages": 2,
+        "variations": {
+          "CTA teaser": 2,
+          "Descriptive teaser": 1
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Accordion": {
+        "blockPages": 1,
+        "variations": {
+          "Standard accordion": 1,
+          "FAQ accordion": 1
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Form": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Dealer Locator": {
+      "Teaser": {
+        "blockPages": 1,
+        "variations": {
+          "CTA teaser": 1
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Downloads / Brochures": {
+      "Teaser": {
+        "blockPages": 1,
+        "variations": {
+          "CTA teaser": 1
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 1,
+        "variations": {
+          "Responsive DAM image": 1
+        },
+        "capabilities": {
+          "Lazy loading": 1
+        }
+      },
+      "Container / Section": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Product Configurator (BYO)": {
+      "Teaser": {
+        "blockPages": 180,
+        "variations": {
+          "CTA teaser": 180,
+          "Image Card (named)": 1
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 12,
+        "variations": {
+          "Responsive DAM image": 12
+        },
+        "capabilities": {
+          "Lazy loading": 12
+        }
+      },
+      "Container / Section": {
+        "blockPages": 183,
+        "variations": {
+          "Standard": 183
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 180,
+        "variations": {
+          "Standard": 180
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 179,
+        "variations": {
+          "Standard": 179
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Iframe / Configurator Embed": {
+        "blockPages": 168,
+        "variations": {
+          "BYO configurator embed": 168,
+          "Generic content iframe": 168
+        },
+        "capabilities": {
+          "Locale parameterised": 168
+        }
+      },
+      "Dealer Locator / Map": {
+        "blockPages": 168,
+        "variations": {
+          "Google Maps locator": 168
+        },
+        "capabilities": {}
+      }
+    },
+    "News": {
+      "Teaser": {
+        "blockPages": 4,
+        "variations": {
+          "CTA teaser": 3,
+          "Descriptive teaser": 1
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 18,
+        "variations": {
+          "Standard": 18
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 3,
+        "variations": {
+          "Standard": 3
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 16,
+        "variations": {
+          "Standard": 16
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Gallery": {
+        "blockPages": 8,
+        "variations": {
+          "Lightbox gallery": 8
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 17,
+        "variations": {
+          "Responsive DAM image": 17
+        },
+        "capabilities": {
+          "Lazy loading": 17
+        }
+      },
+      "Text / Rich Text": {
+        "blockPages": 16,
+        "variations": {
+          "Standard": 16
+        },
+        "capabilities": {}
+      },
+      "Video": {
+        "blockPages": 1,
+        "variations": {
+          "YouTube embed (façade)": 1
+        },
+        "capabilities": {
+          "Click-to-play modal": 1
+        }
+      },
+      "Modal / Dialog": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Configurator Package Selector": {
+        "blockPages": 1,
+        "variations": {
+          "Package lead selector": 1
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 3,
+        "variations": {
+          "Standard": 3
+        },
+        "capabilities": {}
+      }
+    },
+    "Events": {
+      "Teaser": {
+        "blockPages": 6,
+        "variations": {
+          "CTA teaser": 6,
+          "Descriptive teaser": 1,
+          "Title-only nav teaser": 1
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 8,
+        "variations": {
+          "Standard": 8
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 7,
+        "variations": {
+          "Standard": 7
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Gallery": {
+        "blockPages": 5,
+        "variations": {
+          "Lightbox gallery": 5
+        },
+        "capabilities": {}
+      },
+      "Video": {
+        "blockPages": 6,
+        "variations": {
+          "YouTube embed (façade)": 5,
+          "Self-hosted WebM/MP4": 1,
+          "Inline hero background video": 1
+        },
+        "capabilities": {
+          "Click-to-play modal": 5
+        }
+      },
+      "Image": {
+        "blockPages": 7,
+        "variations": {
+          "Responsive DAM image": 7
+        },
+        "capabilities": {
+          "Lazy loading": 7,
+          "Focal-position modifier": 2
+        }
+      },
+      "Dealer Locator / Map": {
+        "blockPages": 7,
+        "variations": {
+          "Single event-location map": 7
+        },
+        "capabilities": {}
+      },
+      "Configurator Package Selector": {
+        "blockPages": 4,
+        "variations": {
+          "Package lead selector": 4
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Hero": {
+        "blockPages": 2,
+        "variations": {
+          "Standard image hero": 2,
+          "Video hero (inline autoplay)": 1
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 2,
+          "Two-line animated headline": 2,
+          "Sub-content overlay": 2,
+          "CTA actions bar": 2
+        }
+      },
+      "Title / Heading": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "About / Corporate": {
+      "Hero": {
+        "blockPages": 6,
+        "variations": {
+          "Standard image hero": 6,
+          "Video hero (inline autoplay)": 1
+        },
+        "capabilities": {
+          "Sticky scroll-pinned": 6,
+          "Two-line animated headline": 6,
+          "Sub-content overlay": 6,
+          "CTA actions bar": 2
+        }
+      },
+      "Teaser": {
+        "blockPages": 3,
+        "variations": {
+          "CTA teaser": 2,
+          "Descriptive teaser": 3,
+          "Title-only nav teaser": 3,
+          "Image Card (named)": 2
+        },
+        "capabilities": {}
+      },
+      "Carousel": {
+        "blockPages": 1,
+        "variations": {
+          "Standard media carousel": 1,
+          "Tabbed carousel": 1
+        },
+        "capabilities": {
+          "Peek/blurry edges": 1,
+          "Auto-advance (5s)": 1
+        }
+      },
+      "Video": {
+        "blockPages": 3,
+        "variations": {
+          "Self-hosted WebM/MP4": 1,
+          "Inline hero background video": 1,
+          "YouTube embed (façade)": 2
+        },
+        "capabilities": {
+          "Click-to-play modal": 2
+        }
+      },
+      "Image": {
+        "blockPages": 6,
+        "variations": {
+          "Responsive DAM image": 6
+        },
+        "capabilities": {
+          "Lazy loading": 6,
+          "Focal-position modifier": 5
+        }
+      },
+      "Configurator Package Selector": {
+        "blockPages": 1,
+        "variations": {
+          "Package lead selector": 1
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 6,
+        "variations": {
+          "Standard": 6
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 3,
+        "variations": {
+          "Standard": 3
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 6,
+        "variations": {
+          "Standard": 6
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 3,
+        "variations": {
+          "Standard": 3
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 6,
+        "variations": {
+          "Standard": 6
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Modal / Dialog": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Accordion": {
+        "blockPages": 1,
+        "variations": {
+          "Standard accordion": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Legal / Utility": {
+      "Teaser": {
+        "blockPages": 1,
+        "variations": {
+          "CTA teaser": 1
+        },
+        "capabilities": {}
+      },
+      "Container / Section": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Text / Rich Text": {
+        "blockPages": 5,
+        "variations": {
+          "Standard": 5
+        },
+        "capabilities": {}
+      },
+      "Form": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 4,
+        "variations": {
+          "Standard": 4
+        },
+        "capabilities": {}
+      },
+      "Downloads (PDF list)": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Page-Level Navigation": {
+        "blockPages": 3,
+        "variations": {
+          "Standard": 3
+        },
+        "capabilities": {}
+      },
+      "Accordion": {
+        "blockPages": 1,
+        "variations": {
+          "Standard accordion": 1
+        },
+        "capabilities": {}
+      },
+      "Table": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "Press Release": {
+      "Container / Section": {
+        "blockPages": 8,
+        "variations": {
+          "Standard": 8
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Breadcrumb": {
+        "blockPages": 7,
+        "variations": {
+          "Standard": 7
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "List": {
+        "blockPages": 1,
+        "variations": {
+          "Standard": 1
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 6,
+        "variations": {
+          "Responsive DAM image": 6
+        },
+        "capabilities": {
+          "Lazy loading": 6
+        }
+      },
+      "Text / Rich Text": {
+        "blockPages": 6,
+        "variations": {
+          "Standard": 6
+        },
+        "capabilities": {}
+      },
+      "Dealer Locator / Map": {
+        "blockPages": 1,
+        "variations": {
+          "Marker/pin dataset map": 1
+        },
+        "capabilities": {}
+      }
+    },
+    "FAQ": {
+      "Teaser": {
+        "blockPages": 2,
+        "variations": {
+          "CTA teaser": 2,
+          "Image Card (named)": 2
+        },
+        "capabilities": {}
+      },
+      "Image": {
+        "blockPages": 2,
+        "variations": {
+          "Responsive DAM image": 2
+        },
+        "capabilities": {
+          "Lazy loading": 2
+        }
+      },
+      "Container / Section": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "CTA / Button": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      },
+      "Title / Heading": {
+        "blockPages": 2,
+        "variations": {
+          "Standard": 2
+        },
+        "capabilities": {}
+      }
+    }
+  }
+}

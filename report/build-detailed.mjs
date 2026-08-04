@@ -7,6 +7,7 @@ const pages = D('pages.json');
 const agg = D('aggregates.json');
 const vars = D('variations.json');
 const tdetail = D('template-detail.json');
+const tbv = D('template-block-variations.json');
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // ---------------- TEMPLATE MODEL ----------------
@@ -205,6 +206,30 @@ const tmplCards = templateRows.map((r) => {
 </div>`;
 }).join('');
 
+// Template -> Block -> Variation mapping cards
+const tbvCards = templateRows.map((r) => {
+  const blocks = tbv.map[r.t] || {};
+  const rows = Object.entries(blocks).sort((a, b) => b[1].blockPages - a[1].blockPages).map(([block, d]) => {
+    const varList = Object.entries(d.variations).sort((a, b) => b[1] - a[1]);
+    const dominant = varList.length ? varList[0][1] : 0;
+    const varChips = varList.map(([nm, c]) => {
+      const share = d.blockPages ? Math.round((c / d.blockPages) * 100) : 0;
+      const cls = share >= 60 ? 'v-hi' : share >= 25 ? 'v-md' : 'v-lo';
+      return `<span class="vchip ${cls}">${esc(nm)} <b>${c}</b><span class="vpct">${share}%</span></span>`;
+    }).join('');
+    const caps = Object.entries(d.capabilities).sort((a, b) => b[1] - a[1]);
+    const capChips = caps.length ? `<div class="capline">+ ${caps.map(([nm, c]) => `<span class="cap2">${esc(nm)} ${c}</span>`).join(' ')}</div>` : '';
+    return `<tr><td class="bcell"><b>${esc(block)}</b><span class="bpg">${d.blockPages} pg</span></td><td>${varChips}${capChips}</td></tr>`;
+  }).join('');
+  return `<div class="card tbv" id="tbv-${esc(r.t.replace(/[^a-z0-9]+/gi, '-').toLowerCase())}">
+<div class="card-head">
+  <h3>${esc(r.t)}</h3>
+  <div class="card-meta">${cxBadge(r.cx)} <span class="tag">${r.n} pages</span> <span class="tag">${Object.keys(blocks).length} blocks used</span></div>
+</div>
+<table class="tbv-tbl"><thead><tr><th>Block</th><th>Variations used (pages · % of the template's pages that use this block)</th></tr></thead><tbody>${rows}</tbody></table>
+</div>`;
+}).join('');
+
 // Matrix
 const matrixBlocks = ['hero-block', 'teaser', 'carousel', 'accordion', 'gallery', 'image', 'video', 'iframe', 'title', 'text', 'list'];
 const matrixCell = (v) => `<td class="mx" style="background:${v === 0 ? '#f6f8fa' : `rgba(37,99,235,${(v / 100) * 0.85 + 0.12})`};color:${v > 55 ? '#fff' : '#111'}">${v || ''}</td>`;
@@ -297,6 +322,18 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:26px}
 .reco-card h4{margin:0 0 6px;font-size:14.5px}
 .reco-card p{margin:0;font-size:12.5px;color:#3a4453}
 .reco-card code{background:#f3f5f9;padding:1px 5px;border-radius:4px;font-size:11.5px}
+.card.tbv{scroll-margin-top:60px}
+.tbv-tbl td{vertical-align:middle}
+.tbv-tbl td.bcell{white-space:nowrap;width:200px}
+.tbv-tbl .bpg{display:block;font-size:10.5px;color:var(--muted);font-weight:400}
+.vchip{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 8px;border-radius:6px;margin:2px;border:1px solid}
+.vchip b{font-weight:800}
+.vchip .vpct{font-size:9.5px;opacity:.75;font-weight:700}
+.vchip.v-hi{background:#dcfce7;border-color:#a7e0b8;color:#166534}
+.vchip.v-md{background:#fef9c3;border-color:#f0e39a;color:#854d0e}
+.vchip.v-lo{background:#eef1f6;border-color:#dfe4ec;color:#3a4453}
+.capline{margin-top:6px;font-size:10.5px;color:var(--muted)}
+.cap2{display:inline-block;background:#f0f6ff;border:1px solid #d6e4fb;color:#1a4bcc;padding:1px 6px;border-radius:5px;margin:1px}
 h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:24px 0 4px}
 </style></head>
 <body>
@@ -311,6 +348,7 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
   <a href="#blocks">Blocks & Variations</a>
   <a href="#templates">Templates</a>
   <a href="#matrix">Mapping Matrix</a>
+  <a href="#tbv">Block→Variation Map</a>
   <a href="#reco">Recommendations</a>
   <a href="#method">Method & Evidence</a>
 </nav>
@@ -389,6 +427,13 @@ ${tmplCards}
 <tbody>${matrixTableRows}</tbody>
 </table>
 </div>
+</section>
+
+<section id="tbv">
+<h2 class="sec">Template → Block → Variation Mapping</h2>
+<p class="lead">The definitive mapping: for each template, exactly <b>which blocks</b> it uses and <b>which variation(s) of each block</b>, with page counts. This is the build spec — it tells you which block variations must be delivered for each template to render correctly. Numbers are pages; the % is the share of that template's pages using the block. Colour: <span class="vchip v-hi">green ≥60%</span> <span class="vchip v-md">amber 25–59%</span> <span class="vchip v-lo">grey &lt;25%</span>.</p>
+<div class="subnav">${templateRows.map((r) => `<a href="#tbv-${esc(r.t.replace(/[^a-z0-9]+/gi, '-').toLowerCase())}">${esc(r.t)}</a>`).join('')}</div>
+${tbvCards}
 </section>
 
 <section id="method">
