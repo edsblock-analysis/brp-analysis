@@ -142,6 +142,28 @@ const BLOCKS = {
   },
 };
 
+// Foundational blocks: single-form building blocks verified in the DOM.
+// Each has exactly one variation (itself) — kept honest, not padded.
+const FOUNDATION = {
+  'Container / Section': { root: /cmp-container|segment-block|responsivegrid/, purpose: 'Responsive grid/section wrapper (aem-Grid) and segment blocks that lay out all other content. Present on virtually every page.' },
+  'CTA / Button': { root: /cmp-button|action-link|cmp-teaser__action/, purpose: 'Call-to-action buttons and action links that drive clicks throughout the site.' },
+  'Breadcrumb': { root: /cmp-breadcrumb|data-cmp-is="breadcrumb"/, purpose: 'Hierarchical breadcrumb navigation reflecting the deep IA (up to 7 levels).' },
+  'Title / Heading': { root: /cmp-title(?![\w-])/, purpose: 'Standalone heading component (H1–H4) used for section titles.' },
+  'Text / Rich Text': { root: /cmp-text(?![\w-])/, purpose: 'Rich-text body copy authored via the WCM text component.' },
+  'Downloads (PDF list)': { root: /href="[^"]+\.pdf/, purpose: 'Lists of downloadable PDF assets (brochures, manuals, spec sheets).' },
+  'Modal / Dialog': { root: /data-toggle="modal"|cmp-modal/, purpose: 'Overlay dialogs for videos, packages and expanded content.' },
+  'List': { root: /cmp-list(?![\w-])/, purpose: 'Dynamic/link lists (navigation, related content, indexes).' },
+  'Page-Level Navigation': { root: /cmp-page-level-navigation/, purpose: 'In-page anchor navigation for long pages. Rare (4 pages).' },
+  'Table': { root: /<table[\s>]/, purpose: 'Data/spec tables. Very rare (2 pages).' },
+  'Form': { root: /<form[\s>]/, purpose: 'Lead-gen / quote / pre-order forms. Very rare (2 pages).' },
+  'Tabs': { root: /data-cmp-is="tabs"|cmp-tabs(?![\w-])/, purpose: 'Horizontal tab component. Very rare (1 page).' },
+};
+for (const [name, def] of Object.entries(FOUNDATION)) {
+  BLOCKS[name] = { root: def.root, purpose: def.purpose, tier: 'foundational', variations: [{ name, d: def.root, diff: 'Single standard form — no distinct variations observed in the DOM.' }], capabilities: [] };
+}
+// tag the rich blocks
+for (const [k, def] of Object.entries(BLOCKS)) { if (!def.tier) def.tier = 'rich'; }
+
 const out = {};
 for (const [block, def] of Object.entries(BLOCKS)) {
   const subset = pagesWithRoot(def.root);
@@ -149,7 +171,7 @@ for (const [block, def] of Object.entries(BLOCKS)) {
     const { pages, occ } = scanIn(subset, v.d);
     return { name: v.name, diff: v.diff, pages, occ, pct: subset.length ? Math.round((pages / subset.length) * 100) : 0 };
   }).filter((v) => v.pages > 0).sort((a, b) => b.pages - a.pages);
-  out[block] = { blockPages: subset.length, purpose: def.purpose, variations: mk(def.variations), capabilities: mk(def.capabilities) };
+  out[block] = { blockPages: subset.length, tier: def.tier, purpose: def.purpose, variations: mk(def.variations), capabilities: mk(def.capabilities) };
 }
 
 out.__meta = { totalPages: docs.length, commercePages: pagesWithRoot(/data-magento-middleware-base-url/).length };
