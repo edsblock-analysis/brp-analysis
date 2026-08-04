@@ -126,15 +126,10 @@ const contentDays = contentRows.reduce((s, r) => s + r[2], 0);
 // per-item build effort; a production-readiness line is added.
 const toDays = (h) => +(h / HPD).toFixed(1);
 const foundationHrs = 120; // agreed: repo, header, nav, footer, theming, i18n setup
-const blockHrs = 780; // agreed: block development (bumped up slightly)
 const templateHrs = 180; // agreed: template development
 const integHrs = H(integDays); // 168
 const prodReadyHrs = 40; // production readiness: perf/CWV, a11y, cross-browser, launch hardening
 const contentHrs = 400; // agreed content migration target
-
-const buildSubtotalHrs = foundationHrs + blockHrs + templateHrs + integHrs + prodReadyHrs;
-const devTotalHrs = buildSubtotalHrs;
-const grandHrs = devTotalHrs + contentHrs;
 
 // distribute a target across items proportional to base weights; integers summing exactly to target
 function scaleTo(weights, target) {
@@ -146,10 +141,29 @@ function scaleTo(weights, target) {
   for (let k = 0; k < order.length && rem > 0; k += 1, rem -= 1) out[order[k][0]] += 1;
   return out;
 }
+
+// Block hours: start from the prior 780h-scaled baseline, then apply agreed
+// per-block overrides. The block total is the actual sum (drops accordingly).
+const BLOCK_HOUR_OVERRIDES = {
+  'Teaser / Card': 40,
+  'Hero / Hero-Block': 40,
+  'Carousel / Slider': 32,
+  'Iframe / BYO Configurator Embed': 40,
+  'Accordion': 16,
+};
+const blockBaseItems = scaleTo(blockRows.map((b) => b.days), 780);
+const blockHrsItems = blockRows.map((b, i) => (
+  BLOCK_HOUR_OVERRIDES[b.name] !== undefined ? BLOCK_HOUR_OVERRIDES[b.name] : blockBaseItems[i]
+));
+const blockHrs = blockHrsItems.reduce((s, h) => s + h, 0);
+
 const foundationHrsItems = scaleTo(foundation.map((f) => f[2]), foundationHrs);
 const contentHrsItems = scaleTo(contentRows.map((c) => c[2]), contentHrs);
-const blockHrsItems = scaleTo(blockRows.map((b) => b.days), blockHrs);
 const templateHrsItems = scaleTo(templateRows.map((r) => r.days), templateHrs);
+
+const buildSubtotalHrs = foundationHrs + blockHrs + templateHrs + integHrs + prodReadyHrs;
+const devTotalHrs = buildSubtotalHrs;
+const grandHrs = devTotalHrs + contentHrs;
 
 // ---------------- RENDER ----------------
 const row = (cells) => `<tr>${cells.map((c, i) => (i === 0 ? `<td>${c}</td>` : `<td class="num">${c}</td>`)).join('')}</tr>`;
