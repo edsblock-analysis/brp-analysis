@@ -225,9 +225,6 @@ tr:nth-child(even){background:#fafbfd}
 .cbadge{display:inline-block;background:#2563eb;color:#fff;font-size:10px;font-weight:800;padding:1px 7px;border-radius:20px;margin-left:6px;text-transform:uppercase;letter-spacing:.3px}
 .grand td{background:#0b7a3b!important;color:#fff;font-weight:800;border-color:#0b7a3b;font-size:15px}
 .subtotal td{background:#eef2f9!important;font-weight:700}
-.note{background:#f0f6ff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13px}
-.note.disc{background:#fef2f2;border-color:#ef4444}
-.note.reco{background:#eefbf1;border-color:#0b7a3b}
 td.base{color:var(--muted);text-decoration:line-through;text-decoration-color:#c7ced9}
 td.ai{font-weight:700;color:#0b7a3b}
 .fac{display:inline-block;background:#dcfce7;color:#166534;font-size:10px;font-weight:800;padding:1px 6px;border-radius:20px;margin-left:4px;text-decoration:none}
@@ -272,7 +269,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi big"><div class="n">${contentHrs.toLocaleString()}h</div><div class="l">Content migration</div></div>
   <div class="kpi big"><div class="n">${grandHrs.toLocaleString()}h</div><div class="l">Grand total</div></div>
 </div>
-<div class="note reco"><b>Production estimate: ≈ ${grandHrs.toLocaleString()}h (${toDays(grandHrs)}d, ~${(toDays(grandHrs) / 20).toFixed(1)} person-months)</b> — AI-assisted (Claude-leveraged) delivery. Split: development ≈ <b>${devTotalHrs.toLocaleString()}h</b> + content migration ≈ <b>${contentHrs.toLocaleString()}h</b>. Foundation setup ${foundationHrs}h, ${blockCount} blocks ${blockHrs}h, ${templateRows.length} templates ${templateHrs}h, integrations ${integHrs}h, production readiness ${prodReadyHrs}h.</div>
 </section>
 
 <section id="setup">
@@ -293,7 +289,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <tbody>${blockTable}
 <tr class="total-row"><td>TOTAL — ${blockCount} blocks</td><td class="num">—</td><td class="num">${totalVariations + commerceBlocks.length}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${blockHrs}h</td></tr>
 </tbody></table>
-<div class="note">The <b>Product Detail</b> (40h) and <b>Product Listing / PLP</b> (60h) commerce blocks are now included in the ${blockHrs}h block total. They consume the existing commerce web APIs client-side to render product data; if the commerce API scope grows materially beyond this, it will be re-estimated with BRP's commerce/product team (see Assumptions §7).</div>
 <div class="evidence"><a href="dashboard.html#inventory" target="_blank">▸ Block inventory (detail)</a><a href="dashboard.html#blocks" target="_blank">▸ Per-block variation deep-dive</a><a href="data/variations.json" target="_blank">▸ variations.json (raw evidence)</a></div>
 </section>
 
@@ -316,7 +311,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <tbody>${integTable}
 <tr class="total-row"><td>TOTAL — ${integRows.length} integrations</td><td class="num">—</td><td colspan="3"></td><td class="num">${hh(integDays)}</td></tr>
 </tbody></table>
-<div class="note disc"><b>Flag for sales:</b> the <b>BYO configurator</b> (168 pages) is an external app embedded via iframe, and commerce product surfaces (PLP / product detail) consume existing web APIs directly in EDS blocks. Both need scoping with BRP's commerce/product team and may expand scope beyond this content-migration estimate.</div>
 <div class="evidence"><a href="index.html#integ" target="_blank">▸ Integration report (full)</a><a href="data/aggregates.json" target="_blank">▸ aggregates.json (raw evidence)</a></div>
 </section>
 
@@ -342,7 +336,6 @@ ${rollupTable}
 <tr class="total-row"><td>Content migration</td><td class="num">${contentHrs.toLocaleString()}h</td><td>${toDays(contentHrs)} person-days</td></tr>
 <tr class="grand"><td>GRAND TOTAL</td><td class="num">${grandHrs.toLocaleString()}h</td><td>${toDays(grandHrs)} person-days · ~${(toDays(grandHrs) / 20).toFixed(1)} person-months</td></tr>
 </tbody></table>
-<div class="note">Figures assume a senior EDS delivery team leveraging Claude for code/parser/documentation generation, an 8-hour person-day, and ~20 working days/month. Excludes per-locale content translation, rebuild of the external configurator app, and any net-new visual design. To be confirmed in a discovery workshop.</div>
 </section>
 
 <section id="assume">
@@ -379,7 +372,6 @@ ${rollupTable}
   <a href="data/template-block-variations.json" target="_blank">◦ template-block-variations.json — mapping</a>
   <a href="data/template-detail.json" target="_blank">◦ template-detail.json — per-template metrics</a>
 </div>
-<div class="note">Every count in this summary is derived from live DOM analysis of all ${pages.length.toLocaleString()} URLs (fetched HTTP 200, 0 errors). Effort figures are planning-grade estimates.</div>
 </section>
 
 <footer>Prepared for sales estimation · ${esc('2026-08-04')} · All effort in hours (8h/day) · Planning-grade, to be refined in discovery.</footer>
