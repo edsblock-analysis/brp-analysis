@@ -132,6 +132,43 @@ const devContingency = Math.round((buildSubtotal + qa + docs + pm) * 0.15);
 const totalDev = buildSubtotal + qa + docs + pm + devContingency;
 const grand = totalDev + contentDays;
 
+// ---------------- AI-ASSISTED (Claude-leveraged) DELIVERY MODEL ----------------
+// Transparent per-category productivity factors: fraction of baseline effort
+// that REMAINS when delivery is AI-accelerated. Lower = more AI leverage.
+// Grounded in where LLM codegen genuinely helps most (block/template code,
+// import parsers, docs) vs where human judgement still dominates (nav UX,
+// commerce integration, PM, author QA).
+const AI = {
+  foundation: 0.65, // nav/theming need human UX; scaffolding & decoration accelerate
+  blocks: 0.45, // strong: generate block JS/CSS + variations from patterns
+  templates: 0.45, // strong: template scaffolding + block wiring
+  integrations: 0.70, // moderate: config/glue helps; external systems need coordination
+  qa: 0.75, // moderate: test generation helps; manual UAT remains
+  docs: 0.40, // strong: auto-generated docs
+  pm: 0.90, // minimal: coordination stays human
+  contentImport: 0.45, // strong: import parsers/transformers auto-generated
+  contentManual: 0.70, // moderate: complex pages still assisted, not free
+  contentOther: 0.65, // cleanup/metadata/validation partly automated
+};
+const r0 = (n) => Math.round(n);
+const aiFoundation = r0(foundationDays * AI.foundation);
+const aiBlocks = r0(blockDays * AI.blocks);
+const aiTemplates = r0(templateDays * AI.templates);
+const aiInteg = r0(integDays * AI.integrations);
+const aiBuildSubtotal = aiFoundation + aiBlocks + aiTemplates + aiInteg;
+const aiQa = r0(aiBuildSubtotal * 0.25 * AI.qa / 1); // QA scales with (reduced) build, then AI factor
+const aiDocs = r0(aiBuildSubtotal * 0.08 * AI.docs / 1);
+const aiPm = r0(aiBuildSubtotal * 0.12 * AI.pm / 1);
+const aiContingency = r0((aiBuildSubtotal + aiQa + aiDocs + aiPm) * 0.12); // lower risk → 12%
+const aiTotalDev = aiBuildSubtotal + aiQa + aiDocs + aiPm + aiContingency;
+// content migration AI split
+const cImport = contentRows[0][2];
+const cManual = contentRows[1][2];
+const cOther = contentDays - cImport - cManual;
+const aiContent = r0(cImport * AI.contentImport) + r0(cManual * AI.contentManual) + r0(cOther * AI.contentOther);
+const aiGrand = aiTotalDev + aiContent;
+const savePct = Math.round((1 - aiGrand / grand) * 100);
+
 // ---------------- RENDER ----------------
 const row = (cells) => `<tr>${cells.map((c, i) => (i === 0 ? `<td>${c}</td>` : `<td class="num">${c}</td>`)).join('')}</tr>`;
 
@@ -141,17 +178,19 @@ const foundationTable = foundation.map((f) => `<tr><td>${esc(f[0])}</td><td>${cx
 const integTable = integRows.map((r) => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.pages}</td><td>${esc(r.purpose)}</td><td>${esc(r.strategy)}</td><td>${cxBadge(r.impact === 'None' ? 'Low' : r.impact)}</td><td class="num">${hh(r.days)}</td></tr>`).join('');
 const contentTable = contentRows.map((c) => `<tr><td>${esc(c[0])}</td><td class="num">${esc(c[1])}</td><td class="num">${hh(c[2])}</td></tr>`).join('');
 
+// [label, baselineDays, aiDays, factorPct, notes]
 const rollup = [
-  ['Project setup / Foundation', foundationDays, `${foundation.length} global work items`],
-  ['Block development', blockDays, `${blockRows.length} blocks · ${totalVariations} variations`],
-  ['Template development', templateDays, `${templateRows.length} templates`],
-  ['3rd-party integrations', integDays, `${integRows.length} integrations`],
-  ['QA & Testing (a11y, responsive, cross-browser, perf, regression, UAT)', qa, '~25% of build'],
-  ['Documentation', docs, '~8%'],
-  ['Project management', pm, '~12%'],
-  ['Contingency', devContingency, '15%'],
+  ['Project setup / Foundation', foundationDays, aiFoundation, AI.foundation, `${foundation.length} global work items`],
+  ['Block development', blockDays, aiBlocks, AI.blocks, `${blockRows.length} blocks · ${totalVariations} variations`],
+  ['Template development', templateDays, aiTemplates, AI.templates, `${templateRows.length} templates`],
+  ['3rd-party integrations', integDays, aiInteg, AI.integrations, `${integRows.length} integrations`],
+  ['QA & Testing (a11y, responsive, cross-browser, perf, regression, UAT)', qa, aiQa, AI.qa, '~25% of build'],
+  ['Documentation', docs, aiDocs, AI.docs, '~8%'],
+  ['Project management', pm, aiPm, AI.pm, '~12%'],
+  ['Contingency', devContingency, aiContingency, 0.12 / 0.15, '15% → 12% (lower risk)'],
 ];
-const rollupTable = rollup.map((r) => `<tr><td>${esc(r[0])}</td><td class="num">${hh(r[1])}</td><td class="found">${esc(r[2])}</td></tr>`).join('');
+const factorBadge = (f) => `<span class="fac">−${Math.round((1 - f) * 100)}%</span>`;
+const rollupTable = rollup.map((r) => `<tr><td>${esc(r[0])}</td><td class="num base">${hh(r[1])}</td><td class="num ai">${hh(r[2])} ${factorBadge(r[3])}</td><td class="found">${esc(r[4])}</td></tr>`).join('');
 
 const html = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -188,6 +227,12 @@ tr:nth-child(even){background:#fafbfd}
 .subtotal td{background:#eef2f9!important;font-weight:700}
 .note{background:#f0f6ff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13px}
 .note.disc{background:#fef2f2;border-color:#ef4444}
+.note.reco{background:#eefbf1;border-color:#0b7a3b}
+td.base{color:var(--muted);text-decoration:line-through;text-decoration-color:#c7ced9}
+td.ai{font-weight:700;color:#0b7a3b}
+.fac{display:inline-block;background:#dcfce7;color:#166534;font-size:10px;font-weight:800;padding:1px 6px;border-radius:20px;margin-left:4px;text-decoration:none}
+.subtotal td.base{font-weight:700}
+.subtotal td.ai{font-weight:800}
 .evidence{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .evidence a{font-size:12px;background:#eef2f9;border:1px solid #dfe6f1;color:#1a4bcc;padding:4px 11px;border-radius:20px;text-decoration:none;font-weight:600}
 .evidence a:hover{background:var(--blue);color:#fff}
@@ -200,7 +245,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <header class="hero">
   <div class="badge">ADOBE EDGE DELIVERY SERVICES · ESTIMATION SUMMARY</div>
   <h1>BRP-World.com → EDS · Migration Estimation Summary</h1>
-  <div class="sub">Sales-ready effort summary for migrating <code>www.brp-world.com/int/en/</code> to Adobe Edge Delivery Services. Based on analysis of <b>all ${pages.length.toLocaleString()}</b> in-scope URLs. All effort is expressed in <b>hours</b> (8h per person-day). Evidence links to the detailed reports are provided in each section.</div>
+  <div class="sub">Sales-ready effort summary for migrating <code>www.brp-world.com/int/en/</code> to Adobe Edge Delivery Services. Based on analysis of <b>all ${pages.length.toLocaleString()}</b> in-scope URLs. All effort in <b>hours</b> (8h/day). Shows a traditional <b>baseline</b> alongside the recommended <b>AI-assisted (Claude-leveraged)</b> estimate. Evidence links to the detailed reports are provided in each section.</div>
 </header>
 <nav class="toc">
   <a href="#top">Top-line</a>
@@ -223,11 +268,12 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">${totalVariations}</div><div class="l">Variations</div></div>
   <div class="kpi"><div class="n">${templateRows.length}</div><div class="l">Templates</div></div>
   <div class="kpi"><div class="n">${integRows.length}</div><div class="l">Integrations</div></div>
-  <div class="kpi big"><div class="n">${H(totalDev).toLocaleString()}h</div><div class="l">Development</div></div>
-  <div class="kpi big"><div class="n">${H(contentDays).toLocaleString()}h</div><div class="l">Content migration</div></div>
-  <div class="kpi big"><div class="n">${H(grand).toLocaleString()}h</div><div class="l">Grand total</div></div>
+  <div class="kpi"><div class="n">${H(grand).toLocaleString()}h</div><div class="l">Baseline total</div></div>
+  <div class="kpi big"><div class="n">${H(aiGrand).toLocaleString()}h</div><div class="l">AI-assisted total</div></div>
+  <div class="kpi big"><div class="n">−${savePct}%</div><div class="l">Efficiency gain</div></div>
 </div>
-<div class="note"><b>Summary:</b> Development ≈ <b>${H(totalDev).toLocaleString()}h</b> (${totalDev}d) and content migration ≈ <b>${H(contentDays).toLocaleString()}h</b> (${contentDays}d), for a grand total of ≈ <b>${H(grand).toLocaleString()}h</b> (${grand}d, ~${(grand / 20).toFixed(1)} person-months). The site is a custom AEM implementation with high block reuse — favourable for EDS. Main cost drivers: global navigation, the external BYO configurator, heavy localization and content volume.</div>
+<div class="note reco"><b>Recommended (AI-assisted) estimate: ≈ ${H(aiGrand).toLocaleString()}h (${aiGrand}d, ~${(aiGrand / 20).toFixed(1)} person-months)</b> — a <b>${savePct}% reduction</b> vs the ${H(grand).toLocaleString()}h traditional baseline, achieved by leveraging Claude for block/template code generation, import parsers/transformers and documentation. Split: AI-assisted development ≈ <b>${H(aiTotalDev).toLocaleString()}h</b> + content migration ≈ <b>${H(aiContent).toLocaleString()}h</b>.</div>
+<div class="note"><b>How the reduction is derived:</b> we apply a transparent productivity factor per work category (see §6) rather than a flat cut. AI leverage is highest where code/config is pattern-generated (blocks, templates, import parsers, docs ≈ 55–60% saved) and lowest where human judgement dominates (navigation UX, commerce integration, project management, author QA). The baseline column remains visible so the assumptions are auditable.</div>
 </section>
 
 <section id="setup">
@@ -286,16 +332,17 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 </section>
 
 <section id="rollup">
-<h2 class="sec">6 · Total Estimate</h2>
+<h2 class="sec">6 · Total Estimate — Baseline vs AI-Assisted</h2>
+<p class="lead">The <b>Baseline</b> column is a traditional senior-team estimate. The <b>AI-assisted</b> column applies a per-category productivity factor (shown as −%) for delivery leveraging Claude. The recommended figure for this engagement is the AI-assisted total.</p>
 <table>
-<thead><tr><th>Category</th><th class="num">Effort (hours)</th><th>Notes</th></tr></thead>
+<thead><tr><th>Category</th><th class="num">Baseline</th><th class="num">AI-assisted (Claude)</th><th>Notes</th></tr></thead>
 <tbody>
 ${rollupTable}
-<tr class="subtotal"><td>Development subtotal</td><td class="num">${hh(totalDev)}</td><td class="found">${totalDev} person-days</td></tr>
-<tr class="total-row"><td>Content migration</td><td class="num">${hh(contentDays)}</td><td>${contentDays} person-days</td></tr>
-<tr class="grand"><td>GRAND TOTAL</td><td class="num">${H(grand).toLocaleString()}h</td><td>${grand} person-days · ~${(grand / 20).toFixed(1)} person-months</td></tr>
+<tr class="subtotal"><td>Development subtotal</td><td class="num base">${hh(totalDev)}</td><td class="num ai">${hh(aiTotalDev)}</td><td class="found">${totalDev}d → ${aiTotalDev}d</td></tr>
+<tr class="subtotal"><td>Content migration</td><td class="num base">${hh(contentDays)}</td><td class="num ai">${hh(aiContent)}</td><td class="found">${contentDays}d → ${aiContent}d</td></tr>
+<tr class="grand"><td>GRAND TOTAL</td><td class="num">${H(grand).toLocaleString()}h</td><td class="num">${H(aiGrand).toLocaleString()}h</td><td>${aiGrand}d · ~${(aiGrand / 20).toFixed(1)} pm · <b>−${savePct}%</b></td></tr>
 </tbody></table>
-<div class="note">Figures assume a senior EDS delivery team, an 8-hour person-day, and ~20 working days/month. They exclude per-locale content translation, rebuild of the external configurator app, and any net-new visual design. To be confirmed in a discovery workshop.</div>
+<div class="note">Figures assume a senior EDS delivery team leveraging Claude, an 8-hour person-day, and ~20 working days/month. The AI-assisted column reflects code/parser/documentation generation acceleration; it is not a flat discount. Excludes per-locale content translation, rebuild of the external configurator app, and any net-new visual design. To be confirmed in a discovery workshop.</div>
 </section>
 
 <section id="assume">
@@ -335,4 +382,5 @@ ${rollupTable}
 fs.writeFileSync(path.join(ROOT, 'report', 'summary.html'), html);
 console.log('Written report/summary.html', (html.length / 1024).toFixed(0), 'KB');
 console.log('Foundation:', hh(foundationDays), '| Blocks:', hh(blockDays), '| Templates:', hh(templateDays), '| Integrations:', hh(integDays));
-console.log('Content:', hh(contentDays), '| Dev total:', hh(totalDev), '| GRAND:', hh(grand));
+console.log('Content:', hh(contentDays), '| Dev total:', hh(totalDev), '| GRAND baseline:', hh(grand));
+console.log('AI-assisted → Dev:', hh(aiTotalDev), '| Content:', hh(aiContent), '| GRAND:', hh(aiGrand), `(−${savePct}%)`);
