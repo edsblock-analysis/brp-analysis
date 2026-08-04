@@ -1,0 +1,201 @@
+{
+  "totalPages": 1172,
+  "templates": {
+    "Product Detail (Model)": 335,
+    "Experience / Editorial": 283,
+    "Owner Zone / Support Article": 197,
+    "Product Configurator (BYO)": 183,
+    "Blog / Article": 62,
+    "Content Page (Generic)": 19,
+    "News": 18,
+    "Product Listing (Model Year)": 16,
+    "Parts, Accessories & Apparel": 8,
+    "Events": 8,
+    "Press Release": 8,
+    "Section Landing": 6,
+    "About / Corporate": 6,
+    "Brand Home": 5,
+    "Promotion / Campaign": 5,
+    "Legal / Utility": 5,
+    "Form / Lead Gen": 2,
+    "FAQ": 2,
+    "Home": 1,
+    "Shopping Tool": 1,
+    "Dealer Locator": 1,
+    "Downloads / Brochures": 1
+  },
+  "cmpComponents": {
+    "teaser": {
+      "count": 52187,
+      "pages": 1144
+    },
+    "image": {
+      "count": 15573,
+      "pages": 1140
+    },
+    "breadcrumb": {
+      "count": 11867,
+      "pages": 1085
+    },
+    "hero-block": {
+      "count": 8796,
+      "pages": 593
+    },
+    "title": {
+      "count": 2223,
+      "pages": 538
+    },
+    "text": {
+      "count": 2268,
+      "pages": 482
+    },
+    "carousel": {
+      "count": 10451,
+      "pages": 381
+    },
+    "carousel-tab": {
+      "count": 285,
+      "pages": 259
+    },
+    "list": {
+      "count": 1459,
+      "pages": 238
+    },
+    "container": {
+      "count": 225,
+      "pages": 224
+    },
+    "iframe": {
+      "count": 168,
+      "pages": 168
+    },
+    "gallery": {
+      "count": 206,
+      "pages": 96
+    },
+    "accordion": {
+      "count": 6882,
+      "pages": 71
+    },
+    "video": {
+      "count": 40,
+      "pages": 20
+    },
+    "videoembed": {
+      "count": 20,
+      "pages": 20
+    },
+    "image-grid": {
+      "count": 34,
+      "pages": 9
+    },
+    "page-level-navigation": {
+      "count": 94,
+      "pages": 4
+    },
+    "tabs": {
+      "count": 6,
+      "pages": 1
+    },
+    "tilemosaic": {
+      "count": 1,
+      "pages": 1
+    }
+  },
+  "customBlocks": {
+    "grid": {
+      "count": 14313,
+      "pages": 1172
+    },
+    "segment-block": {
+      "count": 3507,
+      "pages": 1169
+    },
+    "teaser": {
+      "count": 60519,
+      "pages": 1146
+    },
+    "breadcrumb": {
+      "count": 11869,
+      "pages": 1086
+    },
+    "banner": {
+      "count": 1968,
+      "pages": 860
+    },
+    "cta": {
+      "count": 1622,
+      "pages": 648
+    },
+    "hero-block": {
+      "count": 7006,
+      "pages": 593
+    },
+    "card": {
+      "count": 1651,
+      "pages": 494
+    },
+    "carousel": {
+      "count": 9105,
+      "pages": 381
+    },
+    "feature": {
+      "count": 2553,
+      "pages": 342
+    },
+    "modal": {
+      "count": 984,
+      "pages": 319
+    },
+    "video": {
+      "count": 691,
+      "pages": 270
+    },
+    "gallery": {
+      "count": 2116,
+      "pages": 105
+    },
+    "accordion": {
+      "count": 6062,
+      "pages": 71
+    },
+    "download": {
+      "count": 12,
+      "pages": 7
+    },
+    "filter": {
+      "count": 8,
+      "pages": 4
+    },
+    "form": {
+      "count": 68,
+      "pages": 2
+    },
+    "tabs": {
+      "count": 7,
+      "pages": 1
+    },
+    "quote": {
+      "count": 2,
+      "pages": 1
+    },
+    "dealer": {
+      "count": 4,
+      "pages": 1
+    }
+  },
+  "integrations": {
+    "Google Tag Manager": 1172,
+    "Adobe RUM (helix-rum)": 1172,
+    "Dynatrace (ruxit)": 1172,
+    "Typekit": 1172,
+    "BRP Dealer Marketing (Azure)": 1172,
+    "YouTube": 1169,
+    "Google Analytics (gtag)": 20,
+    "Adobe Scene7 / Dynamic Media": 16,
+    "BRP DAM CDN": 16,
+    "Adobe DTM/Launch": 3,
+    "Facebook": 1,
+    "Google Maps": 1
+  }
+}

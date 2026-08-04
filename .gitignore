@@ -11,3 +11,7 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# Migration analysis raw scrape cache (large, regenerable)
+report/pages_cache/
+report/data/fetch-log.json
