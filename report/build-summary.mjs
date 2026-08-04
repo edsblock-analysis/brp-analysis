@@ -201,6 +201,8 @@ tr:nth-child(even){background:#fafbfd}
 .cx{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;display:inline-block}
 .cx-Low{background:#dcfce7;color:#166534}.cx-Medium{background:#fef9c3;color:#854d0e}.cx-High{background:#ffedd5;color:#9a3412}.cx-VeryHigh{background:#ede9fe;color:#5b21b6}
 .total-row td{background:#0b0f19!important;color:#fff;font-weight:800;border-color:#333}
+.sep-row td{background:#fff7ed!important;color:#7c3a12}
+.sepbadge{display:inline-block;background:#f97316;color:#fff;font-size:10px;font-weight:800;padding:1px 7px;border-radius:20px;margin-left:6px;text-transform:uppercase;letter-spacing:.3px}
 .grand td{background:#0b7a3b!important;color:#fff;font-weight:800;border-color:#0b7a3b;font-size:15px}
 .subtotal td{background:#eef2f9!important;font-weight:700}
 .note{background:#f0f6ff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13px}
@@ -270,7 +272,9 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Variations</th><th class="num">Capabilities</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
 <tbody>${blockTable}
 <tr class="total-row"><td>TOTAL — ${blockRows.length} blocks</td><td class="num">—</td><td class="num">${totalVariations}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${blockHrs}h</td></tr>
+<tr class="sep-row"><td><b>PLP / Product Detail (commerce)</b> <span class="sepbadge">estimated separately</span></td><td class="num">184</td><td class="num">—</td><td class="num">—</td><td>${cxBadge('High')}</td><td class="num">TBD</td></tr>
 </tbody></table>
+<div class="note"><b>Not included in the ${blockHrs}h above:</b> a <b>PLP / Product-Detail commerce block</b> that consumes the existing commerce web APIs client-side to render product-listing and product-detail data. Because its scope depends on the commerce APIs (fields, filtering, pagination, pricing/availability) it is <b>flagged as a separate estimate</b>, to be sized with BRP's commerce/product team (see Assumptions §7).</div>
 <div class="evidence"><a href="dashboard.html#inventory" target="_blank">▸ Block inventory (detail)</a><a href="dashboard.html#blocks" target="_blank">▸ Per-block variation deep-dive</a><a href="data/variations.json" target="_blank">▸ variations.json (raw evidence)</a></div>
 </section>
 
