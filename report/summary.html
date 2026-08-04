@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRP-World → EDS · Estimation Summary (Sales)</title>
+<style>
+:root{--brand:#ffcb00;--ink:#0b0f19;--edge:#e2e6ee;--blue:#2563eb;--muted:#5b6472}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#f4f6fa}
+header.hero{background:linear-gradient(135deg,#0b0f19,#1c2541 60%,#22357a);color:#fff;padding:44px 40px 38px}
+header.hero h1{margin:0 0 8px;font-size:28px;letter-spacing:-.5px}
+header.hero .sub{color:#a9b8d1;font-size:14.5px;max-width:880px}
+header.hero .badge{display:inline-block;background:var(--brand);color:#111;font-weight:700;padding:3px 11px;border-radius:5px;font-size:12px;margin-bottom:14px;letter-spacing:.5px}
+nav.toc{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--edge);z-index:40;padding:10px 24px;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px}
+nav.toc a{color:var(--muted);text-decoration:none;white-space:nowrap}nav.toc a:hover{color:var(--blue)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px 70px}
+section{background:#fff;border:1px solid var(--edge);border-radius:14px;padding:24px 28px;margin:20px 0;box-shadow:0 1px 3px rgba(10,15,25,.05)}
+h2.sec{font-size:20px;margin:0 0 4px;padding-bottom:9px;border-bottom:3px solid var(--brand);display:inline-block}
+.lead{color:#28303d;max-width:900px;font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}
+.kpi{background:linear-gradient(160deg,#f8fafc,#eef2f9);border:1px solid var(--edge);border-radius:12px;padding:16px}
+.kpi .n{font-size:25px;font-weight:800;color:var(--blue);line-height:1}
+.kpi .l{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:6px}
+.kpi.big .n{color:#0b7a3b}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0}
+th,td{border:1px solid var(--edge);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#f0f3f8;font-weight:700}
+td.num,th.num{text-align:center;white-space:nowrap}
+tr:nth-child(even){background:#fafbfd}
+.found{color:var(--muted);font-size:12px}
+.cx{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;display:inline-block}
+.cx-Low{background:#dcfce7;color:#166534}.cx-Medium{background:#fef9c3;color:#854d0e}.cx-High{background:#ffedd5;color:#9a3412}.cx-VeryHigh{background:#ede9fe;color:#5b21b6}
+.total-row td{background:#0b0f19!important;color:#fff;font-weight:800;border-color:#333}
+.grand td{background:#0b7a3b!important;color:#fff;font-weight:800;border-color:#0b7a3b;font-size:15px}
+.subtotal td{background:#eef2f9!important;font-weight:700}
+.note{background:#f0f6ff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13px}
+.note.disc{background:#fef2f2;border-color:#ef4444}
+.evidence{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.evidence a{font-size:12px;background:#eef2f9;border:1px solid #dfe6f1;color:#1a4bcc;padding:4px 11px;border-radius:20px;text-decoration:none;font-weight:600}
+.evidence a:hover{background:var(--blue);color:#fff}
+.assume li{font-size:13px;margin:3px 0}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
+.hrsbadge{font-size:11px;color:var(--muted);font-weight:600}
+@media print{nav.toc{display:none}section{break-inside:avoid;box-shadow:none}}
+</style></head>
+<body>
+<header class="hero">
+  <div class="badge">ADOBE EDGE DELIVERY SERVICES · ESTIMATION SUMMARY</div>
+  <h1>BRP-World.com → EDS · Migration Estimation Summary</h1>
+  <div class="sub">Sales-ready effort summary for migrating <code>www.brp-world.com/int/en/</code> to Adobe Edge Delivery Services. Based on analysis of <b>all 1,172</b> in-scope URLs. All effort is expressed in <b>hours</b> (8h per person-day). Evidence links to the detailed reports are provided in each section.</div>
+</header>
+<nav class="toc">
+  <a href="#top">Top-line</a>
+  <a href="#setup">Project Setup</a>
+  <a href="#blocks">Blocks & Variations</a>
+  <a href="#templates">Templates</a>
+  <a href="#integ">Integrations</a>
+  <a href="#content">Content Migration</a>
+  <a href="#rollup">Total Estimate</a>
+  <a href="#assume">Assumptions</a>
+  <a href="#evidence">Evidence Files</a>
+</nav>
+<div class="wrap">
+
+<section id="top">
+<h2 class="sec">Top-line Estimate</h2>
+<div class="kpis">
+  <div class="kpi"><div class="n">1,172</div><div class="l">Pages in scope</div></div>
+  <div class="kpi"><div class="n">22</div><div class="l">Blocks</div></div>
+  <div class="kpi"><div class="n">37</div><div class="l">Variations</div></div>
+  <div class="kpi"><div class="n">22</div><div class="l">Templates</div></div>
+  <div class="kpi"><div class="n">13</div><div class="l">Integrations</div></div>
+  <div class="kpi big"><div class="n">3,148h</div><div class="l">Development</div></div>
+  <div class="kpi big"><div class="n">1,424h</div><div class="l">Content migration</div></div>
+  <div class="kpi big"><div class="n">4,572h</div><div class="l">Grand total</div></div>
+</div>
+<div class="note"><b>Summary:</b> Development ≈ <b>3,148h</b> (393.5d) and content migration ≈ <b>1,424h</b> (178d), for a grand total of ≈ <b>4,572h</b> (571.5d, ~28.6 person-months). The site is a custom AEM implementation with high block reuse — favourable for EDS. Main cost drivers: global navigation, the external BYO configurator, heavy localization and content volume.</div>
+</section>
+
+<section id="setup">
+<h2 class="sec">1 · Project Setup / Foundation</h2>
+<p class="lead">One-time global build required before templates and content: repo & environments, global header/footer, navigation, theming, localization scaffolding and core decoration.</p>
+<table>
+<thead><tr><th>Work item</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
+<tbody><tr><td>EDS project scaffolding, repo, CI/CD &amp; environments</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td>Global Header + Mega-menu Navigation</td><td><span class="cx cx-VeryHigh">Very High</span></td><td class="num">80h</td></tr><tr><td>Global Footer</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">32h</td></tr><tr><td>Global CSS design tokens / typography (Typekit)</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">32h</td></tr><tr><td>scripts.js decoration, auto-blocking, sections</td><td><span class="cx cx-High">High</span></td><td class="num">48h</td></tr><tr><td>Localization / hreflang scaffolding (up to 68 locales)</td><td><span class="cx cx-High">High</span></td><td class="num">48h</td></tr><tr><td>Metadata / SEO framework (canonical, OG, sitemap, redirects)</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td>Multi-brand theming (5 brands)</td><td><span class="cx cx-High">High</span></td><td class="num">48h</td></tr><tr><td>Placeholders / i18n + site config</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr>
+<tr class="total-row"><td>Foundation subtotal</td><td>—</td><td class="num">360h</td></tr>
+</tbody></table>
+</section>
+
+<section id="blocks">
+<h2 class="sec">2 · Block Inventory, Variations & Effort</h2>
+<p class="lead"><b>22 blocks → 37 DOM-verified variations</b> (+ 13 optional capabilities). Effort covers block build + its variations.</p>
+<table>
+<thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Variations</th><th class="num">Capabilities</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
+<tbody><tr><td><b>Container / Section</b></td><td class="num">1171</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">16h</td></tr><tr><td><b>CTA / Button</b></td><td class="num">1092</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">16h</td></tr><tr><td><b>Breadcrumb</b></td><td class="num">1085</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">12h</td></tr><tr><td><b>Teaser / Card</b></td><td class="num">1023</td><td class="num">4</td><td class="num">1</td><td><span class="cx cx-High">High</span></td><td class="num">72h</td></tr><tr><td><b>Image (Core)</b></td><td class="num">932</td><td class="num">2</td><td class="num">2</td><td><span class="cx cx-Low">Low</span></td><td class="num">20h</td></tr><tr><td><b>Hero / Hero-Block</b></td><td class="num">593</td><td class="num">2</td><td class="num">5</td><td><span class="cx cx-High">High</span></td><td class="num">60h</td></tr><tr><td><b>Title / Heading</b></td><td class="num">538</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">8h</td></tr><tr><td><b>Text / Rich Text</b></td><td class="num">482</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">8h</td></tr><tr><td><b>Configurator Package Selector</b></td><td class="num">301</td><td class="num">2</td><td class="num">—</td><td><span class="cx cx-High">High</span></td><td class="num">48h</td></tr><tr><td><b>Video / Video Embed</b></td><td class="num">278</td><td class="num">3</td><td class="num">1</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">48h</td></tr><tr><td><b>Downloads (PDF list)</b></td><td class="num">267</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">16h</td></tr><tr><td><b>Carousel / Slider</b></td><td class="num">259</td><td class="num">2</td><td class="num">3</td><td><span class="cx cx-High">High</span></td><td class="num">60h</td></tr><tr><td><b>Modal / Dialog</b></td><td class="num">244</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>List</b></td><td class="num">238</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">16h</td></tr><tr><td><b>Dealer Locator / Map</b></td><td class="num">184</td><td class="num">3</td><td class="num">—</td><td><span class="cx cx-VeryHigh">Very High</span></td><td class="num">88h</td></tr><tr><td><b>Iframe / BYO Configurator Embed</b></td><td class="num">168</td><td class="num">2</td><td class="num">1</td><td><span class="cx cx-High">High</span></td><td class="num">48h</td></tr><tr><td><b>Gallery / Image Grid</b></td><td class="num">106</td><td class="num">3</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">48h</td></tr><tr><td><b>Accordion</b></td><td class="num">71</td><td class="num">2</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">28h</td></tr><tr><td><b>Page-Level Navigation</b></td><td class="num">4</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Table</b></td><td class="num">2</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">12h</td></tr><tr><td><b>Form</b></td><td class="num">2</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-High">High</span></td><td class="num">40h</td></tr><tr><td><b>Tabs</b></td><td class="num">1</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr>
+<tr class="total-row"><td>TOTAL — 22 blocks</td><td class="num">—</td><td class="num">37</td><td class="num">13</td><td>—</td><td class="num">736h</td></tr>
+</tbody></table>
+<div class="evidence"><a href="dashboard.html#inventory" target="_blank">▸ Block inventory (detail)</a><a href="dashboard.html#blocks" target="_blank">▸ Per-block variation deep-dive</a><a href="data/variations.json" target="_blank">▸ variations.json (raw evidence)</a></div>
+</section>
+
+<section id="templates">
+<h2 class="sec">3 · Template Inventory & Effort</h2>
+<p class="lead"><b>22 templates</b> across 1,172 pages. Effort is net-new EDS template scaffolding (block wiring); per-page authoring is in Content Migration.</p>
+<table>
+<thead><tr><th>Template</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
+<tbody><tr><td><b>Product Detail (Model)</b></td><td class="num">335</td><td class="num">28.6%</td><td><span class="cx cx-High">High</span></td><td class="num">40h</td></tr><tr><td><b>Experience / Editorial</b></td><td class="num">283</td><td class="num">24.1%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Owner Zone / Support Article</b></td><td class="num">197</td><td class="num">16.8%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Product Configurator (BYO)</b></td><td class="num">183</td><td class="num">15.6%</td><td><span class="cx cx-VeryHigh">Very High</span></td><td class="num">64h</td></tr><tr><td><b>Blog / Article</b></td><td class="num">62</td><td class="num">5.3%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Content Page (Generic)</b></td><td class="num">19</td><td class="num">1.6%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>News</b></td><td class="num">18</td><td class="num">1.5%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Product Listing (Model Year)</b></td><td class="num">16</td><td class="num">1.4%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Parts, Accessories &amp; Apparel</b></td><td class="num">8</td><td class="num">0.7%</td><td><span class="cx cx-High">High</span></td><td class="num">40h</td></tr><tr><td><b>Events</b></td><td class="num">8</td><td class="num">0.7%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Press Release</b></td><td class="num">8</td><td class="num">0.7%</td><td><span class="cx cx-Low">Low</span></td><td class="num">12h</td></tr><tr><td><b>Section Landing</b></td><td class="num">6</td><td class="num">0.5%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>About / Corporate</b></td><td class="num">6</td><td class="num">0.5%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Brand Home</b></td><td class="num">5</td><td class="num">0.4%</td><td><span class="cx cx-High">High</span></td><td class="num">40h</td></tr><tr><td><b>Promotion / Campaign</b></td><td class="num">5</td><td class="num">0.4%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Legal / Utility</b></td><td class="num">5</td><td class="num">0.4%</td><td><span class="cx cx-Low">Low</span></td><td class="num">12h</td></tr><tr><td><b>Form / Lead Gen</b></td><td class="num">2</td><td class="num">0.2%</td><td><span class="cx cx-High">High</span></td><td class="num">40h</td></tr><tr><td><b>FAQ</b></td><td class="num">2</td><td class="num">0.2%</td><td><span class="cx cx-Low">Low</span></td><td class="num">12h</td></tr><tr><td><b>Home</b></td><td class="num">1</td><td class="num">0.1%</td><td><span class="cx cx-High">High</span></td><td class="num">40h</td></tr><tr><td><b>Shopping Tool</b></td><td class="num">1</td><td class="num">0.1%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>Dealer Locator</b></td><td class="num">1</td><td class="num">0.1%</td><td><span class="cx cx-High">High</span></td><td class="num">40h</td></tr><tr><td><b>Downloads / Brochures</b></td><td class="num">1</td><td class="num">0.1%</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr>
+<tr class="total-row"><td>TOTAL — 22 templates</td><td class="num">1172</td><td class="num">100%</td><td>—</td><td class="num">628h</td></tr>
+</tbody></table>
+<div class="evidence"><a href="dashboard.html#templates" target="_blank">▸ Template deep-dive</a><a href="dashboard.html#tbv" target="_blank">▸ Template → Block → Variation map</a><a href="dashboard.html#matrix" target="_blank">▸ Coverage matrix</a></div>
+</section>
+
+<section id="integ">
+<h2 class="sec">4 · Third-Party Integrations & Effort</h2>
+<p class="lead">13 integrations detected across the site. "Pages" = pages where the integration was observed.</p>
+<table>
+<thead><tr><th>Integration</th><th class="num">Pages</th><th>Purpose</th><th>Migration strategy</th><th>Impact</th><th class="num">Effort</th></tr></thead>
+<tbody><tr><td><b>Google Tag Manager</b></td><td class="num">1172</td><td>Tag management / analytics container</td><td>Re-add via delayed.js; keep GTM container ID</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>Adobe RUM (helix-rum)</b></td><td class="num">1172</td><td>Real User Monitoring — already Helix RUM</td><td>Native to EDS; already present</td><td><span class="cx cx-Low">Low</span></td><td class="num">0h</td></tr><tr><td><b>Dynatrace (ruxit)</b></td><td class="num">1172</td><td>APM / performance monitoring</td><td>Load in delayed phase; verify perf budget</td><td><span class="cx cx-Low">Low</span></td><td class="num">8h</td></tr><tr><td><b>Typekit</b></td><td class="num">1172</td><td>Adobe Fonts (Typekit)</td><td>Move to fonts.css, font-display:swap; self-host if possible</td><td><span class="cx cx-Low">Low</span></td><td class="num">8h</td></tr><tr><td><b>BRP Dealer Marketing (Azure)</b></td><td class="num">1172</td><td>Dealer tracking iframe (0×0)</td><td>Re-add hidden iframe in delayed phase</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>YouTube</b></td><td class="num">1169</td><td>Video embeds</td><td>Lite-embed / facade pattern for LCP</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16h</td></tr><tr><td><b>Google Analytics (gtag)</b></td><td class="num">20</td><td>GA4 analytics</td><td>Via GTM / delayed.js</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>Adobe Scene7 / Dynamic Media</b></td><td class="num">16</td><td>DAM image/video delivery</td><td>Keep Scene7 URLs or move to EDS images</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24h</td></tr><tr><td><b>BRP DAM CDN</b></td><td class="num">16</td><td>Digital asset delivery (cdn-dam.brp.com)</td><td>Reference or migrate assets to EDS</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16h</td></tr><tr><td><b>Adobe DTM/Launch</b></td><td class="num">3</td><td>Legacy tag manager</td><td>Consolidate into GTM / delayed</td><td><span class="cx cx-Low">Low</span></td><td class="num">8h</td></tr><tr><td><b>Facebook</b></td><td class="num">1</td><td>Social pixel / embed</td><td>Delayed phase</td><td><span class="cx cx-Low">Low</span></td><td class="num">4h</td></tr><tr><td><b>Google Maps</b></td><td class="num">1</td><td>Dealer / location map</td><td>Dealer-locator block (facade + API)</td><td><span class="cx cx-High">High</span></td><td class="num">32h</td></tr><tr><td><b>Adobe Commerce (Magento) middleware</b></td><td class="num">1172</td><td>Commerce middleware present site-wide (data-magento-middleware-base-url)</td><td>Scope with commerce team; integrate cart/pricing endpoints as needed</td><td><span class="cx cx-High">High</span></td><td class="num">40h</td></tr>
+<tr class="total-row"><td>TOTAL — 13 integrations</td><td class="num">—</td><td colspan="3"></td><td class="num">168h</td></tr>
+</tbody></table>
+<div class="note disc"><b>Flag for sales:</b> <b>Adobe Commerce (Magento) middleware runs on 100% of pages</b>, and the <b>BYO configurator</b> (168 pages) is an external app embedded via iframe. Both need scoping with BRP's commerce/product team and may expand scope beyond this content-migration estimate.</div>
+<div class="evidence"><a href="index.html#integ" target="_blank">▸ Integration report (full)</a><a href="data/aggregates.json" target="_blank">▸ aggregates.json (raw evidence)</a></div>
+</section>
+
+<section id="content">
+<h2 class="sec">5 · Content Migration Effort</h2>
+<p class="lead">Separate from development. Covers importing, cleaning, and validating all 1,172 pages and their assets. Excludes per-locale translation.</p>
+<table>
+<thead><tr><th>Work stream</th><th class="num">Volume</th><th class="num">Effort</th></tr></thead>
+<tbody><tr><td>Automated import (bulk importer, master-template pages)</td><td class="num">973 pages</td><td class="num">232h</td></tr><tr><td>Manual / assisted migration (configurator, forms, locator, complex)</td><td class="num">199 pages</td><td class="num">640h</td></tr><tr><td>Content cleanup &amp; re-authoring (779 missing meta-desc; 402 multi-H1)</td><td class="num">~1,181 fixes</td><td class="num">120h</td></tr><tr><td>Asset migration (images to EDS / DAM)</td><td class="num">~29,059 images</td><td class="num">96h</td></tr><tr><td>Document / PDF migration</td><td class="num">783 PDF links / 267 pages</td><td class="num">48h</td></tr><tr><td>Metadata &amp; SEO migration (canonical, OG, hreflang)</td><td class="num">1,172 pages</td><td class="num">80h</td></tr><tr><td>Localization propagation (framework only; per-locale translation excluded)</td><td class="num">up to 68 locales</td><td class="num">64h</td></tr><tr><td>Content validation &amp; author QA</td><td class="num">1,172 pages</td><td class="num">144h</td></tr>
+<tr class="total-row"><td>TOTAL CONTENT MIGRATION</td><td class="num">—</td><td class="num">1424h</td></tr>
+</tbody></table>
+<div class="evidence"><a href="index.html#content" target="_blank">▸ Content migration report (full)</a><a href="index.html#urls" target="_blank">▸ Per-URL analysis (all 1,172)</a></div>
+</section>
+
+<section id="rollup">
+<h2 class="sec">6 · Total Estimate</h2>
+<table>
+<thead><tr><th>Category</th><th class="num">Effort (hours)</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Project setup / Foundation</td><td class="num">360h</td><td class="found">9 global work items</td></tr><tr><td>Block development</td><td class="num">736h</td><td class="found">22 blocks · 37 variations</td></tr><tr><td>Template development</td><td class="num">628h</td><td class="found">22 templates</td></tr><tr><td>3rd-party integrations</td><td class="num">168h</td><td class="found">13 integrations</td></tr><tr><td>QA &amp; Testing (a11y, responsive, cross-browser, perf, regression, UAT)</td><td class="num">472h</td><td class="found">~25% of build</td></tr><tr><td>Documentation</td><td class="num">152h</td><td class="found">~8%</td></tr><tr><td>Project management</td><td class="num">224h</td><td class="found">~12%</td></tr><tr><td>Contingency</td><td class="num">408h</td><td class="found">15%</td></tr>
+<tr class="subtotal"><td>Development subtotal</td><td class="num">3148h</td><td class="found">393.5 person-days</td></tr>
+<tr class="total-row"><td>Content migration</td><td class="num">1424h</td><td>178 person-days</td></tr>
+<tr class="grand"><td>GRAND TOTAL</td><td class="num">4,572h</td><td>571.5 person-days · ~28.6 person-months</td></tr>
+</tbody></table>
+<div class="note">Figures assume a senior EDS delivery team, an 8-hour person-day, and ~20 working days/month. They exclude per-locale content translation, rebuild of the external configurator app, and any net-new visual design. To be confirmed in a discovery workshop.</div>
+</section>
+
+<section id="assume">
+<h2 class="sec">7 · Key Assumptions & Exclusions</h2>
+<ul class="assume">
+<li>Scope is the <b>/int/en/</b> locale; other locales reuse the same blocks/templates (content translated separately — <b>excluded</b>).</li>
+<li>The <b>BYO configurator</b> remains an external app to be re-embedded, <b>not rebuilt</b> in EDS.</li>
+<li><b>Adobe Commerce</b> integration effort here is indicative only; full commerce scope to be confirmed with BRP.</li>
+<li>Scene7 / BRP DAM assets are referenced or migrated <b>without re-mastering</b>.</li>
+<li>Design remains visually equivalent (<b>no redesign</b>); pixel-parity theming per brand.</li>
+<li>Estimates are <b>planning-grade</b> and to be refined in discovery.</li>
+</ul>
+</section>
+
+<section id="evidence">
+<h2 class="sec">8 · Evidence & Detailed Reports</h2>
+<p class="lead">This summary is backed by the following deliverables (same repository, <code>report/</code> folder):</p>
+<div class="evidence">
+  <a href="dashboard.html" target="_blank">▸ Interactive Dashboard (blocks, variations, templates, mapping)</a>
+  <a href="index.html" target="_blank">▸ Full 12-section consulting report</a>
+  <a href="blocks-templates.html" target="_blank">▸ Blocks & Templates reference</a>
+</div>
+<div class="evidence" style="margin-top:10px">
+  <a href="data/pages.json" target="_blank">◦ pages.json — per-page extraction (1,172)</a>
+  <a href="data/aggregates.json" target="_blank">◦ aggregates.json — templates, blocks, integrations</a>
+  <a href="data/variations.json" target="_blank">◦ variations.json — block variations</a>
+  <a href="data/template-block-variations.json" target="_blank">◦ template-block-variations.json — mapping</a>
+  <a href="data/template-detail.json" target="_blank">◦ template-detail.json — per-template metrics</a>
+</div>
+<div class="note">Every count in this summary is derived from live DOM analysis of all 1,172 URLs (fetched HTTP 200, 0 errors). Effort figures are planning-grade estimates.</div>
+</section>
+
+<footer>Prepared for sales estimation · 2026-08-04 · All effort in hours (8h/day) · Planning-grade, to be refined in discovery.</footer>
+</div>
+</body></html>
