@@ -89,7 +89,7 @@ const integModel = {
   'BRP Dealer Marketing (Azure)': ['Dealer tracking iframe (0×0)', 'Re-add hidden iframe in delayed phase', 'Low', 0.5],
   'YouTube': ['Video embeds', 'Lite-embed / facade pattern for LCP', 'Medium', 2],
   'Google Analytics (gtag)': ['GA4 analytics', 'Via GTM / delayed.js', 'Low', 0.5],
-  'Adobe Scene7 / Dynamic Media': ['DAM image/video delivery', 'Keep Scene7 URLs or move to EDS images', 'Medium', 3],
+  'Adobe Scene7 / Dynamic Media': ['DAM image/video delivery', 'Keep Scene7 URLs or move to EDS images', 'Medium', 7.5],
   'BRP DAM CDN': ['Digital asset delivery (cdn-dam.brp.com)', 'Reference or migrate assets to EDS', 'Medium', 2],
   'Adobe DTM/Launch': ['Legacy tag manager', 'Consolidate into GTM / delayed', 'Low', 1],
   'Facebook': ['Social pixel / embed', 'Delayed phase', 'Low', 0.5],
@@ -128,9 +128,9 @@ const contentDays = contentRows.reduce((s, r) => s + r[2], 0);
 // migration are fixed to agreed targets; blocks/templates/integrations use the
 // per-item build effort; a production-readiness line is added.
 const toDays = (h) => +(h / HPD).toFixed(1);
-const foundationHrs = 100; // agreed: repo, header, nav, footer, theming, i18n setup
-const blockHrs = H(blockDays); // 736
-const templateHrs = H(templateDays); // 628
+const foundationHrs = 120; // agreed: repo, header, nav, footer, theming, i18n setup
+const blockHrs = 780; // agreed: block development (bumped up slightly)
+const templateHrs = 180; // agreed: template development
 const integHrs = H(integDays); // 168
 const prodReadyHrs = 40; // production readiness: perf/CWV, a11y, cross-browser, launch hardening
 const contentHrs = 400; // agreed content migration target
@@ -151,12 +151,14 @@ function scaleTo(weights, target) {
 }
 const foundationHrsItems = scaleTo(foundation.map((f) => f[2]), foundationHrs);
 const contentHrsItems = scaleTo(contentRows.map((c) => c[2]), contentHrs);
+const blockHrsItems = scaleTo(blockRows.map((b) => b.days), blockHrs);
+const templateHrsItems = scaleTo(templateRows.map((r) => r.days), templateHrs);
 
 // ---------------- RENDER ----------------
 const row = (cells) => `<tr>${cells.map((c, i) => (i === 0 ? `<td>${c}</td>` : `<td class="num">${c}</td>`)).join('')}</tr>`;
 
-const blockTable = blockRows.map((b) => `<tr><td><b>${esc(b.name)}</b></td><td class="num">${b.pages}</td><td class="num">${b.nVar}</td><td class="num">${b.nCap || '—'}</td><td>${cxBadge(b.cx)}</td><td class="num">${hh(b.days)}</td></tr>`).join('');
-const templateTable = templateRows.map((r) => `<tr><td><b>${esc(r.t)}</b></td><td class="num">${r.n}</td><td class="num">${(r.n / pages.length * 100).toFixed(1)}%</td><td>${cxBadge(r.cx)}</td><td class="num">${hh(r.days)}</td></tr>`).join('');
+const blockTable = blockRows.map((b, i) => `<tr><td><b>${esc(b.name)}</b></td><td class="num">${b.pages}</td><td class="num">${b.nVar}</td><td class="num">${b.nCap || '—'}</td><td>${cxBadge(b.cx)}</td><td class="num">${blockHrsItems[i]}h</td></tr>`).join('');
+const templateTable = templateRows.map((r, i) => `<tr><td><b>${esc(r.t)}</b></td><td class="num">${r.n}</td><td class="num">${(r.n / pages.length * 100).toFixed(1)}%</td><td>${cxBadge(r.cx)}</td><td class="num">${templateHrsItems[i]}h</td></tr>`).join('');
 const foundationTable = foundation.map((f, i) => `<tr><td>${esc(f[0])}</td><td>${cxBadge(f[1])}</td><td class="num">${foundationHrsItems[i]}h</td></tr>`).join('');
 const integTable = integRows.map((r) => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.pages}</td><td>${esc(r.purpose)}</td><td>${esc(r.strategy)}</td><td>${cxBadge(r.impact === 'None' ? 'Low' : r.impact)}</td><td class="num">${hh(r.days)}</td></tr>`).join('');
 const contentTable = contentRows.map((c, i) => `<tr><td>${esc(c[0])}</td><td class="num">${esc(c[1])}</td><td class="num">${contentHrsItems[i]}h</td></tr>`).join('');
@@ -270,7 +272,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <table>
 <thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Variations</th><th class="num">Capabilities</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
 <tbody>${blockTable}
-<tr class="total-row"><td>TOTAL — ${blockRows.length} blocks</td><td class="num">—</td><td class="num">${totalVariations}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${hh(blockDays)}</td></tr>
+<tr class="total-row"><td>TOTAL — ${blockRows.length} blocks</td><td class="num">—</td><td class="num">${totalVariations}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${blockHrs}h</td></tr>
 </tbody></table>
 <div class="evidence"><a href="dashboard.html#inventory" target="_blank">▸ Block inventory (detail)</a><a href="dashboard.html#blocks" target="_blank">▸ Per-block variation deep-dive</a><a href="data/variations.json" target="_blank">▸ variations.json (raw evidence)</a></div>
 </section>
@@ -281,7 +283,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <table>
 <thead><tr><th>Template</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
 <tbody>${templateTable}
-<tr class="total-row"><td>TOTAL — ${templateRows.length} templates</td><td class="num">${pages.length}</td><td class="num">100%</td><td>—</td><td class="num">${hh(templateDays)}</td></tr>
+<tr class="total-row"><td>TOTAL — ${templateRows.length} templates</td><td class="num">${pages.length}</td><td class="num">100%</td><td>—</td><td class="num">${templateHrs}h</td></tr>
 </tbody></table>
 <div class="evidence"><a href="dashboard.html#templates" target="_blank">▸ Template deep-dive</a><a href="dashboard.html#tbv" target="_blank">▸ Template → Block → Variation map</a><a href="dashboard.html#matrix" target="_blank">▸ Coverage matrix</a></div>
 </section>
@@ -331,6 +333,13 @@ ${rollupTable}
 <li><b>Adobe Commerce</b> integration effort here is indicative only; full commerce scope to be confirmed with BRP.</li>
 <li>Scene7 / BRP DAM assets are referenced or migrated <b>without re-mastering</b>.</li>
 <li>Design remains visually equivalent (<b>no redesign</b>); pixel-parity theming per brand.</li>
+<li><b>Design fidelity:</b> we will match the design as closely as possible; however, minor spacing and alignment tolerances may exist that are not visually noticeable during side-by-side comparison, though they may appear in pixel-level measurements. Any visually noticeable differences will be addressed while maintaining overall design consistency.</li>
+<li><b>Analytics tracking:</b> the estimate covers re-instating existing tags/containers as observed. Any <b>customization to analytics tracking</b> (new events, data-layer changes, custom dimensions, tag-manager rework) will be <b>estimated separately</b>.</li>
+<li><b>New blocks / scope:</b> the estimate covers the ${blockRows.length} blocks and ${totalVariations} variations identified in this analysis. Any <b>new block or variation</b> discovered beyond this list (e.g. from unreleased pages, future campaigns, or authoring needs) will be <b>estimated separately</b>.</li>
+<li><b>Content authoring &amp; translation:</b> per-locale content translation and net-new content authoring are <b>excluded</b>; the estimate assumes migration of existing published content only.</li>
+<li><b>Third-party dependencies:</b> external systems (BYO configurator, Adobe Commerce endpoints, Google Maps, DAM/CDN) remain available and functional; changes to those systems or their APIs are <b>out of scope</b>.</li>
+<li><b>Access &amp; environments:</b> timely access to source content, DAM assets, credentials, GitHub/EDS environments and the required tag-manager/analytics accounts is assumed; delays may impact the timeline.</li>
+<li><b>Browser &amp; device support:</b> current-generation evergreen browsers and standard responsive breakpoints; legacy-browser support is <b>excluded</b>.</li>
 <li>Estimates are <b>planning-grade</b> and to be refined in discovery.</li>
 </ul>
 </section>
