@@ -82,7 +82,7 @@ const foundationDays = foundation.reduce((s, r) => s + r[2], 0);
 
 // ---------------- 3RD-PARTY INTEGRATIONS ----------------
 const integModel = {
-  'Google Tag Manager': ['Tag management / analytics container', 'Re-add via delayed.js; keep GTM container ID', 'Low', 0.5],
+  'Google Tag Manager': ['Tag management / analytics container', 'Re-add via delayed.js; keep GTM container ID', 'Medium', 5],
   'Adobe RUM (helix-rum)': ['Real User Monitoring — already Helix RUM', 'Native to EDS; already present', 'None', 0],
   'Dynatrace (ruxit)': ['APM / performance monitoring', 'Load in delayed phase; verify perf budget', 'Low', 1],
   'Typekit': ['Adobe Fonts (Typekit)', 'Move to fonts.css, font-display:swap; self-host if possible', 'Low', 1],
