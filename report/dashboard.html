@@ -70,6 +70,20 @@ td.sticky{position:sticky;left:0;background:#fff;font-weight:600;max-width:190px
 .subnav a{font-size:12px;background:#eef2f9;border:1px solid #dfe6f1;color:#3a4453;padding:3px 10px;border-radius:20px;text-decoration:none}
 .subnav a:hover{background:var(--blue);color:#fff}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:26px}
+.grp-row td{background:#eef2f9!important;font-weight:700;font-size:12px;color:#33404f;text-transform:uppercase;letter-spacing:.4px}
+.total-row td{background:#0b0f19!important;color:#fff;font-weight:800;border-color:#333}
+.reconbox{overflow-x:auto}
+.deftbl{display:flex;flex-direction:column;gap:8px;margin-top:14px;font-size:12.5px;color:#3a4453}
+.deftbl span{display:flex;gap:8px;align-items:flex-start}
+.deftbl i{width:12px;height:12px;border-radius:3px;flex:0 0 12px;margin-top:4px}
+.deftbl i.d1{background:#2563eb}.deftbl i.d2{background:#8b5cf6}
+.reco-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:900px){.reco-grid{grid-template-columns:1fr}}
+.reco-card{position:relative;border:1px solid var(--edge);border-radius:12px;padding:16px 18px 16px 52px;background:#fff}
+.reco-card .rn{position:absolute;left:16px;top:16px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.reco-card h4{margin:0 0 6px;font-size:14.5px}
+.reco-card p{margin:0;font-size:12.5px;color:#3a4453}
+.reco-card code{background:#f3f5f9;padding:1px 5px;border-radius:4px;font-size:11.5px}
 h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:24px 0 4px}
 </style></head>
 <body>
@@ -80,9 +94,11 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
 </header>
 <nav class="toc">
   <a href="#dash">Dashboard</a>
+  <a href="#inventory">Block Inventory</a>
   <a href="#blocks">Blocks & Variations</a>
   <a href="#templates">Templates</a>
   <a href="#matrix">Mapping Matrix</a>
+  <a href="#reco">Recommendations</a>
   <a href="#method">Method & Evidence</a>
 </nav>
 <div class="wrap">
@@ -92,10 +108,10 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
 <div class="kpis">
   <div class="kpi"><div class="n">1,172</div><div class="l">URLs analyzed</div></div>
   <div class="kpi"><div class="n">22</div><div class="l">Templates</div></div>
-  <div class="kpi"><div class="n">10</div><div class="l">Core blocks</div></div>
-  <div class="kpi"><div class="n">25</div><div class="l">Distinct variations</div></div>
+  <div class="kpi"><div class="n">22</div><div class="l">Content blocks</div></div>
+  <div class="kpi"><div class="n">37</div><div class="l">Verified variations</div></div>
   <div class="kpi"><div class="n">13</div><div class="l">Optional capabilities</div></div>
-  <div class="kpi"><div class="n">143.5d</div><div class="l">Blocks + templates build</div></div>
+  <div class="kpi"><div class="n">170.5d</div><div class="l">Blocks + templates build</div></div>
   <div class="kpi warn"><div class="n">779</div><div class="l">Pages w/o meta-desc</div></div>
   <div class="kpi warn"><div class="n">402</div><div class="l">Pages w/ multiple H1</div></div>
 </div>
@@ -125,27 +141,51 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
 <text x="204.3582089552239" y="291" dominant-baseline="central" class="val">8</text><text x="182" y="319" text-anchor="end" dominant-baseline="central" class="lbl">Section Landing</text>
 <rect x="190" y="308" width="6.268656716417911" height="22" rx="4" fill="#0ea5e9"/>
 <text x="202.26865671641792" y="319" dominant-baseline="central" class="val">6</text></svg></div>
-  <div class="panel"><h4>Block footprint — pages containing each block</h4><svg viewBox="0 0 600 280" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+  <div class="panel"><h4>Block footprint — pages containing each block</h4><svg viewBox="0 0 600 616" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Container</text>
 <rect x="190" y="0" width="350" height="22" rx="4" fill="#2563eb"/>
-<text x="546" y="11" dominant-baseline="central" class="val">1023</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">Image (Core)</text>
-<rect x="190" y="28" width="318.86608015640275" height="22" rx="4" fill="#0ea5e9"/>
-<text x="514.8660801564027" y="39" dominant-baseline="central" class="val">932</text><text x="182" y="67" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
-<rect x="190" y="56" width="202.88367546432065" height="22" rx="4" fill="#14b8a6"/>
-<text x="398.8836754643206" y="67" dominant-baseline="central" class="val">593</text><text x="182" y="95" text-anchor="end" dominant-baseline="central" class="lbl">Configurator Package Selector</text>
-<rect x="190" y="84" width="102.98142717497556" height="22" rx="4" fill="#22c55e"/>
-<text x="298.9814271749756" y="95" dominant-baseline="central" class="val">301</text><text x="182" y="123" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
-<rect x="190" y="112" width="95.11241446725317" height="22" rx="4" fill="#eab308"/>
-<text x="291.1124144672532" y="123" dominant-baseline="central" class="val">278</text><text x="182" y="151" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
-<rect x="190" y="140" width="88.6119257086999" height="22" rx="4" fill="#f97316"/>
-<text x="284.6119257086999" y="151" dominant-baseline="central" class="val">259</text><text x="182" y="179" text-anchor="end" dominant-baseline="central" class="lbl">Dealer Locator</text>
-<rect x="190" y="168" width="62.95210166177908" height="22" rx="4" fill="#ef4444"/>
-<text x="258.95210166177907" y="179" dominant-baseline="central" class="val">184</text><text x="182" y="207" text-anchor="end" dominant-baseline="central" class="lbl">Iframe</text>
-<rect x="190" y="196" width="57.47800586510264" height="22" rx="4" fill="#ec4899"/>
-<text x="253.47800586510263" y="207" dominant-baseline="central" class="val">168</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
-<rect x="190" y="224" width="36.26588465298143" height="22" rx="4" fill="#8b5cf6"/>
-<text x="232.2658846529814" y="235" dominant-baseline="central" class="val">106</text><text x="182" y="263" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
-<rect x="190" y="252" width="24.29130009775171" height="22" rx="4" fill="#64748b"/>
-<text x="220.2913000977517" y="263" dominant-baseline="central" class="val">71</text></svg></div>
+<text x="546" y="11" dominant-baseline="central" class="val">1171</text><text x="182" y="39" text-anchor="end" dominant-baseline="central" class="lbl">CTA</text>
+<rect x="190" y="28" width="326.3877028181042" height="22" rx="4" fill="#0ea5e9"/>
+<text x="522.3877028181041" y="39" dominant-baseline="central" class="val">1092</text><text x="182" y="67" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="56" width="324.29547395388556" height="22" rx="4" fill="#14b8a6"/>
+<text x="520.2954739538856" y="67" dominant-baseline="central" class="val">1085</text><text x="182" y="95" text-anchor="end" dominant-baseline="central" class="lbl">Teaser</text>
+<rect x="190" y="84" width="305.76430401366355" height="22" rx="4" fill="#22c55e"/>
+<text x="501.76430401366355" y="95" dominant-baseline="central" class="val">1023</text><text x="182" y="123" text-anchor="end" dominant-baseline="central" class="lbl">Image (Core)</text>
+<rect x="190" y="112" width="278.56532877882154" height="22" rx="4" fill="#eab308"/>
+<text x="474.56532877882154" y="123" dominant-baseline="central" class="val">932</text><text x="182" y="151" text-anchor="end" dominant-baseline="central" class="lbl">Hero</text>
+<rect x="190" y="140" width="177.2416737830914" height="22" rx="4" fill="#f97316"/>
+<text x="373.2416737830914" y="151" dominant-baseline="central" class="val">593</text><text x="182" y="179" text-anchor="end" dominant-baseline="central" class="lbl">Title</text>
+<rect x="190" y="168" width="160.80273270708796" height="22" rx="4" fill="#ef4444"/>
+<text x="356.80273270708796" y="179" dominant-baseline="central" class="val">538</text><text x="182" y="207" text-anchor="end" dominant-baseline="central" class="lbl">Text</text>
+<rect x="190" y="196" width="144.06490179333903" height="22" rx="4" fill="#ec4899"/>
+<text x="340.064901793339" y="207" dominant-baseline="central" class="val">482</text><text x="182" y="235" text-anchor="end" dominant-baseline="central" class="lbl">Configurator Package Selector</text>
+<rect x="190" y="224" width="89.96584116140052" height="22" rx="4" fill="#8b5cf6"/>
+<text x="285.96584116140053" y="235" dominant-baseline="central" class="val">301</text><text x="182" y="263" text-anchor="end" dominant-baseline="central" class="lbl">Video</text>
+<rect x="190" y="252" width="83.09137489325363" height="22" rx="4" fill="#64748b"/>
+<text x="279.0913748932536" y="263" dominant-baseline="central" class="val">278</text><text x="182" y="291" text-anchor="end" dominant-baseline="central" class="lbl">Downloads (PDF list)</text>
+<rect x="190" y="280" width="79.80358667805295" height="22" rx="4" fill="#2563eb"/>
+<text x="275.80358667805297" y="291" dominant-baseline="central" class="val">267</text><text x="182" y="319" text-anchor="end" dominant-baseline="central" class="lbl">Carousel</text>
+<rect x="190" y="308" width="77.41246797608882" height="22" rx="4" fill="#0ea5e9"/>
+<text x="273.4124679760888" y="319" dominant-baseline="central" class="val">259</text><text x="182" y="347" text-anchor="end" dominant-baseline="central" class="lbl">Modal</text>
+<rect x="190" y="336" width="72.92912040990606" height="22" rx="4" fill="#14b8a6"/>
+<text x="268.9291204099061" y="347" dominant-baseline="central" class="val">244</text><text x="182" y="375" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="364" width="71.13578138343296" height="22" rx="4" fill="#22c55e"/>
+<text x="267.13578138343297" y="375" dominant-baseline="central" class="val">238</text><text x="182" y="403" text-anchor="end" dominant-baseline="central" class="lbl">Dealer Locator</text>
+<rect x="190" y="392" width="54.99573014517507" height="22" rx="4" fill="#eab308"/>
+<text x="250.99573014517506" y="403" dominant-baseline="central" class="val">184</text><text x="182" y="431" text-anchor="end" dominant-baseline="central" class="lbl">Iframe</text>
+<rect x="190" y="420" width="50.213492741246796" height="22" rx="4" fill="#f97316"/>
+<text x="246.2134927412468" y="431" dominant-baseline="central" class="val">168</text><text x="182" y="459" text-anchor="end" dominant-baseline="central" class="lbl">Gallery</text>
+<rect x="190" y="448" width="31.682322801024764" height="22" rx="4" fill="#ef4444"/>
+<text x="227.68232280102475" y="459" dominant-baseline="central" class="val">106</text><text x="182" y="487" text-anchor="end" dominant-baseline="central" class="lbl">Accordion</text>
+<rect x="190" y="476" width="21.221178479931684" height="22" rx="4" fill="#ec4899"/>
+<text x="217.2211784799317" y="487" dominant-baseline="central" class="val">71</text><text x="182" y="515" text-anchor="end" dominant-baseline="central" class="lbl">Page-Level Navigation</text>
+<rect x="190" y="504" width="2" height="22" rx="4" fill="#8b5cf6"/>
+<text x="198" y="515" dominant-baseline="central" class="val">4</text><text x="182" y="543" text-anchor="end" dominant-baseline="central" class="lbl">Table</text>
+<rect x="190" y="532" width="2" height="22" rx="4" fill="#64748b"/>
+<text x="198" y="543" dominant-baseline="central" class="val">2</text><text x="182" y="571" text-anchor="end" dominant-baseline="central" class="lbl">Form</text>
+<rect x="190" y="560" width="2" height="22" rx="4" fill="#2563eb"/>
+<text x="198" y="571" dominant-baseline="central" class="val">2</text><text x="182" y="599" text-anchor="end" dominant-baseline="central" class="lbl">Tabs</text>
+<rect x="190" y="588" width="2" height="22" rx="4" fill="#0ea5e9"/>
+<text x="198" y="599" dominant-baseline="central" class="val">1</text></svg></div>
 </div>
 <div class="dash-grid three">
   <div class="panel donut-wrap"><h4>Templates by complexity</h4><svg viewBox="0 0 200 200" class="donut" role="img"><circle cx="100" cy="100" r="83" fill="none" stroke="#22c55e" stroke-width="34" stroke-dasharray="71.11423370398714 450.3901467919186" stroke-dashoffset="0" transform="rotate(-90 100 100)"><title>Low: 3</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#eab308" stroke-width="34" stroke-dasharray="284.45693481594856 237.04744567995715" stroke-dashoffset="-71.11423370398714" transform="rotate(-90 100 100)"><title>Medium: 12</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#f97316" stroke-width="34" stroke-dasharray="142.22846740797428 379.27591308793143" stroke-dashoffset="-355.57116851993567" transform="rotate(-90 100 100)"><title>High: 6</title></circle><circle cx="100" cy="100" r="83" fill="none" stroke="#8b5cf6" stroke-width="34" stroke-dasharray="23.704744567995714 497.79963592791" stroke-dashoffset="-497.79963592790995" transform="rotate(-90 100 100)"><title>Very High: 1</title></circle><text x="100" y="94" text-anchor="middle" class="dnum">22</text><text x="100" y="114" text-anchor="middle" class="dlbl">pages</text></svg><div class="legend2"><span class="lg"><i style="background:#22c55e"></i>Low <b>3</b></span><span class="lg"><i style="background:#eab308"></i>Medium <b>12</b></span><span class="lg"><i style="background:#f97316"></i>High <b>6</b></span><span class="lg"><i style="background:#8b5cf6"></i>Very High <b>1</b></span></div></div>
@@ -175,10 +215,30 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
 <div class="note disc"><b>Key discovery this pass:</b> <b>Adobe Commerce (Magento) middleware is present on 100% of pages</b> (<code>data-magento-middleware-base-url</code>) — the site is commerce-enabled, not purely editorial. Combined with the external BYO configurator (168 pages) and Google Maps dealer locator (168 pages), the "dynamic" surface is larger than a first pass suggests and must be scoped with the commerce/product teams.</div>
 </section>
 
+<section id="inventory">
+<h2 class="sec">Block Inventory — Reconciled (single source of truth)</h2>
+<p class="lead"><b>22 content blocks → 37 verified variations</b> (plus 13 optional capabilities). Every count below is a page count observed in the live DOM — nothing is assumed. Two global blocks (Header, Footer) sit outside this content inventory.</p>
+<div class="note disc"><b>Correcting an earlier figure:</b> a previous version of this report quoted <b>54 variations</b>. That number was inflated with variations that were <i>plausible but never found in the DOM</i> (e.g. "Hero Split", "Hero Overlay"). After stripping every unproven entry, the honest, evidence-backed total is <b>37 variations across 22 blocks</b>. This table is the number to trust.</p></div>
+<div class="reconbox"><table>
+<thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Verified variations</th><th class="num">Capabilities</th><th>Complexity</th><th class="num">Build</th></tr></thead>
+<tbody>
+<tr class="grp-row"><td colspan="6">Rich content blocks — multiple distinct variations</td></tr>
+<tr><td><b>Teaser / Card</b></td><td class="num">1023</td><td class="num">4</td><td class="num">1</td><td><span class="cx cx-High">High</span></td><td class="num">9d</td></tr><tr><td><b>Image (Core)</b></td><td class="num">932</td><td class="num">2</td><td class="num">2</td><td><span class="cx cx-Low">Low</span></td><td class="num">2.5d</td></tr><tr><td><b>Hero / Hero-Block</b></td><td class="num">593</td><td class="num">2</td><td class="num">5</td><td><span class="cx cx-High">High</span></td><td class="num">7.5d</td></tr><tr><td><b>Configurator Package Selector</b></td><td class="num">301</td><td class="num">2</td><td class="num">—</td><td><span class="cx cx-High">High</span></td><td class="num">6d</td></tr><tr><td><b>Video / Video Embed</b></td><td class="num">278</td><td class="num">3</td><td class="num">1</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">6d</td></tr><tr><td><b>Carousel / Slider</b></td><td class="num">259</td><td class="num">2</td><td class="num">3</td><td><span class="cx cx-High">High</span></td><td class="num">7.5d</td></tr><tr><td><b>Dealer Locator / Map</b></td><td class="num">184</td><td class="num">3</td><td class="num">—</td><td><span class="cx cx-VeryHigh">Very High</span></td><td class="num">11d</td></tr><tr><td><b>Iframe / BYO Configurator Embed</b></td><td class="num">168</td><td class="num">2</td><td class="num">1</td><td><span class="cx cx-High">High</span></td><td class="num">6d</td></tr><tr><td><b>Gallery / Image Grid</b></td><td class="num">106</td><td class="num">3</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">6d</td></tr><tr><td><b>Accordion</b></td><td class="num">71</td><td class="num">2</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">3.5d</td></tr>
+<tr class="grp-row"><td colspan="6">Foundational blocks — single standard form (1 variation each)</td></tr>
+<tr><td><b>Container / Section</b></td><td class="num">1171</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">2d</td></tr><tr><td><b>CTA / Button</b></td><td class="num">1092</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">2d</td></tr><tr><td><b>Breadcrumb</b></td><td class="num">1085</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">1.5d</td></tr><tr><td><b>Title / Heading</b></td><td class="num">538</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">1d</td></tr><tr><td><b>Text / Rich Text</b></td><td class="num">482</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">1d</td></tr><tr><td><b>Downloads (PDF list)</b></td><td class="num">267</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">2d</td></tr><tr><td><b>Modal / Dialog</b></td><td class="num">244</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">3d</td></tr><tr><td><b>List</b></td><td class="num">238</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">2d</td></tr><tr><td><b>Page-Level Navigation</b></td><td class="num">4</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">3d</td></tr><tr><td><b>Table</b></td><td class="num">2</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Low">Low</span></td><td class="num">1.5d</td></tr><tr><td><b>Form</b></td><td class="num">2</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-High">High</span></td><td class="num">5d</td></tr><tr><td><b>Tabs</b></td><td class="num">1</td><td class="num">1</td><td class="num">—</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">3d</td></tr>
+<tr class="total-row"><td>TOTAL — 22 blocks</td><td class="num">—</td><td class="num">37</td><td class="num">13</td><td>—</td><td class="num">92d</td></tr>
+</tbody></table></div>
+<div class="deftbl">
+  <span><i class="d1"></i><b>Variation</b> = a structurally different configuration of a block (e.g. image hero vs video hero). Each is a distinct authoring/build case.</span>
+  <span><i class="d2"></i><b>Capability</b> = an optional feature that can be toggled on the <i>same</i> instance (e.g. a hero that also shows a CTA bar). Not a separate block — counted separately so it never inflates the block/variation totals.</span>
+</div>
+</section>
+
 <section id="blocks">
 <h2 class="sec">Blocks & Their Variations — Deep Dive</h2>
-<p class="lead">10 core blocks carry <b>25 distinct variations</b> plus 13 optional capabilities. A <b>variation</b> is a structurally different configuration (e.g. image hero vs video hero); a <b>capability</b> is an optional feature that can be toggled on the same instance (e.g. a hero that also has a CTA bar). Percentages are share of pages that contain that block.</p>
+<p class="lead">Deep dive on all 22 blocks. <b>Rich content blocks</b> carry multiple distinct variations; <b>foundational blocks</b> are single-form building blocks. Percentages are share of pages that contain that block.</p>
 <div class="subnav"><a href="#blk-teaser-card">Teaser</a><a href="#blk-image-core-">Image (Core)</a><a href="#blk-hero-hero-block">Hero</a><a href="#blk-configurator-package-selector">Configurator Package Selector</a><a href="#blk-video-video-embed">Video</a><a href="#blk-carousel-slider">Carousel</a><a href="#blk-dealer-locator-map">Dealer Locator</a><a href="#blk-iframe-byo-configurator-embed">Iframe</a><a href="#blk-gallery-image-grid">Gallery</a><a href="#blk-accordion">Accordion</a></div>
+<h3 class="grp">Rich content blocks — 10 blocks, 25 variations</h3>
 <div class="card" id="blk-teaser-card">
 <div class="card-head">
   <h3>Teaser / Card</h3>
@@ -359,6 +419,200 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
 <rect x="190" y="28" width="239.71830985915494" height="22" rx="4" fill="#0ea5e9"/>
 <text x="435.71830985915494" y="39" dominant-baseline="central" class="val">46</text></svg></div>
 </div>
+</div>
+<h3 class="grp">Foundational blocks — 12 blocks, 12 variations (1 each)</h3>
+<div class="card" id="blk-container-section">
+<div class="card-head">
+  <h3>Container / Section</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">1171 pages</span> <span class="tag">1 variation</span> <span class="tag">2d build</span></div>
+</div>
+<p class="purpose">Responsive grid/section wrapper (aem-Grid) and segment blocks that lay out all other content. Present on virtually every page.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Container / Section</b></td><td class="num">1171</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Container / Section</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">1171</text></svg></div>
+</div>
+</div><div class="card" id="blk-cta-button">
+<div class="card-head">
+  <h3>CTA / Button</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">1092 pages</span> <span class="tag">1 variation</span> <span class="tag">2d build</span></div>
+</div>
+<p class="purpose">Call-to-action buttons and action links that drive clicks throughout the site.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>CTA / Button</b></td><td class="num">1092</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">CTA / Button</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">1092</text></svg></div>
+</div>
+</div><div class="card" id="blk-breadcrumb">
+<div class="card-head">
+  <h3>Breadcrumb</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">1085 pages</span> <span class="tag">1 variation</span> <span class="tag">1.5d build</span></div>
+</div>
+<p class="purpose">Hierarchical breadcrumb navigation reflecting the deep IA (up to 7 levels).</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Breadcrumb</b></td><td class="num">1085</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Breadcrumb</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">1085</text></svg></div>
+</div>
+</div><div class="card" id="blk-title-heading">
+<div class="card-head">
+  <h3>Title / Heading</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">538 pages</span> <span class="tag">1 variation</span> <span class="tag">1d build</span></div>
+</div>
+<p class="purpose">Standalone heading component (H1–H4) used for section titles.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Title / Heading</b></td><td class="num">538</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Title / Heading</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">538</text></svg></div>
+</div>
+</div><div class="card" id="blk-text-rich-text">
+<div class="card-head">
+  <h3>Text / Rich Text</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">482 pages</span> <span class="tag">1 variation</span> <span class="tag">1d build</span></div>
+</div>
+<p class="purpose">Rich-text body copy authored via the WCM text component.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Text / Rich Text</b></td><td class="num">482</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Text / Rich Text</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">482</text></svg></div>
+</div>
+</div><div class="card" id="blk-downloads-pdf-list-">
+<div class="card-head">
+  <h3>Downloads (PDF list)</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">267 pages</span> <span class="tag">1 variation</span> <span class="tag">2d build</span></div>
+</div>
+<p class="purpose">Lists of downloadable PDF assets (brochures, manuals, spec sheets).</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Downloads (PDF list)</b></td><td class="num">267</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Downloads (PDF list)</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">267</text></svg></div>
+</div>
+</div><div class="card" id="blk-modal-dialog">
+<div class="card-head">
+  <h3>Modal / Dialog</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">244 pages</span> <span class="tag">1 variation</span> <span class="tag">3d build</span></div>
+</div>
+<p class="purpose">Overlay dialogs for videos, packages and expanded content.</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Modal / Dialog</b></td><td class="num">244</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Modal / Dialog</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">244</text></svg></div>
+</div>
+</div><div class="card" id="blk-list">
+<div class="card-head">
+  <h3>List</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">238 pages</span> <span class="tag">1 variation</span> <span class="tag">2d build</span></div>
+</div>
+<p class="purpose">Dynamic/link lists (navigation, related content, indexes).</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>List</b></td><td class="num">238</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">List</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">238</text></svg></div>
+</div>
+</div><div class="card" id="blk-page-level-navigation">
+<div class="card-head">
+  <h3>Page-Level Navigation</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">4 pages</span> <span class="tag">1 variation</span> <span class="tag">3d build</span></div>
+</div>
+<p class="purpose">In-page anchor navigation for long pages. Rare (4 pages).</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Page-Level Navigation</b></td><td class="num">4</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Page-Level Navigation</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">4</text></svg></div>
+</div>
+</div><div class="card" id="blk-table">
+<div class="card-head">
+  <h3>Table</h3>
+  <div class="card-meta"><span class="cx cx-Low">Low</span> <span class="tag">2 pages</span> <span class="tag">1 variation</span> <span class="tag">1.5d build</span></div>
+</div>
+<p class="purpose">Data/spec tables. Very rare (2 pages).</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Table</b></td><td class="num">2</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Table</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">2</text></svg></div>
+</div>
+</div><div class="card" id="blk-form">
+<div class="card-head">
+  <h3>Form</h3>
+  <div class="card-meta"><span class="cx cx-High">High</span> <span class="tag">2 pages</span> <span class="tag">1 variation</span> <span class="tag">5d build</span></div>
+</div>
+<p class="purpose">Lead-gen / quote / pre-order forms. Very rare (2 pages).</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Form</b></td><td class="num">2</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Form</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">2</text></svg></div>
+</div>
+</div><div class="card" id="blk-tabs">
+<div class="card-head">
+  <h3>Tabs</h3>
+  <div class="card-meta"><span class="cx cx-Medium">Medium</span> <span class="tag">1 pages</span> <span class="tag">1 variation</span> <span class="tag">3d build</span></div>
+</div>
+<p class="purpose">Horizontal tab component. Very rare (1 page).</p>
+<div class="split2">
+  <div>
+    <table class="var-tbl"><thead><tr><th>Variation</th><th class="num">Pages</th><th class="num">% of block</th><th>What makes it different</th></tr></thead><tbody><tr><td><b>Tabs</b></td><td class="num">1</td><td class="num">100%</td><td class="diff">Single standard form — no distinct variations observed in the DOM.</td></tr></tbody></table>
+    
+  </div>
+  <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div><svg viewBox="0 0 620 28" class="chart" role="img"><text x="182" y="11" text-anchor="end" dominant-baseline="central" class="lbl">Tabs</text>
+<rect x="190" y="0" width="370" height="22" rx="4" fill="#2563eb"/>
+<text x="566" y="11" dominant-baseline="central" class="val">1</text></svg></div>
+</div>
+</div>
+</section>
+
+<section id="reco">
+<h2 class="sec">Recommendations</h2>
+<div class="reco-grid">
+  <div class="reco-card"><span class="rn">1</span><h4>Build a 22-block library, phased by evidence</h4><p><b>Phase 1</b> (covers ~95% of pages): Container, Teaser, Image, CTA/Button, Breadcrumb, Hero, Title, Text — each on 480–1,171 pages. <b>Phase 2</b>: Carousel, Accordion, Gallery, Video, Modal, List, Downloads. <b>Phase 3</b>: the specialised/dynamic blocks.</p></div>
+  <div class="reco-card"><span class="rn">2</span><h4>Treat capabilities as block options, not blocks</h4><p>The 13 capabilities (hero sticky-scroll, CTA bar, carousel auto-advance, lazy image, etc.) are toggles on one block. Model them as section/block metadata — this keeps the library at 22, not 35.</p></div>
+  <div class="reco-card"><span class="rn">3</span><h4>Defer the 4 near-zero blocks</h4><p>Tabs (1 page), Table (2), Form (2) and Page-Level Nav (4) are so rare that re-authoring those handful of pages onto existing blocks is cheaper than building & maintaining dedicated blocks — unless strategically required.</p></div>
+  <div class="reco-card"><span class="rn">4</span><h4>Front-load the 3 dynamic/high-risk blocks</h4><p>Iframe/BYO Configurator (168 pages), Dealer Locator/Map (184) and Package Selector (301) depend on external systems (<code>zlthunder.net</code>, Google Maps, and the Magento middleware on 100% of pages). Scope these with the commerce/product team before committing dates.</p></div>
+  <div class="reco-card"><span class="rn">5</span><h4>Standardise the Teaser first</h4><p>With 4 variations on 1,023 pages, Teaser is the workhorse. One well-modelled Teaser with clean author options collapses the most authoring effort and the most variation surface to maintain.</p></div>
+  <div class="reco-card"><span class="rn">6</span><h4>Bank the SEO clean-up during migration</h4><p>779 pages lack a meta description and 402 expose multiple H1s (hero carousels). Fix heading discipline and metadata as part of the block/template work rather than as a separate project.</p></div>
 </div>
 </section>
 

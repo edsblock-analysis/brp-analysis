@@ -52,12 +52,27 @@ const blockEffort = {
   'Iframe / BYO Configurator Embed': { cx: 'High', build: 5, variant: 1 },
   'Dealer Locator / Map': { cx: 'Very High', build: 8, variant: 1.5 },
   'Configurator Package Selector': { cx: 'High', build: 5, variant: 1 },
+  // Foundational (single-form) blocks
+  'Container / Section': { cx: 'Low', build: 2, variant: 0 },
+  'CTA / Button': { cx: 'Low', build: 2, variant: 0 },
+  'Breadcrumb': { cx: 'Low', build: 1.5, variant: 0 },
+  'Title / Heading': { cx: 'Low', build: 1, variant: 0 },
+  'Text / Rich Text': { cx: 'Low', build: 1, variant: 0 },
+  'Downloads (PDF list)': { cx: 'Low', build: 2, variant: 0 },
+  'Modal / Dialog': { cx: 'Medium', build: 3, variant: 0 },
+  'List': { cx: 'Low', build: 2, variant: 0 },
+  'Page-Level Navigation': { cx: 'Medium', build: 3, variant: 0 },
+  'Table': { cx: 'Low', build: 1.5, variant: 0 },
+  'Form': { cx: 'High', build: 5, variant: 0 },
+  'Tabs': { cx: 'Medium', build: 3, variant: 0 },
 };
 const blockRows = Object.entries(vars).filter(([k]) => k !== '__meta').map(([name, d]) => {
   const eff = blockEffort[name] || { cx: 'Medium', build: 3, variant: 1 };
   const days = eff.build + (d.variations.length - 1) * eff.variant;
   return { name, ...d, ...eff, days: +days.toFixed(1) };
 }).sort((a, b) => b.blockPages - a.blockPages);
+const richRows = blockRows.filter((b) => b.tier === 'rich');
+const foundRows = blockRows.filter((b) => b.tier === 'foundational');
 
 const totalVariations = blockRows.reduce((s, b) => s + b.variations.length, 0);
 const totalCapabilities = blockRows.reduce((s, b) => s + b.capabilities.length, 0);
@@ -117,15 +132,15 @@ const brandChart = Object.entries(brandSplit).sort((a, b) => b[1] - a[1]).map(([
 // ---------------- RENDER ----------------
 const cxBadge = (c) => `<span class="cx cx-${c.replace(/\s/g, '')}">${c}</span>`;
 
-// Block deep-dive cards
-const blockCards = blockRows.map((b) => {
+// Block deep-dive card renderer
+function renderCard(b) {
   const varRows = b.variations.map((v) => `<tr><td><b>${esc(v.name)}</b></td><td class="num">${v.pages}</td><td class="num">${v.pct}%</td><td class="diff">${esc(v.diff)}</td></tr>`).join('');
   const capRows = b.capabilities.length ? `<div class="caps"><span class="caps-h">Optional capabilities (can co-occur on one instance):</span>${b.capabilities.map((c) => `<span class="cap">${esc(c.name)} <b>${c.pct}%</b></span>`).join('')}</div>` : '';
   const varBar = hbar(b.variations.map((v) => ({ l: v.name, v: v.pages })), { w: 620, bh: 22, gap: 6, max: b.blockPages });
   return `<div class="card" id="blk-${esc(b.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase())}">
 <div class="card-head">
   <h3>${esc(b.name)}</h3>
-  <div class="card-meta">${cxBadge(b.cx)} <span class="tag">${b.blockPages} pages</span> <span class="tag">${b.variations.length} variations</span> <span class="tag">${b.days}d build</span></div>
+  <div class="card-meta">${cxBadge(b.cx)} <span class="tag">${b.blockPages} pages</span> <span class="tag">${b.variations.length} variation${b.variations.length > 1 ? 's' : ''}</span> <span class="tag">${b.days}d build</span></div>
 </div>
 <p class="purpose">${esc(b.purpose)}</p>
 <div class="split2">
@@ -136,7 +151,21 @@ const blockCards = blockRows.map((b) => {
   <div class="chartbox"><div class="chart-title">Variation prevalence (pages)</div>${varBar}</div>
 </div>
 </div>`;
-}).join('');
+}
+const richCards = richRows.map(renderCard).join('');
+const foundCards = foundRows.map(renderCard).join('');
+
+// Reconciliation inventory table (single source of truth)
+const invRow = (b) => `<tr><td><b>${esc(b.name)}</b></td><td class="num">${b.blockPages}</td><td class="num">${b.variations.length}</td><td class="num">${b.capabilities.length || '—'}</td><td>${cxBadge(b.cx)}</td><td class="num">${b.days}d</td></tr>`;
+const reconTable = `<table>
+<thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Verified variations</th><th class="num">Capabilities</th><th>Complexity</th><th class="num">Build</th></tr></thead>
+<tbody>
+<tr class="grp-row"><td colspan="6">Rich content blocks — multiple distinct variations</td></tr>
+${richRows.map(invRow).join('')}
+<tr class="grp-row"><td colspan="6">Foundational blocks — single standard form (1 variation each)</td></tr>
+${foundRows.map(invRow).join('')}
+<tr class="total-row"><td>TOTAL — ${blockRows.length} blocks</td><td class="num">—</td><td class="num">${totalVariations}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${totalBlockDays}d</td></tr>
+</tbody></table>`;
 
 // Template deep-dive cards
 const tmplCards = templateRows.map((r) => {
@@ -251,6 +280,20 @@ td.sticky{position:sticky;left:0;background:#fff;font-weight:600;max-width:190px
 .subnav a{font-size:12px;background:#eef2f9;border:1px solid #dfe6f1;color:#3a4453;padding:3px 10px;border-radius:20px;text-decoration:none}
 .subnav a:hover{background:var(--blue);color:#fff}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:26px}
+.grp-row td{background:#eef2f9!important;font-weight:700;font-size:12px;color:#33404f;text-transform:uppercase;letter-spacing:.4px}
+.total-row td{background:#0b0f19!important;color:#fff;font-weight:800;border-color:#333}
+.reconbox{overflow-x:auto}
+.deftbl{display:flex;flex-direction:column;gap:8px;margin-top:14px;font-size:12.5px;color:#3a4453}
+.deftbl span{display:flex;gap:8px;align-items:flex-start}
+.deftbl i{width:12px;height:12px;border-radius:3px;flex:0 0 12px;margin-top:4px}
+.deftbl i.d1{background:#2563eb}.deftbl i.d2{background:#8b5cf6}
+.reco-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:900px){.reco-grid{grid-template-columns:1fr}}
+.reco-card{position:relative;border:1px solid var(--edge);border-radius:12px;padding:16px 18px 16px 52px;background:#fff}
+.reco-card .rn{position:absolute;left:16px;top:16px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.reco-card h4{margin:0 0 6px;font-size:14.5px}
+.reco-card p{margin:0;font-size:12.5px;color:#3a4453}
+.reco-card code{background:#f3f5f9;padding:1px 5px;border-radius:4px;font-size:11.5px}
 h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:24px 0 4px}
 </style></head>
 <body>
@@ -261,9 +304,11 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
 </header>
 <nav class="toc">
   <a href="#dash">Dashboard</a>
+  <a href="#inventory">Block Inventory</a>
   <a href="#blocks">Blocks & Variations</a>
   <a href="#templates">Templates</a>
   <a href="#matrix">Mapping Matrix</a>
+  <a href="#reco">Recommendations</a>
   <a href="#method">Method & Evidence</a>
 </nav>
 <div class="wrap">
@@ -273,8 +318,8 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
 <div class="kpis">
   <div class="kpi"><div class="n">${pages.length.toLocaleString()}</div><div class="l">URLs analyzed</div></div>
   <div class="kpi"><div class="n">${templateRows.length}</div><div class="l">Templates</div></div>
-  <div class="kpi"><div class="n">${blockRows.length}</div><div class="l">Core blocks</div></div>
-  <div class="kpi"><div class="n">${totalVariations}</div><div class="l">Distinct variations</div></div>
+  <div class="kpi"><div class="n">${blockRows.length}</div><div class="l">Content blocks</div></div>
+  <div class="kpi"><div class="n">${totalVariations}</div><div class="l">Verified variations</div></div>
   <div class="kpi"><div class="n">${totalCapabilities}</div><div class="l">Optional capabilities</div></div>
   <div class="kpi"><div class="n">${totalBlockDays + totalTemplateDays}d</div><div class="l">Blocks + templates build</div></div>
   <div class="kpi warn"><div class="n">${noMeta}</div><div class="l">Pages w/o meta-desc</div></div>
@@ -292,11 +337,37 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
 <div class="note disc"><b>Key discovery this pass:</b> <b>Adobe Commerce (Magento) middleware is present on 100% of pages</b> (<code>data-magento-middleware-base-url</code>) — the site is commerce-enabled, not purely editorial. Combined with the external BYO configurator (168 pages) and Google Maps dealer locator (168 pages), the "dynamic" surface is larger than a first pass suggests and must be scoped with the commerce/product teams.</div>
 </section>
 
+<section id="inventory">
+<h2 class="sec">Block Inventory — Reconciled (single source of truth)</h2>
+<p class="lead"><b>${blockRows.length} content blocks → ${totalVariations} verified variations</b> (plus ${totalCapabilities} optional capabilities). Every count below is a page count observed in the live DOM — nothing is assumed. Two global blocks (Header, Footer) sit outside this content inventory.</p>
+<div class="note disc"><b>Correcting an earlier figure:</b> a previous version of this report quoted <b>54 variations</b>. That number was inflated with variations that were <i>plausible but never found in the DOM</i> (e.g. "Hero Split", "Hero Overlay"). After stripping every unproven entry, the honest, evidence-backed total is <b>${totalVariations} variations across ${blockRows.length} blocks</b>. This table is the number to trust.</p></div>
+<div class="reconbox">${reconTable}</div>
+<div class="deftbl">
+  <span><i class="d1"></i><b>Variation</b> = a structurally different configuration of a block (e.g. image hero vs video hero). Each is a distinct authoring/build case.</span>
+  <span><i class="d2"></i><b>Capability</b> = an optional feature that can be toggled on the <i>same</i> instance (e.g. a hero that also shows a CTA bar). Not a separate block — counted separately so it never inflates the block/variation totals.</span>
+</div>
+</section>
+
 <section id="blocks">
 <h2 class="sec">Blocks & Their Variations — Deep Dive</h2>
-<p class="lead">${blockRows.length} core blocks carry <b>${totalVariations} distinct variations</b> plus ${totalCapabilities} optional capabilities. A <b>variation</b> is a structurally different configuration (e.g. image hero vs video hero); a <b>capability</b> is an optional feature that can be toggled on the same instance (e.g. a hero that also has a CTA bar). Percentages are share of pages that contain that block.</p>
-<div class="subnav">${blockRows.map((b) => `<a href="#blk-${esc(b.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase())}">${esc(b.name.split(' / ')[0])}</a>`).join('')}</div>
-${blockCards}
+<p class="lead">Deep dive on all ${blockRows.length} blocks. <b>Rich content blocks</b> carry multiple distinct variations; <b>foundational blocks</b> are single-form building blocks. Percentages are share of pages that contain that block.</p>
+<div class="subnav">${richRows.map((b) => `<a href="#blk-${esc(b.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase())}">${esc(b.name.split(' / ')[0])}</a>`).join('')}</div>
+<h3 class="grp">Rich content blocks — ${richRows.length} blocks, ${richRows.reduce((s, b) => s + b.variations.length, 0)} variations</h3>
+${richCards}
+<h3 class="grp">Foundational blocks — ${foundRows.length} blocks, ${foundRows.length} variations (1 each)</h3>
+${foundCards}
+</section>
+
+<section id="reco">
+<h2 class="sec">Recommendations</h2>
+<div class="reco-grid">
+  <div class="reco-card"><span class="rn">1</span><h4>Build a ${blockRows.length}-block library, phased by evidence</h4><p><b>Phase 1</b> (covers ~95% of pages): Container, Teaser, Image, CTA/Button, Breadcrumb, Hero, Title, Text — each on 480–1,171 pages. <b>Phase 2</b>: Carousel, Accordion, Gallery, Video, Modal, List, Downloads. <b>Phase 3</b>: the specialised/dynamic blocks.</p></div>
+  <div class="reco-card"><span class="rn">2</span><h4>Treat capabilities as block options, not blocks</h4><p>The ${totalCapabilities} capabilities (hero sticky-scroll, CTA bar, carousel auto-advance, lazy image, etc.) are toggles on one block. Model them as section/block metadata — this keeps the library at ${blockRows.length}, not ${blockRows.length + totalCapabilities}.</p></div>
+  <div class="reco-card"><span class="rn">3</span><h4>Defer the 4 near-zero blocks</h4><p>Tabs (1 page), Table (2), Form (2) and Page-Level Nav (4) are so rare that re-authoring those handful of pages onto existing blocks is cheaper than building & maintaining dedicated blocks — unless strategically required.</p></div>
+  <div class="reco-card"><span class="rn">4</span><h4>Front-load the 3 dynamic/high-risk blocks</h4><p>Iframe/BYO Configurator (168 pages), Dealer Locator/Map (184) and Package Selector (301) depend on external systems (<code>zlthunder.net</code>, Google Maps, and the Magento middleware on 100% of pages). Scope these with the commerce/product team before committing dates.</p></div>
+  <div class="reco-card"><span class="rn">5</span><h4>Standardise the Teaser first</h4><p>With 4 variations on 1,023 pages, Teaser is the workhorse. One well-modelled Teaser with clean author options collapses the most authoring effort and the most variation surface to maintain.</p></div>
+  <div class="reco-card"><span class="rn">6</span><h4>Bank the SEO clean-up during migration</h4><p>${noMeta} pages lack a meta description and ${multiH1} expose multiple H1s (hero carousels). Fix heading discipline and metadata as part of the block/template work rather than as a separate project.</p></div>
+</div>
 </section>
 
 <section id="templates">
