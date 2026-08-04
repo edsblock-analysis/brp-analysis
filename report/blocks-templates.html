@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRP-World → EDS · Blocks, Templates & Complexity</title>
+<style>
+:root{--brand:#ffcb00;--ink:#0b0f19;--edge:#e2e6ee;--blue:#2563eb;--muted:#5b6472}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#f4f6fa}
+header.hero{background:linear-gradient(135deg,#0b0f19,#1c2541);color:#fff;padding:44px 40px 36px}
+header.hero h1{margin:0 0 8px;font-size:28px;letter-spacing:-.5px}
+header.hero .sub{color:#9fb0c9;font-size:14.5px;max-width:820px}
+header.hero .badge{display:inline-block;background:var(--brand);color:#111;font-weight:700;padding:3px 10px;border-radius:5px;font-size:12px;margin-bottom:14px;letter-spacing:.5px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px 70px}
+nav.toc{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--edge);z-index:40;padding:10px 24px;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px}
+nav.toc a{color:var(--muted);text-decoration:none}
+nav.toc a:hover{color:var(--blue)}
+section{background:#fff;border:1px solid var(--edge);border-radius:12px;padding:26px 30px;margin:22px 0;box-shadow:0 1px 3px rgba(10,15,25,.04)}
+h2.sec{font-size:21px;margin:0 0 6px;padding-bottom:10px;border-bottom:3px solid var(--brand);display:inline-block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:18px 0}
+.kpi{background:#f8fafc;border:1px solid var(--edge);border-radius:10px;padding:16px}
+.kpi .n{font-size:26px;font-weight:800;color:var(--blue)}
+.kpi .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:12px 0}
+th,td{border:1px solid var(--edge);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f0f3f8;font-weight:700}
+td.num,th.num{text-align:center;white-space:nowrap}
+tr:nth-child(even){background:#fafbfd}
+.found{color:var(--muted);font-size:12px}
+.cx{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap}
+.cx-Low{background:#dbf3e0;color:#0f5132}.cx-Medium{background:#fff3cd;color:#664d03}.cx-High{background:#ffe0d6;color:#842029}.cx-VeryHigh{background:#f5d0f0;color:#5a1a6e}
+.chip{display:inline-block;background:#eef1f6;border:1px solid #dfe4ec;color:#3a4453;font-size:11px;padding:1px 7px;border-radius:4px;margin:2px 1px}
+.rot{height:96px;padding:0}
+.rot>span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;font-size:12px}
+td.sticky{position:sticky;left:0;background:#fff;font-weight:600;max-width:190px;font-size:12px}
+.mx{text-align:center;font-weight:600;font-size:11px}
+.tablewrap{max-height:660px;overflow:auto;border:1px solid var(--edge);border-radius:8px}
+.note{background:#f0f6ff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13.5px}
+.legend{font-size:12px;color:var(--muted);margin:6px 0}
+.total-row{background:#0b0f19!important;color:#fff;font-weight:800}
+.total-row td{border-color:#333}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.pill{padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:700}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:26px}
+</style></head>
+<body>
+<header class="hero">
+  <div class="badge">ADOBE EDGE DELIVERY SERVICES · BLOCK & TEMPLATE REPORT</div>
+  <h1>BRP-World.com → EDS · Blocks, Templates & Complexity</h1>
+  <div class="sub">Derived from independent DOM analysis of all <b>1,172</b> in-scope URLs (<code>www.brp-world.com/int/en/</code>). Blocks and variations are detected from live AEM component signatures (<code>cmp-*</code>); complexity is a build-effort rating for EDS.</div>
+</header>
+<nav class="toc">
+  <a href="#summary">Summary</a>
+  <a href="#blocks">1 · Blocks & Variations</a>
+  <a href="#templates">2 · Unique Templates</a>
+  <a href="#matrix">3 · Template → Block Mapping</a>
+  <a href="#complexity">4 · Complexity Overview</a>
+</nav>
+<div class="wrap">
+
+<section id="summary">
+<h2 class="sec">Summary</h2>
+<div class="kpis">
+  <div class="kpi"><div class="n">22</div><div class="l">Total blocks</div></div>
+  <div class="kpi"><div class="n">54</div><div class="l">Block variations</div></div>
+  <div class="kpi"><div class="n">22</div><div class="l">Unique templates</div></div>
+  <div class="kpi"><div class="n">1,172</div><div class="l">Pages analyzed</div></div>
+  <div class="kpi"><div class="n">75d</div><div class="l">Block dev effort</div></div>
+  <div class="kpi"><div class="n">78.5d</div><div class="l">Template dev effort</div></div>
+</div>
+</section>
+
+<section id="blocks">
+<h2 class="sec">1 · Total Blocks & Their Variations</h2>
+<p><b>22 distinct EDS blocks</b> with <b>54 variations</b>. "Pages" = number of pages whose DOM carries the block's component signature.</p>
+<table>
+<thead><tr><th>Block</th><th class="num"># Var.</th><th>Variations (observed)</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th><th class="num">Est. Dev</th></tr></thead>
+<tbody><tr>
+<td><b>Hero / Hero-Block</b></td>
+<td class="num">6</td>
+<td><span class="chip">Standard hero</span> <span class="chip">Hero Video (js-hero-block-video)</span> <span class="chip">Hero Carousel (multi-slide)</span> <span class="chip">Hero Split</span> <span class="chip">Hero Overlay</span> <span class="chip">Sticky hero</span></td>
+<td class="num">593</td>
+<td class="num">51%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">6d</td>
+</tr><tr>
+<td><b>Teaser / Card</b></td>
+<td class="num">6</td>
+<td><span class="chip">Image teaser</span> <span class="chip">CTA teaser</span> <span class="chip">Product card</span> <span class="chip">News card</span> <span class="chip">Navigation teaser</span> <span class="chip">2/3/4-up teaser grid</span></td>
+<td class="num">1146</td>
+<td class="num">98%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">6d</td>
+</tr><tr>
+<td><b>Carousel / Slider</b></td>
+<td class="num">4</td>
+<td><span class="chip">Media carousel</span> <span class="chip">Product rail</span> <span class="chip">Tabbed carousel (cmp-carousel-tab)</span> <span class="chip">Gallery carousel</span></td>
+<td class="num">381</td>
+<td class="num">33%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">6d</td>
+</tr><tr>
+<td><b>Accordion</b></td>
+<td class="num">4</td>
+<td><span class="chip">Standard</span> <span class="chip">FAQ</span> <span class="chip">Multi-expand</span> <span class="chip">Spec accordion</span></td>
+<td class="num">71</td>
+<td class="num">6%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+</tr><tr>
+<td><b>Gallery / Image Grid</b></td>
+<td class="num">4</td>
+<td><span class="chip">Grid gallery</span> <span class="chip">Carousel gallery</span> <span class="chip">Image grid (cmp-image-grid)</span> <span class="chip">Tile mosaic (cmp-tilemosaic)</span></td>
+<td class="num">105</td>
+<td class="num">9%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">4d</td>
+</tr><tr>
+<td><b>Image</b></td>
+<td class="num">3</td>
+<td><span class="chip">Responsive image (Scene7/DAM)</span> <span class="chip">Background image</span> <span class="chip">Object-fit cover</span></td>
+<td class="num">1140</td>
+<td class="num">97%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">2d</td>
+</tr><tr>
+<td><b>Breadcrumb</b></td>
+<td class="num">1</td>
+<td><span class="chip">Standard breadcrumb</span></td>
+<td class="num">1086</td>
+<td class="num">93%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">1.5d</td>
+</tr><tr>
+<td><b>Title / Heading</b></td>
+<td class="num">1</td>
+<td><span class="chip">H1–H4 title component</span></td>
+<td class="num">538</td>
+<td class="num">46%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">1d</td>
+</tr><tr>
+<td><b>Text / Rich Text</b></td>
+<td class="num">1</td>
+<td><span class="chip">RTE body copy</span></td>
+<td class="num">482</td>
+<td class="num">41%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">1d</td>
+</tr><tr>
+<td><b>List</b></td>
+<td class="num">3</td>
+<td><span class="chip">Link list</span> <span class="chip">Navigation list</span> <span class="chip">Dynamic list (cmp-list)</span></td>
+<td class="num">238</td>
+<td class="num">20%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">2d</td>
+</tr><tr>
+<td><b>Container / Section</b></td>
+<td class="num">2</td>
+<td><span class="chip">Responsive grid container (aem-Grid)</span> <span class="chip">Segment block</span></td>
+<td class="num">224</td>
+<td class="num">19%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">2d</td>
+</tr><tr>
+<td><b>Video / Video Embed</b></td>
+<td class="num">4</td>
+<td><span class="chip">YouTube embed</span> <span class="chip">Video (cmp-video)</span> <span class="chip">Video embed (cmp-videoembed)</span> <span class="chip">Inline hero video</span></td>
+<td class="num">270</td>
+<td class="num">23%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">4d</td>
+</tr><tr>
+<td><b>Iframe / App Embed</b></td>
+<td class="num">2</td>
+<td><span class="chip">BYO configurator embed</span> <span class="chip">External tool embed</span></td>
+<td class="num">168</td>
+<td class="num">14%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">5d</td>
+</tr><tr>
+<td><b>Feature / Segment Block</b></td>
+<td class="num">2</td>
+<td><span class="chip">Feature callout</span> <span class="chip">Segment navigation block</span></td>
+<td class="num">342</td>
+<td class="num">29%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">4d</td>
+</tr><tr>
+<td><b>Modal / Dialog</b></td>
+<td class="num">2</td>
+<td><span class="chip">Content modal</span> <span class="chip">Video modal</span></td>
+<td class="num">319</td>
+<td class="num">27%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+</tr><tr>
+<td><b>CTA / Banner</b></td>
+<td class="num">3</td>
+<td><span class="chip">CTA banner</span> <span class="chip">Promo banner</span> <span class="chip">Action-link bar</span></td>
+<td class="num">860</td>
+<td class="num">73%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">2d</td>
+</tr><tr>
+<td><b>Page-Level Navigation</b></td>
+<td class="num">1</td>
+<td><span class="chip">In-page anchor nav (cmp-page-level-navigation)</span></td>
+<td class="num">4</td>
+<td class="num">0%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+</tr><tr>
+<td><b>Tabs</b></td>
+<td class="num">1</td>
+<td><span class="chip">Horizontal tabs (cmp-tabs)</span></td>
+<td class="num">1</td>
+<td class="num">0%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+</tr><tr>
+<td><b>Table</b></td>
+<td class="num">1</td>
+<td><span class="chip">Data / spec table</span></td>
+<td class="num">2</td>
+<td class="num">0%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">1.5d</td>
+</tr><tr>
+<td><b>Downloads</b></td>
+<td class="num">1</td>
+<td><span class="chip">PDF / brochure download list</span></td>
+<td class="num">269</td>
+<td class="num">23%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">2d</td>
+</tr><tr>
+<td><b>Form</b></td>
+<td class="num">1</td>
+<td><span class="chip">Lead-gen / quote / pre-order form</span></td>
+<td class="num">2</td>
+<td class="num">0%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">5d</td>
+</tr><tr>
+<td><b>Dealer Locator</b></td>
+<td class="num">1</td>
+<td><span class="chip">Map + search locator app</span></td>
+<td class="num">1</td>
+<td class="num">0%</td>
+<td><span class="cx cx-VeryHigh">Very High</span></td>
+<td class="num">8d</td>
+</tr>
+<tr class="total-row"><td>TOTAL</td><td class="num">54</td><td>22 blocks</td><td class="num">—</td><td class="num">—</td><td>—</td><td class="num">75d</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="templates">
+<h2 class="sec">2 · Total Unique Templates</h2>
+<p><b>22 distinct templates</b> across 1,172 pages. "Est. Dev" is net-new EDS template scaffolding effort.</p>
+<table>
+<thead><tr><th>Template</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th><th class="num">Est. Dev</th><th>Findings</th></tr></thead>
+<tbody><tr>
+<td><b>Product Detail (Model)</b></td>
+<td class="num">335</td>
+<td class="num">28.6%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">5d</td>
+<td class="found">Model/lineup pages: hero, heavy carousels (avg 22), spec teasers, galleries, accordions.</td>
+</tr><tr>
+<td><b>Experience / Editorial</b></td>
+<td class="num">283</td>
+<td class="num">24.1%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Editorial storytelling: hero, teasers, galleries (19%), accordions.</td>
+</tr><tr>
+<td><b>Owner Zone / Support Article</b></td>
+<td class="num">197</td>
+<td class="num">16.8%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Support/how-to: rich text, images, accordions, some hero.</td>
+</tr><tr>
+<td><b>Product Configurator (BYO)</b></td>
+<td class="num">183</td>
+<td class="num">15.6%</td>
+<td><span class="cx cx-VeryHigh">Very High</span></td>
+<td class="num">8d</td>
+<td class="found">Customise-Your-Own: 3rd-party app via iframe (zlthunder.net); 92% carry iframe.</td>
+</tr><tr>
+<td><b>Blog / Article</b></td>
+<td class="num">62</td>
+<td class="num">5.3%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Blog posts: hero, rich text, galleries, accordions.</td>
+</tr><tr>
+<td><b>Content Page (Generic)</b></td>
+<td class="num">19</td>
+<td class="num">1.6%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Generic content pages on master template.</td>
+</tr><tr>
+<td><b>News</b></td>
+<td class="num">18</td>
+<td class="num">1.5%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">BRP Universe news: gallery-heavy (44%), teaser cards.</td>
+</tr><tr>
+<td><b>Product Listing (Model Year)</b></td>
+<td class="num">16</td>
+<td class="num">1.4%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Model-year index: teaser card grids linking to models.</td>
+</tr><tr>
+<td><b>Parts, Accessories &amp; Apparel</b></td>
+<td class="num">8</td>
+<td class="num">0.7%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">5d</td>
+<td class="found">PA&amp;A: extremely carousel-heavy (avg 119), product rails.</td>
+</tr><tr>
+<td><b>Events</b></td>
+<td class="num">8</td>
+<td class="num">0.7%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">BRP Universe events: galleries (63%), teasers.</td>
+</tr><tr>
+<td><b>Press Release</b></td>
+<td class="num">8</td>
+<td class="num">0.7%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">1.5d</td>
+<td class="found">Text-dominant, minimal blocks.</td>
+</tr><tr>
+<td><b>Section Landing</b></td>
+<td class="num">6</td>
+<td class="num">0.5%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Section index pages: teaser navigation grids.</td>
+</tr><tr>
+<td><b>About / Corporate</b></td>
+<td class="num">6</td>
+<td class="num">0.5%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Corporate: hero (100%), accordion-heavy content.</td>
+</tr><tr>
+<td><b>Brand Home</b></td>
+<td class="num">5</td>
+<td class="num">0.4%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">5d</td>
+<td class="found">Per-brand landing (5 brands): hero carousels + teaser navigation.</td>
+</tr><tr>
+<td><b>Promotion / Campaign</b></td>
+<td class="num">5</td>
+<td class="num">0.4%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Hero + CTA driven campaign pages.</td>
+</tr><tr>
+<td><b>Legal / Utility</b></td>
+<td class="num">5</td>
+<td class="num">0.4%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">1.5d</td>
+<td class="found">Long-form text, nested lists.</td>
+</tr><tr>
+<td><b>Form / Lead Gen</b></td>
+<td class="num">2</td>
+<td class="num">0.2%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">5d</td>
+<td class="found">Request-a-quote / pre-order: forms, accordions.</td>
+</tr><tr>
+<td><b>FAQ</b></td>
+<td class="num">2</td>
+<td class="num">0.2%</td>
+<td><span class="cx cx-Low">Low</span></td>
+<td class="num">1.5d</td>
+<td class="found">Accordion Q&amp;A.</td>
+</tr><tr>
+<td><b>Home</b></td>
+<td class="num">1</td>
+<td class="num">0.1%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">5d</td>
+<td class="found">Multi-brand hero carousel (8 H1s), teaser grids, segment blocks.</td>
+</tr><tr>
+<td><b>Shopping Tool</b></td>
+<td class="num">1</td>
+<td class="num">0.1%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Misc shopping tool landing.</td>
+</tr><tr>
+<td><b>Dealer Locator</b></td>
+<td class="num">1</td>
+<td class="num">0.1%</td>
+<td><span class="cx cx-High">High</span></td>
+<td class="num">5d</td>
+<td class="found">Find-a-dealer: interactive locator (dynamic JS/map app).</td>
+</tr><tr>
+<td><b>Downloads / Brochures</b></td>
+<td class="num">1</td>
+<td class="num">0.1%</td>
+<td><span class="cx cx-Medium">Medium</span></td>
+<td class="num">3d</td>
+<td class="found">Brochure downloads: PDF link lists.</td>
+</tr>
+<tr class="total-row"><td>TOTAL</td><td class="num">1172</td><td class="num">100%</td><td>—</td><td class="num">78.5d</td><td>Template scaffolding</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="matrix">
+<h2 class="sec">3 · Template → Block Mapping Matrix</h2>
+<p>Each cell = % of pages in that template whose DOM contains the block. Darker = more prevalent.</p>
+<div class="legend">Blank/light = absent · Dark blue = present on most pages of the template.</div>
+<div class="tablewrap">
+<table>
+<thead><tr><th class="sticky">Template</th><th class="num">Pages</th><th class="num">Complexity</th><th class="rot"><span>Hero</span></th><th class="rot"><span>Teaser</span></th><th class="rot"><span>Carousel</span></th><th class="rot"><span>Accordion</span></th><th class="rot"><span>Gallery</span></th><th class="rot"><span>Image</span></th><th class="rot"><span>Breadcrumb</span></th><th class="rot"><span>Title</span></th><th class="rot"><span>Text</span></th><th class="rot"><span>List</span></th><th class="rot"><span>Video</span></th><th class="rot"><span>Iframe</span></th></tr></thead>
+<tbody><tr><td class="sticky">Product Detail (Model)</td><td class="num">335</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:rgba(37,99,235,0.7745);color:#fff">77</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.715);color:#fff">70</td><td class="mx" style="background:rgba(37,99,235,0.20500000000000002);color:#111">10</td><td class="mx" style="background:rgba(37,99,235,0.1795);color:#111">7</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.9615);color:#fff">99</td><td class="mx" style="background:rgba(37,99,235,0.8594999999999999);color:#fff">87</td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:rgba(37,99,235,0.154);color:#111">4</td><td class="mx" style="background:rgba(37,99,235,0.2475);color:#111">15</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Experience / Editorial</td><td class="num">283</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:rgba(37,99,235,0.40900000000000003);color:#111">34</td><td class="mx" style="background:rgba(37,99,235,0.17099999999999999);color:#111">6</td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:rgba(37,99,235,0.9445);color:#fff">97</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.40900000000000003);color:#111">34</td><td class="mx" style="background:rgba(37,99,235,0.681);color:#fff">66</td><td class="mx" style="background:rgba(37,99,235,0.256);color:#111">16</td><td class="mx" style="background:rgba(37,99,235,0.4345);color:#111">37</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Owner Zone / Support Article</td><td class="num">197</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.528);color:#111">48</td><td class="mx" style="background:rgba(37,99,235,0.9615);color:#fff">99</td><td class="mx" style="background:rgba(37,99,235,0.188);color:#111">8</td><td class="mx" style="background:rgba(37,99,235,0.154);color:#111">4</td><td class="mx" style="background:rgba(37,99,235,0.1455);color:#111">3</td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:rgba(37,99,235,0.4515);color:#111">39</td><td class="mx" style="background:rgba(37,99,235,0.664);color:#fff">64</td><td class="mx" style="background:rgba(37,99,235,0.732);color:#fff">72</td><td class="mx" style="background:rgba(37,99,235,0.4515);color:#111">39</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Product Configurator (BYO)</td><td class="num">183</td><td class="num"><span class="cx cx-VeryHigh">Very High</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:rgba(37,99,235,0.953);color:#fff">98</td><td class="mx" style="background:rgba(37,99,235,0.1455);color:#111">3</td><td class="mx" style="background:rgba(37,99,235,0.1455);color:#111">3</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.902);color:#fff">92</td></tr><tr><td class="sticky">Blog / Article</td><td class="num">62</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.494);color:#111">44</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.188);color:#111">8</td><td class="mx" style="background:rgba(37,99,235,0.2135);color:#111">11</td><td class="mx" style="background:rgba(37,99,235,0.188);color:#111">8</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.6980000000000001);color:#fff">68</td><td class="mx" style="background:rgba(37,99,235,0.46);color:#111">40</td><td class="mx" style="background:rgba(37,99,235,0.6385);color:#fff">61</td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:rgba(37,99,235,0.3155);color:#111">23</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Content Page (Generic)</td><td class="num">19</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.7915);color:#fff">79</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.34099999999999997);color:#111">26</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.2135);color:#111">11</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.749);color:#fff">74</td><td class="mx" style="background:rgba(37,99,235,0.4345);color:#111">37</td><td class="mx" style="background:rgba(37,99,235,0.2135);color:#111">11</td><td class="mx" style="background:rgba(37,99,235,0.1625);color:#111">5</td><td class="mx" style="background:rgba(37,99,235,0.5705);color:#111">53</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">News</td><td class="num">18</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.494);color:#111">44</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.494);color:#111">44</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:rgba(37,99,235,0.8765);color:#fff">89</td><td class="mx" style="background:rgba(37,99,235,0.17099999999999999);color:#111">6</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Product Listing (Model Year)</td><td class="num">16</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.8085);color:#fff">81</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Parts, Accessories &amp; Apparel</td><td class="num">8</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.868);color:#fff">88</td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Events</td><td class="num">8</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.6555);color:#fff">63</td><td class="mx" style="background:rgba(37,99,235,0.23049999999999998);color:#111">13</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.23049999999999998);color:#111">13</td><td class="mx" style="background:rgba(37,99,235,0.3325);color:#111">25</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Press Release</td><td class="num">8</td><td class="num"><span class="cx cx-Low">Low</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.868);color:#fff">88</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.868);color:#fff">88</td><td class="mx" style="background:rgba(37,99,235,0.23049999999999998);color:#111">13</td><td class="mx" style="background:rgba(37,99,235,0.7575);color:#fff">75</td><td class="mx" style="background:rgba(37,99,235,0.23049999999999998);color:#111">13</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Section Landing</td><td class="num">6</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.4005);color:#111">33</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.4005);color:#111">33</td><td class="mx" style="background:rgba(37,99,235,0.4005);color:#111">33</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">About / Corporate</td><td class="num">6</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:rgba(37,99,235,0.2645);color:#111">17</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Brand Home</td><td class="num">5</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.63);color:#fff">60</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.63);color:#fff">60</td><td class="mx" style="background:rgba(37,99,235,0.46);color:#111">40</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Promotion / Campaign</td><td class="num">5</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.46);color:#111">40</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Legal / Utility</td><td class="num">5</td><td class="num"><span class="cx cx-Low">Low</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.29000000000000004);color:#111">20</td><td class="mx" style="background:rgba(37,99,235,0.46);color:#111">40</td><td class="mx" style="background:rgba(37,99,235,0.8);color:#fff">80</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Form / Lead Gen</td><td class="num">2</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:rgba(37,99,235,0.5449999999999999);color:#111">50</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">FAQ</td><td class="num">2</td><td class="num"><span class="cx cx-Low">Low</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Home</td><td class="num">1</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Shopping Tool</td><td class="num">1</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Dealer Locator</td><td class="num">1</td><td class="num"><span class="cx cx-High">High</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr><tr><td class="sticky">Downloads / Brochures</td><td class="num">1</td><td class="num"><span class="cx cx-Medium">Medium</span></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:rgba(37,99,235,0.97);color:#fff">100</td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td><td class="mx" style="background:#f6f8fa;color:#111"></td></tr></tbody>
+</table>
+</div>
+<div class="note"><b>Read-out:</b> Teaser, Image and Breadcrumb are near-universal. Hero + Carousel dominate Home, Brand, Product and PA&A templates. The Configurator template is defined almost entirely by the Iframe embed. Support/Owner-Zone and Blog lean on Accordion and Text.</div>
+</section>
+
+<section id="complexity">
+<h2 class="sec">4 · Complexity Overview</h2>
+<h3 style="margin-top:4px">Templates by complexity</h3>
+<div class="pills">
+<span class="pill cx-VeryHigh">Very High: 1 template</span><span class="pill cx-High">High: 6 templates</span><span class="pill cx-Medium">Medium: 12 templates</span><span class="pill cx-Low">Low: 3 templates</span>
+</div>
+<h3>Blocks by complexity</h3>
+<div class="pills">
+<span class="pill cx-VeryHigh">Very High: 1 block</span><span class="pill cx-High">High: 5 blocks</span><span class="pill cx-Medium">Medium: 7 blocks</span><span class="pill cx-Low">Low: 9 blocks</span>
+</div>
+<div class="note"><b>Interpretation:</b> The bulk of the site is Low/Medium complexity thanks to a small, highly-reused block palette. High/Very-High effort concentrates in the Hero, Teaser and Carousel blocks (site-wide, rich behaviour) and in the BYO Configurator and Dealer Locator (dynamic / third-party). Total build ≈ <b>153.5 person-days</b> for blocks + templates (excludes foundation, integrations, testing and content migration).</div>
+</section>
+
+<footer>Prepared from independent DOM analysis of all 1,172 in-scope URLs · Complexity ratings are planning-grade EDS build estimates.</footer>
+</div>
+</body></html>
