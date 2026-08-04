@@ -78,6 +78,9 @@ const totalVariations = blockRows.reduce((s, b) => s + b.variations.length, 0);
 const totalCapabilities = blockRows.reduce((s, b) => s + b.capabilities.length, 0);
 const totalBlockDays = blockRows.reduce((s, b) => s + b.days, 0);
 const totalTemplateDays = templateRows.reduce((s, r) => s + r.days, 0);
+// Effort is displayed in hours (8h per person-day); internal math stays in days.
+const HPD = 8;
+const hrs = (d) => `${+(d * HPD).toFixed(1)}h`;
 
 // ---------------- helpers: inline SVG ----------------
 const PAL = ['#2563eb', '#0ea5e9', '#14b8a6', '#22c55e', '#eab308', '#f97316', '#ef4444', '#ec4899', '#8b5cf6', '#64748b'];
@@ -140,7 +143,7 @@ function renderCard(b) {
   return `<div class="card" id="blk-${esc(b.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase())}">
 <div class="card-head">
   <h3>${esc(b.name)}</h3>
-  <div class="card-meta">${cxBadge(b.cx)} <span class="tag">${b.blockPages} pages</span> <span class="tag">${b.variations.length} variation${b.variations.length > 1 ? 's' : ''}</span> <span class="tag">${b.days}d build</span></div>
+  <div class="card-meta">${cxBadge(b.cx)} <span class="tag">${b.blockPages} pages</span> <span class="tag">${b.variations.length} variation${b.variations.length > 1 ? 's' : ''}</span> <span class="tag">${hrs(b.days)} build</span></div>
 </div>
 <p class="purpose">${esc(b.purpose)}</p>
 <div class="split2">
@@ -156,15 +159,15 @@ const richCards = richRows.map(renderCard).join('');
 const foundCards = foundRows.map(renderCard).join('');
 
 // Reconciliation inventory table (single source of truth)
-const invRow = (b) => `<tr><td><b>${esc(b.name)}</b></td><td class="num">${b.blockPages}</td><td class="num">${b.variations.length}</td><td class="num">${b.capabilities.length || '—'}</td><td>${cxBadge(b.cx)}</td><td class="num">${b.days}d</td></tr>`;
+const invRow = (b) => `<tr><td><b>${esc(b.name)}</b></td><td class="num">${b.blockPages}</td><td class="num">${b.variations.length}</td><td class="num">${b.capabilities.length || '—'}</td><td>${cxBadge(b.cx)}</td><td class="num">${hrs(b.days)}</td></tr>`;
 const reconTable = `<table>
-<thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Verified variations</th><th class="num">Capabilities</th><th>Complexity</th><th class="num">Build</th></tr></thead>
+<thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Verified variations</th><th class="num">Capabilities</th><th>Complexity</th><th class="num">Build (hrs)</th></tr></thead>
 <tbody>
 <tr class="grp-row"><td colspan="6">Rich content blocks — multiple distinct variations</td></tr>
 ${richRows.map(invRow).join('')}
 <tr class="grp-row"><td colspan="6">Foundational blocks — single standard form (1 variation each)</td></tr>
 ${foundRows.map(invRow).join('')}
-<tr class="total-row"><td>TOTAL — ${blockRows.length} blocks</td><td class="num">—</td><td class="num">${totalVariations}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${totalBlockDays}d</td></tr>
+<tr class="total-row"><td>TOTAL — ${blockRows.length} blocks</td><td class="num">—</td><td class="num">${totalVariations}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${hrs(totalBlockDays)}</td></tr>
 </tbody></table>`;
 
 // Template deep-dive cards
@@ -187,7 +190,7 @@ const tmplCards = templateRows.map((r) => {
   return `<div class="card" id="tpl-${esc(r.t.replace(/[^a-z0-9]+/gi, '-').toLowerCase())}">
 <div class="card-head">
   <h3>${esc(r.t)}</h3>
-  <div class="card-meta">${cxBadge(r.cx)} <span class="tag">${r.n} pages (${(r.n / pages.length * 100).toFixed(1)}%)</span> <span class="tag">${r.days}d</span></div>
+  <div class="card-meta">${cxBadge(r.cx)} <span class="tag">${r.n} pages (${(r.n / pages.length * 100).toFixed(1)}%)</span> <span class="tag">${hrs(r.days)}</span></div>
 </div>
 <p class="purpose">${esc(r.purpose)}</p>
 <div class="primary-row"><span class="pk">Primary blocks:</span> ${primary}</div>
@@ -321,7 +324,7 @@ h3.grp{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing
   <div class="kpi"><div class="n">${blockRows.length}</div><div class="l">Content blocks</div></div>
   <div class="kpi"><div class="n">${totalVariations}</div><div class="l">Verified variations</div></div>
   <div class="kpi"><div class="n">${totalCapabilities}</div><div class="l">Optional capabilities</div></div>
-  <div class="kpi"><div class="n">${totalBlockDays + totalTemplateDays}d</div><div class="l">Blocks + templates build</div></div>
+  <div class="kpi"><div class="n">${hrs(totalBlockDays + totalTemplateDays)}</div><div class="l">Blocks + templates build</div></div>
   <div class="kpi warn"><div class="n">${noMeta}</div><div class="l">Pages w/o meta-desc</div></div>
   <div class="kpi warn"><div class="n">${multiH1}</div><div class="l">Pages w/ multiple H1</div></div>
 </div>
@@ -401,7 +404,7 @@ ${tmplCards}
 <tr><td>Named component</td><td><code>data-component-name="Image Card"</code></td><td>Explicitly named card variant</td></tr>
 </tbody>
 </table>
-<div class="note">Effort figures are planning-grade for a senior EDS team and cover block + template build only (foundation, integrations, testing, content migration and per-locale translation are estimated separately in the full assessment, <code>report/index.html</code>).</div>
+<div class="note">Effort figures are shown in <b>hours</b> (based on an 8-hour person-day) and are planning-grade for a senior EDS team. They cover block + template build only — foundation, integrations, testing, content migration and per-locale translation are estimated separately in the full assessment, <code>report/index.html</code>.</div>
 </section>
 
 <footer>Generated from independent DOM analysis of all ${pages.length.toLocaleString()} in-scope URLs · Every variation count is evidence-backed · Estimates are planning-grade.</footer>
@@ -411,4 +414,4 @@ ${tmplCards}
 fs.writeFileSync(path.join(ROOT, 'report', 'dashboard.html'), html);
 console.log('Written report/dashboard.html', (html.length / 1024).toFixed(0), 'KB');
 console.log('Blocks:', blockRows.length, '| Variations:', totalVariations, '| Capabilities:', totalCapabilities, '| Templates:', templateRows.length);
-console.log('Block days:', totalBlockDays, '| Template days:', totalTemplateDays);
+console.log('Block hrs:', hrs(totalBlockDays), '| Template hrs:', hrs(totalTemplateDays), '| Total:', hrs(totalBlockDays + totalTemplateDays));
