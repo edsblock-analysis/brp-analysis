@@ -155,7 +155,13 @@ const blockBaseItems = scaleTo(blockRows.map((b) => b.days), 780);
 const blockHrsItems = blockRows.map((b, i) => (
   BLOCK_HOUR_OVERRIDES[b.name] !== undefined ? BLOCK_HOUR_OVERRIDES[b.name] : blockBaseItems[i]
 ));
-const blockHrs = blockHrsItems.reduce((s, h) => s + h, 0);
+// Commerce product blocks now included in the block build (consume web APIs in EDS).
+const commerceBlocks = [
+  { name: 'Product Detail (Model)', pages: 335, nVar: 1, nCap: 0, cx: 'High', hrs: 40 },
+  { name: 'Product Listing (PLP)', pages: 16, nVar: 1, nCap: 0, cx: 'High', hrs: 60 },
+];
+const blockHrs = blockHrsItems.reduce((s, h) => s + h, 0) + commerceBlocks.reduce((s, b) => s + b.hrs, 0);
+const blockCount = blockRows.length + commerceBlocks.length;
 
 const foundationHrsItems = scaleTo(foundation.map((f) => f[2]), foundationHrs);
 const contentHrsItems = scaleTo(contentRows.map((c) => c[2]), contentHrs);
@@ -168,7 +174,8 @@ const grandHrs = devTotalHrs + contentHrs;
 // ---------------- RENDER ----------------
 const row = (cells) => `<tr>${cells.map((c, i) => (i === 0 ? `<td>${c}</td>` : `<td class="num">${c}</td>`)).join('')}</tr>`;
 
-const blockTable = blockRows.map((b, i) => `<tr><td><b>${esc(b.name)}</b></td><td class="num">${b.pages}</td><td class="num">${b.nVar}</td><td class="num">${b.nCap || '—'}</td><td>${cxBadge(b.cx)}</td><td class="num">${blockHrsItems[i]}h</td></tr>`).join('');
+const blockTable = blockRows.map((b, i) => `<tr><td><b>${esc(b.name)}</b></td><td class="num">${b.pages}</td><td class="num">${b.nVar}</td><td class="num">${b.nCap || '—'}</td><td>${cxBadge(b.cx)}</td><td class="num">${blockHrsItems[i]}h</td></tr>`).join('')
+  + commerceBlocks.map((b) => `<tr><td><b>${esc(b.name)}</b> <span class="cbadge">commerce</span></td><td class="num">${b.pages}</td><td class="num">${b.nVar}</td><td class="num">—</td><td>${cxBadge(b.cx)}</td><td class="num">${b.hrs}h</td></tr>`).join('');
 const templateTable = templateRows.map((r, i) => `<tr><td><b>${esc(r.t)}</b></td><td class="num">${r.n}</td><td class="num">${(r.n / pages.length * 100).toFixed(1)}%</td><td>${cxBadge(r.cx)}</td><td class="num">${templateHrsItems[i]}h</td></tr>`).join('');
 const foundationTable = foundation.map((f, i) => `<tr><td>${esc(f[0])}</td><td>${cxBadge(f[1])}</td><td class="num">${foundationHrsItems[i]}h</td></tr>`).join('');
 const integTable = integRows.map((r) => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.pages}</td><td>${esc(r.purpose)}</td><td>${esc(r.strategy)}</td><td>${cxBadge(r.impact === 'None' ? 'Low' : r.impact)}</td><td class="num">${hh(r.days)}</td></tr>`).join('');
@@ -177,7 +184,7 @@ const contentTable = contentRows.map((c, i) => `<tr><td>${esc(c[0])}</td><td cla
 // [label, hours, notes]
 const rollup = [
   ['Project setup / Foundation', foundationHrs, 'Repo, header, nav, footer, theming, i18n setup'],
-  ['Block development', blockHrs, `${blockRows.length} blocks · ${totalVariations} variations`],
+  ['Block development', blockHrs, `${blockCount} blocks (incl. 2 commerce) · ${totalVariations} variations`],
   ['Template development', templateHrs, `${templateRows.length} templates`],
   ['3rd-party integrations', integHrs, `${integRows.length} integrations`],
   ['Production readiness', prodReadyHrs, 'Perf/CWV, a11y, cross-browser, launch hardening'],
@@ -215,8 +222,7 @@ tr:nth-child(even){background:#fafbfd}
 .cx{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;display:inline-block}
 .cx-Low{background:#dcfce7;color:#166534}.cx-Medium{background:#fef9c3;color:#854d0e}.cx-High{background:#ffedd5;color:#9a3412}.cx-VeryHigh{background:#ede9fe;color:#5b21b6}
 .total-row td{background:#0b0f19!important;color:#fff;font-weight:800;border-color:#333}
-.sep-row td{background:#fff7ed!important;color:#7c3a12}
-.sepbadge{display:inline-block;background:#f97316;color:#fff;font-size:10px;font-weight:800;padding:1px 7px;border-radius:20px;margin-left:6px;text-transform:uppercase;letter-spacing:.3px}
+.cbadge{display:inline-block;background:#2563eb;color:#fff;font-size:10px;font-weight:800;padding:1px 7px;border-radius:20px;margin-left:6px;text-transform:uppercase;letter-spacing:.3px}
 .grand td{background:#0b7a3b!important;color:#fff;font-weight:800;border-color:#0b7a3b;font-size:15px}
 .subtotal td{background:#eef2f9!important;font-weight:700}
 .note{background:#f0f6ff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:13px}
@@ -258,7 +264,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <h2 class="sec">Top-line Estimate</h2>
 <div class="kpis">
   <div class="kpi"><div class="n">${pages.length.toLocaleString()}</div><div class="l">Pages in scope</div></div>
-  <div class="kpi"><div class="n">${blockRows.length}</div><div class="l">Blocks</div></div>
+  <div class="kpi"><div class="n">${blockCount}</div><div class="l">Blocks</div></div>
   <div class="kpi"><div class="n">${totalVariations}</div><div class="l">Variations</div></div>
   <div class="kpi"><div class="n">${templateRows.length}</div><div class="l">Templates</div></div>
   <div class="kpi"><div class="n">${integRows.length}</div><div class="l">Integrations</div></div>
@@ -266,7 +272,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi big"><div class="n">${contentHrs.toLocaleString()}h</div><div class="l">Content migration</div></div>
   <div class="kpi big"><div class="n">${grandHrs.toLocaleString()}h</div><div class="l">Grand total</div></div>
 </div>
-<div class="note reco"><b>Production estimate: ≈ ${grandHrs.toLocaleString()}h (${toDays(grandHrs)}d, ~${(toDays(grandHrs) / 20).toFixed(1)} person-months)</b> — AI-assisted (Claude-leveraged) delivery. Split: development ≈ <b>${devTotalHrs.toLocaleString()}h</b> + content migration ≈ <b>${contentHrs.toLocaleString()}h</b>. Foundation setup ${foundationHrs}h, ${blockRows.length} blocks ${blockHrs}h, ${templateRows.length} templates ${templateHrs}h, integrations ${integHrs}h, production readiness ${prodReadyHrs}h.</div>
+<div class="note reco"><b>Production estimate: ≈ ${grandHrs.toLocaleString()}h (${toDays(grandHrs)}d, ~${(toDays(grandHrs) / 20).toFixed(1)} person-months)</b> — AI-assisted (Claude-leveraged) delivery. Split: development ≈ <b>${devTotalHrs.toLocaleString()}h</b> + content migration ≈ <b>${contentHrs.toLocaleString()}h</b>. Foundation setup ${foundationHrs}h, ${blockCount} blocks ${blockHrs}h, ${templateRows.length} templates ${templateHrs}h, integrations ${integHrs}h, production readiness ${prodReadyHrs}h.</div>
 </section>
 
 <section id="setup">
@@ -281,14 +287,13 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 
 <section id="blocks">
 <h2 class="sec">2 · Block Inventory, Variations & Effort</h2>
-<p class="lead"><b>${blockRows.length} blocks → ${totalVariations} DOM-verified variations</b> (+ ${totalCapabilities} optional capabilities). Effort covers block build + its variations.</p>
+<p class="lead"><b>${blockCount} blocks</b> — ${blockRows.length} DOM-verified content blocks (${totalVariations} variations, +${totalCapabilities} optional capabilities) plus ${commerceBlocks.length} commerce product blocks (Product Detail, Product Listing) that consume the existing web APIs directly in EDS.</p>
 <table>
 <thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Variations</th><th class="num">Capabilities</th><th>Complexity</th><th class="num">Effort</th></tr></thead>
 <tbody>${blockTable}
-<tr class="total-row"><td>TOTAL — ${blockRows.length} blocks</td><td class="num">—</td><td class="num">${totalVariations}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${blockHrs}h</td></tr>
-<tr class="sep-row"><td><b>PLP / Product Detail (commerce)</b> <span class="sepbadge">estimated separately</span></td><td class="num">184</td><td class="num">—</td><td class="num">—</td><td>${cxBadge('High')}</td><td class="num">TBD</td></tr>
+<tr class="total-row"><td>TOTAL — ${blockCount} blocks</td><td class="num">—</td><td class="num">${totalVariations + commerceBlocks.length}</td><td class="num">${totalCapabilities}</td><td>—</td><td class="num">${blockHrs}h</td></tr>
 </tbody></table>
-<div class="note"><b>Not included in the ${blockHrs}h above:</b> a <b>PLP / Product-Detail commerce block</b> that consumes the existing commerce web APIs client-side to render product-listing and product-detail data. Because its scope depends on the commerce APIs (fields, filtering, pagination, pricing/availability) it is <b>flagged as a separate estimate</b>, to be sized with BRP's commerce/product team (see Assumptions §7).</div>
+<div class="note">The <b>Product Detail</b> (40h) and <b>Product Listing / PLP</b> (60h) commerce blocks are now included in the ${blockHrs}h block total. They consume the existing commerce web APIs client-side to render product data; if the commerce API scope grows materially beyond this, it will be re-estimated with BRP's commerce/product team (see Assumptions §7).</div>
 <div class="evidence"><a href="dashboard.html#inventory" target="_blank">▸ Block inventory (detail)</a><a href="dashboard.html#blocks" target="_blank">▸ Per-block variation deep-dive</a><a href="data/variations.json" target="_blank">▸ variations.json (raw evidence)</a></div>
 </section>
 
