@@ -95,13 +95,10 @@ const integModel = {
   'Facebook': ['Social pixel / embed', 'Delayed phase', 'Low', 0.5],
   'Google Maps': ['Dealer / location map', 'Dealer-locator block (facade + API)', 'High', 4],
 };
-// Adobe Commerce is a discovered dependency worth surfacing for sales even if not in aggregates list
 const integRows = Object.entries(agg.integrations).map(([name, pg]) => {
   const m = integModel[name] || ['—', 'Assess during discovery', 'Medium', 2];
   return { name, pages: pg, purpose: m[0], strategy: m[1], impact: m[2], days: m[3] };
 }).sort((a, b) => b.pages - a.pages);
-// add commerce middleware line (present on 100% of pages)
-integRows.push({ name: 'Adobe Commerce (Magento) middleware', pages: pages.length, purpose: 'Commerce middleware present site-wide (data-magento-middleware-base-url)', strategy: 'Scope with commerce team; integrate cart/pricing endpoints as needed', impact: 'High', days: 5 });
 const integDays = integRows.reduce((s, r) => s + r.days, 0);
 
 // ---------------- CONTENT MIGRATION ----------------
@@ -296,7 +293,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <tbody>${integTable}
 <tr class="total-row"><td>TOTAL — ${integRows.length} integrations</td><td class="num">—</td><td colspan="3"></td><td class="num">${hh(integDays)}</td></tr>
 </tbody></table>
-<div class="note disc"><b>Flag for sales:</b> <b>Adobe Commerce (Magento) middleware runs on 100% of pages</b>, and the <b>BYO configurator</b> (168 pages) is an external app embedded via iframe. Both need scoping with BRP's commerce/product team and may expand scope beyond this content-migration estimate.</div>
+<div class="note disc"><b>Flag for sales:</b> the <b>BYO configurator</b> (168 pages) is an external app embedded via iframe, and commerce product surfaces (PLP / product detail) consume existing web APIs directly in EDS blocks. Both need scoping with BRP's commerce/product team and may expand scope beyond this content-migration estimate.</div>
 <div class="evidence"><a href="index.html#integ" target="_blank">▸ Integration report (full)</a><a href="data/aggregates.json" target="_blank">▸ aggregates.json (raw evidence)</a></div>
 </section>
 
@@ -330,7 +327,7 @@ ${rollupTable}
 <ul class="assume">
 <li>Scope is the <b>/int/en/</b> locale; other locales reuse the same blocks/templates (content translated separately — <b>excluded</b>).</li>
 <li>The <b>BYO configurator</b> remains an external app to be re-embedded, <b>not rebuilt</b> in EDS.</li>
-<li><b>Adobe Commerce</b> integration effort here is indicative only; full commerce scope to be confirmed with BRP.</li>
+<li><b>Commerce product integration:</b> product surfaces (e.g. PLP / product-listing and product-detail pages) will <b>consume the existing web APIs directly within EDS blocks</b> to populate product data; those blocks call the current commerce endpoints client-side rather than introducing a new middleware layer. Estimate is indicative; full commerce scope to be confirmed with BRP.</li>
 <li>Scene7 / BRP DAM assets are referenced or migrated <b>without re-mastering</b>.</li>
 <li>Design remains visually equivalent (<b>no redesign</b>); pixel-parity theming per brand.</li>
 <li><b>Design fidelity:</b> we will match the design as closely as possible; however, minor spacing and alignment tolerances may exist that are not visually noticeable during side-by-side comparison, though they may appear in pixel-level measurements. Any visually noticeable differences will be addressed while maintaining overall design consistency.</li>
