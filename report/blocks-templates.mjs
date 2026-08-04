@@ -123,7 +123,6 @@ const blockRows = blockCatalog.map((b) => {
 <td class="num">${pg}</td>
 <td class="num">${Math.round(pg / pages.length * 100)}%</td>
 <td><span class="cx ${cxClass(b.cx)}">${b.cx}</span></td>
-<td class="num">${b.days}d</td>
 </tr>`;
 }).join('');
 
@@ -132,7 +131,6 @@ const templateTableRows = templateRows.map((r) => `<tr>
 <td class="num">${r.n}</td>
 <td class="num">${(r.n / pages.length * 100).toFixed(1)}%</td>
 <td><span class="cx ${cxClass(r.cx)}">${r.cx}</span></td>
-<td class="num">${r.days}d</td>
 <td class="found">${esc(r.found)}</td>
 </tr>`).join('');
 
@@ -192,7 +190,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:26px}
 <header class="hero">
   <div class="badge">ADOBE EDGE DELIVERY SERVICES · BLOCK & TEMPLATE REPORT</div>
   <h1>BRP-World.com → EDS · Blocks, Templates & Complexity</h1>
-  <div class="sub">Derived from independent DOM analysis of all <b>${pages.length.toLocaleString()}</b> in-scope URLs (<code>www.brp-world.com/int/en/</code>). Blocks and variations are detected from live AEM component signatures (<code>cmp-*</code>); complexity is a build-effort rating for EDS.</div>
+  <div class="sub">Derived from independent DOM analysis of all <b>${pages.length.toLocaleString()}</b> in-scope URLs (<code>www.brp-world.com/int/en/</code>). Blocks and variations are detected from live AEM component signatures (<code>cmp-*</code>); complexity is a relative build rating. Effort estimates are in the sales summary.</div>
 </header>
 <nav class="toc">
   <a href="#summary">Summary</a>
@@ -210,8 +208,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:26px}
   <div class="kpi"><div class="n">${totalVariations}</div><div class="l">Block variations</div></div>
   <div class="kpi"><div class="n">${templateRows.length}</div><div class="l">Unique templates</div></div>
   <div class="kpi"><div class="n">${pages.length.toLocaleString()}</div><div class="l">Pages analyzed</div></div>
-  <div class="kpi"><div class="n">${totalBlockDays}d</div><div class="l">Block dev effort</div></div>
-  <div class="kpi"><div class="n">${totalTemplateDays}d</div><div class="l">Template dev effort</div></div>
 </div>
 </section>
 
@@ -219,20 +215,20 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:26px}
 <h2 class="sec">1 · Total Blocks & Their Variations</h2>
 <p><b>${blockCatalog.length} distinct EDS blocks</b> with <b>${totalVariations} variations</b>. "Pages" = number of pages whose DOM carries the block's component signature.</p>
 <table>
-<thead><tr><th>Block</th><th class="num"># Var.</th><th>Variations (observed)</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th><th class="num">Est. Dev</th></tr></thead>
+<thead><tr><th>Block</th><th class="num"># Var.</th><th>Variations (observed)</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th></tr></thead>
 <tbody>${blockRows}
-<tr class="total-row"><td>TOTAL</td><td class="num">${totalVariations}</td><td>${blockCatalog.length} blocks</td><td class="num">—</td><td class="num">—</td><td>—</td><td class="num">${totalBlockDays}d</td></tr>
+<tr class="total-row"><td>TOTAL</td><td class="num">${totalVariations}</td><td>${blockCatalog.length} blocks</td><td class="num">—</td><td class="num">—</td><td>—</td></tr>
 </tbody>
 </table>
 </section>
 
 <section id="templates">
 <h2 class="sec">2 · Total Unique Templates</h2>
-<p><b>${templateRows.length} distinct templates</b> across ${pages.length.toLocaleString()} pages. "Est. Dev" is net-new EDS template scaffolding effort.</p>
+<p><b>${templateRows.length} distinct templates</b> across ${pages.length.toLocaleString()} pages.</p>
 <table>
-<thead><tr><th>Template</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th><th class="num">Est. Dev</th><th>Findings</th></tr></thead>
+<thead><tr><th>Template</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th><th>Findings</th></tr></thead>
 <tbody>${templateTableRows}
-<tr class="total-row"><td>TOTAL</td><td class="num">${pages.length}</td><td class="num">100%</td><td>—</td><td class="num">${totalTemplateDays}d</td><td>Template scaffolding</td></tr>
+<tr class="total-row"><td>TOTAL</td><td class="num">${pages.length}</td><td class="num">100%</td><td>—</td><td>Template scaffolding</td></tr>
 </tbody>
 </table>
 </section>
@@ -260,7 +256,7 @@ ${['Very High', 'High', 'Medium', 'Low'].filter((c) => cxDist[c]).map((c) => `<s
 <div class="pills">
 ${['Very High', 'High', 'Medium', 'Low'].filter((c) => blkCxDist[c]).map((c) => `<span class="pill ${cxClass(c)}">${c}: ${blkCxDist[c]} block${blkCxDist[c] > 1 ? 's' : ''}</span>`).join('')}
 </div>
-<div class="note"><b>Interpretation:</b> The bulk of the site is Low/Medium complexity thanks to a small, highly-reused block palette. High/Very-High effort concentrates in the Hero, Teaser and Carousel blocks (site-wide, rich behaviour) and in the BYO Configurator and Dealer Locator (dynamic / third-party). Total build ≈ <b>${totalBlockDays + totalTemplateDays} person-days</b> for blocks + templates (excludes foundation, integrations, testing and content migration).</div>
+<div class="note"><b>Interpretation:</b> The bulk of the site is Low/Medium complexity thanks to a small, highly-reused block palette. High/Very-High complexity concentrates in the Hero, Teaser and Carousel blocks (site-wide, rich behaviour) and in the BYO Configurator and Dealer Locator (dynamic / third-party). Effort estimates are provided separately in the sales summary (<code>report/summary.html</code>).</div>
 </section>
 
 <footer>Prepared from independent DOM analysis of all ${pages.length.toLocaleString()} in-scope URLs · Complexity ratings are planning-grade EDS build estimates.</footer>

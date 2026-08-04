@@ -156,23 +156,22 @@ const urlRows = pages.map((x, i) => {
 const barColor = (v) => v >= 75 ? '#1a7f37' : v >= 40 ? '#9a6700' : v > 0 ? '#8250df' : '#eee';
 const matrixCell = (v) => `<td class="mx" style="background:${v === 0 ? '#f6f8fa' : `rgba(37,99,235,${(v / 100) * 0.85 + 0.1})`};color:${v > 55 ? '#fff' : '#111'}">${v || ''}</td>`;
 
-const templateTableRows = templateRows.map((r) => `<tr><td>${esc(r.t)}</td><td class="num">${r.n}</td><td><span class="cx cx-${r.cx.replace(/\s/g, '')}">${r.cx}</span></td><td class="num">${r.days}</td><td class="found">${esc(r.found)}</td></tr>`).join('');
+const templateTableRows = templateRows.map((r) => `<tr><td>${esc(r.t)}</td><td class="num">${r.n}</td><td><span class="cx cx-${r.cx.replace(/\s/g, '')}">${r.cx}</span></td><td class="found">${esc(r.found)}</td></tr>`).join('');
 
 const blockTableRows = blockCatalog.map((b) => {
   const pg = pagesForKey(b.key);
-  return `<tr><td><b>${esc(b.block)}</b></td><td class="found">${esc(b.variations)}</td><td class="num">${pg}</td><td class="num">${Math.round(pg / pages.length * 100)}%</td><td><span class="cx cx-${b.cx.replace(/\s/g, '')}">${b.cx}</span></td><td class="num">${b.days}d</td></tr>`;
+  return `<tr><td><b>${esc(b.block)}</b></td><td class="found">${esc(b.variations)}</td><td class="num">${pg}</td><td class="num">${Math.round(pg / pages.length * 100)}%</td><td><span class="cx cx-${b.cx.replace(/\s/g, '')}">${b.cx}</span></td></tr>`;
 }).join('');
 
 const integRows = Object.entries(agg.integrations).map(([k, v]) => {
   const m = integImpact[k] || ['—', '—', 'Medium', '2d'];
-  return `<tr><td><b>${esc(k)}</b></td><td>${esc(m[0])}</td><td class="num">${v}</td><td>${esc(m[1])}</td><td><span class="cx cx-${m[2].replace(/\s/g, '')}">${m[2]}</span></td><td class="num">${esc(m[3])}</td></tr>`;
+  return `<tr><td><b>${esc(k)}</b></td><td>${esc(m[0])}</td><td class="num">${v}</td><td>${esc(m[1])}</td><td><span class="cx cx-${m[2].replace(/\s/g, '')}">${m[2]}</span></td></tr>`;
 }).join('');
 
 const matrixHeader = matrixBlocks.map((b) => `<th class="rot"><span>${esc(b)}</span></th>`).join('');
 const matrixTableRows = matrixRows.map((r) => `<tr><td class="sticky">${esc(r.t)}</td><td class="num">${r.n}</td>${r.cells.map(matrixCell).join('')}</tr>`).join('');
 
-const foundationRows = foundation.map((r) => `<tr><td>${esc(r[0])}</td><td><span class="cx cx-${r[1].replace(/\s/g, '')}">${r[1]}</span></td><td class="num">${r[2]}d</td></tr>`).join('');
-const contentTableRows = contentRows.map((r) => `<tr><td>${esc(r[0])}</td><td class="num">${esc(r[1])}</td><td class="num">${r[2]}d</td></tr>`).join('');
+const contentTableRows = contentRows.map((r) => `<tr><td>${esc(r[0])}</td><td class="num">${esc(r[1])}</td></tr>`).join('');
 
 const urlTableRows = urlRows.map((r) => `<tr>
 <td class="num">${r.i}</td>
@@ -267,9 +266,6 @@ details summary{cursor:pointer;font-weight:600;color:var(--blue);margin:8px 0}
   <div class="kpi"><div class="n">${templateRows.length}</div><div class="l">Distinct templates</div></div>
   <div class="kpi"><div class="n">${blockCatalog.length}</div><div class="l">EDS blocks required</div></div>
   <div class="kpi"><div class="n">${Object.keys(agg.integrations).length}</div><div class="l">3rd-party integrations</div></div>
-  <div class="kpi"><div class="n">${totalDev}</div><div class="l">Dev person-days</div></div>
-  <div class="kpi"><div class="n">${contentTotal}</div><div class="l">Content person-days</div></div>
-  <div class="kpi"><div class="n">${storyPoints}</div><div class="l">Story points (dev)</div></div>
   <div class="kpi"><div class="n">${totalImgs.toLocaleString()}</div><div class="l">Images in scope</div></div>
 </div>
 <h3>Overview</h3>
@@ -310,9 +306,9 @@ details summary{cursor:pointer;font-weight:600;color:var(--blue);margin:8px 0}
 <h2 class="sec">3 · Template Inventory</h2>
 <p>${templateRows.length} distinct templates identified across the site. "Est. Dev" is net-new EDS template/scaffolding effort (page authoring is estimated separately in §8).</p>
 <table>
-<thead><tr><th>Template</th><th class="num">Pages</th><th>Complexity</th><th class="num">Est. Dev (d)</th><th>Evidence / Findings</th></tr></thead>
+<thead><tr><th>Template</th><th class="num">Pages</th><th>Complexity</th><th>Evidence / Findings</th></tr></thead>
 <tbody>${templateTableRows}
-<tr class="total-row"><td>TOTAL</td><td class="num">${pages.length}</td><td>—</td><td class="num">${tmplDays}d</td><td>Template scaffolding</td></tr>
+<tr class="total-row"><td>TOTAL</td><td class="num">${pages.length}</td><td>—</td><td>Template scaffolding</td></tr>
 </tbody>
 </table>
 </section>
@@ -321,9 +317,9 @@ details summary{cursor:pointer;font-weight:600;color:var(--blue);margin:8px 0}
 <h2 class="sec">4 · Block Inventory</h2>
 <p>EDS blocks derived from observed AEM components (<code>cmp-*</code>) and custom class patterns. "Pages" = count of pages where the block's signature was detected in the DOM.</p>
 <table>
-<thead><tr><th>EDS Block</th><th>Variations (observed)</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th><th class="num">Est. Dev</th></tr></thead>
+<thead><tr><th>EDS Block</th><th>Variations (observed)</th><th class="num">Pages</th><th class="num">% Site</th><th>Complexity</th></tr></thead>
 <tbody>${blockTableRows}
-<tr class="total-row"><td>TOTAL</td><td>${blockCatalog.length} blocks</td><td class="num">—</td><td class="num">—</td><td>—</td><td class="num">${blockDays}d</td></tr>
+<tr class="total-row"><td>TOTAL</td><td>${blockCatalog.length} blocks</td><td class="num">—</td><td class="num">—</td><td>—</td></tr>
 </tbody>
 </table>
 </section>
@@ -371,7 +367,7 @@ details summary{cursor:pointer;font-weight:600;color:var(--blue);margin:8px 0}
 <h2 class="sec">7 · Third-Party Integration Report</h2>
 <p>Detected by scanning all ${pages.length} pages for script/host/marker signatures. "Pages" = pages where the integration was detected.</p>
 <table>
-<thead><tr><th>Integration</th><th>Purpose</th><th class="num">Pages</th><th>Migration Strategy</th><th>Impact</th><th class="num">Est. Dev</th></tr></thead>
+<thead><tr><th>Integration</th><th>Purpose</th><th class="num">Pages</th><th>Migration Strategy</th><th>Impact</th></tr></thead>
 <tbody>${integRows}</tbody>
 </table>
 <div class="note"><b>Configurator embed (major):</b> 183 "Customise-Your-Own" pages embed an external build-your-own application from <code>sitebuild-{brand}-live.brp.zlthunder.net</code> via iframe. In EDS this becomes an <b>embed/iframe block</b> — the app itself is out of migration scope but integration, responsive sizing, and analytics passthrough must be handled.</div>
@@ -388,10 +384,8 @@ details summary{cursor:pointer;font-weight:600;color:var(--blue);margin:8px 0}
   <div class="kpi"><div class="n">402</div><div class="l">Pages w/ multiple H1</div></div>
 </div>
 <table>
-<thead><tr><th>Work stream</th><th class="num">Volume</th><th class="num">Est. (person-days)</th></tr></thead>
-<tbody>${contentTableRows}
-<tr class="total-row"><td>TOTAL CONTENT MIGRATION</td><td class="num">—</td><td class="num">${contentTotal}d</td></tr>
-</tbody>
+<thead><tr><th>Work stream</th><th class="num">Volume</th></tr></thead>
+<tbody>${contentTableRows}</tbody>
 </table>
 <h3>Automation Opportunities</h3>
 <ul class="tight">
@@ -408,27 +402,7 @@ details summary{cursor:pointer;font-weight:600;color:var(--blue);margin:8px 0}
 
 <section id="estimate">
 <h2 class="sec">9 · Development Estimate</h2>
-<h3>Foundation / Global</h3>
-<table><thead><tr><th>Item</th><th>Complexity</th><th class="num">Days</th></tr></thead><tbody>${foundationRows}
-<tr class="total-row"><td>Foundation subtotal</td><td>—</td><td class="num">${foundDays}d</td></tr></tbody></table>
-<h3>Roll-up</h3>
-<table>
-<thead><tr><th>Category</th><th class="num">Person-Days</th><th>Notes</th></tr></thead>
-<tbody>
-<tr><td>Foundation (header, footer, nav, i18n, theming, core JS/CSS)</td><td class="num">${foundDays}d</td><td class="found">9 work items</td></tr>
-<tr><td>Block development (${blockCatalog.length} blocks + variations)</td><td class="num">${blockDays}d</td><td class="found">Shared library</td></tr>
-<tr><td>Template development (${templateRows.length} templates)</td><td class="num">${tmplDays}d</td><td class="found">Scaffolding + block wiring</td></tr>
-<tr><td>Integration development</td><td class="num">${integDays}d</td><td class="found">${Object.keys(agg.integrations).length} integrations</td></tr>
-<tr><td>QA & Testing (accessibility, responsive, cross-browser, perf, regression, UAT)</td><td class="num">${testing}d</td><td class="found">~25% of build</td></tr>
-<tr><td>Documentation</td><td class="num">${docs}d</td><td class="found">~8%</td></tr>
-<tr><td>Project mgmt / coordination</td><td class="num">${pm}d</td><td class="found">~12%</td></tr>
-<tr><td>Contingency</td><td class="num">${contingency}d</td><td class="found">15%</td></tr>
-<tr class="total-row"><td>TOTAL DEVELOPMENT</td><td class="num">${totalDev}d</td><td>≈ ${storyPoints} story points</td></tr>
-<tr class="total-row"><td>+ TOTAL CONTENT MIGRATION (§8)</td><td class="num">${contentTotal}d</td><td>Separate work stream</td></tr>
-<tr class="total-row"><td>GRAND TOTAL (dev + content)</td><td class="num">${totalDev + contentTotal}d</td><td>~${((totalDev+contentTotal)/20).toFixed(1)} person-months</td></tr>
-</tbody>
-</table>
-<div class="note assume">Estimates are top-down, evidence-based ranges for a senior EDS team; they exclude per-locale content translation (framework only), the rebuild of the third-party configurator app, and any net-new design work. Refine with a discovery workshop.</div>
+<p>Effort and cost estimates are maintained in the dedicated <b>sales estimation summary</b> (<code>report/summary.html</code> / <code>report/BRP-EDS-Estimation-Summary.pdf</code>), which carries the current committed hours for foundation, blocks, templates, in-scope integrations, production readiness and content migration. This consulting report focuses on the analysis, inventories and architecture; it intentionally does not duplicate the effort figures so there is a single source of truth.</p>
 </section>
 
 <section id="assume">

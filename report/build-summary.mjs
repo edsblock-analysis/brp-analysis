@@ -337,9 +337,9 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <thead><tr><th>Category</th><th class="num">Effort (hours)</th><th>Notes</th></tr></thead>
 <tbody>
 ${rollupTable}
-<tr class="subtotal"><td>Development subtotal</td><td class="num ai">${devTotalHrs.toLocaleString()}h</td><td class="found">${toDays(devTotalHrs)} person-days</td></tr>
-<tr class="total-row"><td>Content migration</td><td class="num">${contentHrs.toLocaleString()}h</td><td>${toDays(contentHrs)} person-days</td></tr>
-<tr class="grand"><td>GRAND TOTAL</td><td class="num">${grandHrs.toLocaleString()}h</td><td>${toDays(grandHrs)} person-days · ~${(toDays(grandHrs) / 20).toFixed(1)} person-months</td></tr>
+<tr class="subtotal"><td>Development subtotal</td><td class="num ai">${devTotalHrs.toLocaleString()}h</td><td class="found"></td></tr>
+<tr class="total-row"><td>Content migration</td><td class="num">${contentHrs.toLocaleString()}h</td><td></td></tr>
+<tr class="grand"><td>GRAND TOTAL</td><td class="num">${grandHrs.toLocaleString()}h</td><td></td></tr>
 </tbody></table>
 </section>
 
