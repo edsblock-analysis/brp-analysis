@@ -82,7 +82,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">${COUNTS.integrations}</div><div class="l">Integrations</div></div>
   <div class="kpi"><div class="n">${COUNTS.grayAreas}</div><div class="l">Open questions</div></div>
 </div>
-<p class="lead">The site is standard marketing/content composition with clean, self-describing components (<code>data-component</code>). The higher-complexity areas are dynamic listings (insights feed, forms/document libraries), tabbed line-feature and brochure/resource collections, and third-party embeds that should be preserved rather than rebuilt.</p>
+<p class="lead">The site is standard marketing/content composition with clean, self-describing components (<code>data-component</code>). The higher-complexity areas are dynamic listings (insights feed, searchable form/document libraries), the tabbed line-feature block, and third-party embeds (ion forms, Hedgeness calculator, Greenhouse jobs) that should be preserved rather than rebuilt.</p>
 </section>
 
 <section id="blocks">
