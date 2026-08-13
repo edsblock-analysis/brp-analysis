@@ -73,8 +73,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">74</div><div class="l">Unique URLs analyzed</div></div>
   <div class="kpi"><div class="n">64</div><div class="l">Distinct rendered pages</div></div>
   <div class="kpi"><div class="n">10</div><div class="l">Legacy redirects</div></div>
-  <div class="kpi alt"><div class="n">23</div><div class="l">Blocks</div></div>
-  <div class="kpi alt"><div class="n">33</div><div class="l">Variations</div></div>
+  <div class="kpi alt"><div class="n">16</div><div class="l">Blocks</div></div>
+  <div class="kpi alt"><div class="n">25</div><div class="l">Variations</div></div>
   <div class="kpi alt"><div class="n">11</div><div class="l">Templates</div></div>
   <div class="kpi"><div class="n">6</div><div class="l">Forms</div></div>
   <div class="kpi"><div class="n">10</div><div class="l">Integrations</div></div>
@@ -82,7 +82,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">7</div><div class="l">Open questions</div></div>
 </div>
 <p class="lead">American Equity is a marketing/content site built on <b>Optimizely CMS</b> with a <b>Next.js (App Router)</b> front end. The DOM exposes clean Optimizely component names via <code>data-component</code>, which we used as the authoritative block signal (rather than inferring from CSS classes). All 74 URLs returned HTTP 200; 10 are 301/308 redirects that resolve to canonical in-scope pages, leaving <b>64 distinct rendered pages</b>.</p>
-<div class="callout"><b>Scope shape:</b> The bulk of the site is standard content composition (hero, feature rows, cards, rich text, tabs, accordions, video). The higher-effort areas are (1) <b>tabbed line-feature</b> and <b>dynamic listings</b> (insights feed, forms/document libraries) that hydrate client-side and need an EDS index, (2) the <b>tabbed brochure/resource collections</b> that wire DAM downloads, and (3) <b>third-party embeds</b> (ion interactive forms, Hedgeness calculator, Greenhouse jobs) that should be <b>preserved, not rebuilt</b>.</p>
+<div class="callout"><b>Scope shape:</b> The bulk of the site is standard content composition (hero, feature cards &amp; media, tabs, accordions, video) — prose, standalone images, CTAs and download links are default content handled by core decoration, not bespoke blocks. The higher-complexity areas are (1) the <b>tabbed line-feature</b> block and <b>dynamic listings</b> (insights feed, searchable form/document libraries) that hydrate client-side and need an EDS index, and (2) <b>third-party embeds</b> (ion interactive forms, Hedgeness calculator, Greenhouse jobs) that should be <b>preserved, not rebuilt</b>. Downloadable resources (brochures, statements) are authored as links resolving to the existing DAM.</p>
 <div class="note"><b>Out of EDS scope (link, don't rebuild):</b> customer login (<code>myportal</code>), registration (<code>register</code>, Okta), affiliate sites (<code>eagle-lifeco</code>, <code>ae-newyork</code>), DAM downloads (<code>asset.american-equity.com</code>), and the vendor-hosted forms/calculator/jobs apps. The <code>/api/assets/resolve-by-key</code> endpoint is a <b>verified 301 asset resolver</b> — a redirect service, not custom application code.</p>
 </section>
 
@@ -464,31 +464,25 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 
 <section id="blocks">
 <h2 class="sec">2 · Blocks &amp; Variations with Complexity</h2>
-<p class="lead"><b>23 blocks</b> (20 content + 3 global), <b>33 variations</b>. A variation is only counted where there is a real structural, behavioral, authoring, or technical difference — not content/image/text differences. Complexity distribution: <span class="cx cx-High">High</span> <b>7</b> &nbsp; <span class="cx cx-Low">Low</span> <b>8</b> &nbsp; <span class="cx cx-Medium">Medium</span> <b>8</b>.</p>
+<p class="lead"><b>16 blocks</b> (13 content + 3 global), <b>25 variations</b>. A variation is only counted where there is a real structural, behavioral, authoring, or technical difference — not content/image/text differences. Complexity distribution: <span class="cx cx-High">High</span> <b>5</b> &nbsp; <span class="cx cx-Low">Low</span> <b>3</b> &nbsp; <span class="cx cx-Medium">Medium</span> <b>8</b>.</p>
+<div class="callout"><b>Hero vs. navigation — no overlap:</b> the <b>Hero (In-Page Intro Band)</b> is the first content band <i>inside</i> <code>&lt;main&gt;</code> (heading/image/CTA authored per page). The site's <b>navigation</b> is a separate <b>global</b> block living in <code>&lt;header&gt;/&lt;nav&gt;</code>, built once for the whole site. They are distinct blocks; the 3 global blocks (header/navigation, footer, breadcrumb) are page chrome, not per-page content.</div>
 <table>
 <thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Var.</th><th>Complexity</th><th>Important behavior / dependencies</th><th>EDS implementation considerations</th></tr></thead>
 <tbody>
 <tr>
-    <td><b>Hero / Page Header</b><div class="found">heroHeaderSection, heroHeader, blogHeader</div></td>
+    <td><b>Hero (In-Page Intro Band)</b><div class="found">heroHeaderSection, heroHeader, blogHeader</div></td>
     <td class="num">74</td>
     <td class="num">3</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td>Background image/color, optional eyebrow, breadcrumb slot. Structurally similar across product/landing/legal; article variant adds post metadata.</td>
-    <td>One hero block with a variant class (e.g. hero / hero.article). Breadcrumb rendered separately. Image via EDS optimized picture.</td></tr>
+    <td>The first content band INSIDE &lt;main&gt; (not the site navigation) — background image/color, optional eyebrow, heading, subcopy, CTA. Structurally similar across product/landing/legal; article variant adds post metadata. The global nav is a separate block (below).</td>
+    <td>One hero block with a variant class (e.g. hero / hero.article). Distinct from the global header/nav. Breadcrumb rendered separately. Image via EDS optimized picture.</td></tr>
 <tr>
-    <td><b>Feature Cards &amp; Media Row</b><div class="found">featureCardsAndMediaRow, feature3SetsImage, featureSetCard</div></td>
+    <td><b>Feature Cards &amp; Media</b><div class="found">featureCardsAndMediaRow, featuredIconCard, featuredImageCard, feature3SetsImage, featureSetCard</div></td>
     <td class="num">36</td>
-    <td class="num">2</td>
+    <td class="num">4</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td>Image left/right alternation, optional CTA, rich text body. Left/right + background toggles are authoring options, not separate blocks.</td>
-    <td>Single block; image side + background are section/authoring options. Maps cleanly to an EDS columns/cards pattern.</td></tr>
-<tr>
-    <td><b>Icon / Image / Feature Cards</b><div class="found">featuredIconCard, featuredImageCard</div></td>
-    <td class="num">47</td>
-    <td class="num">2</td>
-    <td><span class="cx cx-Low">Low</span></td>
-    <td>Repeating card collections rendered in responsive grids. Differ by media type (icon vs image) — a meaningful authoring/structural difference.</td>
-    <td>One "cards" block with icon vs image variant. Grid columns responsive by count.</td></tr>
+    <td>One family of feature/card layouts: alternating media+copy rows and responsive card grids (icon or image). Media side, background, and column count are authoring options. Icon vs image is a meaningful media/structural difference, so they are counted as variations of the same block.</td>
+    <td>Single "cards / columns" block with media-row, icon-card, and image-card variants. Grid responsive by card count; image via EDS optimized picture.</td></tr>
 <tr>
     <td><b>Line-Tab Feature (Tabbed content)</b><div class="found">featureHorizontalLineTab, featureHorizontalLineTabCard, featureVerticalLineTab, featureVerticalLineTabCard</div></td>
     <td class="num">17</td>
@@ -518,27 +512,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
     <td>Static numeric highlights. No animation/data source observed.</td>
     <td>Simple stats block; author-entered numbers.</td></tr>
 <tr>
-    <td><b>Rich Text Row</b><div class="found">richTextRow</div></td>
-    <td class="num">31</td>
-    <td class="num">1</td>
-    <td><span class="cx cx-Low">Low</span></td>
-    <td>Default rich-text content. Baseline authoring surface.</td>
-    <td>Default content — no block needed beyond section styling; handled by core decoration.</td></tr>
-<tr>
-    <td><b>Image Block</b><div class="found">imageBlock</div></td>
-    <td class="num">42</td>
-    <td class="num">1</td>
-    <td><span class="cx cx-Low">Low</span></td>
-    <td>Single responsive image, optional caption/alt.</td>
-    <td>Core image handling via EDS optimized &lt;picture&gt;.</td></tr>
-<tr>
-    <td><b>CTA Block</b><div class="found">ctaBlock</div></td>
-    <td class="num">23</td>
-    <td class="num">1</td>
-    <td><span class="cx cx-Low">Low</span></td>
-    <td>Promotional band with buttons (data-gtm click tracking attributes present).</td>
-    <td>CTA block; buttons decorated from links. Preserve GTM data-attributes for analytics parity.</td></tr>
-<tr>
     <td><b>Accordion / Disclosure</b><div class="found">accordion, disclosure</div></td>
     <td class="num">43</td>
     <td class="num">2</td>
@@ -560,40 +533,19 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
     <td>List of posts with pagination is fetched/rendered client-side (empty in SSR HTML). Category/feed driven.</td>
     <td>Listing block backed by an EDS index (query-index.json) with pagination; replaces the client feed. Higher effort due to data model + pagination.</td></tr>
 <tr>
-    <td><b>Brochure / Resource Collection</b><div class="found">brochure, brochureTab, brochureCard</div></td>
-    <td class="num">5</td>
-    <td class="num">1</td>
-    <td><span class="cx cx-High">High</span></td>
-    <td>Tabbed sets of downloadable cards; each card links to an asset (asset.american-equity.com / resolve-by-key). Combines tabs + card grid + downloads.</td>
-    <td>Composite block: tabs + downloadable cards. Links resolve to DAM assets (reuse resolver). Medium-High due to tab + asset wiring.</td></tr>
-<tr>
-    <td><b>Attachments / Download List</b><div class="found">attachments</div></td>
-    <td class="num">6</td>
-    <td class="num">1</td>
-    <td><span class="cx cx-Low">Low</span></td>
-    <td>Renders document links (statements, guides). Links point to the DAM resolver or asset host.</td>
-    <td>Downloads block; author supplies asset links. Reuse existing resolver/asset URLs.</td></tr>
-<tr>
-    <td><b>Form Listing (searchable forms/docs)</b><div class="found">formListing, formTable</div></td>
+    <td><b>Searchable Form / Document Library</b><div class="found">formListing, formTable</div></td>
     <td class="num">4</td>
     <td class="num">2</td>
     <td><span class="cx cx-High">High</span></td>
-    <td>Search + filter/tab UI over a data set that hydrates client-side (SSR shell only). Card/table item links resolve to DAM assets.</td>
-    <td>Listing block with client search/filter over an index; rows link to DAM. Higher effort: search UX + data model.</td></tr>
+    <td>This is NOT a data-entry form. It is a searchable/filterable DIRECTORY of downloadable service forms and documents (e.g. annuity service forms, statements). The page renders a search box plus category tabs (formListing) or a sortable table (formTable) over a set of documents; each result row links out to the PDF on the DAM (via /api/assets/resolve-by-key → asset.american-equity.com). The list itself is fetched and rendered client-side, so the server HTML is only an empty shell. In short: a "find the form/document I need, then download it" tool.</td>
+    <td>Listing block backed by an EDS index (query-index.json) with client-side search/filter (and a tabbed vs table display variant). Result links resolve to the existing DAM. Higher effort because it needs a document data model + search UX, not just static markup.</td></tr>
 <tr>
-    <td><b>Native Form (Form Input Model)</b><div class="found">formInputModel</div></td>
+    <td><b>Native Data-Entry Form (Form Input Model)</b><div class="found">formInputModel</div></td>
     <td class="num">1</td>
     <td class="num">1</td>
     <td><span class="cx cx-High">High</span></td>
-    <td>Only truly native &lt;form&gt; in scope (placeholder "Form title/description" labels — appears to be a template/sample). Submission endpoint not confirmed from SSR.</td>
-    <td>Form block (or AEM Forms) — needs field model, validation, and a confirmed submit endpoint. Flagged as gray area.</td></tr>
-<tr>
-    <td><b>Third-Party Embed (Script Row)</b><div class="found">scriptRow</div></td>
-    <td class="num">5</td>
-    <td class="num">3</td>
-    <td><span class="cx cx-High">High</span></td>
-    <td>Container that injects a 3rd-party script + mount node. Actual functionality (forms, calculator, job board) lives in the external app.</td>
-    <td>Generic "embed/script" block that mounts a vendor script into a placeholder. Preserve embeds; do not rebuild vendor apps.</td></tr>
+    <td>This is an actual data-collection form built natively in the CMS (component "formInputModel") — the visitor types values and submits them, unlike the vendor-embedded forms (ion/Greenhouse) which live inside third-party iframes. On the one page it appears (/form) the fields carry placeholder labels ("Form title", "Form description") and the server HTML shows no submit endpoint, so it looks like a template/sample rather than a wired-up production form. Whether it is live, and where it posts to, cannot be confirmed from the accessible page behavior.</td>
+    <td>Build as an EDS form block (or AEM Forms) once the real field model, validation rules, and submit endpoint are confirmed with American Equity. Tracked in the Forms section and Gray Areas as a "confirm before building" item.</td></tr>
 <tr>
     <td><b>Contact Card / Row</b><div class="found">contactCard, contactRow</div></td>
     <td class="num">2</td>
@@ -609,12 +561,12 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
     <td>Overlay dialog; focus trap + ARIA dialog semantics.</td>
     <td>Modal block/util; accessible dialog, opened from a trigger link.</td></tr>
 <tr>
-    <td><b>Global Header / Navigation</b> <span class="cbadge">global</span><div class="found">—</div></td>
+    <td><b>Global Header / Navigation (site chrome)</b> <span class="cbadge">global</span><div class="found">—</div></td>
     <td class="num">74</td>
     <td class="num">1</td>
     <td><span class="cx cx-High">High</span></td>
-    <td>Desktop mega-menu (navigation-menu triggers + content panels), mobile drawer, utility links to external portal/register. GTM nav tracking attributes.</td>
-    <td>Standard EDS header block from nav document; mega-menu panels + mobile drawer. External utility links preserved.</td></tr>
+    <td>The site navigation in &lt;header&gt;/&lt;nav&gt; (NOT a per-page hero). Desktop mega-menu (navigation-menu triggers + content panels), mobile drawer, utility links to external portal/register. Carries no data-component — it is structural chrome, built once for the whole site. GTM nav tracking attributes.</td>
+    <td>Standard EDS header block from the nav document; mega-menu panels + mobile drawer. Built once, shared by every page. External utility links (Login/Register) preserved.</td></tr>
 <tr>
     <td><b>Global Footer</b> <span class="cbadge">global</span><div class="found">footerNavigationColumn, footerNavigationLink</div></td>
     <td class="num">74</td>
@@ -629,24 +581,20 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
     <td><span class="cx cx-Low">Low</span></td>
     <td>Path breadcrumb on interior pages; not present on home/some landings.</td>
     <td>Breadcrumb block/auto-block derived from path or metadata.</td></tr>
-<tr class="total-row"><td>TOTAL — 23 blocks</td><td class="num">—</td><td class="num">33</td><td>—</td><td colspan="2"></td></tr>
+<tr class="total-row"><td>TOTAL — 16 blocks</td><td class="num">—</td><td class="num">25</td><td>—</td><td colspan="2"></td></tr>
 </tbody></table>
 </section>
 
 <section id="blockdetail">
 <h2 class="sec">2b · Variation Detail</h2>
 <p class="lead">Per-block breakdown of each counted variation and the structural/behavioral evidence that distinguishes it.</p>
-<div class="vblock"><h4>Hero / Page Header <span class="cx cx-Medium">Medium</span> <span class="found">· 74 pages · heroHeaderSection, heroHeader, blogHeader</span></h4>
+<div class="vblock"><h4>Hero (In-Page Intro Band) <span class="cx cx-Medium">Medium</span> <span class="found">· 74 pages · heroHeaderSection, heroHeader, blogHeader</span></h4>
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
   <tr><td><b>Standard Hero (heroHeaderSection)</b></td><td>Heading + subcopy + optional image/CTA; on 73 pages</td><td class="num">73 pages</td></tr><tr><td><b>Article Hero (blogHeader)</b></td><td>Title + author/date/read-time meta + eyebrow; used on dynamic article/listing pages</td><td class="num">4 pages</td></tr><tr><td><b>Simple Hero (heroHeader)</b></td><td>Minimal heading-only variant (form template page)</td><td class="num">1 page</td></tr>
   </tbody></table></div>
-<div class="vblock"><h4>Feature Cards &amp; Media Row <span class="cx cx-Medium">Medium</span> <span class="found">· 36 pages · featureCardsAndMediaRow, feature3SetsImage, featureSetCard</span></h4>
+<div class="vblock"><h4>Feature Cards &amp; Media <span class="cx cx-Medium">Medium</span> <span class="found">· 36 pages · featureCardsAndMediaRow, featuredIconCard, featuredImageCard, feature3SetsImage, featureSetCard</span></h4>
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Media + copy row (featureCardsAndMediaRow)</b></td><td>Alternating image/text rows; the workhorse content block</td><td class="num">36 pages</td></tr><tr><td><b>3-set image feature (feature3SetsImage / featureSetCard)</b></td><td>Three-column image feature grouping</td><td class="num">1 page</td></tr>
-  </tbody></table></div>
-<div class="vblock"><h4>Icon / Image / Feature Cards <span class="cx cx-Low">Low</span> <span class="found">· 47 pages · featuredIconCard, featuredImageCard</span></h4>
-  <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Icon card (featuredIconCard)</b></td><td>Icon + heading + text, grid of 3–9</td><td class="num">18 pages</td></tr><tr><td><b>Image card (featuredImageCard)</b></td><td>Image + heading + text/link, grid</td><td class="num">21 pages</td></tr>
+  <tr><td><b>Media + copy row (featureCardsAndMediaRow)</b></td><td>Alternating image/text rows with optional CTA — the site's workhorse content band</td><td class="num">36 pages</td></tr><tr><td><b>Icon card grid (featuredIconCard)</b></td><td>Grid of icon + heading + text cards (3–9 up)</td><td class="num">18 pages</td></tr><tr><td><b>Image card grid (featuredImageCard)</b></td><td>Grid of image + heading + text/link cards</td><td class="num">21 pages</td></tr><tr><td><b>3-set image feature (feature3SetsImage / featureSetCard)</b></td><td>Three-column image feature grouping</td><td class="num">1 page</td></tr>
   </tbody></table></div>
 <div class="vblock"><h4>Line-Tab Feature (Tabbed content) <span class="cx cx-High">High</span> <span class="found">· 17 pages · featureHorizontalLineTab, featureHorizontalLineTabCard, featureVerticalLineTab, featureVerticalLineTabCard</span></h4>
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
@@ -664,18 +612,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
   <tr><td><b>Stat row (metrics + metricsCard)</b></td><td>Large-number + label KPI row (e.g. financial-strength, about)</td><td class="num">4 pages</td></tr>
   </tbody></table></div>
-<div class="vblock"><h4>Rich Text Row <span class="cx cx-Low">Low</span> <span class="found">· 31 pages · richTextRow</span></h4>
-  <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Rich text (richTextRow)</b></td><td>Formatted prose section (headings, lists, links, tables inline)</td><td class="num">31 pages</td></tr>
-  </tbody></table></div>
-<div class="vblock"><h4>Image Block <span class="cx cx-Low">Low</span> <span class="found">· 42 pages · imageBlock</span></h4>
-  <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Standalone image (imageBlock)</b></td><td>Full-width / inline image with optional caption</td><td class="num">42 pages</td></tr>
-  </tbody></table></div>
-<div class="vblock"><h4>CTA Block <span class="cx cx-Low">Low</span> <span class="found">· 23 pages · ctaBlock</span></h4>
-  <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Call-to-action band (ctaBlock)</b></td><td>Heading + copy + one/more buttons on a colored band</td><td class="num">23 pages</td></tr>
-  </tbody></table></div>
 <div class="vblock"><h4>Accordion / Disclosure <span class="cx cx-Medium">Medium</span> <span class="found">· 43 pages · accordion, disclosure</span></h4>
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
   <tr><td><b>FAQ accordion (accordion)</b></td><td>Expand/collapse Q&amp;A groups</td><td class="num">6 pages</td></tr><tr><td><b>Disclosure / legal expander (disclosure)</b></td><td>Collapsible fine-print / disclaimer region (very common footer-of-content)</td><td class="num">42 pages</td></tr>
@@ -688,25 +624,13 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
   <tr><td><b>Insights listing (client-fetched)</b></td><td>Paginated article feed ("BlogPosts", "Pagination", "articles" in payload); SSR renders shell, list hydrates client-side</td><td class="num">/insights + 3 legacy redirects</td></tr>
   </tbody></table></div>
-<div class="vblock"><h4>Brochure / Resource Collection <span class="cx cx-High">High</span> <span class="found">· 5 pages · brochure, brochureTab, brochureCard</span></h4>
+<div class="vblock"><h4>Searchable Form / Document Library <span class="cx cx-High">High</span> <span class="found">· 4 pages · formListing, formTable</span></h4>
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Tabbed brochure collection (brochure + brochureTab + brochureCard)</b></td><td>Tabbed groups of downloadable resource cards (client-engagement-collections has 28 cards / 7 tabs)</td><td class="num">5 pages</td></tr>
+  <tr><td><b>Form listing w/ search + category tabs (formListing)</b></td><td>Consumer /forms and /professionals/document-library</td><td class="num">3 pages</td></tr><tr><td><b>Form table directory (formTable)</b></td><td>Professionals /forms-library</td><td class="num">1 page</td></tr>
   </tbody></table></div>
-<div class="vblock"><h4>Attachments / Download List <span class="cx cx-Low">Low</span> <span class="found">· 6 pages · attachments</span></h4>
+<div class="vblock"><h4>Native Data-Entry Form (Form Input Model) <span class="cx cx-High">High</span> <span class="found">· 1 pages · formInputModel</span></h4>
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Attachment list (attachments)</b></td><td>List of downloadable documents (PDF via resolver / asset host)</td><td class="num">6 pages</td></tr>
-  </tbody></table></div>
-<div class="vblock"><h4>Form Listing (searchable forms/docs) <span class="cx cx-High">High</span> <span class="found">· 4 pages · formListing, formTable</span></h4>
-  <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Form listing w/ search + tabs (formListing)</b></td><td>Search box + category tabs over a form/document set (consumer /forms, document-library)</td><td class="num">3 pages</td></tr><tr><td><b>Form table (formTable)</b></td><td>Tabular searchable form directory (professionals forms-library)</td><td class="num">1 page</td></tr>
-  </tbody></table></div>
-<div class="vblock"><h4>Native Form (Form Input Model) <span class="cx cx-High">High</span> <span class="found">· 1 pages · formInputModel</span></h4>
-  <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>Native form (formInputModel)</b></td><td>Server/native form: text inputs, select, textarea, submit (template/demo page /form)</td><td class="num">1 page</td></tr>
-  </tbody></table></div>
-<div class="vblock"><h4>Third-Party Embed (Script Row) <span class="cx cx-High">High</span> <span class="found">· 5 pages · scriptRow</span></h4>
-  <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
-  <tr><td><b>ion interactive form embed</b></td><td>material-request-form &amp; professionals/contact-us: &lt;script&gt; ionizer → experience.american-equity.com</td><td class="num">2 pages</td></tr><tr><td><b>Hedgeness calculator embed</b></td><td>income-gap-calculator (x2): ael.hedgenessapp.com/aelWidget.js → #hedgenessWidget</td><td class="num">2 pages</td></tr><tr><td><b>Greenhouse job board embed</b></td><td>careers/openings: boards.greenhouse.io → #grnhse_app</td><td class="num">1 page</td></tr>
+  <tr><td><b>Native form (formInputModel)</b></td><td>The only true HTML &lt;form&gt; on the site — text inputs, a select, a textarea and a submit button, on /form</td><td class="num">1 page</td></tr>
   </tbody></table></div>
 <div class="vblock"><h4>Contact Card / Row <span class="cx cx-Low">Low</span> <span class="found">· 2 pages · contactCard, contactRow</span></h4>
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
@@ -716,7 +640,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
   <tr><td><b>General modal (generalModal)</b></td><td>Dialog triggered from content (professionals landing)</td><td class="num">1 page</td></tr>
   </tbody></table></div>
-<div class="vblock"><h4>Global Header / Navigation <span class="cx cx-High">High</span> <span class="found">· 74 pages · global</span></h4>
+<div class="vblock"><h4>Global Header / Navigation (site chrome) <span class="cx cx-High">High</span> <span class="found">· 74 pages · global</span></h4>
   <table><thead><tr><th>Variation</th><th>Distinguishing structure / behavior</th><th class="num">Seen</th></tr></thead><tbody>
   <tr><td><b>Mega-menu header</b></td><td>4 top-level menus (About Us, Annuities, Retirement Resources, Support) with dropdown panels + utility menu (Login/Register/Search) + Find an Agent</td><td class="num">site-wide</td></tr>
   </tbody></table></div>
@@ -741,28 +665,28 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
       <td class="num">23</td>
       <td class="num">31.1%</td>
       <td><span class="cx cx-Medium">Medium</span></td>
-      <td>Hero (article/standard) · Rich Text · Image · Related Posts (blogCard) · Disclosure</td>
-      <td>Editorial article body. Two sub-shapes seen: full editorial (hero + rich text + related posts) and lightweight (blogHeader + single card) — same template, content-driven difference.</td></tr>
+      <td>Hero (article/standard) · Related Posts (blogCard) · Accordion/Disclosure</td>
+      <td>Editorial article body (prose is default rich-text content). Two sub-shapes: full editorial (hero + body + related posts) and lightweight (blogHeader + single card) — same template, content-driven difference.</td></tr>
 <tr>
       <td><b>Product / Annuity (Consumer)</b></td>
       <td class="num">8</td>
       <td class="num">10.8%</td>
       <td><span class="cx cx-High">High</span></td>
-      <td>Hero · Line-Tab Feature · Progress Bar/Stepper · Video (Wistia) · Feature Cards &amp; Media · Accordion (FAQ) · Related Posts · CTA · Disclosure</td>
+      <td>Hero · Line-Tab Feature · Progress Bar/Stepper · Video (Wistia) · Feature Cards &amp; Media · Accordion (FAQ) · Related Posts</td>
       <td>AssetShield/EstateShield/GuaranteeShield/IncomeShield + our-annuities. Richest consumer composition; interactive tabs + stepper + video.</td></tr>
 <tr>
       <td><b>Product / Annuity (Professional)</b></td>
       <td class="num">4</td>
       <td class="num">5.4%</td>
       <td><span class="cx cx-High">High</span></td>
-      <td>Hero · Line-Tab Feature · Brochure Collection (tabbed downloads) · Feature Cards · Video · CTA · Disclosure</td>
-      <td>Professionals product pages add the tabbed Brochure/Resource collection (DAM downloads) over the consumer shape.</td></tr>
+      <td>Hero · Line-Tab Feature · Feature Cards &amp; Media · Video · Accordion/Disclosure</td>
+      <td>Professionals product pages mirror the consumer shape and add tabbed groups of downloadable resource cards that link to DAM assets (handled as authored download links, not a bespoke block).</td></tr>
 <tr>
       <td><b>Section Landing / Hub</b></td>
       <td class="num">13</td>
       <td class="num">17.6%</td>
       <td><span class="cx cx-Medium">Medium</span></td>
-      <td>Hero · Feature Cards &amp; Media · Icon/Image Cards · Metrics · CTA · (Brochure collection on client-engagement) · Disclosure</td>
+      <td>Hero · Feature Cards &amp; Media · Metrics · Accordion/Disclosure</td>
       <td>Marketing hubs (about, community, financial-strength, professionals, resources, our-annuities pro). Composition varies by hub but same block palette.</td></tr>
 <tr>
       <td><b>Content Listing (Dynamic)</b></td>
@@ -776,42 +700,42 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
       <td class="num">5</td>
       <td class="num">6.8%</td>
       <td><span class="cx cx-High">High</span></td>
-      <td>Hero · Form Listing / Form Table (search + tabs) OR Script Row (ion embed) OR Native Form</td>
-      <td>Heterogeneous: /forms &amp; document-library (formListing), forms-library (formTable), material-request-form (ion embed), /form (native form template). Data hydrates client-side.</td></tr>
+      <td>Hero · Searchable Form/Document Library OR Native Data-Entry Form OR vendor embed</td>
+      <td>Heterogeneous: /forms &amp; document-library and forms-library are searchable document directories; /form is the native data-entry form; material-request-form is a vendor (ion) embed. Directory data hydrates client-side.</td></tr>
 <tr>
       <td><b>Careers</b></td>
       <td class="num">4</td>
       <td class="num">5.4%</td>
       <td><span class="cx cx-Medium">Medium</span></td>
-      <td>Hero · Feature Cards &amp; Media · Icon/Image Cards · Line-Tab Feature · Video · CTA · Progress Bar (openings) · Script Row (Greenhouse on openings)</td>
-      <td>careers hub + why-work-here + internship-program (marketing) and openings (Greenhouse embed).</td></tr>
+      <td>Hero · Feature Cards &amp; Media · Line-Tab Feature · Video · Progress Bar (openings) + Greenhouse job-board embed</td>
+      <td>careers hub + why-work-here + internship-program (marketing) and openings, which embeds the Greenhouse job board.</td></tr>
 <tr>
       <td><b>Tool / Calculator (Embed)</b></td>
       <td class="num">2</td>
       <td class="num">2.7%</td>
       <td><span class="cx cx-High">High</span></td>
-      <td>Hero · Script Row (Hedgeness widget) · CTA · Disclosure · (tools-calculators hub uses Icon cards)</td>
-      <td>income-gap-calculator (consumer + professional) embed the Hedgeness widget; tools-calculators landing is a hub of tool links.</td></tr>
+      <td>Hero · Hedgeness calculator embed · Accordion/Disclosure · (tools-calculators hub uses Feature Cards)</td>
+      <td>income-gap-calculator (consumer + professional) embed the third-party Hedgeness widget; tools-calculators landing is a hub of tool links.</td></tr>
 <tr>
       <td><b>Contact</b></td>
       <td class="num">2</td>
       <td class="num">2.7%</td>
       <td><span class="cx cx-Low">Low</span></td>
-      <td>Hero · Contact Cards/Row · Feature Cards · CTA · (Script Row: ion on professionals/contact-us)</td>
-      <td>contact-us (consumer) and professionals/contact-us; latter adds an ion embed.</td></tr>
+      <td>Hero · Contact Cards/Row · Feature Cards &amp; Media · (ion form embed on professionals/contact-us)</td>
+      <td>contact-us (consumer) and professionals/contact-us; latter also embeds an ion interactive contact form.</td></tr>
 <tr>
       <td><b>Legal / Utility</b></td>
       <td class="num">8</td>
       <td class="num">10.8%</td>
       <td><span class="cx cx-Low">Low</span></td>
-      <td>Hero · Rich Text · Disclosure · (Icon cards on some) · Attachments (naic-statutory)</td>
-      <td>privacy, terms-of-use, accessibility, security-disclosure, patriot-act, sms-privacy, job-applicant-privacy, naic-statutory-financial-statements.</td></tr>
+      <td>Hero · Accordion/Disclosure · (Feature Cards on some)</td>
+      <td>Prose is default rich-text content. privacy, terms-of-use, accessibility, security-disclosure, patriot-act, sms-privacy, job-applicant-privacy, naic-statutory-financial-statements (the last links to statement PDFs).</td></tr>
 <tr>
       <td><b>Home</b></td>
       <td class="num">1</td>
       <td class="num">1.4%</td>
       <td><span class="cx cx-High">High</span></td>
-      <td>Hero · Feature Cards &amp; Media · Line-Tab Feature · Metrics · Icon/Image Cards · Video · Disclosure</td>
+      <td>Hero · Feature Cards &amp; Media · Line-Tab Feature · Metrics · Video · Accordion/Disclosure</td>
       <td>Single homepage; densest marketing composition.</td></tr>
 <tr class="total-row"><td>TOTAL — 11 templates</td><td class="num">74</td><td class="num">100%</td><td>—</td><td colspan="2"></td></tr>
 </tbody></table>
@@ -1087,13 +1011,13 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <tr><td>URLs that could not be analyzed</td><td class="num">0</td></tr>
 <tr><td>Legacy redirects (301/308) among inputs</td><td class="num">10</td></tr>
 <tr><td>Distinct rendered pages (unique final URLs)</td><td class="num">64</td></tr>
-<tr><td>Blocks (total)</td><td class="num">23</td></tr>
-<tr><td>&nbsp;&nbsp;· content blocks</td><td class="num">20</td></tr>
+<tr><td>Blocks (total)</td><td class="num">16</td></tr>
+<tr><td>&nbsp;&nbsp;· content blocks</td><td class="num">13</td></tr>
 <tr><td>&nbsp;&nbsp;· global blocks (header/footer/breadcrumb)</td><td class="num">3</td></tr>
-<tr><td>Block variations (total)</td><td class="num">33</td></tr>
-<tr><td>&nbsp;&nbsp;· Low complexity blocks</td><td class="num">8</td></tr>
+<tr><td>Block variations (total)</td><td class="num">25</td></tr>
+<tr><td>&nbsp;&nbsp;· Low complexity blocks</td><td class="num">3</td></tr>
 <tr><td>&nbsp;&nbsp;· Medium complexity blocks</td><td class="num">8</td></tr>
-<tr><td>&nbsp;&nbsp;· High complexity blocks</td><td class="num">7</td></tr>
+<tr><td>&nbsp;&nbsp;· High complexity blocks</td><td class="num">5</td></tr>
 <tr><td>Templates</td><td class="num">11</td></tr>
 <tr><td>Forms (surfaces)</td><td class="num">6</td></tr>
 <tr><td>Third-party integrations (verified)</td><td class="num">10</td></tr>
