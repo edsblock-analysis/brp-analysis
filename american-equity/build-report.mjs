@@ -22,32 +22,25 @@ const cx = (c) => `<span class="cx cx-${c.replace(/\s/g, '')}">${c}</span>`;
 // pages = # of the 74 URLs where the block's data-component was observed.
 const BLOCKS = [
   {
-    name: 'Hero / Page Header', comps: ['heroHeaderSection', 'heroHeader', 'blogHeader'], pages: 74, complexity: 'Medium',
+    name: 'Hero (In-Page Intro Band)', comps: ['heroHeaderSection', 'heroHeader', 'blogHeader'], pages: 74, complexity: 'Medium',
     variations: [
       ['Standard Hero (heroHeaderSection)', 'Heading + subcopy + optional image/CTA; on 73 pages', '73 pages'],
       ['Article Hero (blogHeader)', 'Title + author/date/read-time meta + eyebrow; used on dynamic article/listing pages', '4 pages'],
       ['Simple Hero (heroHeader)', 'Minimal heading-only variant (form template page)', '1 page'],
     ],
-    behavior: 'Background image/color, optional eyebrow, breadcrumb slot. Structurally similar across product/landing/legal; article variant adds post metadata.',
-    eds: 'One hero block with a variant class (e.g. hero / hero.article). Breadcrumb rendered separately. Image via EDS optimized picture.',
+    behavior: 'The first content band INSIDE <main> (not the site navigation) — background image/color, optional eyebrow, heading, subcopy, CTA. Structurally similar across product/landing/legal; article variant adds post metadata. The global nav is a separate block (below).',
+    eds: 'One hero block with a variant class (e.g. hero / hero.article). Distinct from the global header/nav. Breadcrumb rendered separately. Image via EDS optimized picture.',
   },
   {
-    name: 'Feature Cards & Media Row', comps: ['featureCardsAndMediaRow', 'feature3SetsImage', 'featureSetCard'], pages: 36, complexity: 'Medium',
+    name: 'Feature Cards & Media', comps: ['featureCardsAndMediaRow', 'featuredIconCard', 'featuredImageCard', 'feature3SetsImage', 'featureSetCard'], pages: 36, complexity: 'Medium',
     variations: [
-      ['Media + copy row (featureCardsAndMediaRow)', 'Alternating image/text rows; the workhorse content block', '36 pages'],
+      ['Media + copy row (featureCardsAndMediaRow)', 'Alternating image/text rows with optional CTA — the site\'s workhorse content band', '36 pages'],
+      ['Icon card grid (featuredIconCard)', 'Grid of icon + heading + text cards (3–9 up)', '18 pages'],
+      ['Image card grid (featuredImageCard)', 'Grid of image + heading + text/link cards', '21 pages'],
       ['3-set image feature (feature3SetsImage / featureSetCard)', 'Three-column image feature grouping', '1 page'],
     ],
-    behavior: 'Image left/right alternation, optional CTA, rich text body. Left/right + background toggles are authoring options, not separate blocks.',
-    eds: 'Single block; image side + background are section/authoring options. Maps cleanly to an EDS columns/cards pattern.',
-  },
-  {
-    name: 'Icon / Image / Feature Cards', comps: ['featuredIconCard', 'featuredImageCard'], pages: 47, complexity: 'Low',
-    variations: [
-      ['Icon card (featuredIconCard)', 'Icon + heading + text, grid of 3–9', '18 pages'],
-      ['Image card (featuredImageCard)', 'Image + heading + text/link, grid', '21 pages'],
-    ],
-    behavior: 'Repeating card collections rendered in responsive grids. Differ by media type (icon vs image) — a meaningful authoring/structural difference.',
-    eds: 'One "cards" block with icon vs image variant. Grid columns responsive by count.',
+    behavior: 'One family of feature/card layouts: alternating media+copy rows and responsive card grids (icon or image). Media side, background, and column count are authoring options. Icon vs image is a meaningful media/structural difference, so they are counted as variations of the same block.',
+    eds: 'Single "cards / columns" block with media-row, icon-card, and image-card variants. Grid responsive by card count; image via EDS optimized picture.',
   },
   {
     name: 'Line-Tab Feature (Tabbed content)', comps: ['featureHorizontalLineTab', 'featureHorizontalLineTabCard', 'featureVerticalLineTab', 'featureVerticalLineTabCard'], pages: 17, complexity: 'High',
@@ -83,24 +76,6 @@ const BLOCKS = [
     eds: 'Simple stats block; author-entered numbers.',
   },
   {
-    name: 'Rich Text Row', comps: ['richTextRow'], pages: 31, complexity: 'Low',
-    variations: [['Rich text (richTextRow)', 'Formatted prose section (headings, lists, links, tables inline)', '31 pages']],
-    behavior: 'Default rich-text content. Baseline authoring surface.',
-    eds: 'Default content — no block needed beyond section styling; handled by core decoration.',
-  },
-  {
-    name: 'Image Block', comps: ['imageBlock'], pages: 42, complexity: 'Low',
-    variations: [['Standalone image (imageBlock)', 'Full-width / inline image with optional caption', '42 pages']],
-    behavior: 'Single responsive image, optional caption/alt.',
-    eds: 'Core image handling via EDS optimized <picture>.',
-  },
-  {
-    name: 'CTA Block', comps: ['ctaBlock'], pages: 23, complexity: 'Low',
-    variations: [['Call-to-action band (ctaBlock)', 'Heading + copy + one/more buttons on a colored band', '23 pages']],
-    behavior: 'Promotional band with buttons (data-gtm click tracking attributes present).',
-    eds: 'CTA block; buttons decorated from links. Preserve GTM data-attributes for analytics parity.',
-  },
-  {
     name: 'Accordion / Disclosure', comps: ['accordion', 'disclosure'], pages: 43, complexity: 'Medium',
     variations: [
       ['FAQ accordion (accordion)', 'Expand/collapse Q&A groups', '6 pages'],
@@ -127,43 +102,19 @@ const BLOCKS = [
     eds: 'Listing block backed by an EDS index (query-index.json) with pagination; replaces the client feed. Higher effort due to data model + pagination.',
   },
   {
-    name: 'Brochure / Resource Collection', comps: ['brochure', 'brochureTab', 'brochureCard'], pages: 5, complexity: 'High',
+    name: 'Searchable Form / Document Library', comps: ['formListing', 'formTable'], pages: 4, complexity: 'High',
     variations: [
-      ['Tabbed brochure collection (brochure + brochureTab + brochureCard)', 'Tabbed groups of downloadable resource cards (client-engagement-collections has 28 cards / 7 tabs)', '5 pages'],
+      ['Form listing w/ search + category tabs (formListing)', 'Consumer /forms and /professionals/document-library', '3 pages'],
+      ['Form table directory (formTable)', 'Professionals /forms-library', '1 page'],
     ],
-    behavior: 'Tabbed sets of downloadable cards; each card links to an asset (asset.american-equity.com / resolve-by-key). Combines tabs + card grid + downloads.',
-    eds: 'Composite block: tabs + downloadable cards. Links resolve to DAM assets (reuse resolver). Medium-High due to tab + asset wiring.',
+    behavior: 'This is NOT a data-entry form. It is a searchable/filterable DIRECTORY of downloadable service forms and documents (e.g. annuity service forms, statements). The page renders a search box plus category tabs (formListing) or a sortable table (formTable) over a set of documents; each result row links out to the PDF on the DAM (via /api/assets/resolve-by-key → asset.american-equity.com). The list itself is fetched and rendered client-side, so the server HTML is only an empty shell. In short: a "find the form/document I need, then download it" tool.',
+    eds: 'Listing block backed by an EDS index (query-index.json) with client-side search/filter (and a tabbed vs table display variant). Result links resolve to the existing DAM. Higher effort because it needs a document data model + search UX, not just static markup.',
   },
   {
-    name: 'Attachments / Download List', comps: ['attachments'], pages: 6, complexity: 'Low',
-    variations: [['Attachment list (attachments)', 'List of downloadable documents (PDF via resolver / asset host)', '6 pages']],
-    behavior: 'Renders document links (statements, guides). Links point to the DAM resolver or asset host.',
-    eds: 'Downloads block; author supplies asset links. Reuse existing resolver/asset URLs.',
-  },
-  {
-    name: 'Form Listing (searchable forms/docs)', comps: ['formListing', 'formTable'], pages: 4, complexity: 'High',
-    variations: [
-      ['Form listing w/ search + tabs (formListing)', 'Search box + category tabs over a form/document set (consumer /forms, document-library)', '3 pages'],
-      ['Form table (formTable)', 'Tabular searchable form directory (professionals forms-library)', '1 page'],
-    ],
-    behavior: 'Search + filter/tab UI over a data set that hydrates client-side (SSR shell only). Card/table item links resolve to DAM assets.',
-    eds: 'Listing block with client search/filter over an index; rows link to DAM. Higher effort: search UX + data model.',
-  },
-  {
-    name: 'Native Form (Form Input Model)', comps: ['formInputModel'], pages: 1, complexity: 'High',
-    variations: [['Native form (formInputModel)', 'Server/native form: text inputs, select, textarea, submit (template/demo page /form)', '1 page']],
-    behavior: 'Only truly native <form> in scope (placeholder "Form title/description" labels — appears to be a template/sample). Submission endpoint not confirmed from SSR.',
-    eds: 'Form block (or AEM Forms) — needs field model, validation, and a confirmed submit endpoint. Flagged as gray area.',
-  },
-  {
-    name: 'Third-Party Embed (Script Row)', comps: ['scriptRow'], pages: 5, complexity: 'High',
-    variations: [
-      ['ion interactive form embed', 'material-request-form & professionals/contact-us: <script> ionizer → experience.american-equity.com', '2 pages'],
-      ['Hedgeness calculator embed', 'income-gap-calculator (x2): ael.hedgenessapp.com/aelWidget.js → #hedgenessWidget', '2 pages'],
-      ['Greenhouse job board embed', 'careers/openings: boards.greenhouse.io → #grnhse_app', '1 page'],
-    ],
-    behavior: 'Container that injects a 3rd-party script + mount node. Actual functionality (forms, calculator, job board) lives in the external app.',
-    eds: 'Generic "embed/script" block that mounts a vendor script into a placeholder. Preserve embeds; do not rebuild vendor apps.',
+    name: 'Native Data-Entry Form (Form Input Model)', comps: ['formInputModel'], pages: 1, complexity: 'High',
+    variations: [['Native form (formInputModel)', 'The only true HTML <form> on the site — text inputs, a select, a textarea and a submit button, on /form', '1 page']],
+    behavior: 'This is an actual data-collection form built natively in the CMS (component "formInputModel") — the visitor types values and submits them, unlike the vendor-embedded forms (ion/Greenhouse) which live inside third-party iframes. On the one page it appears (/form) the fields carry placeholder labels ("Form title", "Form description") and the server HTML shows no submit endpoint, so it looks like a template/sample rather than a wired-up production form. Whether it is live, and where it posts to, cannot be confirmed from the accessible page behavior.',
+    eds: 'Build as an EDS form block (or AEM Forms) once the real field model, validation rules, and submit endpoint are confirmed with American Equity. Tracked in the Forms section and Gray Areas as a "confirm before building" item.',
   },
   {
     name: 'Contact Card / Row', comps: ['contactCard', 'contactRow'], pages: 2, complexity: 'Low',
@@ -178,10 +129,10 @@ const BLOCKS = [
     eds: 'Modal block/util; accessible dialog, opened from a trigger link.',
   },
   {
-    name: 'Global Header / Navigation', comps: [], pages: 74, complexity: 'High', global: true,
+    name: 'Global Header / Navigation (site chrome)', comps: [], pages: 74, complexity: 'High', global: true,
     variations: [['Mega-menu header', '4 top-level menus (About Us, Annuities, Retirement Resources, Support) with dropdown panels + utility menu (Login/Register/Search) + Find an Agent', 'site-wide']],
-    behavior: 'Desktop mega-menu (navigation-menu triggers + content panels), mobile drawer, utility links to external portal/register. GTM nav tracking attributes.',
-    eds: 'Standard EDS header block from nav document; mega-menu panels + mobile drawer. External utility links preserved.',
+    behavior: 'The site navigation in <header>/<nav> (NOT a per-page hero). Desktop mega-menu (navigation-menu triggers + content panels), mobile drawer, utility links to external portal/register. Carries no data-component — it is structural chrome, built once for the whole site. GTM nav tracking attributes.',
+    eds: 'Standard EDS header block from the nav document; mega-menu panels + mobile drawer. Built once, shared by every page. External utility links (Login/Register) preserved.',
   },
   {
     name: 'Global Footer', comps: ['footerNavigationColumn', 'footerNavigationLink'], pages: 74, complexity: 'Medium', global: true,
@@ -200,37 +151,37 @@ const BLOCKS = [
 // ---- TEMPLATES ----
 const TEMPLATES = [
   { name: 'Article (Insight / Blog)', complexity: 'Medium',
-    blocks: 'Hero (article/standard) · Rich Text · Image · Related Posts (blogCard) · Disclosure',
-    note: 'Editorial article body. Two sub-shapes seen: full editorial (hero + rich text + related posts) and lightweight (blogHeader + single card) — same template, content-driven difference.' },
+    blocks: 'Hero (article/standard) · Related Posts (blogCard) · Accordion/Disclosure',
+    note: 'Editorial article body (prose is default rich-text content). Two sub-shapes: full editorial (hero + body + related posts) and lightweight (blogHeader + single card) — same template, content-driven difference.' },
   { name: 'Product / Annuity (Consumer)', complexity: 'High',
-    blocks: 'Hero · Line-Tab Feature · Progress Bar/Stepper · Video (Wistia) · Feature Cards & Media · Accordion (FAQ) · Related Posts · CTA · Disclosure',
+    blocks: 'Hero · Line-Tab Feature · Progress Bar/Stepper · Video (Wistia) · Feature Cards & Media · Accordion (FAQ) · Related Posts',
     note: 'AssetShield/EstateShield/GuaranteeShield/IncomeShield + our-annuities. Richest consumer composition; interactive tabs + stepper + video.' },
   { name: 'Product / Annuity (Professional)', complexity: 'High',
-    blocks: 'Hero · Line-Tab Feature · Brochure Collection (tabbed downloads) · Feature Cards · Video · CTA · Disclosure',
-    note: 'Professionals product pages add the tabbed Brochure/Resource collection (DAM downloads) over the consumer shape.' },
+    blocks: 'Hero · Line-Tab Feature · Feature Cards & Media · Video · Accordion/Disclosure',
+    note: 'Professionals product pages mirror the consumer shape and add tabbed groups of downloadable resource cards that link to DAM assets (handled as authored download links, not a bespoke block).' },
   { name: 'Section Landing / Hub', complexity: 'Medium',
-    blocks: 'Hero · Feature Cards & Media · Icon/Image Cards · Metrics · CTA · (Brochure collection on client-engagement) · Disclosure',
+    blocks: 'Hero · Feature Cards & Media · Metrics · Accordion/Disclosure',
     note: 'Marketing hubs (about, community, financial-strength, professionals, resources, our-annuities pro). Composition varies by hub but same block palette.' },
   { name: 'Content Listing (Dynamic)', complexity: 'High',
     blocks: 'Article Hero (blogHeader) · Dynamic Insights feed (client-fetched, paginated)',
     note: '/insights (+3 legacy /annuities & /resources/blog redirects land here). List hydrates client-side; needs an EDS index + pagination.' },
   { name: 'Form / Document Listing', complexity: 'High',
-    blocks: 'Hero · Form Listing / Form Table (search + tabs) OR Script Row (ion embed) OR Native Form',
-    note: 'Heterogeneous: /forms & document-library (formListing), forms-library (formTable), material-request-form (ion embed), /form (native form template). Data hydrates client-side.' },
+    blocks: 'Hero · Searchable Form/Document Library OR Native Data-Entry Form OR vendor embed',
+    note: 'Heterogeneous: /forms & document-library and forms-library are searchable document directories; /form is the native data-entry form; material-request-form is a vendor (ion) embed. Directory data hydrates client-side.' },
   { name: 'Careers', complexity: 'Medium',
-    blocks: 'Hero · Feature Cards & Media · Icon/Image Cards · Line-Tab Feature · Video · CTA · Progress Bar (openings) · Script Row (Greenhouse on openings)',
-    note: 'careers hub + why-work-here + internship-program (marketing) and openings (Greenhouse embed).' },
+    blocks: 'Hero · Feature Cards & Media · Line-Tab Feature · Video · Progress Bar (openings) + Greenhouse job-board embed',
+    note: 'careers hub + why-work-here + internship-program (marketing) and openings, which embeds the Greenhouse job board.' },
   { name: 'Tool / Calculator (Embed)', complexity: 'High',
-    blocks: 'Hero · Script Row (Hedgeness widget) · CTA · Disclosure · (tools-calculators hub uses Icon cards)',
-    note: 'income-gap-calculator (consumer + professional) embed the Hedgeness widget; tools-calculators landing is a hub of tool links.' },
+    blocks: 'Hero · Hedgeness calculator embed · Accordion/Disclosure · (tools-calculators hub uses Feature Cards)',
+    note: 'income-gap-calculator (consumer + professional) embed the third-party Hedgeness widget; tools-calculators landing is a hub of tool links.' },
   { name: 'Contact', complexity: 'Low',
-    blocks: 'Hero · Contact Cards/Row · Feature Cards · CTA · (Script Row: ion on professionals/contact-us)',
-    note: 'contact-us (consumer) and professionals/contact-us; latter adds an ion embed.' },
+    blocks: 'Hero · Contact Cards/Row · Feature Cards & Media · (ion form embed on professionals/contact-us)',
+    note: 'contact-us (consumer) and professionals/contact-us; latter also embeds an ion interactive contact form.' },
   { name: 'Legal / Utility', complexity: 'Low',
-    blocks: 'Hero · Rich Text · Disclosure · (Icon cards on some) · Attachments (naic-statutory)',
-    note: 'privacy, terms-of-use, accessibility, security-disclosure, patriot-act, sms-privacy, job-applicant-privacy, naic-statutory-financial-statements.' },
+    blocks: 'Hero · Accordion/Disclosure · (Feature Cards on some)',
+    note: 'Prose is default rich-text content. privacy, terms-of-use, accessibility, security-disclosure, patriot-act, sms-privacy, job-applicant-privacy, naic-statutory-financial-statements (the last links to statement PDFs).' },
   { name: 'Home', complexity: 'High',
-    blocks: 'Hero · Feature Cards & Media · Line-Tab Feature · Metrics · Icon/Image Cards · Video · Disclosure',
+    blocks: 'Hero · Feature Cards & Media · Line-Tab Feature · Metrics · Video · Accordion/Disclosure',
     note: 'Single homepage; densest marketing composition.' },
 ];
 
@@ -536,7 +487,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">${COUNTS.grayAreas}</div><div class="l">Open questions</div></div>
 </div>
 <p class="lead">American Equity is a marketing/content site built on <b>Optimizely CMS</b> with a <b>Next.js (App Router)</b> front end. The DOM exposes clean Optimizely component names via <code>data-component</code>, which we used as the authoritative block signal (rather than inferring from CSS classes). All ${COUNTS.uniqueUrls} URLs returned HTTP 200; ${COUNTS.redirects} are 301/308 redirects that resolve to canonical in-scope pages, leaving <b>${COUNTS.distinctRendered} distinct rendered pages</b>.</p>
-<div class="callout"><b>Scope shape:</b> The bulk of the site is standard content composition (hero, feature rows, cards, rich text, tabs, accordions, video). The higher-effort areas are (1) <b>tabbed line-feature</b> and <b>dynamic listings</b> (insights feed, forms/document libraries) that hydrate client-side and need an EDS index, (2) the <b>tabbed brochure/resource collections</b> that wire DAM downloads, and (3) <b>third-party embeds</b> (ion interactive forms, Hedgeness calculator, Greenhouse jobs) that should be <b>preserved, not rebuilt</b>.</p>
+<div class="callout"><b>Scope shape:</b> The bulk of the site is standard content composition (hero, feature cards &amp; media, tabs, accordions, video) — prose, standalone images, CTAs and download links are default content handled by core decoration, not bespoke blocks. The higher-complexity areas are (1) the <b>tabbed line-feature</b> block and <b>dynamic listings</b> (insights feed, searchable form/document libraries) that hydrate client-side and need an EDS index, and (2) <b>third-party embeds</b> (ion interactive forms, Hedgeness calculator, Greenhouse jobs) that should be <b>preserved, not rebuilt</b>. Downloadable resources (brochures, statements) are authored as links resolving to the existing DAM.</p>
 <div class="note"><b>Out of EDS scope (link, don't rebuild):</b> customer login (<code>myportal</code>), registration (<code>register</code>, Okta), affiliate sites (<code>eagle-lifeco</code>, <code>ae-newyork</code>), DAM downloads (<code>asset.american-equity.com</code>), and the vendor-hosted forms/calculator/jobs apps. The <code>/api/assets/resolve-by-key</code> endpoint is a <b>verified 301 asset resolver</b> — a redirect service, not custom application code.</p>
 </section>
 
@@ -550,6 +501,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <section id="blocks">
 <h2 class="sec">2 · Blocks &amp; Variations with Complexity</h2>
 <p class="lead"><b>${COUNTS.blocks} blocks</b> (${COUNTS.contentBlocks} content + ${COUNTS.globalBlocks} global), <b>${COUNTS.variations} variations</b>. A variation is only counted where there is a real structural, behavioral, authoring, or technical difference — not content/image/text differences. Complexity distribution: ${complexityChips(COUNTS.complexityCount)}.</p>
+<div class="callout"><b>Hero vs. navigation — no overlap:</b> the <b>Hero (In-Page Intro Band)</b> is the first content band <i>inside</i> <code>&lt;main&gt;</code> (heading/image/CTA authored per page). The site's <b>navigation</b> is a separate <b>global</b> block living in <code>&lt;header&gt;/&lt;nav&gt;</code>, built once for the whole site. They are distinct blocks; the ${COUNTS.globalBlocks} global blocks (header/navigation, footer, breadcrumb) are page chrome, not per-page content.</div>
 <table>
 <thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Var.</th><th>Complexity</th><th>Important behavior / dependencies</th><th>EDS implementation considerations</th></tr></thead>
 <tbody>
