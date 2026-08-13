@@ -4,6 +4,7 @@
     "urls": [
       "/"
     ],
+    "embeds": null,
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -28,7 +29,7 @@
           "Inline Wistia video": 1
         }
       },
-      "Line-Tab Feature (Tabbed content)": {
+      "Tabs (Tabbed Content)": {
         "kind": "block",
         "pages": 1,
         "variations": {
@@ -41,11 +42,6 @@
         "variations": {
           "Stat row": 1
         }
-      },
-      "Image (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
       },
       "Accordion / Disclosure": {
         "kind": "block",
@@ -87,6 +83,7 @@
       "/professionals/resources",
       "/professionals/tools-calculators"
     ],
+    "embeds": null,
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -126,11 +123,6 @@
           "3-set image feature": 1
         }
       },
-      "CTA / Button (default content)": {
-        "kind": "default",
-        "pages": 10,
-        "variations": {}
-      },
       "Accordion / Disclosure": {
         "kind": "block",
         "pages": 8,
@@ -138,16 +130,6 @@
           "Disclosure / legal expander": 6,
           "FAQ accordion": 2
         }
-      },
-      "Image (default content)": {
-        "kind": "default",
-        "pages": 5,
-        "variations": {}
-      },
-      "Download links → DAM (default content)": {
-        "kind": "default",
-        "pages": 4,
-        "variations": {}
       },
       "Metrics / Stats": {
         "kind": "block",
@@ -178,7 +160,7 @@
           "Numbered step sequence": 1
         }
       },
-      "Line-Tab Feature (Tabbed content)": {
+      "Tabs (Tabbed Content)": {
         "kind": "block",
         "pages": 1,
         "variations": {
@@ -191,11 +173,6 @@
         "variations": {
           "General modal": 1
         }
-      },
-      "Anchor target (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
       }
     }
   },
@@ -207,6 +184,9 @@
       "/about/careers/openings",
       "/about/careers/why-work-here"
     ],
+    "embeds": {
+      "Greenhouse job board": 1
+    },
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -245,12 +225,7 @@
           "Breadcrumb trail": 4
         }
       },
-      "CTA / Button (default content)": {
-        "kind": "default",
-        "pages": 3,
-        "variations": {}
-      },
-      "Line-Tab Feature (Tabbed content)": {
+      "Tabs (Tabbed Content)": {
         "kind": "block",
         "pages": 3,
         "variations": {
@@ -265,23 +240,11 @@
           "Inline Wistia video": 2
         }
       },
-      "Image (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
-      },
       "Progress Bar / Stepper": {
         "kind": "block",
         "pages": 1,
         "variations": {
           "Numbered step sequence": 1
-        }
-      },
-      "Third-party embed (preserve)": {
-        "kind": "embed",
-        "pages": 1,
-        "variations": {
-          "Greenhouse job board": 1
         }
       }
     }
@@ -298,6 +261,7 @@
       "/terms-of-use",
       "/usa-patriot-act-notice"
     ],
+    "embeds": null,
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -327,11 +291,6 @@
           "Breadcrumb trail": 8
         }
       },
-      "Rich Text (default content)": {
-        "kind": "default",
-        "pages": 7,
-        "variations": {}
-      },
       "Feature Cards & Media": {
         "kind": "block",
         "pages": 5,
@@ -346,11 +305,6 @@
         "variations": {
           "Disclosure / legal expander": 3
         }
-      },
-      "Download links → DAM (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
       }
     }
   },
@@ -366,6 +320,7 @@
       "/incomeshield-annuity/how-it-works",
       "/our-annuities"
     ],
+    "embeds": null,
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -374,18 +329,13 @@
           "Standard Hero": 8
         }
       },
-      "Line-Tab Feature (Tabbed content)": {
+      "Tabs (Tabbed Content)": {
         "kind": "block",
         "pages": 8,
         "variations": {
           "Vertical line tabs": 3,
           "Horizontal line tabs": 5
         }
-      },
-      "Image (default content)": {
-        "kind": "default",
-        "pages": 8,
-        "variations": {}
       },
       "Accordion / Disclosure": {
         "kind": "block",
@@ -445,11 +395,6 @@
           "Media + copy row": 6,
           "Image card grid": 3
         }
-      },
-      "CTA / Button (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
       }
     }
   },
@@ -461,6 +406,7 @@
       "/resources/blog/managing-retirement-expenses-what-to-know-about-lifetime-income-riders",
       "/resources/blog/never-too-late-ways-to-catch-up-on-retirement-savings"
     ],
+    "embeds": null,
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -513,6 +459,9 @@
       "/contact-us",
       "/professionals/contact-us"
     ],
+    "embeds": {
+      "ion interactive form": 1
+    },
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -536,11 +485,6 @@
           "Image card grid": 2
         }
       },
-      "CTA / Button (default content)": {
-        "kind": "default",
-        "pages": 2,
-        "variations": {}
-      },
       "Global Footer": {
         "kind": "global",
         "pages": 2,
@@ -561,18 +505,6 @@
         "variations": {
           "Breadcrumb trail": 2
         }
-      },
-      "Image (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
-      },
-      "Third-party embed (preserve)": {
-        "kind": "embed",
-        "pages": 1,
-        "variations": {
-          "ion interactive form": 1
-        }
       }
     }
   },
@@ -585,6 +517,9 @@
       "/professionals/forms-library",
       "/professionals/material-request-form"
     ],
+    "embeds": {
+      "ion interactive form": 1
+    },
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -623,11 +558,6 @@
           "Form table directory": 1
         }
       },
-      "Rich Text (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
-      },
       "Native Data-Entry Form (Form Input Model)": {
         "kind": "block",
         "pages": 1,
@@ -642,18 +572,6 @@
           "Media + copy row": 1,
           "Image card grid": 1
         }
-      },
-      "CTA / Button (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
-      },
-      "Third-party embed (preserve)": {
-        "kind": "embed",
-        "pages": 1,
-        "variations": {
-          "ion interactive form": 1
-        }
       }
     }
   },
@@ -663,6 +581,9 @@
       "/income-gap-calculator",
       "/professionals/tools-calculators/income-gap-calculator"
     ],
+    "embeds": {
+      "Hedgeness calculator": 2
+    },
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -670,18 +591,6 @@
         "variations": {
           "Standard Hero": 2
         }
-      },
-      "Third-party embed (preserve)": {
-        "kind": "embed",
-        "pages": 2,
-        "variations": {
-          "Hedgeness calculator": 2
-        }
-      },
-      "CTA / Button (default content)": {
-        "kind": "default",
-        "pages": 2,
-        "variations": {}
       },
       "Accordion / Disclosure": {
         "kind": "block",
@@ -710,11 +619,6 @@
         "variations": {
           "Breadcrumb trail": 2
         }
-      },
-      "Image (default content)": {
-        "kind": "default",
-        "pages": 1,
-        "variations": {}
       }
     }
   },
@@ -745,6 +649,7 @@
       "/resources/blog/fixed-index-annuities-faq",
       "/resources/blog/top-fixed-index-annuity-benefits"
     ],
+    "embeds": null,
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -752,11 +657,6 @@
         "variations": {
           "Standard Hero": 23
         }
-      },
-      "Rich Text (default content)": {
-        "kind": "default",
-        "pages": 23,
-        "variations": {}
       },
       "Global Footer": {
         "kind": "global",
@@ -771,11 +671,6 @@
         "variations": {
           "Mega-menu header": 23
         }
-      },
-      "Image (default content)": {
-        "kind": "default",
-        "pages": 21,
-        "variations": {}
       },
       "Accordion / Disclosure": {
         "kind": "block",
@@ -801,11 +696,6 @@
           "Image card grid": 1
         }
       },
-      "Download links → DAM (default content)": {
-        "kind": "default",
-        "pages": 2,
-        "variations": {}
-      },
       "Breadcrumb": {
         "kind": "global",
         "pages": 2,
@@ -823,6 +713,7 @@
       "/professionals/American-Equity-GuaranteeShield",
       "/professionals/American-Equity-IncomeShield"
     ],
+    "embeds": null,
     "blocks": {
       "Hero (In-Page Intro Band)": {
         "kind": "block",
@@ -831,27 +722,12 @@
           "Standard Hero": 4
         }
       },
-      "CTA / Button (default content)": {
-        "kind": "default",
-        "pages": 4,
-        "variations": {}
-      },
-      "Download links → DAM (default content)": {
-        "kind": "default",
-        "pages": 4,
-        "variations": {}
-      },
-      "Line-Tab Feature (Tabbed content)": {
+      "Tabs (Tabbed Content)": {
         "kind": "block",
         "pages": 4,
         "variations": {
           "Horizontal line tabs": 4
         }
-      },
-      "Image (default content)": {
-        "kind": "default",
-        "pages": 4,
-        "variations": {}
       },
       "Feature Cards & Media": {
         "kind": "block",

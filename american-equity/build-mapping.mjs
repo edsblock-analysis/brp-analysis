@@ -30,10 +30,10 @@ const MAP = {
   feature3SetsImage: { block: 'Feature Cards & Media', variation: '3-set image feature', kind: 'block' },
   featureSetCard: { block: 'Feature Cards & Media', variation: '3-set image feature', kind: 'block' },
   // Line-Tab Feature
-  featureHorizontalLineTab: { block: 'Line-Tab Feature (Tabbed content)', variation: 'Horizontal line tabs', kind: 'block' },
-  featureHorizontalLineTabCard: { block: 'Line-Tab Feature (Tabbed content)', variation: 'Horizontal line tabs', kind: 'block' },
-  featureVerticalLineTab: { block: 'Line-Tab Feature (Tabbed content)', variation: 'Vertical line tabs', kind: 'block' },
-  featureVerticalLineTabCard: { block: 'Line-Tab Feature (Tabbed content)', variation: 'Vertical line tabs', kind: 'block' },
+  featureHorizontalLineTab: { block: 'Tabs (Tabbed Content)', variation: 'Horizontal line tabs', kind: 'block' },
+  featureHorizontalLineTabCard: { block: 'Tabs (Tabbed Content)', variation: 'Horizontal line tabs', kind: 'block' },
+  featureVerticalLineTab: { block: 'Tabs (Tabbed Content)', variation: 'Vertical line tabs', kind: 'block' },
+  featureVerticalLineTabCard: { block: 'Tabs (Tabbed Content)', variation: 'Vertical line tabs', kind: 'block' },
   // Progress Bar / Stepper
   progressBar: { block: 'Progress Bar / Stepper', variation: 'Numbered step sequence', kind: 'block' },
   progressBarStep: { block: 'Progress Bar / Stepper', variation: 'Numbered step sequence', kind: 'block' },
@@ -119,13 +119,18 @@ for (const [pth, comps] of Object.entries(compsOf)) {
   if (tpl === 'Content Listing (Dynamic)') add('Dynamic Content Listing (Insights index)', 'Insights listing (client-fetched)', 'block', pth);
 }
 
-// serialize
+// serialize — mapping shows only REAL blocks (bespoke content blocks + global chrome).
+// default-content components are excluded from the mapping (not blocks); third-party
+// embeds are collapsed into a per-template `embeds` note rather than a block row.
 const out = {};
 for (const [tpl, d] of Object.entries(tmap)) {
+  const embeds = d.blocks['Third-party embed (preserve)'];
   out[tpl] = {
     pageCount: d.pages.size,
     urls: [...d.pages].sort(),
+    embeds: embeds ? Object.fromEntries(Object.entries(embeds.variations).map(([vn, s]) => [vn, s.size])) : null,
     blocks: Object.fromEntries(Object.entries(d.blocks)
+      .filter(([, v]) => v.kind === 'block' || v.kind === 'global')
       .map(([b, v]) => [b, {
         kind: v.kind,
         pages: v.pages.size,

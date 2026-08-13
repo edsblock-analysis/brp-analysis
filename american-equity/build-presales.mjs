@@ -52,7 +52,7 @@ function urlRows() {
 
 function blockRows() {
   return BLOCKS.map((b) => `<tr>
-    <td><b>${esc(b.name)}</b>${b.global ? ' <span class="cbadge">global</span>' : ''}<div class="found">${esc(b.comps.join(', ') || 'structural chrome')}</div></td>
+    <td><b>${esc(b.name)}</b>${b.global ? ' <span class="cbadge">global</span>' : ''}</td>
     <td class="num">${b.pages}</td>
     <td class="num">${b.variations.length}</td>
     <td>${cx(b.complexity)}</td>
@@ -65,7 +65,7 @@ function mappingCards() {
     const t = TEMPLATES.find((x) => x.name === tpl) || {};
     const blockEntries = Object.entries(d.blocks);
     const rows = blockEntries.map(([bn, bv]) => {
-      const kindTag = bv.kind === 'block' ? '' : bv.kind === 'default' ? ' <span class="kt kt-def">default content</span>' : bv.kind === 'embed' ? ' <span class="kt kt-emb">3rd-party embed</span>' : ' <span class="kt kt-glob">global</span>';
+      const kindTag = bv.kind === 'global' ? ' <span class="kt kt-glob">global</span>' : '';
       const vs = Object.entries(bv.variations);
       const varText = vs.length ? vs.map(([vn, c]) => `${esc(vn)} <span class="vc">${c}</span>`).join(' · ') : '<span class="found">—</span>';
       const cxCell = blockCx[bn] ? cx(blockCx[bn]) : '<span class="found">n/a</span>';
@@ -75,10 +75,14 @@ function mappingCards() {
         <td>${cxCell}</td>
         <td>${varText}</td></tr>`;
     }).join('');
+    const embedNote = d.embeds
+      ? `<div class="embed-note"><b>Third-party embed on this template (preserved, not rebuilt):</b> ${Object.entries(d.embeds).map(([e, c]) => `${esc(e)} <span class="vc">${c}</span>`).join(' · ')}</div>`
+      : '';
     return `<div class="vblock">
       <h4>${esc(tpl)} <span class="found">· ${d.pageCount} page${d.pageCount > 1 ? 's' : ''} · complexity ${t.complexity ? esc(t.complexity) : '—'}</span></h4>
       <table class="mapt"><thead><tr><th>Block used on this template</th><th class="num">Pages</th><th>Block cx</th><th>Variation(s) observed <span class="found">(count = pages)</span></th></tr></thead>
       <tbody>${rows}</tbody></table>
+      ${embedNote}
       <div class="urls">${d.urls.map((u) => { const pg = pages.find((x) => x.path === u); return `<a href="${esc(pg.url)}" target="_blank" rel="noopener">${esc(u)}</a>`; }).join('')}</div>
     </div>`;
   }).join('\n');
@@ -165,6 +169,7 @@ tr.grp td b{color:#fff}
 a{color:#1a4bcc}
 .callout{background:#eff5ff;border-left:4px solid var(--blue);padding:10px 14px;border-radius:6px;font-size:13px;margin:12px 0}
 .note{background:#fff8e6;border-left:4px solid #d99400;padding:10px 14px;border-radius:6px;font-size:13px;margin:12px 0}
+.embed-note{background:#fef2f2;border-left:3px solid #dc2626;padding:6px 12px;border-radius:6px;font-size:12px;margin:6px 0}
 .obs dt{font-weight:700;color:var(--navy);margin-top:10px}
 .obs dd{margin:2px 0 0;font-size:13.5px}
 .legend{font-size:12px;color:var(--muted);margin:8px 0}
@@ -202,7 +207,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   ${kpi(COUNTS.grayAreas, 'Open questions')}
 </div>
 <p class="lead">American Equity is a marketing/content site on <b>Optimizely CMS</b> with a <b>Next.js</b> front end. Because the DOM labels every component with a <code>data-component</code> name, block boundaries and their placement per template are read directly from the markup rather than guessed. All ${COUNTS.uniqueUrls} URLs returned HTTP 200; ${COUNTS.redirects} are legacy 301/308 redirects to canonical pages, leaving <b>${COUNTS.distinctRendered} distinct rendered pages</b> across <b>${COUNTS.templates} templates</b>.</p>
-<div class="callout"><b>What this report gives pre-sales:</b> (2) the exact list of URLs analyzed with live links, (3) the ${COUNTS.blocks} reusable blocks with their variations and complexity, (4) a per-template <b>block↔variation mapping</b> showing which blocks appear on each template and how many pages use each variation, (5) verified third-party integrations, (6) assumptions &amp; scope boundaries, and (7) other technical observations. The heavier items are the tabbed line-feature block, the client-hydrated listings (Insights + form/document libraries), and third-party embeds that are preserved rather than rebuilt.</div>
+<div class="callout"><b>What this report gives pre-sales:</b> (2) the exact list of URLs analyzed with live links, (3) the ${COUNTS.blocks} reusable blocks with their variations and complexity, (4) a per-template <b>block↔variation mapping</b> showing which blocks appear on each template and how many pages use each variation, (5) verified third-party integrations, (6) assumptions &amp; scope boundaries, and (7) other technical observations. The heavier items are the Tabs block, the client-hydrated listings (Insights + form/document libraries), and third-party embeds that are preserved rather than rebuilt.</div>
 </section>
 
 <section id="urls">
@@ -225,10 +230,9 @@ ${blockRows()}
 
 <section id="mapping">
 <h2 class="sec">4 · Template ↔ Block ↔ Variation Mapping</h2>
-<p class="lead">Built by reading the <code>data-component</code> markup of <b>all ${COUNTS.uniqueUrls} pages</b>. For each of the ${COUNTS.templates} templates: the blocks that appear on it, how many of the template's pages use each block, the block's complexity, and each variation with its page count. Legend:
-<span class="legend"><span class="kt kt-def">default content</span>core decoration, not a bespoke block &nbsp; <span class="kt kt-emb">3rd-party embed</span>preserve vendor script &nbsp; <span class="kt kt-glob">global</span>site chrome built once</span></p>
+<p class="lead">Built by reading the <code>data-component</code> markup of <b>all ${COUNTS.uniqueUrls} pages</b>. For each of the ${COUNTS.templates} templates: the blocks that appear on it, how many of the template's pages use each block, the block's complexity, and each variation with its page count. Only the ${COUNTS.blocks} real blocks are listed (<span class="kt kt-glob">global</span> = site chrome built once); default content (prose, images, buttons, download links) is handled by core decoration and is not listed. Any third-party embed on a template is called out in a note under its table.</p>
 ${mappingCards()}
-<div class="note"><b>Reading the counts:</b> "Pages" is <i>x/y</i> = pages of that template using the block. A block can carry several variations on one template (e.g. consumer product pages use <b>both</b> horizontal and vertical line-tabs). Default-content, embeds and global chrome are listed for completeness so every component on every page is accounted for — only the ${COUNTS.contentBlocks} content + ${COUNTS.globalBlocks} global blocks in §3 are bespoke EDS build items.</div>
+<div class="note"><b>Reading the counts:</b> "Pages" is <i>x/y</i> = pages of that template using the block. A block can carry several variations on one template — e.g. consumer product pages use <b>both</b> horizontal and vertical tab orientations. Only the ${COUNTS.contentBlocks} content + ${COUNTS.globalBlocks} global blocks are bespoke EDS build items.</div>
 </section>
 
 <section id="integ">

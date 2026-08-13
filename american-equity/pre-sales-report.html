@@ -48,6 +48,7 @@ tr.grp td b{color:#fff}
 a{color:#1a4bcc}
 .callout{background:#eff5ff;border-left:4px solid var(--blue);padding:10px 14px;border-radius:6px;font-size:13px;margin:12px 0}
 .note{background:#fff8e6;border-left:4px solid #d99400;padding:10px 14px;border-radius:6px;font-size:13px;margin:12px 0}
+.embed-note{background:#fef2f2;border-left:3px solid #dc2626;padding:6px 12px;border-radius:6px;font-size:12px;margin:6px 0}
 .obs dt{font-weight:700;color:var(--navy);margin-top:10px}
 .obs dd{margin:2px 0 0;font-size:13.5px}
 .legend{font-size:12px;color:var(--muted);margin:8px 0}
@@ -85,7 +86,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   <div class="kpi"><div class="n">7</div><div class="l">Open questions</div></div>
 </div>
 <p class="lead">American Equity is a marketing/content site on <b>Optimizely CMS</b> with a <b>Next.js</b> front end. Because the DOM labels every component with a <code>data-component</code> name, block boundaries and their placement per template are read directly from the markup rather than guessed. All 74 URLs returned HTTP 200; 10 are legacy 301/308 redirects to canonical pages, leaving <b>64 distinct rendered pages</b> across <b>11 templates</b>.</p>
-<div class="callout"><b>What this report gives pre-sales:</b> (2) the exact list of URLs analyzed with live links, (3) the 16 reusable blocks with their variations and complexity, (4) a per-template <b>block↔variation mapping</b> showing which blocks appear on each template and how many pages use each variation, (5) verified third-party integrations, (6) assumptions &amp; scope boundaries, and (7) other technical observations. The heavier items are the tabbed line-feature block, the client-hydrated listings (Insights + form/document libraries), and third-party embeds that are preserved rather than rebuilt.</div>
+<div class="callout"><b>What this report gives pre-sales:</b> (2) the exact list of URLs analyzed with live links, (3) the 16 reusable blocks with their variations and complexity, (4) a per-template <b>block↔variation mapping</b> showing which blocks appear on each template and how many pages use each variation, (5) verified third-party integrations, (6) assumptions &amp; scope boundaries, and (7) other technical observations. The heavier items are the Tabs block, the client-hydrated listings (Insights + form/document libraries), and third-party embeds that are preserved rather than rebuilt.</div>
 </section>
 
 <section id="urls">
@@ -334,97 +335,97 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <thead><tr><th>Block</th><th class="num">Pages</th><th class="num">Var.</th><th>Complexity</th><th>Variations (what differs)</th></tr></thead>
 <tbody>
 <tr>
-    <td><b>Hero (In-Page Intro Band)</b><div class="found">heroHeaderSection, heroHeader, blogHeader</div></td>
+    <td><b>Hero (In-Page Intro Band)</b></td>
     <td class="num">74</td>
     <td class="num">3</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td><b>Standard Hero (heroHeaderSection)</b> — Heading + subcopy + optional image/CTA; on 73 pages<br><b>Article Hero (blogHeader)</b> — Title + author/date/read-time meta + eyebrow; used on dynamic article/listing pages<br><b>Simple Hero (heroHeader)</b> — Minimal heading-only variant (form template page)</td></tr>
+    <td><b>Standard Hero</b> — Heading + subcopy + optional image/CTA; on 73 pages<br><b>Article Hero</b> — Title + author/date/read-time meta + eyebrow; used on dynamic article/listing pages<br><b>Simple Hero</b> — Minimal heading-only variant (form template page)</td></tr>
 <tr>
-    <td><b>Feature Cards &amp; Media</b><div class="found">featureCardsAndMediaRow, featuredIconCard, featuredImageCard, feature3SetsImage, featureSetCard</div></td>
+    <td><b>Feature Cards &amp; Media</b></td>
     <td class="num">36</td>
     <td class="num">4</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td><b>Media + copy row (featureCardsAndMediaRow)</b> — Alternating image/text rows with optional CTA — the site's workhorse content band<br><b>Icon card grid (featuredIconCard)</b> — Grid of icon + heading + text cards (3–9 up)<br><b>Image card grid (featuredImageCard)</b> — Grid of image + heading + text/link cards<br><b>3-set image feature (feature3SetsImage / featureSetCard)</b> — Three-column image feature grouping</td></tr>
+    <td><b>Media + copy row</b> — Alternating image/text rows with optional CTA — the site's workhorse content band<br><b>Icon card grid</b> — Grid of icon + heading + text cards (3–9 up)<br><b>Image card grid</b> — Grid of image + heading + text/link cards<br><b>3-set image feature</b> — Three-column image feature grouping</td></tr>
 <tr>
-    <td><b>Line-Tab Feature (Tabbed content)</b><div class="found">featureHorizontalLineTab, featureHorizontalLineTabCard, featureVerticalLineTab, featureVerticalLineTabCard</div></td>
+    <td><b>Tabs (Tabbed Content)</b></td>
     <td class="num">17</td>
     <td class="num">2</td>
     <td><span class="cx cx-High">High</span></td>
     <td><b>Horizontal line tabs</b> — Tab strip along the top; tab → card panel<br><b>Vertical line tabs</b> — Tab list on the side; tab → card panel</td></tr>
 <tr>
-    <td><b>Progress Bar / Stepper</b><div class="found">progressBar, progressBarStep</div></td>
+    <td><b>Progress Bar / Stepper</b></td>
     <td class="num">10</td>
     <td class="num">1</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td><b>Numbered step sequence (progressBar + progressBarStep)</b> — Ordered “how it works / next steps” 3–5 step sequence</td></tr>
+    <td><b>Numbered step sequence</b> — Ordered “how it works / next steps” 3–5 step sequence</td></tr>
 <tr>
-    <td><b>Video (Wistia)</b><div class="found">videoBlock</div></td>
+    <td><b>Video (Wistia)</b></td>
     <td class="num">14</td>
     <td class="num">1</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td><b>Inline Wistia video (videoBlock)</b> — Wistia web component (&lt;wistia-video&gt;) with poster + heading + copy</td></tr>
+    <td><b>Inline Wistia video</b> — Wistia web component (&lt;wistia-video&gt;) with poster + heading + copy</td></tr>
 <tr>
-    <td><b>Metrics / Stats</b><div class="found">metrics, metricsCard</div></td>
+    <td><b>Metrics / Stats</b></td>
     <td class="num">4</td>
     <td class="num">1</td>
     <td><span class="cx cx-Low">Low</span></td>
-    <td><b>Stat row (metrics + metricsCard)</b> — Large-number + label KPI row (e.g. financial-strength, about)</td></tr>
+    <td><b>Stat row</b> — Large-number + label KPI row (e.g. financial-strength, about)</td></tr>
 <tr>
-    <td><b>Accordion / Disclosure</b><div class="found">accordion, disclosure</div></td>
+    <td><b>Accordion / Disclosure</b></td>
     <td class="num">43</td>
     <td class="num">2</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td><b>FAQ accordion (accordion)</b> — Expand/collapse Q&amp;A groups<br><b>Disclosure / legal expander (disclosure)</b> — Collapsible fine-print / disclaimer region (very common footer-of-content)</td></tr>
+    <td><b>FAQ accordion</b> — Expand/collapse Q&amp;A groups<br><b>Disclosure / legal expander</b> — Collapsible fine-print / disclaimer region (very common footer-of-content)</td></tr>
 <tr>
-    <td><b>Blog Card / Related Posts</b><div class="found">blogCard, relatedBlogPosts</div></td>
+    <td><b>Blog Card / Related Posts</b></td>
     <td class="num">34</td>
     <td class="num">2</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td><b>Related posts strip (relatedBlogPosts + blogCard)</b> — Auto-populated “related/insights” cards at article foot<br><b>Editorial card grid (blogCard)</b> — Curated card links to insight articles</td></tr>
+    <td><b>Related posts strip</b> — Auto-populated “related/insights” cards at article foot<br><b>Editorial card grid</b> — Curated card links to insight articles</td></tr>
 <tr>
-    <td><b>Dynamic Content Listing (Insights index)</b><div class="found">blogHeader</div></td>
+    <td><b>Dynamic Content Listing (Insights index)</b></td>
     <td class="num">4</td>
     <td class="num">1</td>
     <td><span class="cx cx-High">High</span></td>
     <td><b>Insights listing (client-fetched)</b> — Paginated article feed ("BlogPosts", "Pagination", "articles" in payload); SSR renders shell, list hydrates client-side</td></tr>
 <tr>
-    <td><b>Searchable Form / Document Library</b><div class="found">formListing, formTable</div></td>
+    <td><b>Searchable Form / Document Library</b></td>
     <td class="num">4</td>
     <td class="num">2</td>
     <td><span class="cx cx-High">High</span></td>
-    <td><b>Form listing w/ search + category tabs (formListing)</b> — Consumer /forms and /professionals/document-library<br><b>Form table directory (formTable)</b> — Professionals /forms-library</td></tr>
+    <td><b>Form listing w/ search + category tabs</b> — Consumer /forms and /professionals/document-library<br><b>Form table directory</b> — Professionals /forms-library</td></tr>
 <tr>
-    <td><b>Native Data-Entry Form (Form Input Model)</b><div class="found">formInputModel</div></td>
+    <td><b>Native Data-Entry Form (Form Input Model)</b></td>
     <td class="num">1</td>
     <td class="num">1</td>
     <td><span class="cx cx-High">High</span></td>
-    <td><b>Native form (formInputModel)</b> — The only true HTML &lt;form&gt; on the site — text inputs, a select, a textarea and a submit button, on /form</td></tr>
+    <td><b>Native form</b> — The only true HTML &lt;form&gt; on the site — text inputs, a select, a textarea and a submit button, on /form</td></tr>
 <tr>
-    <td><b>Contact Card / Row</b><div class="found">contactCard, contactRow</div></td>
+    <td><b>Contact Card / Row</b></td>
     <td class="num">2</td>
     <td class="num">1</td>
     <td><span class="cx cx-Low">Low</span></td>
-    <td><b>Contact cards (contactRow + contactCard)</b> — Phone/email/dept contact cards (contact-us, professionals/contact-us)</td></tr>
+    <td><b>Contact cards</b> — Phone/email/dept contact cards (contact-us, professionals/contact-us)</td></tr>
 <tr>
-    <td><b>Modal / Dialog</b><div class="found">generalModal</div></td>
+    <td><b>Modal / Dialog</b></td>
     <td class="num">1</td>
     <td class="num">1</td>
     <td><span class="cx cx-Medium">Medium</span></td>
-    <td><b>General modal (generalModal)</b> — Dialog triggered from content (professionals landing)</td></tr>
+    <td><b>General modal</b> — Dialog triggered from content (professionals landing)</td></tr>
 <tr>
-    <td><b>Global Header / Navigation (site chrome)</b> <span class="cbadge">global</span><div class="found">structural chrome</div></td>
+    <td><b>Global Header / Navigation (site chrome)</b> <span class="cbadge">global</span></td>
     <td class="num">74</td>
     <td class="num">1</td>
     <td><span class="cx cx-High">High</span></td>
     <td><b>Mega-menu header</b> — 4 top-level menus (About Us, Annuities, Retirement Resources, Support) with dropdown panels + utility menu (Login/Register/Search) + Find an Agent</td></tr>
 <tr>
-    <td><b>Global Footer</b> <span class="cbadge">global</span><div class="found">footerNavigationColumn, footerNavigationLink</div></td>
+    <td><b>Global Footer</b> <span class="cbadge">global</span></td>
     <td class="num">74</td>
     <td class="num">1</td>
     <td><span class="cx cx-Medium">Medium</span></td>
     <td><b>Multi-column footer</b> — Nav columns + social links (Facebook/LinkedIn) + legal/disclosure + logo; ~10 link cols site-wide</td></tr>
 <tr>
-    <td><b>Breadcrumb</b> <span class="cbadge">global</span><div class="found">structural chrome</div></td>
+    <td><b>Breadcrumb</b> <span class="cbadge">global</span></td>
     <td class="num">51</td>
     <td class="num">1</td>
     <td><span class="cx cx-Low">Low</span></td>
@@ -435,8 +436,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 
 <section id="mapping">
 <h2 class="sec">4 · Template ↔ Block ↔ Variation Mapping</h2>
-<p class="lead">Built by reading the <code>data-component</code> markup of <b>all 74 pages</b>. For each of the 11 templates: the blocks that appear on it, how many of the template's pages use each block, the block's complexity, and each variation with its page count. Legend:
-<span class="legend"><span class="kt kt-def">default content</span>core decoration, not a bespoke block &nbsp; <span class="kt kt-emb">3rd-party embed</span>preserve vendor script &nbsp; <span class="kt kt-glob">global</span>site chrome built once</span></p>
+<p class="lead">Built by reading the <code>data-component</code> markup of <b>all 74 pages</b>. For each of the 11 templates: the blocks that appear on it, how many of the template's pages use each block, the block's complexity, and each variation with its page count. Only the 16 real blocks are listed (<span class="kt kt-glob">global</span> = site chrome built once); default content (prose, images, buttons, download links) is handled by core decoration and is not listed. Any third-party embed on a template is called out in a note under its table.</p>
 <div class="vblock">
       <h4>Article (Insight / Blog) <span class="found">· 23 pages · complexity Medium</span></h4>
       <table class="mapt"><thead><tr><th>Block used on this template</th><th class="num">Pages</th><th>Block cx</th><th>Variation(s) observed <span class="found">(count = pages)</span></th></tr></thead>
@@ -445,10 +445,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">23/23</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Standard Hero <span class="vc">23</span></td></tr><tr>
-        <td><b>Rich Text (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">23/23</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Global Footer</b> <span class="kt kt-glob">global</span></td>
         <td class="num">23/23</td>
         <td><span class="cx cx-Medium">Medium</span></td>
@@ -457,10 +453,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">23/23</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Mega-menu header <span class="vc">23</span></td></tr><tr>
-        <td><b>Image (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">21/23</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Accordion / Disclosure</b></td>
         <td class="num">21/23</td>
         <td><span class="cx cx-Medium">Medium</span></td>
@@ -473,14 +465,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">3/23</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Media + copy row <span class="vc">3</span> · Icon card grid <span class="vc">2</span> · Image card grid <span class="vc">1</span></td></tr><tr>
-        <td><b>Download links → DAM (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">2/23</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Breadcrumb</b> <span class="kt kt-glob">global</span></td>
         <td class="num">2/23</td>
         <td><span class="cx cx-Low">Low</span></td>
         <td>Breadcrumb trail <span class="vc">2</span></td></tr></tbody></table>
+      
       <div class="urls"><a href="https://www.american-equity.com/insights/10-Facts-About-Fixed-Index-Annuities" target="_blank" rel="noopener">/insights/10-Facts-About-Fixed-Index-Annuities</a><a href="https://www.american-equity.com/insights/8-questions-to-ask-yourself-when-planning-for-retirement" target="_blank" rel="noopener">/insights/8-questions-to-ask-yourself-when-planning-for-retirement</a><a href="https://www.american-equity.com/insights/Annuities-101-What-You-Need-to-Know" target="_blank" rel="noopener">/insights/Annuities-101-What-You-Need-to-Know</a><a href="https://www.american-equity.com/insights/Four-ways-fixed-index-annuities-can-help-protect-your-income-over-time" target="_blank" rel="noopener">/insights/Four-ways-fixed-index-annuities-can-help-protect-your-income-over-time</a><a href="https://www.american-equity.com/insights/How-to-Approach-Retirement-Conversations-with-Positivity-5-Topics-to-Help-You-Achieve-Goals" target="_blank" rel="noopener">/insights/How-to-Approach-Retirement-Conversations-with-Positivity-5-Topics-to-Help-You-Achieve-Goals</a><a href="https://www.american-equity.com/insights/Retirement-planning-for-women-Closing-the-gender-retirement-gap" target="_blank" rel="noopener">/insights/Retirement-planning-for-women-Closing-the-gender-retirement-gap</a><a href="https://www.american-equity.com/insights/american-equity-named-one-of-newsweeks-most-trustworthy-companies-in-america-for-fourth-consecutive-year" target="_blank" rel="noopener">/insights/american-equity-named-one-of-newsweeks-most-trustworthy-companies-in-america-for-fourth-consecutive-year</a><a href="https://www.american-equity.com/insights/baby-boomer-retirement-income-expectations-and-opportunities" target="_blank" rel="noopener">/insights/baby-boomer-retirement-income-expectations-and-opportunities</a><a href="https://www.american-equity.com/insights/baby-boomer-retirement-trends-housing" target="_blank" rel="noopener">/insights/baby-boomer-retirement-trends-housing</a><a href="https://www.american-equity.com/insights/baby-boomer-retirement-trends-transportation--health-care" target="_blank" rel="noopener">/insights/baby-boomer-retirement-trends-transportation--health-care</a><a href="https://www.american-equity.com/insights/benefits-of-fixed-index-annuities" target="_blank" rel="noopener">/insights/benefits-of-fixed-index-annuities</a><a href="https://www.american-equity.com/insights/how-annuities-can-help-fund-reliable-income-in-retirement" target="_blank" rel="noopener">/insights/how-annuities-can-help-fund-reliable-income-in-retirement</a><a href="https://www.american-equity.com/insights/key-features-to-consider-when-choosing-a-fixed-index-annuity" target="_blank" rel="noopener">/insights/key-features-to-consider-when-choosing-a-fixed-index-annuity</a><a href="https://www.american-equity.com/insights/successful-retirement-budgeting-how-to-reach-goals-and-avoid-income-gaps" target="_blank" rel="noopener">/insights/successful-retirement-budgeting-how-to-reach-goals-and-avoid-income-gaps</a><a href="https://www.american-equity.com/insights/the-benefits-of-working-with-a-financial-professional" target="_blank" rel="noopener">/insights/the-benefits-of-working-with-a-financial-professional</a><a href="https://www.american-equity.com/insights/the-sandwich-generation-and-its-retirement-outlook" target="_blank" rel="noopener">/insights/the-sandwich-generation-and-its-retirement-outlook</a><a href="https://www.american-equity.com/insights/what-to-know-about-retirement-unknowns-four-questions-to-better-understand-retirement-income" target="_blank" rel="noopener">/insights/what-to-know-about-retirement-unknowns-four-questions-to-better-understand-retirement-income</a><a href="https://www.american-equity.com/professionals/fp-insights-and-education/Rethinking-Retirement-Income-in-a-Lower-Yield-World" target="_blank" rel="noopener">/professionals/fp-insights-and-education/Rethinking-Retirement-Income-in-a-Lower-Yield-World</a><a href="https://www.american-equity.com/professionals/fp-insights-and-education/The-ART-of-Managing-Retirement-Income-Risk" target="_blank" rel="noopener">/professionals/fp-insights-and-education/The-ART-of-Managing-Retirement-Income-Risk</a><a href="https://www.american-equity.com/resources/blog/9-ways-to-plan-for-a-happier-retirement" target="_blank" rel="noopener">/resources/blog/9-ways-to-plan-for-a-happier-retirement</a><a href="https://www.american-equity.com/resources/blog/baby-boomer-retirement-trends-retirement-income" target="_blank" rel="noopener">/resources/blog/baby-boomer-retirement-trends-retirement-income</a><a href="https://www.american-equity.com/resources/blog/fixed-index-annuities-faq" target="_blank" rel="noopener">/resources/blog/fixed-index-annuities-faq</a><a href="https://www.american-equity.com/resources/blog/top-fixed-index-annuity-benefits" target="_blank" rel="noopener">/resources/blog/top-fixed-index-annuity-benefits</a></div>
     </div>
 <div class="vblock">
@@ -507,22 +496,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">10/13</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Media + copy row <span class="vc">10</span> · Image card grid <span class="vc">6</span> · Icon card grid <span class="vc">7</span> · 3-set image feature <span class="vc">1</span></td></tr><tr>
-        <td><b>CTA / Button (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">10/13</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Accordion / Disclosure</b></td>
         <td class="num">8/13</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Disclosure / legal expander <span class="vc">6</span> · FAQ accordion <span class="vc">2</span></td></tr><tr>
-        <td><b>Image (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">5/13</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
-        <td><b>Download links → DAM (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">4/13</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Metrics / Stats</b></td>
         <td class="num">3/13</td>
         <td><span class="cx cx-Low">Low</span></td>
@@ -539,18 +516,15 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">1/13</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Numbered step sequence <span class="vc">1</span></td></tr><tr>
-        <td><b>Line-Tab Feature (Tabbed content)</b></td>
+        <td><b>Tabs (Tabbed Content)</b></td>
         <td class="num">1/13</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Horizontal line tabs <span class="vc">1</span></td></tr><tr>
         <td><b>Modal / Dialog</b></td>
         <td class="num">1/13</td>
         <td><span class="cx cx-Medium">Medium</span></td>
-        <td>General modal <span class="vc">1</span></td></tr><tr>
-        <td><b>Anchor target (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/13</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr></tbody></table>
+        <td>General modal <span class="vc">1</span></td></tr></tbody></table>
+      
       <div class="urls"><a href="https://www.american-equity.com/about" target="_blank" rel="noopener">/about</a><a href="https://www.american-equity.com/annuities-101" target="_blank" rel="noopener">/annuities-101</a><a href="https://www.american-equity.com/beneficiary-support" target="_blank" rel="noopener">/beneficiary-support</a><a href="https://www.american-equity.com/community" target="_blank" rel="noopener">/community</a><a href="https://www.american-equity.com/financial-strength" target="_blank" rel="noopener">/financial-strength</a><a href="https://www.american-equity.com/professionals" target="_blank" rel="noopener">/professionals</a><a href="https://www.american-equity.com/professionals/client-engagement-collections" target="_blank" rel="noopener">/professionals/client-engagement-collections</a><a href="https://www.american-equity.com/professionals/client-engagement-collections/art-engagement-collection" target="_blank" rel="noopener">/professionals/client-engagement-collections/art-engagement-collection</a><a href="https://www.american-equity.com/professionals/fp-insights-and-education" target="_blank" rel="noopener">/professionals/fp-insights-and-education</a><a href="https://www.american-equity.com/professionals/our-annuities" target="_blank" rel="noopener">/professionals/our-annuities</a><a href="https://www.american-equity.com/professionals/rates-and-indexes" target="_blank" rel="noopener">/professionals/rates-and-indexes</a><a href="https://www.american-equity.com/professionals/resources" target="_blank" rel="noopener">/professionals/resources</a><a href="https://www.american-equity.com/professionals/tools-calculators" target="_blank" rel="noopener">/professionals/tools-calculators</a></div>
     </div>
 <div class="vblock">
@@ -573,10 +547,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">8/8</td>
         <td><span class="cx cx-Low">Low</span></td>
         <td>Breadcrumb trail <span class="vc">8</span></td></tr><tr>
-        <td><b>Rich Text (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">7/8</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Feature Cards &amp; Media</b></td>
         <td class="num">5/8</td>
         <td><span class="cx cx-Medium">Medium</span></td>
@@ -584,11 +554,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td><b>Accordion / Disclosure</b></td>
         <td class="num">3/8</td>
         <td><span class="cx cx-Medium">Medium</span></td>
-        <td>Disclosure / legal expander <span class="vc">3</span></td></tr><tr>
-        <td><b>Download links → DAM (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/8</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr></tbody></table>
+        <td>Disclosure / legal expander <span class="vc">3</span></td></tr></tbody></table>
+      
       <div class="urls"><a href="https://www.american-equity.com/accessibility" target="_blank" rel="noopener">/accessibility</a><a href="https://www.american-equity.com/agent-sms-privacy-terms" target="_blank" rel="noopener">/agent-sms-privacy-terms</a><a href="https://www.american-equity.com/job-applicant-privacy-policy" target="_blank" rel="noopener">/job-applicant-privacy-policy</a><a href="https://www.american-equity.com/naic-statutory-financial-statements" target="_blank" rel="noopener">/naic-statutory-financial-statements</a><a href="https://www.american-equity.com/privacy" target="_blank" rel="noopener">/privacy</a><a href="https://www.american-equity.com/security-disclosure" target="_blank" rel="noopener">/security-disclosure</a><a href="https://www.american-equity.com/terms-of-use" target="_blank" rel="noopener">/terms-of-use</a><a href="https://www.american-equity.com/usa-patriot-act-notice" target="_blank" rel="noopener">/usa-patriot-act-notice</a></div>
     </div>
 <div class="vblock">
@@ -599,14 +566,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">8/8</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Standard Hero <span class="vc">8</span></td></tr><tr>
-        <td><b>Line-Tab Feature (Tabbed content)</b></td>
+        <td><b>Tabs (Tabbed Content)</b></td>
         <td class="num">8/8</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Vertical line tabs <span class="vc">3</span> · Horizontal line tabs <span class="vc">5</span></td></tr><tr>
-        <td><b>Image (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">8/8</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Accordion / Disclosure</b></td>
         <td class="num">8/8</td>
         <td><span class="cx cx-Medium">Medium</span></td>
@@ -638,11 +601,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td><b>Feature Cards &amp; Media</b></td>
         <td class="num">6/8</td>
         <td><span class="cx cx-Medium">Medium</span></td>
-        <td>Media + copy row <span class="vc">6</span> · Image card grid <span class="vc">3</span></td></tr><tr>
-        <td><b>CTA / Button (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/8</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr></tbody></table>
+        <td>Media + copy row <span class="vc">6</span> · Image card grid <span class="vc">3</span></td></tr></tbody></table>
+      
       <div class="urls"><a href="https://www.american-equity.com/AssetShield" target="_blank" rel="noopener">/AssetShield</a><a href="https://www.american-equity.com/EstateShield" target="_blank" rel="noopener">/EstateShield</a><a href="https://www.american-equity.com/GuaranteeShield" target="_blank" rel="noopener">/GuaranteeShield</a><a href="https://www.american-equity.com/IncomeShield" target="_blank" rel="noopener">/IncomeShield</a><a href="https://www.american-equity.com/annuities" target="_blank" rel="noopener">/annuities</a><a href="https://www.american-equity.com/annuities/fixed-index-annuities" target="_blank" rel="noopener">/annuities/fixed-index-annuities</a><a href="https://www.american-equity.com/incomeshield-annuity/how-it-works" target="_blank" rel="noopener">/incomeshield-annuity/how-it-works</a><a href="https://www.american-equity.com/our-annuities" target="_blank" rel="noopener">/our-annuities</a></div>
     </div>
 <div class="vblock">
@@ -669,10 +629,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">3/5</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Form listing w/ search + tabs <span class="vc">2</span> · Form table directory <span class="vc">1</span></td></tr><tr>
-        <td><b>Rich Text (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/5</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Native Data-Entry Form (Form Input Model)</b></td>
         <td class="num">1/5</td>
         <td><span class="cx cx-High">High</span></td>
@@ -680,15 +636,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td><b>Feature Cards &amp; Media</b></td>
         <td class="num">1/5</td>
         <td><span class="cx cx-Medium">Medium</span></td>
-        <td>Media + copy row <span class="vc">1</span> · Image card grid <span class="vc">1</span></td></tr><tr>
-        <td><b>CTA / Button (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/5</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
-        <td><b>Third-party embed (preserve)</b> <span class="kt kt-emb">3rd-party embed</span></td>
-        <td class="num">1/5</td>
-        <td><span class="found">n/a</span></td>
-        <td>ion interactive form <span class="vc">1</span></td></tr></tbody></table>
+        <td>Media + copy row <span class="vc">1</span> · Image card grid <span class="vc">1</span></td></tr></tbody></table>
+      <div class="embed-note"><b>Third-party embed on this template (preserved, not rebuilt):</b> ion interactive form <span class="vc">1</span></div>
       <div class="urls"><a href="https://www.american-equity.com/form" target="_blank" rel="noopener">/form</a><a href="https://www.american-equity.com/forms" target="_blank" rel="noopener">/forms</a><a href="https://www.american-equity.com/professionals/document-library" target="_blank" rel="noopener">/professionals/document-library</a><a href="https://www.american-equity.com/professionals/forms-library" target="_blank" rel="noopener">/professionals/forms-library</a><a href="https://www.american-equity.com/professionals/material-request-form" target="_blank" rel="noopener">/professionals/material-request-form</a></div>
     </div>
 <div class="vblock">
@@ -715,11 +664,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">4/4</td>
         <td><span class="cx cx-Low">Low</span></td>
         <td>Breadcrumb trail <span class="vc">4</span></td></tr><tr>
-        <td><b>CTA / Button (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">3/4</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
-        <td><b>Line-Tab Feature (Tabbed content)</b></td>
+        <td><b>Tabs (Tabbed Content)</b></td>
         <td class="num">3/4</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Vertical line tabs <span class="vc">1</span> · Horizontal line tabs <span class="vc">2</span></td></tr><tr>
@@ -727,18 +672,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">2/4</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Inline Wistia video <span class="vc">2</span></td></tr><tr>
-        <td><b>Image (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/4</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Progress Bar / Stepper</b></td>
         <td class="num">1/4</td>
         <td><span class="cx cx-Medium">Medium</span></td>
-        <td>Numbered step sequence <span class="vc">1</span></td></tr><tr>
-        <td><b>Third-party embed (preserve)</b> <span class="kt kt-emb">3rd-party embed</span></td>
-        <td class="num">1/4</td>
-        <td><span class="found">n/a</span></td>
-        <td>Greenhouse job board <span class="vc">1</span></td></tr></tbody></table>
+        <td>Numbered step sequence <span class="vc">1</span></td></tr></tbody></table>
+      <div class="embed-note"><b>Third-party embed on this template (preserved, not rebuilt):</b> Greenhouse job board <span class="vc">1</span></div>
       <div class="urls"><a href="https://www.american-equity.com/about/careers" target="_blank" rel="noopener">/about/careers</a><a href="https://www.american-equity.com/about/careers/internship-program" target="_blank" rel="noopener">/about/careers/internship-program</a><a href="https://www.american-equity.com/about/careers/openings" target="_blank" rel="noopener">/about/careers/openings</a><a href="https://www.american-equity.com/about/careers/why-work-here" target="_blank" rel="noopener">/about/careers/why-work-here</a></div>
     </div>
 <div class="vblock">
@@ -769,6 +707,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">4/4</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Insights listing (client-fetched) <span class="vc">4</span></td></tr></tbody></table>
+      
       <div class="urls"><a href="https://www.american-equity.com/annuities/retirement-income-research" target="_blank" rel="noopener">/annuities/retirement-income-research</a><a href="https://www.american-equity.com/insights" target="_blank" rel="noopener">/insights</a><a href="https://www.american-equity.com/resources/blog/managing-retirement-expenses-what-to-know-about-lifetime-income-riders" target="_blank" rel="noopener">/resources/blog/managing-retirement-expenses-what-to-know-about-lifetime-income-riders</a><a href="https://www.american-equity.com/resources/blog/never-too-late-ways-to-catch-up-on-retirement-savings" target="_blank" rel="noopener">/resources/blog/never-too-late-ways-to-catch-up-on-retirement-savings</a></div>
     </div>
 <div class="vblock">
@@ -779,22 +718,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">4/4</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Standard Hero <span class="vc">4</span></td></tr><tr>
-        <td><b>CTA / Button (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">4/4</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
-        <td><b>Download links → DAM (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">4/4</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
-        <td><b>Line-Tab Feature (Tabbed content)</b></td>
+        <td><b>Tabs (Tabbed Content)</b></td>
         <td class="num">4/4</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Horizontal line tabs <span class="vc">4</span></td></tr><tr>
-        <td><b>Image (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">4/4</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Feature Cards &amp; Media</b></td>
         <td class="num">4/4</td>
         <td><span class="cx cx-Medium">Medium</span></td>
@@ -819,6 +746,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">3/4</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Inline Wistia video <span class="vc">3</span></td></tr></tbody></table>
+      
       <div class="urls"><a href="https://www.american-equity.com/professionals/American-Equity-AssetShield" target="_blank" rel="noopener">/professionals/American-Equity-AssetShield</a><a href="https://www.american-equity.com/professionals/American-Equity-EstateShield" target="_blank" rel="noopener">/professionals/American-Equity-EstateShield</a><a href="https://www.american-equity.com/professionals/American-Equity-GuaranteeShield" target="_blank" rel="noopener">/professionals/American-Equity-GuaranteeShield</a><a href="https://www.american-equity.com/professionals/American-Equity-IncomeShield" target="_blank" rel="noopener">/professionals/American-Equity-IncomeShield</a></div>
     </div>
 <div class="vblock">
@@ -837,10 +765,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">2/2</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Media + copy row <span class="vc">2</span> · Image card grid <span class="vc">2</span></td></tr><tr>
-        <td><b>CTA / Button (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">2/2</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Global Footer</b> <span class="kt kt-glob">global</span></td>
         <td class="num">2/2</td>
         <td><span class="cx cx-Medium">Medium</span></td>
@@ -852,15 +776,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td><b>Breadcrumb</b> <span class="kt kt-glob">global</span></td>
         <td class="num">2/2</td>
         <td><span class="cx cx-Low">Low</span></td>
-        <td>Breadcrumb trail <span class="vc">2</span></td></tr><tr>
-        <td><b>Image (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/2</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
-        <td><b>Third-party embed (preserve)</b> <span class="kt kt-emb">3rd-party embed</span></td>
-        <td class="num">1/2</td>
-        <td><span class="found">n/a</span></td>
-        <td>ion interactive form <span class="vc">1</span></td></tr></tbody></table>
+        <td>Breadcrumb trail <span class="vc">2</span></td></tr></tbody></table>
+      <div class="embed-note"><b>Third-party embed on this template (preserved, not rebuilt):</b> ion interactive form <span class="vc">1</span></div>
       <div class="urls"><a href="https://www.american-equity.com/contact-us" target="_blank" rel="noopener">/contact-us</a><a href="https://www.american-equity.com/professionals/contact-us" target="_blank" rel="noopener">/professionals/contact-us</a></div>
     </div>
 <div class="vblock">
@@ -871,14 +788,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">2/2</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Standard Hero <span class="vc">2</span></td></tr><tr>
-        <td><b>Third-party embed (preserve)</b> <span class="kt kt-emb">3rd-party embed</span></td>
-        <td class="num">2/2</td>
-        <td><span class="found">n/a</span></td>
-        <td>Hedgeness calculator <span class="vc">2</span></td></tr><tr>
-        <td><b>CTA / Button (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">2/2</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Accordion / Disclosure</b></td>
         <td class="num">2/2</td>
         <td><span class="cx cx-Medium">Medium</span></td>
@@ -894,11 +803,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td><b>Breadcrumb</b> <span class="kt kt-glob">global</span></td>
         <td class="num">2/2</td>
         <td><span class="cx cx-Low">Low</span></td>
-        <td>Breadcrumb trail <span class="vc">2</span></td></tr><tr>
-        <td><b>Image (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/2</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr></tbody></table>
+        <td>Breadcrumb trail <span class="vc">2</span></td></tr></tbody></table>
+      <div class="embed-note"><b>Third-party embed on this template (preserved, not rebuilt):</b> Hedgeness calculator <span class="vc">2</span></div>
       <div class="urls"><a href="https://www.american-equity.com/income-gap-calculator" target="_blank" rel="noopener">/income-gap-calculator</a><a href="https://www.american-equity.com/professionals/tools-calculators/income-gap-calculator" target="_blank" rel="noopener">/professionals/tools-calculators/income-gap-calculator</a></div>
     </div>
 <div class="vblock">
@@ -917,7 +823,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">1/1</td>
         <td><span class="cx cx-Medium">Medium</span></td>
         <td>Inline Wistia video <span class="vc">1</span></td></tr><tr>
-        <td><b>Line-Tab Feature (Tabbed content)</b></td>
+        <td><b>Tabs (Tabbed Content)</b></td>
         <td class="num">1/1</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Horizontal line tabs <span class="vc">1</span></td></tr><tr>
@@ -925,10 +831,6 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">1/1</td>
         <td><span class="cx cx-Low">Low</span></td>
         <td>Stat row <span class="vc">1</span></td></tr><tr>
-        <td><b>Image (default content)</b> <span class="kt kt-def">default content</span></td>
-        <td class="num">1/1</td>
-        <td><span class="found">n/a</span></td>
-        <td><span class="found">—</span></td></tr><tr>
         <td><b>Accordion / Disclosure</b></td>
         <td class="num">1/1</td>
         <td><span class="cx cx-Medium">Medium</span></td>
@@ -941,9 +843,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
         <td class="num">1/1</td>
         <td><span class="cx cx-High">High</span></td>
         <td>Mega-menu header <span class="vc">1</span></td></tr></tbody></table>
+      
       <div class="urls"><a href="https://www.american-equity.com" target="_blank" rel="noopener">/</a></div>
     </div>
-<div class="note"><b>Reading the counts:</b> "Pages" is <i>x/y</i> = pages of that template using the block. A block can carry several variations on one template (e.g. consumer product pages use <b>both</b> horizontal and vertical line-tabs). Default-content, embeds and global chrome are listed for completeness so every component on every page is accounted for — only the 13 content + 3 global blocks in §3 are bespoke EDS build items.</div>
+<div class="note"><b>Reading the counts:</b> "Pages" is <i>x/y</i> = pages of that template using the block. A block can carry several variations on one template — e.g. consumer product pages use <b>both</b> horizontal and vertical tab orientations. Only the 13 content + 3 global blocks are bespoke EDS build items.</div>
 </section>
 
 <section id="integ">
