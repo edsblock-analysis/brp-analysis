@@ -24,9 +24,9 @@ const BLOCKS = [
   {
     name: 'Hero (In-Page Intro Band)', comps: ['heroHeaderSection', 'heroHeader', 'blogHeader'], pages: 74, complexity: 'Medium',
     variations: [
-      ['Standard Hero (heroHeaderSection)', 'Heading + subcopy + optional image/CTA; on 73 pages', '73 pages'],
-      ['Article Hero (blogHeader)', 'Title + author/date/read-time meta + eyebrow; used on dynamic article/listing pages', '4 pages'],
-      ['Simple Hero (heroHeader)', 'Minimal heading-only variant (form template page)', '1 page'],
+      ['Standard Hero', 'Heading + subcopy + optional image/CTA; on 73 pages', '73 pages'],
+      ['Article Hero', 'Title + author/date/read-time meta + eyebrow; used on dynamic article/listing pages', '4 pages'],
+      ['Simple Hero', 'Minimal heading-only variant (form template page)', '1 page'],
     ],
     behavior: 'The first content band INSIDE <main> (not the site navigation) — background image/color, optional eyebrow, heading, subcopy, CTA. Structurally similar across product/landing/legal; article variant adds post metadata. The global nav is a separate block (below).',
     eds: 'One hero block with a variant class (e.g. hero / hero.article). Distinct from the global header/nav. Breadcrumb rendered separately. Image via EDS optimized picture.',
@@ -34,16 +34,16 @@ const BLOCKS = [
   {
     name: 'Feature Cards & Media', comps: ['featureCardsAndMediaRow', 'featuredIconCard', 'featuredImageCard', 'feature3SetsImage', 'featureSetCard'], pages: 36, complexity: 'Medium',
     variations: [
-      ['Media + copy row (featureCardsAndMediaRow)', 'Alternating image/text rows with optional CTA — the site\'s workhorse content band', '36 pages'],
-      ['Icon card grid (featuredIconCard)', 'Grid of icon + heading + text cards (3–9 up)', '18 pages'],
-      ['Image card grid (featuredImageCard)', 'Grid of image + heading + text/link cards', '21 pages'],
-      ['3-set image feature (feature3SetsImage / featureSetCard)', 'Three-column image feature grouping', '1 page'],
+      ['Media + copy row', 'Alternating image/text rows with optional CTA — the site\'s workhorse content band', '36 pages'],
+      ['Icon card grid', 'Grid of icon + heading + text cards (3–9 up)', '18 pages'],
+      ['Image card grid', 'Grid of image + heading + text/link cards', '21 pages'],
+      ['3-set image feature', 'Three-column image feature grouping', '1 page'],
     ],
     behavior: 'One family of feature/card layouts: alternating media+copy rows and responsive card grids (icon or image). Media side, background, and column count are authoring options. Icon vs image is a meaningful media/structural difference, so they are counted as variations of the same block.',
     eds: 'Single "cards / columns" block with media-row, icon-card, and image-card variants. Grid responsive by card count; image via EDS optimized picture.',
   },
   {
-    name: 'Line-Tab Feature (Tabbed content)', comps: ['featureHorizontalLineTab', 'featureHorizontalLineTabCard', 'featureVerticalLineTab', 'featureVerticalLineTabCard'], pages: 17, complexity: 'High',
+    name: 'Tabs (Tabbed Content)', comps: ['featureHorizontalLineTab', 'featureHorizontalLineTabCard', 'featureVerticalLineTab', 'featureVerticalLineTabCard'], pages: 17, complexity: 'High',
     variations: [
       ['Horizontal line tabs', 'Tab strip along the top; tab → card panel', '13 pages'],
       ['Vertical line tabs', 'Tab list on the side; tab → card panel', '4 pages'],
@@ -54,7 +54,7 @@ const BLOCKS = [
   {
     name: 'Progress Bar / Stepper', comps: ['progressBar', 'progressBarStep'], pages: 10, complexity: 'Medium',
     variations: [
-      ['Numbered step sequence (progressBar + progressBarStep)', 'Ordered “how it works / next steps” 3–5 step sequence', '10 pages'],
+      ['Numbered step sequence', 'Ordered “how it works / next steps” 3–5 step sequence', '10 pages'],
     ],
     behavior: 'Presentational stepped sequence (not a form wizard). Each step = icon/number + heading + text.',
     eds: 'Static stepper block; no state machine. CSS-driven connectors. Low interactivity.',
@@ -62,7 +62,7 @@ const BLOCKS = [
   {
     name: 'Video (Wistia)', comps: ['videoBlock'], pages: 14, complexity: 'Medium',
     variations: [
-      ['Inline Wistia video (videoBlock)', 'Wistia web component (<wistia-video>) with poster + heading + copy', '14 pages'],
+      ['Inline Wistia video', 'Wistia web component (<wistia-video>) with poster + heading + copy', '14 pages'],
     ],
     behavior: 'Uses Wistia player web-component + Wistia embed script (videoType:"wistia"). YouTube appears only as outbound links inside rich text, not as an embed.',
     eds: 'Video block with lazy facade → Wistia embed. Load player script only on interaction/delayed phase for CWV.',
@@ -70,7 +70,7 @@ const BLOCKS = [
   {
     name: 'Metrics / Stats', comps: ['metrics', 'metricsCard'], pages: 4, complexity: 'Low',
     variations: [
-      ['Stat row (metrics + metricsCard)', 'Large-number + label KPI row (e.g. financial-strength, about)', '4 pages'],
+      ['Stat row', 'Large-number + label KPI row (e.g. financial-strength, about)', '4 pages'],
     ],
     behavior: 'Static numeric highlights. No animation/data source observed.',
     eds: 'Simple stats block; author-entered numbers.',
@@ -78,8 +78,8 @@ const BLOCKS = [
   {
     name: 'Accordion / Disclosure', comps: ['accordion', 'disclosure'], pages: 43, complexity: 'Medium',
     variations: [
-      ['FAQ accordion (accordion)', 'Expand/collapse Q&A groups', '6 pages'],
-      ['Disclosure / legal expander (disclosure)', 'Collapsible fine-print / disclaimer region (very common footer-of-content)', '42 pages'],
+      ['FAQ accordion', 'Expand/collapse Q&A groups', '6 pages'],
+      ['Disclosure / legal expander', 'Collapsible fine-print / disclaimer region (very common footer-of-content)', '42 pages'],
     ],
     behavior: 'Both are expand/collapse; accordion is multi-item FAQ, disclosure is single legal expander. Distinct authoring purpose + placement.',
     eds: 'Accordion block with a "disclosure" variant. ARIA disclosure pattern, keyboard support.',
@@ -87,8 +87,8 @@ const BLOCKS = [
   {
     name: 'Blog Card / Related Posts', comps: ['blogCard', 'relatedBlogPosts'], pages: 34, complexity: 'Medium',
     variations: [
-      ['Related posts strip (relatedBlogPosts + blogCard)', 'Auto-populated “related/insights” cards at article foot', '30 pages'],
-      ['Editorial card grid (blogCard)', 'Curated card links to insight articles', 'within 34 pages'],
+      ['Related posts strip', 'Auto-populated “related/insights” cards at article foot', '30 pages'],
+      ['Editorial card grid', 'Curated card links to insight articles', 'within 34 pages'],
     ],
     behavior: 'Related-posts is data-driven (pulls related Insights); cards render title/image/excerpt/link. Depends on content taxonomy.',
     eds: 'Card block + a query-driven variant (index/taxonomy) for related posts. Needs an index (e.g. EDS query-index.json).',
@@ -104,27 +104,27 @@ const BLOCKS = [
   {
     name: 'Searchable Form / Document Library', comps: ['formListing', 'formTable'], pages: 4, complexity: 'High',
     variations: [
-      ['Form listing w/ search + category tabs (formListing)', 'Consumer /forms and /professionals/document-library', '3 pages'],
-      ['Form table directory (formTable)', 'Professionals /forms-library', '1 page'],
+      ['Form listing w/ search + category tabs', 'Consumer /forms and /professionals/document-library', '3 pages'],
+      ['Form table directory', 'Professionals /forms-library', '1 page'],
     ],
     behavior: 'This is NOT a data-entry form. It is a searchable/filterable DIRECTORY of downloadable service forms and documents (e.g. annuity service forms, statements). The page renders a search box plus category tabs (formListing) or a sortable table (formTable) over a set of documents; each result row links out to the PDF on the DAM (via /api/assets/resolve-by-key → asset.american-equity.com). The list itself is fetched and rendered client-side, so the server HTML is only an empty shell. In short: a "find the form/document I need, then download it" tool.',
     eds: 'Listing block backed by an EDS index (query-index.json) with client-side search/filter (and a tabbed vs table display variant). Result links resolve to the existing DAM. Higher effort because it needs a document data model + search UX, not just static markup.',
   },
   {
     name: 'Native Data-Entry Form (Form Input Model)', comps: ['formInputModel'], pages: 1, complexity: 'High',
-    variations: [['Native form (formInputModel)', 'The only true HTML <form> on the site — text inputs, a select, a textarea and a submit button, on /form', '1 page']],
+    variations: [['Native form', 'The only true HTML <form> on the site — text inputs, a select, a textarea and a submit button, on /form', '1 page']],
     behavior: 'This is an actual data-collection form built natively in the CMS (component "formInputModel") — the visitor types values and submits them, unlike the vendor-embedded forms (ion/Greenhouse) which live inside third-party iframes. On the one page it appears (/form) the fields carry placeholder labels ("Form title", "Form description") and the server HTML shows no submit endpoint, so it looks like a template/sample rather than a wired-up production form. Whether it is live, and where it posts to, cannot be confirmed from the accessible page behavior.',
     eds: 'Build as an EDS form block (or AEM Forms) once the real field model, validation rules, and submit endpoint are confirmed with American Equity. Tracked in the Forms section and Gray Areas as a "confirm before building" item.',
   },
   {
     name: 'Contact Card / Row', comps: ['contactCard', 'contactRow'], pages: 2, complexity: 'Low',
-    variations: [['Contact cards (contactRow + contactCard)', 'Phone/email/dept contact cards (contact-us, professionals/contact-us)', '2 pages']],
+    variations: [['Contact cards', 'Phone/email/dept contact cards (contact-us, professionals/contact-us)', '2 pages']],
     behavior: 'Static contact detail cards with tel:/mailto: links.',
     eds: 'Cards variant; author-entered contact info.',
   },
   {
     name: 'Modal / Dialog', comps: ['generalModal'], pages: 1, complexity: 'Medium',
-    variations: [['General modal (generalModal)', 'Dialog triggered from content (professionals landing)', '1 page']],
+    variations: [['General modal', 'Dialog triggered from content (professionals landing)', '1 page']],
     behavior: 'Overlay dialog; focus trap + ARIA dialog semantics.',
     eds: 'Modal block/util; accessible dialog, opened from a trigger link.',
   },
@@ -154,10 +154,10 @@ const TEMPLATES = [
     blocks: 'Hero (article/standard) · Related Posts (blogCard) · Accordion/Disclosure',
     note: 'Editorial article body (prose is default rich-text content). Two sub-shapes: full editorial (hero + body + related posts) and lightweight (blogHeader + single card) — same template, content-driven difference.' },
   { name: 'Product / Annuity (Consumer)', complexity: 'High',
-    blocks: 'Hero · Line-Tab Feature · Progress Bar/Stepper · Video (Wistia) · Feature Cards & Media · Accordion (FAQ) · Related Posts',
+    blocks: 'Hero · Tabs · Progress Bar/Stepper · Video (Wistia) · Feature Cards & Media · Accordion (FAQ) · Related Posts',
     note: 'AssetShield/EstateShield/GuaranteeShield/IncomeShield + our-annuities. Richest consumer composition; interactive tabs + stepper + video.' },
   { name: 'Product / Annuity (Professional)', complexity: 'High',
-    blocks: 'Hero · Line-Tab Feature · Feature Cards & Media · Video · Accordion/Disclosure',
+    blocks: 'Hero · Tabs · Feature Cards & Media · Video · Accordion/Disclosure',
     note: 'Professionals product pages mirror the consumer shape and add tabbed groups of downloadable resource cards that link to DAM assets (handled as authored download links, not a bespoke block).' },
   { name: 'Section Landing / Hub', complexity: 'Medium',
     blocks: 'Hero · Feature Cards & Media · Metrics · Accordion/Disclosure',
@@ -169,7 +169,7 @@ const TEMPLATES = [
     blocks: 'Hero · Searchable Form/Document Library OR Native Data-Entry Form OR vendor embed',
     note: 'Heterogeneous: /forms & document-library and forms-library are searchable document directories; /form is the native data-entry form; material-request-form is a vendor (ion) embed. Directory data hydrates client-side.' },
   { name: 'Careers', complexity: 'Medium',
-    blocks: 'Hero · Feature Cards & Media · Line-Tab Feature · Video · Progress Bar (openings) + Greenhouse job-board embed',
+    blocks: 'Hero · Feature Cards & Media · Tabs · Video · Progress Bar (openings) + Greenhouse job-board embed',
     note: 'careers hub + why-work-here + internship-program (marketing) and openings, which embeds the Greenhouse job board.' },
   { name: 'Tool / Calculator (Embed)', complexity: 'High',
     blocks: 'Hero · Hedgeness calculator embed · Accordion/Disclosure · (tools-calculators hub uses Feature Cards)',
@@ -181,7 +181,7 @@ const TEMPLATES = [
     blocks: 'Hero · Accordion/Disclosure · (Feature Cards on some)',
     note: 'Prose is default rich-text content. privacy, terms-of-use, accessibility, security-disclosure, patriot-act, sms-privacy, job-applicant-privacy, naic-statutory-financial-statements (the last links to statement PDFs).' },
   { name: 'Home', complexity: 'High',
-    blocks: 'Hero · Feature Cards & Media · Line-Tab Feature · Metrics · Video · Accordion/Disclosure',
+    blocks: 'Hero · Feature Cards & Media · Tabs · Metrics · Video · Accordion/Disclosure',
     note: 'Single homepage; densest marketing composition.' },
 ];
 

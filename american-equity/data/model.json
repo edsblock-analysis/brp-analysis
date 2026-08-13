@@ -11,17 +11,17 @@
       "complexity": "Medium",
       "variations": [
         [
-          "Standard Hero (heroHeaderSection)",
+          "Standard Hero",
           "Heading + subcopy + optional image/CTA; on 73 pages",
           "73 pages"
         ],
         [
-          "Article Hero (blogHeader)",
+          "Article Hero",
           "Title + author/date/read-time meta + eyebrow; used on dynamic article/listing pages",
           "4 pages"
         ],
         [
-          "Simple Hero (heroHeader)",
+          "Simple Hero",
           "Minimal heading-only variant (form template page)",
           "1 page"
         ]
@@ -42,22 +42,22 @@
       "complexity": "Medium",
       "variations": [
         [
-          "Media + copy row (featureCardsAndMediaRow)",
+          "Media + copy row",
           "Alternating image/text rows with optional CTA — the site's workhorse content band",
           "36 pages"
         ],
         [
-          "Icon card grid (featuredIconCard)",
+          "Icon card grid",
           "Grid of icon + heading + text cards (3–9 up)",
           "18 pages"
         ],
         [
-          "Image card grid (featuredImageCard)",
+          "Image card grid",
           "Grid of image + heading + text/link cards",
           "21 pages"
         ],
         [
-          "3-set image feature (feature3SetsImage / featureSetCard)",
+          "3-set image feature",
           "Three-column image feature grouping",
           "1 page"
         ]
@@ -66,7 +66,7 @@
       "eds": "Single \"cards / columns\" block with media-row, icon-card, and image-card variants. Grid responsive by card count; image via EDS optimized picture."
     },
     {
-      "name": "Line-Tab Feature (Tabbed content)",
+      "name": "Tabs (Tabbed Content)",
       "comps": [
         "featureHorizontalLineTab",
         "featureHorizontalLineTabCard",
@@ -100,7 +100,7 @@
       "complexity": "Medium",
       "variations": [
         [
-          "Numbered step sequence (progressBar + progressBarStep)",
+          "Numbered step sequence",
           "Ordered “how it works / next steps” 3–5 step sequence",
           "10 pages"
         ]
@@ -117,7 +117,7 @@
       "complexity": "Medium",
       "variations": [
         [
-          "Inline Wistia video (videoBlock)",
+          "Inline Wistia video",
           "Wistia web component (<wistia-video>) with poster + heading + copy",
           "14 pages"
         ]
@@ -135,7 +135,7 @@
       "complexity": "Low",
       "variations": [
         [
-          "Stat row (metrics + metricsCard)",
+          "Stat row",
           "Large-number + label KPI row (e.g. financial-strength, about)",
           "4 pages"
         ]
@@ -153,12 +153,12 @@
       "complexity": "Medium",
       "variations": [
         [
-          "FAQ accordion (accordion)",
+          "FAQ accordion",
           "Expand/collapse Q&A groups",
           "6 pages"
         ],
         [
-          "Disclosure / legal expander (disclosure)",
+          "Disclosure / legal expander",
           "Collapsible fine-print / disclaimer region (very common footer-of-content)",
           "42 pages"
         ]
@@ -176,12 +176,12 @@
       "complexity": "Medium",
       "variations": [
         [
-          "Related posts strip (relatedBlogPosts + blogCard)",
+          "Related posts strip",
           "Auto-populated “related/insights” cards at article foot",
           "30 pages"
         ],
         [
-          "Editorial card grid (blogCard)",
+          "Editorial card grid",
           "Curated card links to insight articles",
           "within 34 pages"
         ]
@@ -216,12 +216,12 @@
       "complexity": "High",
       "variations": [
         [
-          "Form listing w/ search + category tabs (formListing)",
+          "Form listing w/ search + category tabs",
           "Consumer /forms and /professionals/document-library",
           "3 pages"
         ],
         [
-          "Form table directory (formTable)",
+          "Form table directory",
           "Professionals /forms-library",
           "1 page"
         ]
@@ -238,7 +238,7 @@
       "complexity": "High",
       "variations": [
         [
-          "Native form (formInputModel)",
+          "Native form",
           "The only true HTML <form> on the site — text inputs, a select, a textarea and a submit button, on /form",
           "1 page"
         ]
@@ -256,7 +256,7 @@
       "complexity": "Low",
       "variations": [
         [
-          "Contact cards (contactRow + contactCard)",
+          "Contact cards",
           "Phone/email/dept contact cards (contact-us, professionals/contact-us)",
           "2 pages"
         ]
@@ -273,7 +273,7 @@
       "complexity": "Medium",
       "variations": [
         [
-          "General modal (generalModal)",
+          "General modal",
           "Dialog triggered from content (professionals landing)",
           "1 page"
         ]
@@ -343,13 +343,13 @@
     {
       "name": "Product / Annuity (Consumer)",
       "complexity": "High",
-      "blocks": "Hero · Line-Tab Feature · Progress Bar/Stepper · Video (Wistia) · Feature Cards & Media · Accordion (FAQ) · Related Posts",
+      "blocks": "Hero · Tabs · Progress Bar/Stepper · Video (Wistia) · Feature Cards & Media · Accordion (FAQ) · Related Posts",
       "note": "AssetShield/EstateShield/GuaranteeShield/IncomeShield + our-annuities. Richest consumer composition; interactive tabs + stepper + video."
     },
     {
       "name": "Product / Annuity (Professional)",
       "complexity": "High",
-      "blocks": "Hero · Line-Tab Feature · Feature Cards & Media · Video · Accordion/Disclosure",
+      "blocks": "Hero · Tabs · Feature Cards & Media · Video · Accordion/Disclosure",
       "note": "Professionals product pages mirror the consumer shape and add tabbed groups of downloadable resource cards that link to DAM assets (handled as authored download links, not a bespoke block)."
     },
     {
@@ -373,7 +373,7 @@
     {
       "name": "Careers",
       "complexity": "Medium",
-      "blocks": "Hero · Feature Cards & Media · Line-Tab Feature · Video · Progress Bar (openings) + Greenhouse job-board embed",
+      "blocks": "Hero · Feature Cards & Media · Tabs · Video · Progress Bar (openings) + Greenhouse job-board embed",
       "note": "careers hub + why-work-here + internship-program (marketing) and openings, which embeds the Greenhouse job board."
     },
     {
@@ -397,7 +397,7 @@
     {
       "name": "Home",
       "complexity": "High",
-      "blocks": "Hero · Feature Cards & Media · Line-Tab Feature · Metrics · Video · Accordion/Disclosure",
+      "blocks": "Hero · Feature Cards & Media · Tabs · Metrics · Video · Accordion/Disclosure",
       "note": "Single homepage; densest marketing composition."
     }
   ],
