@@ -15,3 +15,4 @@ helix-importer-ui
 # Migration analysis raw scrape cache (large, regenerable)
 report/pages_cache/
 report/data/fetch-log.json
+dentsplysirona-report/pages_cache/

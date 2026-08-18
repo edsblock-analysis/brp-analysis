@@ -1,0 +1,25 @@
+{
+  "method": "Playwright live network capture (requests fired after JS/Launch executes) on representative pages",
+  "pagesSampled": [
+    "https://www.dentsplysirona.com/en-us/explore/all-brands.html (explore-page-template)",
+    "https://www.dentsplysirona.com/en-us/shop/brands/rinn.html (shop-brand-page-template, commerce)",
+    "https://www.dentsplysirona.com/en-us/support/contact-support.html (customer-support-contact-us-template)"
+  ],
+  "runtimeOnly_notInStaticHTML": [
+    {"vendor": "ContentSquare", "hosts": ["contentsquare.net (c.az / k-us1.az / c.us / srm.af)"], "purpose": "Behavioral analytics: session recording, heatmaps, zoning + custom variables (site section, page category, user country, login state)", "evidence": "pageview/recording/events beacons fired on every sampled page"},
+    {"vendor": "Heap Analytics", "hosts": ["c.us.heap-api.com"], "purpose": "Product/event analytics (auto-capture + user properties)", "evidence": "capture/v2/track + add_user_properties POSTs"},
+    {"vendor": "Google Ads / DoubleClick", "hosts": ["google.com/ccm/collect", "ad.doubleclick.net", "googleadservices.com"], "purpose": "Conversion tracking + remarketing (AW-876574706)", "evidence": "ccm/collect + rmkt/collect + doubleclick ccm/s/collect"},
+    {"vendor": "Google Tag Manager / GA", "hosts": ["googletagmanager.com"], "purpose": "Tag orchestration (gtm=45...) firing Google Ads/analytics", "evidence": "gtm parameter on Google collect beacons"},
+    {"vendor": "Zoovu", "hosts": ["(clientlib-invoked) zoovu"], "purpose": "Guided selling / product advisor (waits for digitalData)", "evidence": "console: 'ZOOVU: Waiting for digitalData to be fully loaded' on shop pages"},
+    {"vendor": "Coveo Commerce", "hosts": ["dentsplyinternationalproduction11rbzk734.org.coveo.com"], "purpose": "Commerce listing/search (PLP) + site search + recommendations", "evidence": "coveo.com/rest/.../commerce/v2/listing POST on shop brand page; searchkey service calls per pageType"},
+    {"vendor": "Salesforce (Service/Live Agent)", "hosts": ["service.force.com", "*.my.salesforce.com", "*.secure.force.com", "*.salesforceliveagent.com"], "purpose": "CRM / customer service + live chat (script src service.force.com site-wide)", "evidence": "static script host + salesforceliveagent hosts on 1164 pages"}
+  ],
+  "siteServiceApis": [
+    "/api/graphql (commerce)",
+    "/services/dentsply/coveo/searchkey?pageType=... (Coveo search token per page type)",
+    "/services/dentsply/getCountryPopupModel (geo/country redirect model)",
+    "/libs/granite/csrf/token.json (AEM CSRF)",
+    "/libs/cq/i18n/dict.en_US.json (AEM i18n)",
+    "*.forms.html (AEM Forms POST handler for native forms)"
+  ]
+}
