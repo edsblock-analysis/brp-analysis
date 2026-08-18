@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dentsply Sirona → EDS · Third-Party Integrations</title>
+<style>
+:root{--brand:#00a0df;--ink:#0b0f19;--edge:#e2e6ee;--blue:#0067a0;--muted:#5b6472;--navy:#002d5b}
+*{box-sizing:border-box}body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#f4f6fa}
+header.hero{background:linear-gradient(135deg,#002d5b,#004a86 60%,#0067a0);color:#fff;padding:40px}
+header.hero h1{margin:0 0 8px;font-size:26px}header.hero .sub{color:#bcd6ea;font-size:14px;max-width:1000px}
+header.hero .badge{display:inline-block;background:var(--brand);color:#00243f;font-weight:700;padding:3px 11px;border-radius:5px;font-size:12px;margin-bottom:12px;letter-spacing:.5px}
+.wrap{max-width:1240px;margin:0 auto;padding:24px}
+section{background:#fff;border:1px solid var(--edge);border-radius:14px;padding:22px 26px;margin:18px 0;box-shadow:0 1px 3px rgba(10,15,25,.05)}
+h2.sec{font-size:19px;margin:0 0 6px;padding-bottom:8px;border-bottom:3px solid var(--brand);display:inline-block}
+.lead{color:#28303d;max-width:1040px;font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:16px 0}
+.kpi{background:linear-gradient(160deg,#f8fafc,#eef2f9);border:1px solid var(--edge);border-radius:12px;padding:14px}
+.kpi .n{font-size:23px;font-weight:800;color:var(--blue)}.kpi .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:5px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin:10px 0}
+th,td{border:1px solid var(--edge);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#f0f3f8;font-weight:700}tr:nth-child(even){background:#fafbfd}
+.found{color:var(--muted);font-size:11px}
+.cat{display:inline-block;color:#fff;font-size:9.5px;font-weight:800;padding:1px 7px;border-radius:20px;text-transform:uppercase;letter-spacing:.2px}
+.ev{display:inline-block;color:#fff;font-size:9.5px;font-weight:800;padding:1px 7px;border-radius:20px;margin-left:4px}
+.callout{background:#eff5ff;border-left:4px solid var(--blue);padding:10px 14px;border-radius:6px;font-size:13px;margin:12px 0}
+.note{background:#fef2f2;border-left:4px solid #dc2626;padding:10px 14px;border-radius:6px;font-size:13px;margin:12px 0}
+ul{font-size:13px}li{margin:4px 0}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media print{section{break-inside:avoid;box-shadow:none}}
+</style></head><body>
+<header class="hero">
+<div class="badge">ADOBE EDGE DELIVERY SERVICES · THIRD-PARTY INTEGRATIONS</div>
+<h1>Dentsply Sirona → EDS · Third-Party Integrations (verified)</h1>
+<div class="sub">Every integration below is backed by evidence — an <b>exhaustive static scan of all 1,200 cached pages</b> (every external host, script, iframe, API endpoint and vendor config string) plus <b>live Playwright network capture</b> on representative pages to catch tags that Adobe Launch injects at runtime and never appear in the static HTML. Nothing here is assumed.</div>
+</header>
+<div class="wrap">
+
+<section>
+<h2 class="sec">Overview</h2>
+<div class="kpis">
+  <div class="kpi"><div class="n">29</div><div class="l">Integrations documented</div></div>
+  <div class="kpi"><div class="n">15</div><div class="l">Categories</div></div>
+  <div class="kpi"><div class="n">5</div><div class="l">Runtime-only (JS-injected)</div></div>
+  <div class="kpi"><div class="n">112</div><div class="l">Distinct external hosts</div></div>
+  <div class="kpi"><div class="n">1,200</div><div class="l">Pages scanned</div></div>
+</div>
+<div class="callout"><b>Why two evidence methods:</b> a static scan finds everything hard-coded in the HTML (Scene7, Coveo, Salesforce, payment config, external app links). But <b>Adobe Launch injects analytics/marketing tags at runtime</b> — so ContentSquare, Heap, Google Ads/DoubleClick and Zoovu only appear when the page actually executes. Playwright network capture caught these; a static-only review would have missed them.</div>
+<div class="note"><b>Runtime-only integrations (invisible in static HTML — found via live capture):</b><ul><li><b>ContentSquare</b> — Behavioral analytics: session recording, heatmaps/zoning, custom variables (site section, page category, page name, country, login state). <span class="found">(c.az / k-us1.az / c.us / srm.af .contentsquare.net pageview + recording + events beacons on every sampled page (injected via Launch — NOT in static HTML).)</span></li>
+<li><b>Heap Analytics</b> — Product/event analytics with auto-capture and user properties. <span class="found">(c.us.heap-api.com/api/capture/v2/track + add_user_properties on every sampled page (via Launch).)</span></li>
+<li><b>Google Analytics / Google Tag Manager</b> — Web analytics + tag orchestration (a GTM container runs alongside Adobe Launch). <span class="found">(www.googletagmanager.com (gtm=45...) firing google.com/ccm/collect page_view beacons.)</span></li>
+<li><b>Google Ads + DoubleClick (Conversion &amp; Remarketing)</b> — Ad conversion tracking + remarketing audiences. <span class="found">(google.com/ccm/collect &amp; rmkt/collect for AW-876574706; ad.doubleclick.net/ccm/s/collect; googleadservices.com.)</span></li>
+<li><b>Zoovu (Guided Selling / Product Advisor)</b> — Guided product selection / recommendation advisor. <span class="found">(Console "ZOOVU: Waiting for digitalData to be fully loaded" on shop brand pages (clientlib-invoked).)</span></li></ul></div>
+</section>
+
+<section>
+<h2 class="sec">All Integrations — detail</h2>
+<p class="lead">Evidence badges: <span class="ev" style="background:#0067a0">Static</span> in page source · <span class="ev" style="background:#dc2626">Runtime</span> only fires when JS runs (via Launch) · <span class="ev" style="background:#7c3aed">Static+Runtime</span> both. "Where" = scope (site-wide vs specific pages, based on the 1,200-page scan).</p>
+<table><thead><tr><th>Integration</th><th>Where / scope</th><th>Purpose</th><th>Evidence</th><th>Data flow</th><th>EDS migration consideration</th></tr></thead>
+<tbody><tr>
+  <td><b>Adobe Experience Manager (AEM Sites)</b><div><span class="cat" style="background:#0067a0">Platform / CMS</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Site-wide</td>
+  <td>Current content management + rendering platform (the system being migrated FROM).</td>
+  <td class="found">cmp-* Core Components, /etc.clientlibs, /libs/granite, /libs/cq/i18n, data-cmp-* markup, meta[name=template].</td>
+  <td>Server-rendered HTML, clientlibs, CSRF token (/libs/granite/csrf/token.json), i18n dictionaries.</td>
+  <td>Source CMS. Content re-authored into EDS documents; AEM decommissioned for these pages post-migration (commerce/auth may remain — see Assumptions).</td></tr>
+<tr>
+  <td><b>Adobe Commerce Integration Framework (Adobe I/O Runtime)</b><div><span class="cat" style="background:#7c3aed">Commerce</span> <span class="ev" style="background:#7c3aed">Static+Runtime</span></div></td>
+  <td>Site-wide</td>
+  <td>Serverless bridge (Adobe CIF) that dispatches storefront GraphQL calls to the SAP Hybris commerce backend.</td>
+  <td class="found">58919-cifintegration.adobeioruntime.net/api/v1/web/hybris-graphql/dispatcher (+ /ms-layer/rest).</td>
+  <td>GraphQL product/price/cart/customer requests proxied to Hybris; SSO logout endpoints.</td>
+  <td>EDS commerce blocks call this same GraphQL dispatcher client-side. Keep the I/O Runtime action or point EDS at the equivalent endpoint. Core to any commerce-in-EDS decision.</td></tr>
+<tr>
+  <td><b>SAP Hybris Commerce</b><div><span class="cat" style="background:#7c3aed">Commerce</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Site-wide</td>
+  <td>Commerce platform behind PDP/PLP, cart, checkout, pricing, my-account, loyalty.</td>
+  <td class="found">hybris references site-wide; hybris-graphql dispatcher; product/category templates; cart/checkout/account paths.</td>
+  <td>Product catalog, pricing, inventory, cart, orders, customer accounts via GraphQL.</td>
+  <td>Storefront app is assumed to REMAIN Hybris; EDS commerce blocks consume its GraphQL. Full rebuild is out of scope unless DS confirms.</td></tr>
+<tr>
+  <td><b>Coveo (Search + Commerce + Recommendations)</b><div><span class="cat" style="background:#0891b2">Search</span> <span class="ev" style="background:#7c3aed">Static+Runtime</span></div></td>
+  <td>Site-wide</td>
+  <td>Site search + type-ahead suggestions, product listing (PLP) search, and recommendations. Search tokens are minted per page type by an AEM service.</td>
+  <td class="found">dentsplyinternationalproduction11rbzk734.org.coveo.com/rest/.../commerce/v2/listing; /services/dentsply/coveo/searchkey?pageType=discover|shop|academy|customer-support; cmp-coveoresults / cmp-searchresults on every page.</td>
+  <td>Search queries, product listing/facets, recommendation slots; org-scoped API tokens.</td>
+  <td>Search + PLP block wired to the existing Coveo org; reuse the searchkey token service. Relevance/index config owned by DS search team (out of scope).</td></tr>
+<tr>
+  <td><b>Adobe Experience Platform Launch (Tag Manager)</b><div><span class="cat" style="background:#d97706">Analytics</span> <span class="ev" style="background:#7c3aed">Static+Runtime</span></div></td>
+  <td>Site-wide</td>
+  <td>Tag orchestration — loads analytics, marketing and personalization tags at runtime; owns the digitalData data layer.</td>
+  <td class="found">assets.adobedtm.com script on every page; _satellite; "Launch CS mitigation script loaded".</td>
+  <td>Client-side data layer (digitalData): page category, site section, user country, login state, product context.</td>
+  <td>Re-add the Launch embed in delayed.js; preserve/rebuild the digitalData data layer so downstream tags keep working. Central to analytics parity.</td></tr>
+<tr>
+  <td><b>ContentSquare</b><div><span class="cat" style="background:#d97706">Analytics</span> <span class="ev" style="background:#dc2626">Runtime</span></div></td>
+  <td>Site-wide (runtime)</td>
+  <td>Behavioral analytics: session recording, heatmaps/zoning, custom variables (site section, page category, page name, country, login state).</td>
+  <td class="found">c.az / k-us1.az / c.us / srm.af .contentsquare.net pageview + recording + events beacons on every sampled page (injected via Launch — NOT in static HTML).</td>
+  <td>Full session replay + DOM interaction telemetry + custom dimensions.</td>
+  <td>Fires through Launch — re-instated when Launch + data layer are re-added. Consent-gated via OneTrust. No separate EDS build beyond data-layer parity.</td></tr>
+<tr>
+  <td><b>Heap Analytics</b><div><span class="cat" style="background:#d97706">Analytics</span> <span class="ev" style="background:#dc2626">Runtime</span></div></td>
+  <td>Site-wide (runtime)</td>
+  <td>Product/event analytics with auto-capture and user properties.</td>
+  <td class="found">c.us.heap-api.com/api/capture/v2/track + add_user_properties on every sampled page (via Launch).</td>
+  <td>Event stream + user property payloads.</td>
+  <td>Fires through Launch; re-instated with tag manager. Consent-gated.</td></tr>
+<tr>
+  <td><b>Google Analytics / Google Tag Manager</b><div><span class="cat" style="background:#d97706">Analytics</span> <span class="ev" style="background:#dc2626">Runtime</span></div></td>
+  <td>Site-wide (runtime)</td>
+  <td>Web analytics + tag orchestration (a GTM container runs alongside Adobe Launch).</td>
+  <td class="found">www.googletagmanager.com (gtm=45...) firing google.com/ccm/collect page_view beacons.</td>
+  <td>Page views / events.</td>
+  <td>Re-add GTM container via delayed.js; consent-gated.</td></tr>
+<tr>
+  <td><b>Google Ads + DoubleClick (Conversion &amp; Remarketing)</b><div><span class="cat" style="background:#dc2626">Marketing</span> <span class="ev" style="background:#dc2626">Runtime</span></div></td>
+  <td>Site-wide (runtime)</td>
+  <td>Ad conversion tracking + remarketing audiences.</td>
+  <td class="found">google.com/ccm/collect &amp; rmkt/collect for AW-876574706; ad.doubleclick.net/ccm/s/collect; googleadservices.com.</td>
+  <td>Conversion pings, remarketing cookies/identifiers.</td>
+  <td>Fires through GTM/Launch; re-instated as observed. Consent-gated. New campaigns/pixels estimated separately.</td></tr>
+<tr>
+  <td><b>OneTrust (Consent Management)</b><div><span class="cat" style="background:#059669">Consent</span> <span class="ev" style="background:#7c3aed">Static+Runtime</span></div></td>
+  <td>Site-wide</td>
+  <td>Cookie/consent management and geo-based banner; gates marketing/analytics tags.</td>
+  <td class="found">cdn-ukwest.onetrust.com scripts + consent JSON; geolocation.onetrust.com; OptanonConsent; "Your Privacy Choices" banner.</td>
+  <td>Consent preferences, geolocation for banner variant.</td>
+  <td>Load in delayed phase with the same domain-script id; consent must gate all non-essential tags.</td></tr>
+<tr>
+  <td><b>Adobe Scene7 / Dynamic Media</b><div><span class="cat" style="background:#2563eb">Media / DAM</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Site-wide</td>
+  <td>Image/video DAM delivery with dynamic rendition/URL params.</td>
+  <td class="found">s7d1.scene7.com and /is/image/ URLs across pages; ~13.9k Scene7 refs.</td>
+  <td>Optimized image/video renditions.</td>
+  <td>Keep Scene7 URLs, or move imagery to EDS optimized delivery. No re-mastering assumed.</td></tr>
+<tr>
+  <td><b>YouTube (video embeds)</b><div><span class="cat" style="background:#2563eb">Media</span> <span class="ev" style="background:#7c3aed">Static+Runtime</span></div></td>
+  <td>68 pages</td>
+  <td>Embedded product/education videos.</td>
+  <td class="found">&lt;iframe src="youtube.com/embed/..."&gt; on 66–68 pages.</td>
+  <td>Video playback (nocookie option available).</td>
+  <td>Video block with a lazy facade; load the player on interaction for CWV.</td></tr>
+<tr>
+  <td><b>Vimeo (video embeds)</b><div><span class="cat" style="background:#2563eb">Media</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>2 pages</td>
+  <td>Occasional embedded video.</td>
+  <td class="found">vimeo.com references on 2 pages.</td>
+  <td>Video playback.</td>
+  <td>Same video block, Vimeo variant.</td></tr>
+<tr>
+  <td><b>Zoovu (Guided Selling / Product Advisor)</b><div><span class="cat" style="background:#7c3aed">Commerce</span> <span class="ev" style="background:#dc2626">Runtime</span></div></td>
+  <td>Shop / product pages (runtime)</td>
+  <td>Guided product selection / recommendation advisor.</td>
+  <td class="found">Console "ZOOVU: Waiting for digitalData to be fully loaded" on shop brand pages (clientlib-invoked).</td>
+  <td>Product taxonomy + user answers → recommended products.</td>
+  <td>Preserve as an embed/widget block; vendor app stays authoritative. Confirm which pages use it with DS.</td></tr>
+<tr>
+  <td><b>SnapPay (ACH payments)</b><div><span class="cat" style="background:#b91c1c">Payment</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Checkout (config site-wide)</td>
+  <td>ACH / bank payment processing at checkout.</td>
+  <td class="found">"achEndpoint":"https://www.snappayglobal.com" in commerce config on every page.</td>
+  <td>Payment/bank account data (PCI-relevant) — handled by the gateway.</td>
+  <td>Part of the Hybris checkout; remains in the commerce app. Out of standard EDS content scope.</td></tr>
+<tr>
+  <td><b>CardConnect / Fiserv (card tokenizer)</b><div><span class="cat" style="background:#b91c1c">Payment</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Checkout (config site-wide)</td>
+  <td>Credit-card tokenization / payment processing at checkout.</td>
+  <td class="found">"creditCardTokenizerEndpoint":"https://dentsply.cardconnect.com" in commerce config.</td>
+  <td>Card data tokenized by the gateway (PCI scope stays with gateway).</td>
+  <td>Part of the Hybris checkout; remains in the commerce app. Out of standard EDS content scope.</td></tr>
+<tr>
+  <td><b>Salesforce (CRM) + Live Agent Chat</b><div><span class="cat" style="background:#be185d">CRM / Support</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Site-wide</td>
+  <td>CRM lead capture and live-chat customer support widget.</td>
+  <td class="found">service.force.com script host site-wide; *.my.salesforce.com, *.secure.force.com, *.salesforceliveagent.com on ~1164 pages.</td>
+  <td>Lead/contact data, chat transcripts.</td>
+  <td>Re-embed the chat/CRM snippet via a script/embed block; Salesforce stays the system of record. Form → CRM routing to confirm with DS.</td></tr>
+<tr>
+  <td><b>AEM Forms (native form handler)</b><div><span class="cat" style="background:#0d9488">Forms</span> <span class="ev" style="background:#7c3aed">Static+Runtime</span></div></td>
+  <td>Contact / brand lead forms</td>
+  <td>Native lead/contact/request forms authored in AEM.</td>
+  <td class="found">Form actions POST to *.forms.html (AEM form selector); native contact form fields verified live on contact-support (First/Last/Email/Practice/Phone/Zip/Topic).</td>
+  <td>Lead submissions (likely routed to Salesforce/email).</td>
+  <td>Rebuild as EDS form blocks (or AEM Forms) with the same fields; confirm submission endpoint + CRM routing + reCAPTCHA.</td></tr>
+<tr>
+  <td><b>reCAPTCHA (v3)</b><div><span class="cat" style="background:#4338ca">Security</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Forms / search (config site-wide)</td>
+  <td>Bot protection on forms and search.</td>
+  <td class="found">"isReCaptchaV3Disabled":false in site config across pages.</td>
+  <td>reCAPTCHA token per submission.</td>
+  <td>Re-add reCAPTCHA v3 on EDS forms; keys from DS.</td></tr>
+<tr>
+  <td><b>DS Core (cloud platform)</b><div><span class="cat" style="background:#475569">External App</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>1200 pages (links) + welcome domain</td>
+  <td>Dentsply Sirona cloud dentistry platform (separate SaaS app).</td>
+  <td class="found">www.dscore.com and dentsplysironawelcome.us links site-wide.</td>
+  <td>Authenticated cloud dentistry workflows.</td>
+  <td>External application — EDS links out; not rebuilt.</td></tr>
+<tr>
+  <td><b>SureSmile (aligner platform)</b><div><span class="cat" style="background:#475569">External App</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>256 pages</td>
+  <td>SureSmile orthodontic aligner platform (separate SaaS + SSO).</td>
+  <td class="found">login.suresmile.com/login, /users/new links on ~256 pages.</td>
+  <td>Authenticated clinician workflows.</td>
+  <td>External application — EDS links out; not rebuilt.</td></tr>
+<tr>
+  <td><b>SAP SuccessFactors (careers)</b><div><span class="cat" style="background:#475569">External App</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>8 pages</td>
+  <td>Careers / job application (ATS).</td>
+  <td class="found">career5.successfactors.eu / career012.successfactors.eu links.</td>
+  <td>Job applications.</td>
+  <td>External ATS — link out.</td></tr>
+<tr>
+  <td><b>Cvent (events)</b><div><span class="cat" style="background:#475569">External App</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>3 pages</td>
+  <td>Event registration.</td>
+  <td class="found">cvent.me / web.cvent.com event links.</td>
+  <td>Event registrations.</td>
+  <td>External — link out.</td></tr>
+<tr>
+  <td><b>Order Digital Solutions (Atlantis/Simplant ordering)</b><div><span class="cat" style="background:#475569">External App</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>3 pages</td>
+  <td>Digital lab / implant ordering portals.</td>
+  <td class="found">orderdigitalsolutions.com, customer.orderdigitalsolutions.com, atlantisweborder.com links.</td>
+  <td>Authenticated ordering workflows.</td>
+  <td>External applications — link out.</td></tr>
+<tr>
+  <td><b>Egnyte (file sharing)</b><div><span class="cat" style="background:#475569">External App</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>3 pages</td>
+  <td>Large-file / document sharing.</td>
+  <td class="found">dentsplysirona.egnyte.com links.</td>
+  <td>Downloadable documents.</td>
+  <td>External — link out.</td></tr>
+<tr>
+  <td><b>EthicsPoint (compliance hotline)</b><div><span class="cat" style="background:#475569">External App</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>2 pages</td>
+  <td>Compliance / whistleblower reporting.</td>
+  <td class="found">secure.ethicspoint.com links.</td>
+  <td>Compliance reports.</td>
+  <td>External — link out.</td></tr>
+<tr>
+  <td><b>External product-issue form (dsqform.com)</b><div><span class="cat" style="background:#475569">External App</span> <span class="ev" style="background:#7c3aed">Static+Runtime</span></div></td>
+  <td>Contact support</td>
+  <td>Regulated product-complaint / quality request intake.</td>
+  <td class="found">Product Issue and Request Form links to https://dsqform.com/ (verified live on contact-support).</td>
+  <td>Product complaint submissions.</td>
+  <td>External — link out.</td></tr>
+<tr>
+  <td><b>Google Fonts</b><div><span class="cat" style="background:#6b7280">Fonts</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Site-wide</td>
+  <td>Web font delivery.</td>
+  <td class="found">fonts.googleapis.com on every page.</td>
+  <td>Font files.</td>
+  <td>Self-host fonts in EDS (fonts.css) for performance/consent.</td></tr>
+<tr>
+  <td><b>Social links (Facebook / Instagram / LinkedIn / X)</b><div><span class="cat" style="background:#6b7280">Social</span> <span class="ev" style="background:#0067a0">Static</span></div></td>
+  <td>Footer site-wide</td>
+  <td>Outbound social profile links (NOT tracking pixels).</td>
+  <td class="found">facebook.com/dentsplysirona, instagram.com/dentsplysirona, linkedin.com/company/dentsplysirona, twitter.com links in footer.</td>
+  <td>None (links only).</td>
+  <td>Author footer links; no integration work.</td></tr></tbody></table>
+</section>
+
+<section>
+<h2 class="sec">Site-service &amp; API endpoints (first-party)</h2>
+<p class="lead">First-party endpoints that back the integrations (these are DS-owned APIs, not third parties, but the EDS build must call or replace them).</p>
+<table><thead><tr><th>Endpoint</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>/api/graphql</code> + <code>adobeioruntime.net/.../hybris-graphql/dispatcher</code></td><td>Commerce data (product/price/cart/customer) via Adobe CIF → Hybris</td></tr>
+<tr><td><code>/services/dentsply/coveo/searchkey?pageType=…</code></td><td>Mints a Coveo search token per page type (discover/shop/academy/customer-support)</td></tr>
+<tr><td><code>*.org.coveo.com/rest/.../commerce/v2/listing</code></td><td>Coveo commerce listing / PLP results</td></tr>
+<tr><td><code>/services/dentsply/getCountryPopupModel</code></td><td>Geo/country selector + redirect model</td></tr>
+<tr><td><code>/libs/granite/csrf/token.json</code></td><td>AEM CSRF token for authenticated/form requests</td></tr>
+<tr><td><code>/libs/cq/i18n/dict.en_US.json</code></td><td>AEM i18n dictionary</td></tr>
+<tr><td><code>*.forms.html</code></td><td>AEM Forms POST handler for native lead/contact forms</td></tr>
+</tbody></table>
+</section>
+
+<section>
+<h2 class="sec">All external hosts observed (from the 1,200-page scan)</h2>
+<p class="lead">Complete list of external domains referenced in page source (host → number of pages). Included for completeness/audit — most low-count hosts are outbound reference links (journals, partners, resellers), not integrations.</p>
+<table><thead><tr><th>Host</th><th class="found">Pages</th></tr></thead><tbody>
+<tr><td><code>cdn-ukwest.onetrust.com</code></td><td class="found">1200</td></tr><tr><td><code>fonts.googleapis.com</code></td><td class="found">1200</td></tr><tr><td><code>58919-cifintegration.adobeioruntime.net</code></td><td class="found">1200</td></tr><tr><td><code>www.snappayglobal.com</code></td><td class="found">1200</td></tr><tr><td><code>dentsply.cardconnect.com</code></td><td class="found">1200</td></tr><tr><td><code>schema.org</code></td><td class="found">1200</td></tr><tr><td><code>s7d1.scene7.com</code></td><td class="found">1200</td></tr><tr><td><code>www.dscore.com</code></td><td class="found">1200</td></tr><tr><td><code>www.w3.org</code></td><td class="found">1200</td></tr><tr><td><code>www.facebook.com</code></td><td class="found">1200</td></tr><tr><td><code>www.instagram.com</code></td><td class="found">1200</td></tr><tr><td><code>www.linkedin.com</code></td><td class="found">1200</td></tr><tr><td><code>service.force.com</code></td><td class="found">1200</td></tr><tr><td><code>dentsplysirona.secure.force.com</code></td><td class="found">1164</td></tr><tr><td><code>dentsplysirona.my.salesforce.com</code></td><td class="found">1164</td></tr><tr><td><code>c.la3-c1-fra.salesforceliveagent.com</code></td><td class="found">1164</td></tr><tr><td><code>d.la3-c1-fra.salesforceliveagent.com</code></td><td class="found">1164</td></tr><tr><td><code>dentsplysironawelcome.us</code></td><td class="found">1164</td></tr><tr><td><code>login.suresmile.com</code></td><td class="found">256</td></tr><tr><td><code>www.youtube.com</code></td><td class="found">68</td></tr><tr><td><code>twitter.com</code></td><td class="found">26</td></tr><tr><td><code>career5.successfactors.eu</code></td><td class="found">8</td></tr><tr><td><code>doi.org</code></td><td class="found">7</td></tr><tr><td><code>pubmed.ncbi.nlm.nih.gov</code></td><td class="found">4</td></tr><tr><td><code>www.midwestairrepair.com</code></td><td class="found">4</td></tr><tr><td><code>www.ncbi.nlm.nih.gov</code></td><td class="found">4</td></tr><tr><td><code>www.wellspect.com</code></td><td class="found">3</td></tr><tr><td><code>cvent.me</code></td><td class="found">3</td></tr><tr><td><code>web.cvent.com</code></td><td class="found">3</td></tr><tr><td><code>youtu.be</code></td><td class="found">3</td></tr><tr><td><code>www.orderdigitalsolutions.com</code></td><td class="found">3</td></tr><tr><td><code>dentsplysirona.egnyte.com</code></td><td class="found">3</td></tr><tr><td><code>suresmileu.com</code></td><td class="found">3</td></tr><tr><td><code>outlook.office365.com</code></td><td class="found">3</td></tr><tr><td><code>www.cdc.gov</code></td><td class="found">3</td></tr><tr><td><code>ifu.wellspect.com</code></td><td class="found">2</td></tr><tr><td><code>get.adobe.com</code></td><td class="found">2</td></tr><tr><td><code>gender-pay-gap.service.gov.uk</code></td><td class="found">2</td></tr><tr><td><code>secure.ethicspoint.com</code></td><td class="found">2</td></tr><tr><td><code>www.fda.gov</code></td><td class="found">2</td></tr><tr><td><code>www.who.int</code></td><td class="found">2</td></tr><tr><td><code>www.fdiworlddental.org</code></td><td class="found">2</td></tr><tr><td><code>sustainability-platform.fdiworlddental.org</code></td><td class="found">2</td></tr><tr><td><code>dsqform.com</code></td><td class="found">2</td></tr><tr><td><code>customer.orderdigitalsolutions.com</code></td><td class="found">2</td></tr><tr><td><code>cavitronsystems.com</code></td><td class="found">2</td></tr><tr><td><code>my.cerec.com</code></td><td class="found">2</td></tr><tr><td><code>www.dentaltown.com</code></td><td class="found">2</td></tr><tr><td><code>vimeo.com</code></td><td class="found">2</td></tr><tr><td><code>apps.apple.com</code></td><td class="found">2</td></tr><tr><td><code>www.suresmile.com</code></td><td class="found">2</td></tr><tr><td><code>www.scadaresearch.org</code></td><td class="found">1</td></tr><tr><td><code>www.wma.net</code></td><td class="found">1</td></tr><tr><td><code>www.iso.org</code></td><td class="found">1</td></tr><tr><td><code>www.cavitron300.com</code></td><td class="found">1</td></tr><tr><td><code>career012.successfactors.eu</code></td><td class="found">1</td></tr><tr><td><code>oralhealth.hsdm.harvard.edu</code></td><td class="found">1</td></tr><tr><td><code>www.smiletrain.org</code></td><td class="found">1</td></tr><tr><td><code>digital-workflows.fdiworlddental.org</code></td><td class="found">1</td></tr><tr><td><code>elearning.easygenerator.com</code></td><td class="found">1</td></tr><tr><td><code>www.benco.com</code></td><td class="found">1</td></tr><tr><td><code>www.darbydental.com</code></td><td class="found">1</td></tr><tr><td><code>www.henryschein.com</code></td><td class="found">1</td></tr><tr><td><code>www.pattersondental.com</code></td><td class="found">1</td></tr><tr><td><code>www.dentistryiq.com</code></td><td class="found">1</td></tr><tr><td><code>mysimplant-service.orderdigitalsolutions.com</code></td><td class="found">1</td></tr><tr><td><code>www.p65warnings.ca.gov</code></td><td class="found">1</td></tr><tr><td><code>play.google.com</code></td><td class="found">1</td></tr><tr><td><code>www.melbourneorthodontics.com</code></td><td class="found">1</td></tr><tr><td><code>www.nuprofreedomwarranty.com</code></td><td class="found">1</td></tr><tr><td><code>www.aegisdentalnetwork.com</code></td><td class="found">1</td></tr><tr><td><code>www.dentaleconomics.com</code></td><td class="found">1</td></tr><tr><td><code>tinyurl.com</code></td><td class="found">1</td></tr><tr><td><code>sts.connectcasecenter.com</code></td><td class="found">1</td></tr><tr><td><code>pantherasleep.com</code></td><td class="found">1</td></tr><tr><td><code>www.dentalproductsreport.com</code></td><td class="found">1</td></tr><tr><td><code>www.dental-tribune.com</code></td><td class="found">1</td></tr><tr><td><code>www3.aaoinfo.org</code></td><td class="found">1</td></tr><tr><td><code>www.alliedmarketresearch.com</code></td><td class="found">1</td></tr><tr><td><code>idd.to</code></td><td class="found">1</td></tr><tr><td><code>www.dentrixascend.com</code></td><td class="found">1</td></tr><tr><td><code>www.salesforce.com</code></td><td class="found">1</td></tr><tr><td><code>www.online-dzz.com</code></td><td class="found">1</td></tr><tr><td><code>www.cureus.com</code></td><td class="found">1</td></tr><tr><td><code>www.oatext.com</code></td><td class="found">1</td></tr><tr><td><code>static.theruddleshow.com</code></td><td class="found">1</td></tr><tr><td><code>engraffo.com</code></td><td class="found">1</td></tr><tr><td><code>www.osha.gov</code></td><td class="found">1</td></tr><tr><td><code>studio4endo.com</code></td><td class="found">1</td></tr><tr><td><code>biocoreopen.org</code></td><td class="found">1</td></tr><tr><td><code>dx.doi.org</code></td><td class="found">1</td></tr><tr><td><code>www.thedentalcfo.com</code></td><td class="found">1</td></tr><tr><td><code>www.cdocs.com</code></td><td class="found">1</td></tr><tr><td><code>cdocs.com</code></td><td class="found">1</td></tr><tr><td><code>www.ada.org</code></td><td class="found">1</td></tr><tr><td><code>www.businessinsider.com</code></td><td class="found">1</td></tr><tr><td><code>www.dentalproductshopper.com</code></td><td class="found">1</td></tr><tr><td><code>open.spotify.com</code></td><td class="found">1</td></tr><tr><td><code>form.jotform.com</code></td><td class="found">1</td></tr><tr><td><code>www.google.com</code></td><td class="found">1</td></tr><tr><td><code>tools.google.com</code></td><td class="found">1</td></tr><tr><td><code>www.adobe.com</code></td><td class="found">1</td></tr><tr><td><code>globalprivacycontrol.org</code></td><td class="found">1</td></tr><tr><td><code>aboutads.info</code></td><td class="found">1</td></tr><tr><td><code>www.youronlinechoices.eu</code></td><td class="found">1</td></tr><tr><td><code>edpb.europa.eu</code></td><td class="found">1</td></tr><tr><td><code>ico.org.uk</code></td><td class="found">1</td></tr><tr><td><code>www.edoeb.admin.ch</code></td><td class="found">1</td></tr><tr><td><code>dentsplysirona-privacy.my.onetrust.com</code></td><td class="found">1</td></tr><tr><td><code>www.ppc.go.jp</code></td><td class="found">1</td></tr><tr><td><code>forms.office.com</code></td><td class="found">1</td></tr><tr><td><code>www.atlantisweborder.com</code></td><td class="found">1</td></tr>
+</tbody></table>
+</section>
+
+<footer>Dentsply Sirona → EDS · Third-party integrations · Generated 2026-08-18 · Static scan of 1,200 pages + live Playwright network capture · Evidence in <code>dentsplysirona-report/data/external-scan.json</code> &amp; <code>runtime-network.json</code>.</footer>
+</div></body></html>

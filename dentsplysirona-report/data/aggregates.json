@@ -1,0 +1,303 @@
+{
+  "totalUrls": 1204,
+  "analyzed": 1141,
+  "unavailable": 63,
+  "templates": {
+    "product-page": 294,
+    "category-page": 202,
+    "basic-template0": 197,
+    "brand-page-template": 153,
+    "explore-page-template": 75,
+    "shop-brand-page-template": 69,
+    "academy-course-detail": 58,
+    "discover-homepage1": 34,
+    "article-details": 21,
+    "academy-course-listings-page": 10,
+    "my-account-content-page": 9,
+    "academy-content-page": 9,
+    "shop-page-template": 3,
+    "shop-promotions-template": 2,
+    "news-and-press-release-template": 2,
+    "customer-support-contact-us-template": 1,
+    "my-account-landing-page": 1,
+    "academy-study-template": 1
+  },
+  "cmpComponents": {
+    "container": {
+      "count": 78658,
+      "pages": 1141
+    },
+    "experiencefragment": {
+      "count": 8810,
+      "pages": 1141
+    },
+    "text": {
+      "count": 29415,
+      "pages": 1141
+    },
+    "image": {
+      "count": 41857,
+      "pages": 1141
+    },
+    "gradient": {
+      "count": 2344,
+      "pages": 1141
+    },
+    "label": {
+      "count": 247630,
+      "pages": 1141
+    },
+    "clear": {
+      "count": 1154,
+      "pages": 1141
+    },
+    "coveoresults": {
+      "count": 1154,
+      "pages": 1141
+    },
+    "suggested": {
+      "count": 2308,
+      "pages": 1141
+    },
+    "searchresults": {
+      "count": 1154,
+      "pages": 1141
+    },
+    "suggestions": {
+      "count": 6846,
+      "pages": 1141
+    },
+    "top": {
+      "count": 6846,
+      "pages": 1141
+    },
+    "title": {
+      "count": 51839,
+      "pages": 1141
+    },
+    "btn": {
+      "count": 6846,
+      "pages": 1141
+    },
+    "button": {
+      "count": 361750,
+      "pages": 1141
+    },
+    "subnavcontainer": {
+      "count": 7954,
+      "pages": 1141
+    },
+    "verticalspacing": {
+      "count": 9784,
+      "pages": 1141
+    },
+    "separator": {
+      "count": 4862,
+      "pages": 1141
+    },
+    "languagenavigation": {
+      "count": 16762,
+      "pages": 1141
+    },
+    "social": {
+      "count": 3425,
+      "pages": 1141
+    },
+    "icon": {
+      "count": 3617,
+      "pages": 1141
+    },
+    "list": {
+      "count": 18169,
+      "pages": 1141
+    },
+    "maintitle": {
+      "count": 1552,
+      "pages": 775
+    },
+    "tabs": {
+      "count": 2995,
+      "pages": 324
+    },
+    "carousel": {
+      "count": 9006,
+      "pages": 289
+    },
+    "embed": {
+      "count": 264,
+      "pages": 144
+    },
+    "hero": {
+      "count": 820,
+      "pages": 76
+    },
+    "teaser": {
+      "count": 2862,
+      "pages": 50
+    },
+    "iconcard": {
+      "count": 538,
+      "pages": 50
+    },
+    "swiper": {
+      "count": 180,
+      "pages": 38
+    },
+    "imagetile": {
+      "count": 336,
+      "pages": 29
+    },
+    "step": {
+      "count": 692,
+      "pages": 29
+    },
+    "accordion": {
+      "count": 1674,
+      "pages": 28
+    },
+    "browsemenu": {
+      "count": 86,
+      "pages": 23
+    },
+    "banner": {
+      "count": 21,
+      "pages": 19
+    },
+    "bannerad": {
+      "count": 21,
+      "pages": 19
+    },
+    "downloadcard": {
+      "count": 616,
+      "pages": 16
+    },
+    "dam": {
+      "count": 28,
+      "pages": 14
+    },
+    "videocard": {
+      "count": 22,
+      "pages": 11
+    },
+    "tier": {
+      "count": 488,
+      "pages": 8
+    },
+    "card": {
+      "count": 8,
+      "pages": 8
+    },
+    "coursecard": {
+      "count": 7,
+      "pages": 7
+    },
+    "horizontal": {
+      "count": 5,
+      "pages": 5
+    },
+    "callout": {
+      "count": 18,
+      "pages": 3
+    },
+    "shop": {
+      "count": 24,
+      "pages": 3
+    },
+    "alphabetical": {
+      "count": 141,
+      "pages": 2
+    },
+    "promocard": {
+      "count": 75,
+      "pages": 2
+    },
+    "facts": {
+      "count": 7,
+      "pages": 2
+    },
+    "case": {
+      "count": 2,
+      "pages": 1
+    },
+    "scrollable": {
+      "count": 5,
+      "pages": 1
+    },
+    "print": {
+      "count": 2,
+      "pages": 1
+    },
+    "jumpcard": {
+      "count": 6,
+      "pages": 1
+    },
+    "shophero": {
+      "count": 2,
+      "pages": 1
+    }
+  },
+  "resourceTypes": {
+    "content/image": {
+      "count": 5209,
+      "pages": 1141
+    },
+    "content/button": {
+      "count": 13665,
+      "pages": 1141
+    },
+    "content/title": {
+      "count": 8416,
+      "pages": 1141
+    },
+    "content/text": {
+      "count": 8069,
+      "pages": 1141
+    },
+    "list": {
+      "count": 1141,
+      "pages": 1141
+    },
+    "list/item": {
+      "count": 5676,
+      "pages": 1141
+    },
+    "content/maintitle": {
+      "count": 78,
+      "pages": 78
+    },
+    "content/breadcrumb": {
+      "count": 44,
+      "pages": 44
+    },
+    "content/breadcrumb/item": {
+      "count": 121,
+      "pages": 44
+    },
+    "accordion": {
+      "count": 51,
+      "pages": 28
+    },
+    "accordion/item": {
+      "count": 228,
+      "pages": 28
+    },
+    "content/imagev3": {
+      "count": 3,
+      "pages": 1
+    }
+  },
+  "integrations": {
+    "Adobe DTM / Launch": 1141,
+    "Adobe Scene7 / Dynamic Media": 1141,
+    "SAP Hybris Commerce": 1141,
+    "Commerce GraphQL API": 1141,
+    "Coveo Search": 1141,
+    "reCAPTCHA": 1141,
+    "OneTrust": 1141,
+    "Google Fonts": 1141,
+    "Facebook (social link)": 1141,
+    "LinkedIn (social link)": 1141,
+    "Instagram (social link)": 1141,
+    "YouTube": 67
+  }
+}
