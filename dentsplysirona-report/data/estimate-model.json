@@ -1,0 +1,354 @@
+{
+  "livePages": 1141,
+  "redirects": 96,
+  "templatesCount": 18,
+  "blocks": [
+    {
+      "name": "Global Header + Mega-menu / Search",
+      "pages": 1141,
+      "cx": "Very High",
+      "nVar": 3,
+      "hrs": 26
+    },
+    {
+      "name": "Global Footer",
+      "pages": 1141,
+      "cx": "Medium",
+      "nVar": 1,
+      "hrs": 11
+    },
+    {
+      "name": "Hero",
+      "pages": 76,
+      "cx": "High",
+      "nVar": 2,
+      "hrs": 34
+    },
+    {
+      "name": "Teaser / Promo Card",
+      "pages": 52,
+      "cx": "High",
+      "nVar": 3,
+      "hrs": 34
+    },
+    {
+      "name": "Carousel / Slider",
+      "pages": 327,
+      "cx": "High",
+      "nVar": 2,
+      "hrs": 32
+    },
+    {
+      "name": "Tabs",
+      "pages": 324,
+      "cx": "High",
+      "nVar": 1,
+      "hrs": 25
+    },
+    {
+      "name": "Accordion",
+      "pages": 28,
+      "cx": "Medium",
+      "nVar": 1,
+      "hrs": 16
+    },
+    {
+      "name": "Cards (Icon / Download / Video / Course / Image-tile)",
+      "pages": 54,
+      "cx": "High",
+      "nVar": 6,
+      "hrs": 45
+    },
+    {
+      "name": "Step / Process",
+      "pages": 29,
+      "cx": "Medium",
+      "nVar": 1,
+      "hrs": 16
+    },
+    {
+      "name": "Experience Fragment (reusable content)",
+      "pages": 1141,
+      "cx": "Medium",
+      "nVar": 2,
+      "hrs": 20
+    },
+    {
+      "name": "Video (YouTube / Vimeo embed)",
+      "pages": 135,
+      "cx": "Medium",
+      "nVar": 2,
+      "hrs": 20
+    },
+    {
+      "name": "Rich Text / Title / Image (core content)",
+      "pages": 1141,
+      "cx": "Low",
+      "nVar": 3,
+      "hrs": 14
+    },
+    {
+      "name": "List / Alphabetical Listing",
+      "pages": 1141,
+      "cx": "Medium",
+      "nVar": 2,
+      "hrs": 17
+    },
+    {
+      "name": "Breadcrumb",
+      "pages": 44,
+      "cx": "Low",
+      "nVar": 1,
+      "hrs": 9
+    },
+    {
+      "name": "Embed / Banner / Callout",
+      "pages": 166,
+      "cx": "Medium",
+      "nVar": 3,
+      "hrs": 17
+    }
+  ],
+  "commerceBlocks": [
+    {
+      "name": "Product Detail (PDP · Hybris)",
+      "pages": 294,
+      "cx": "Very High",
+      "nVar": 1,
+      "hrs": 80
+    },
+    {
+      "name": "Product Listing / Category (PLP · Hybris)",
+      "pages": 202,
+      "cx": "Very High",
+      "nVar": 1,
+      "hrs": 70
+    },
+    {
+      "name": "Cart / Checkout / My-Account (Hybris app)",
+      "pages": 84,
+      "cx": "Very High",
+      "nVar": 3,
+      "hrs": 300
+    }
+  ],
+  "totalBlocks": 18,
+  "totalVariations": 38,
+  "templates": [
+    {
+      "name": "Product Detail (PDP · Hybris)",
+      "t": "product-page",
+      "n": 294,
+      "cx": "High",
+      "hrs": 14,
+      "commerce": true
+    },
+    {
+      "name": "Product Listing / Category (PLP · Hybris)",
+      "t": "category-page",
+      "n": 202,
+      "cx": "High",
+      "hrs": 14,
+      "commerce": true
+    },
+    {
+      "name": "Basic Content Page",
+      "t": "basic-template0",
+      "n": 197,
+      "cx": "Low",
+      "hrs": 6,
+      "commerce": false
+    },
+    {
+      "name": "Discover — Brand Page",
+      "t": "brand-page-template",
+      "n": 153,
+      "cx": "Medium",
+      "hrs": 10,
+      "commerce": false
+    },
+    {
+      "name": "Explore / Landing (rich)",
+      "t": "explore-page-template",
+      "n": 75,
+      "cx": "High",
+      "hrs": 14,
+      "commerce": false
+    },
+    {
+      "name": "Shop — Brand Page (Hybris)",
+      "t": "shop-brand-page-template",
+      "n": 69,
+      "cx": "Medium",
+      "hrs": 10,
+      "commerce": true
+    },
+    {
+      "name": "Academy — Course Detail",
+      "t": "academy-course-detail",
+      "n": 58,
+      "cx": "High",
+      "hrs": 14,
+      "commerce": false
+    },
+    {
+      "name": "Discover — Hub / Homepage",
+      "t": "discover-homepage1",
+      "n": 34,
+      "cx": "Medium",
+      "hrs": 10,
+      "commerce": false
+    },
+    {
+      "name": "Article / Editorial Detail",
+      "t": "article-details",
+      "n": 21,
+      "cx": "Low",
+      "hrs": 6,
+      "commerce": false
+    },
+    {
+      "name": "Academy — Course Listing",
+      "t": "academy-course-listings-page",
+      "n": 10,
+      "cx": "Medium",
+      "hrs": 10,
+      "commerce": false
+    },
+    {
+      "name": "My Account — Content",
+      "t": "my-account-content-page",
+      "n": 9,
+      "cx": "High",
+      "hrs": 14,
+      "commerce": true
+    },
+    {
+      "name": "Academy — Content",
+      "t": "academy-content-page",
+      "n": 9,
+      "cx": "Low",
+      "hrs": 6,
+      "commerce": false
+    },
+    {
+      "name": "Shop — Landing (Hybris)",
+      "t": "shop-page-template",
+      "n": 3,
+      "cx": "Medium",
+      "hrs": 10,
+      "commerce": true
+    },
+    {
+      "name": "Shop — Promotions (Hybris)",
+      "t": "shop-promotions-template",
+      "n": 2,
+      "cx": "Medium",
+      "hrs": 10,
+      "commerce": true
+    },
+    {
+      "name": "News / Press Release",
+      "t": "news-and-press-release-template",
+      "n": 2,
+      "cx": "Low",
+      "hrs": 6,
+      "commerce": false
+    },
+    {
+      "name": "Customer Support — Contact",
+      "t": "customer-support-contact-us-template",
+      "n": 1,
+      "cx": "Medium",
+      "hrs": 10,
+      "commerce": false
+    },
+    {
+      "name": "My Account — Landing",
+      "t": "my-account-landing-page",
+      "n": 1,
+      "cx": "High",
+      "hrs": 14,
+      "commerce": true
+    },
+    {
+      "name": "Academy — Study",
+      "t": "academy-study-template",
+      "n": 1,
+      "cx": "Medium",
+      "hrs": 10,
+      "commerce": false
+    }
+  ],
+  "integrations": [
+    {
+      "name": "Adobe DTM / Launch",
+      "pages": 1141,
+      "purpose": "Tag management / analytics loader",
+      "strategy": "Re-add via delayed.js; keep Launch property",
+      "impact": "Medium",
+      "days": 5
+    },
+    {
+      "name": "Adobe Scene7 / Dynamic Media",
+      "pages": 1141,
+      "purpose": "DAM image/video delivery",
+      "strategy": "Keep Scene7 URLs or move to EDS images",
+      "impact": "Medium",
+      "days": 8
+    },
+    {
+      "name": "Coveo Search",
+      "pages": 1141,
+      "purpose": "Site search + suggestions",
+      "strategy": "Search block wired to Coveo org",
+      "impact": "High",
+      "days": 12
+    },
+    {
+      "name": "reCAPTCHA",
+      "pages": 1141,
+      "purpose": "Bot protection on forms/search",
+      "strategy": "Re-add reCAPTCHA v3 on forms",
+      "impact": "Low",
+      "days": 2
+    },
+    {
+      "name": "OneTrust",
+      "pages": 1141,
+      "purpose": "Consent / cookie management",
+      "strategy": "Load in delayed phase; gate tags",
+      "impact": "Medium",
+      "days": 4
+    },
+    {
+      "name": "YouTube",
+      "pages": 67,
+      "purpose": "Video embeds",
+      "strategy": "Lazy facade video block",
+      "impact": "Low",
+      "days": 2
+    }
+  ],
+  "rollup": {
+    "foundationHrs": 86,
+    "blockHrs": 336,
+    "commerceHrs": 450,
+    "templateHrs": 188,
+    "integHrs": 264,
+    "prodReadyHrs": 60,
+    "buildSubtotal": 1384,
+    "contentHrs": 339,
+    "grand": 1723,
+    "HPD": 8
+  },
+  "content": {
+    "totalImgs": 25422,
+    "totalPdf": 2775,
+    "noMeta": 165,
+    "multiH1": 255,
+    "noH1": 113,
+    "commercePages": 580,
+    "editorialPages": 561
+  }
+}

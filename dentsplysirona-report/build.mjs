@@ -99,8 +99,8 @@ const COMMERCE_BLOCKS = [
     purpose: 'Product detail: gallery, specs/tabs, pricing, add-to-cart, variants — driven by Hybris via the commerce GraphQL API.', variations: ['PDP'], eds: 'Commerce block consuming the existing GraphQL/Hybris APIs client-side in EDS.' },
   { name: 'Product Listing / Category (PLP · Hybris)', pages: ok.filter((p) => p.template === 'category-page').length, cx: 'Very High', nVar: 1, nCap: 0, base: 70,
     purpose: 'Category/PLP with faceted filtering, sort, pagination — Hybris commerce (rendered via iframe/commerce app today).', variations: ['PLP / category'], eds: 'Commerce listing block consuming Hybris/GraphQL; facets + pagination.' },
-  { name: 'Cart / Checkout / My-Account (Hybris app)', pages: ok.filter((p) => p.template.startsWith('my-account') || p.template.startsWith('shop-')).length, cx: 'Very High', nVar: 3, nCap: 0, base: 60,
-    purpose: 'Authenticated commerce: cart, checkout, my-account, loyalty (One DS), practice management — the Hybris storefront application.', variations: ['Cart/checkout', 'My-account', 'Loyalty'], eds: 'OUT of standard EDS scope — remains the Hybris storefront app; EDS links to it. Estimate is indicative only, to confirm with DS.' },
+  { name: 'Cart / Checkout / My-Account (Hybris app)', pages: ok.filter((p) => p.template.startsWith('my-account') || p.template.startsWith('shop-')).length, cx: 'Very High', nVar: 3, nCap: 0, base: 300,
+    purpose: 'Authenticated commerce: cart, checkout, my-account, loyalty (One DS), practice management — the Hybris storefront application. The logged-in journey (cart→checkout→payment→order/account) could NOT be exercised in this analysis (auth-gated), so this is a high-side placeholder pending a walkthrough.', variations: ['Cart/checkout', 'My-account', 'Loyalty'], eds: 'Assumed-heavy: authenticated commerce journey not yet seen. Placeholder of 300h pending a guided walkthrough of the live cart/checkout/account flow with DS; scope may move materially up or down once the journey is confirmed.' },
 ];
 
 // ---------------- INTEGRATIONS (in-scope for estimate) ----------------
@@ -195,8 +195,9 @@ const rollup = [
 const rollupTable = rollup.map((r) => `<tr><td>${esc(r[0])}</td><td class="num ai">${r[1]}h</td><td class="found">${esc(r[2])}</td></tr>`).join('');
 
 // URL coverage table grouped by template
+// 404/403/redirect-loop pages are excluded entirely — the report covers only the live (HTTP 200) site.
 const byT = {};
-for (const p of pages) { const t = p.error ? '(unavailable — 404/403/redirect-loop)' : (TNAME[p.template] || p.template); (byT[t] = byT[t] || []).push(p); }
+for (const p of ok) { const t = TNAME[p.template] || p.template; (byT[t] = byT[t] || []).push(p); }
 const urlSection = Object.entries(byT).sort((a, b) => b[1].length - a[1].length).map(([t, ps]) => `<tr class="grp"><td colspan="3"><b>${esc(t)}</b> · ${ps.length} URL${ps.length > 1 ? 's' : ''}</td></tr>` + ps.map((p) => `<tr><td><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.path)}</a>${p.redirected ? ' <span class="redir">redirect</span>' : ''}${p.error ? ` <span class="redir">${esc(String(p.status))}</span>` : ''}</td><td>${esc(p.title || '—')}</td><td class="found">${p.error ? esc(p.error) : esc(p.template)}</td></tr>`).join('')).join('\n');
 
 const kpi = (n, l, alt) => `<div class="kpi${alt ? ' alt' : ''}"><div class="n">${n}</div><div class="l">${l}</div></div>`;
@@ -253,7 +254,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <header class="hero">
   <div class="badge">ADOBE EDGE DELIVERY SERVICES · MIGRATION ESTIMATION &amp; DISCOVERY</div>
   <h1>Dentsply Sirona (dentsplysirona.com) → EDS · Estimation &amp; Discovery</h1>
-  <div class="sub">Migration estimation and structural discovery for moving <code>www.dentsplysirona.com/en-us</code> to Adobe Edge Delivery Services. <b>All ${flog.length.toLocaleString()} URLs from the list were fetched and analyzed one by one</b> — no sampling. Current stack: <b>Adobe AEM Sites (Core Components) + SAP Hybris commerce + Scene7 DAM + Adobe Launch + Coveo search</b>. Effort is planning-grade, in <b>hours</b> (8h/person-day), to be refined in discovery.</div>
+  <div class="sub">Migration estimation and structural discovery for moving <code>www.dentsplysirona.com/en-us</code> to Adobe Edge Delivery Services. Every URL from the list was fetched one by one; this report covers the <b>${ok.length.toLocaleString()} live (HTTP 200) pages</b> — no sampling. Current stack: <b>Adobe AEM Sites (Core Components) + SAP Hybris commerce + Scene7 DAM + Adobe Launch + Coveo search</b>. Effort is planning-grade, in <b>hours</b> (8h/person-day), to be refined in discovery.</div>
 </header>
 <nav class="toc">
   <a href="#summary">1 · Summary &amp; Estimate</a>
@@ -274,9 +275,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
 <section id="summary">
 <h2 class="sec">1 · Summary &amp; Top-line Estimate</h2>
 <div class="kpis">
-  ${kpi(flog.length.toLocaleString(), 'URLs in list')}
-  ${kpi(ok.length.toLocaleString(), 'Pages analyzed (200)')}
-  ${kpi(nonOk.length, 'Unavailable (404/403)')}
+  ${kpi(ok.length.toLocaleString(), 'Live pages analyzed')}
   ${kpi(templates.length, 'Templates', true)}
   ${kpi(BLOCKS.length + COMMERCE_BLOCKS.length, 'Blocks', true)}
   ${kpi(totalVariations, 'Variations', true)}
@@ -285,14 +284,14 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
   ${kpi(contentHrs.toLocaleString() + 'h', 'Content migration', true)}
   ${kpi(grand.toLocaleString() + 'h', 'Grand total', true)}
 </div>
-<p class="lead">Dentsply Sirona runs on <b>Adobe AEM Sites with Core Components</b> and a <b>SAP Hybris</b> commerce layer (product/category/cart via a commerce GraphQL API), <b>Scene7</b> for imagery, <b>Adobe Launch</b> for tags, <b>Coveo</b> for search and <b>OneTrust</b> for consent. Blocks are read from the AEM <code>cmp-*</code> markup and templates from the page <code>meta[name=template]</code>, so this inventory is evidence-based. Of the ${flog.length.toLocaleString()} URLs, <b>${ok.length.toLocaleString()} return HTTP 200 and were fully analyzed</b>; ${nonOk.length} are unavailable (dead/archived 404s, one 403, one redirect-loop) and are listed in §2.</p>
+<p class="lead">Dentsply Sirona runs on <b>Adobe AEM Sites with Core Components</b> and a <b>SAP Hybris</b> commerce layer (product/category/cart via a commerce GraphQL API), <b>Scene7</b> for imagery, <b>Adobe Launch</b> for tags, <b>Coveo</b> for search and <b>OneTrust</b> for consent. Blocks are read from the AEM <code>cmp-*</code> markup and templates from the page <code>meta[name=template]</code>, so this inventory is evidence-based. This report covers the <b>${ok.length.toLocaleString()} live (HTTP 200) pages</b>; dead/archived URLs from the source list are excluded from all counts and effort.</p>
 <div class="callout"><b>Estimate drivers:</b> (a) the <b>commerce surface</b> — ${commercePages.toLocaleString()} PDP/PLP/shop/account pages backed by Hybris (the single biggest scope decision — see Assumptions); (b) <b>global header + Coveo search</b>; (c) high-reuse content blocks (carousel, tabs, teaser/cards, hero) across ${editorialPages.toLocaleString()} editorial pages; (d) content migration of ~${totalImgs.toLocaleString()} images and ${totalPdf.toLocaleString()} PDF links.</div>
 <div class="note"><b>Grand total ${grand.toLocaleString()}h</b> ≈ ${Math.round(grand / HPD).toLocaleString()} person-days (8h/day) = <b>Development ${buildSubtotal.toLocaleString()}h + Content migration ${contentHrs.toLocaleString()}h</b>. Planning-grade; commerce scope in particular must be confirmed with Dentsply Sirona (see §8).</div>
 </section>
 
 <section id="coverage">
-<h2 class="sec">2 · URL Coverage (all ${flog.length.toLocaleString()}, grouped by template)</h2>
-<p class="lead">Every URL in <code>dentsplysirona.txt</code> was fetched. ${ok.length.toLocaleString()} returned HTTP 200 (analyzed); ${redirects} were redirected to a canonical URL; ${nonOk.length} were unavailable and are grouped last with their status. Links open the live page.</p>
+<h2 class="sec">2 · URL Coverage (${ok.length.toLocaleString()} live pages, grouped by template)</h2>
+<p class="lead">Every URL in <code>dentsplysirona.txt</code> was fetched; the ${ok.length.toLocaleString()} live (HTTP 200) pages below are what the estimate covers. ${redirects} were redirected to a canonical URL (handled by redirect parity). Links open the live page.</p>
 <table><thead><tr><th>URL</th><th>Title</th><th>Template / status</th></tr></thead><tbody>${urlSection}</tbody></table>
 </section>
 
@@ -361,7 +360,6 @@ ${rollup.slice(1).map((r) => `<tr><td>${esc(r[0])}</td><td class="num ai">${r[1]
 <li><b>Scene7 / DAM assets</b> are referenced or migrated <b>without re-mastering</b>.</li>
 <li><b>Analytics &amp; consent</b> (Adobe Launch, Analytics, OneTrust) are <b>re-instated as observed</b>; new tracking, data-layer changes or tag-manager rework are estimated separately.</li>
 <li><b>Design parity, not redesign</b> — pixel-reasonable parity with the current AEM site.</li>
-<li><b>Unavailable URLs</b> (${nonOk.length}: 404/403/redirect-loop) are treated as out of scope for migration unless Dentsply Sirona confirms they should be recreated (see §2 &amp; §9).</li>
 <li><b>Authenticated & account pages</b> (my-account, loyalty, practice management) remain in the commerce app; EDS links out.</li>
 <li><b>New blocks / variations</b> discovered beyond this ${BLOCKS.length + COMMERCE_BLOCKS.length}-block / ${totalVariations}-variation inventory are estimated separately.</li>
 <li><b>reCAPTCHA</b> (v3, observed site-wide on forms/search) is re-added; keys provided by Dentsply Sirona.</li>
@@ -376,18 +374,30 @@ ${rollup.slice(1).map((r) => `<tr><td>${esc(r[0])}</td><td class="num ai">${r[1]
 <li><b>Commerce coupling:</b> category/shop-brand pages embed the Hybris storefront (iframe/commerce app). Confirm which commerce surfaces DS wants natively in EDS vs. kept in Hybris.</li>
 <li><b>Search:</b> Coveo powers site search + type-ahead across all pages; the search results template and relevance config should be reviewed with the DS search team.</li>
 <li><b>Content quality to fix on migration:</b> ${noMeta} pages have no meta description, ${multiH1} have multiple H1s, ${noH1} have no H1 — worth normalizing for SEO/accessibility.</li>
-<li><b>Redirects:</b> ${redirects} of the ${flog.length.toLocaleString()} URLs redirect to a canonical target; recreate these in EDS redirect config for SEO parity.</li>
-<li><b>Dead/archived URLs:</b> ${nonOk.length} URLs in the list are 404/403 or loop (many under <code>/shop</code>, <code>/academy</code>, <code>/archived-pages</code>) — confirm whether any must be recreated.</li>
+<li><b>Redirects:</b> ${redirects} of the source URLs redirect to a canonical target; recreate these in EDS redirect config for SEO parity.</li>
 <li><b>Experience Fragments:</b> reusable XFs appear across pages; map the XF library to shared EDS blocks/sections to preserve authoring reuse.</li>
 <li><b>Not verifiable from page behavior:</b> authenticated commerce flows (cart/checkout/account) and any CAPTCHA-gated form submissions could not be exercised — flagged for discovery.</li>
 </ul>
 </section>
 
-<footer>Dentsply Sirona → EDS · Migration estimation &amp; discovery · Generated 2026-08-18 · All ${flog.length.toLocaleString()} URLs fetched &amp; analyzed · Effort in hours (8h/day), planning-grade · Evidence in <code>dentsplysirona-report/data/*.json</code>.</footer>
+<footer>Dentsply Sirona → EDS · Migration estimation &amp; discovery · Generated 2026-08-18 · ${ok.length.toLocaleString()} live pages analyzed · Effort in hours (8h/day), planning-grade · Evidence in <code>dentsplysirona-report/data/*.json</code>.</footer>
 </div>
 </body></html>`;
 
 fs.writeFileSync(path.join(OUT, 'dentsplysirona-eds-report.html'), html);
+
+// Export the computed model so the summary report reconciles exactly with the detailed report.
+fs.writeFileSync(path.join(OUT, 'data', 'estimate-model.json'), JSON.stringify({
+  livePages: ok.length, redirects, templatesCount: templates.length,
+  blocks: BLOCKS.map((b) => ({ name: b.name, pages: b.pages, cx: b.cx, nVar: b.nVar, hrs: b.base })),
+  commerceBlocks: COMMERCE_BLOCKS.map((b) => ({ name: b.name, pages: b.pages, cx: b.cx, nVar: b.nVar, hrs: b.base })),
+  totalBlocks: BLOCKS.length + COMMERCE_BLOCKS.length, totalVariations,
+  templates: templates.map((t) => ({ name: t.name, t: t.t, n: t.n, cx: t.cx, hrs: t.hrs, commerce: t.commerce })),
+  integrations: integRows,
+  rollup: { foundationHrs, blockHrs, commerceHrs, templateHrs, integHrs, prodReadyHrs, buildSubtotal, contentHrs, grand, HPD },
+  content: { totalImgs, totalPdf, noMeta, multiH1, noH1, commercePages, editorialPages },
+}, null, 2));
+
 console.log('Wrote dentsplysirona-report/dentsplysirona-eds-report.html', (html.length / 1024).toFixed(1) + 'KB');
 console.log('Blocks', BLOCKS.length + COMMERCE_BLOCKS.length, '| variations', totalVariations, '| templates', templates.length, '| integrations', integRows.length);
 console.log('Foundation', foundationHrs, '| blocks', blockHrs, '| commerce', commerceHrs, '| templates', templateHrs, '| integ', integHrs, '| prod', prodReadyHrs);
