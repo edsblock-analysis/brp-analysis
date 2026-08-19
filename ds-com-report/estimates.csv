@@ -1,11 +1,11 @@
-Area,Best (pd),Expected (pd),High (pd)
-EDS setup / Foundation,4,6,9
-Global components,17.5,25,35.5
-"Blocks (reusable, built once)",31.5,43.5,63
-Templates,14.5,21,30.5
-Integrations,17,26,37.5
-Content migration,75.4,104.2,149.2
-QA / Testing,6,9,13
-Accessibility / SEO / Performance,4,6,9
-UAT & production readiness,4,6,9
-TOTAL,173.9,246.7,355.7
+Area,Best (hrs),Expected (hrs),High (hrs)
+EDS setup / Foundation,32,48,72
+Global components,140,200,284
+"Blocks (reusable, built once)",252,348,504
+Templates,116,168,244
+Integrations,136,208,300
+Content migration,603,833,1194
+QA / Testing,48,72,104
+Accessibility / SEO / Performance,32,48,72
+UAT & production readiness,32,48,72
+TOTAL,1391,1973,2846

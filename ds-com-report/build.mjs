@@ -1,6 +1,7 @@
-// Build ds-com (/en) EDS discovery dashboard + CSVs + person-day estimates.
+// Build ds-com (/en) EDS discovery dashboard + CSVs + estimates.
 // Traceability: page -> template -> blocks -> variations -> integrations -> migration -> estimate.
-// Estimates in PERSON-DAYS with Best/Expected/High. Reusable blocks are NOT re-counted per page.
+// Estimates in HOURS (8h/day basis) with Best/Expected/High. Reusable blocks are NOT re-counted per page.
+// NOTE: internal model arrays are in days; H() converts to whole hours for every visible output.
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -176,6 +177,9 @@ const ESTIMATE = [
 ];
 const TOTAL = ESTIMATE.reduce((a, [, pd]) => [a[0] + pd[0], a[1] + pd[1], a[2] + pd[2]], [0, 0, 0]);
 const rnd = (n) => Math.round(n * 10) / 10;
+const HPD = 8;
+const H = (days) => Math.round(days * HPD); // days -> whole hours
+const Hc = (pd) => `${H(pd[0])} / <b>${H(pd[1])}</b> / ${H(pd[2])}`; // Best/Expected/High in hours
 
 // ============================================================
 // PER-PAGE traceability (all 478 URLs)
@@ -199,27 +203,27 @@ const w = (name, header, rows) => fs.writeFileSync(path.join(OUT, name), [header
 w('pages.csv', ['URL', 'Final URL', 'Redirected', 'Status', 'Template', 'Blocks', 'Integrations', 'Complexity', 'Migration Method'],
   pages.map((p) => [p.url, p.finalUrl, p.redirected ? 'yes' : 'no', p.status, p.error ? '(unavailable)' : (TNAME[p.template] || p.template), pageBlocksLabel(p), (p.integrations || []).join('; '), pageCx(p), migCx(p)]));
 
-w('templates.csv', ['Template', 'Type', 'Page Count', 'Complexity', 'Example URLs', 'Blocks', 'Estimate Best (pd)', 'Estimate Expected (pd)', 'Estimate High (pd)'],
-  templates.map((t) => [t.name, t.type, t.count, t.cx, t.examples.join(' | '), t.blocks.join('; '), t.pd[0], t.pd[1], t.pd[2]]));
+w('templates.csv', ['Template', 'Type', 'Page Count', 'Complexity', 'Example URLs', 'Blocks', 'Estimate Best (hrs)', 'Estimate Expected (hrs)', 'Estimate High (hrs)'],
+  templates.map((t) => [t.name, t.type, t.count, t.cx, t.examples.join(' | '), t.blocks.join('; '), H(t.pd[0]), H(t.pd[1]), H(t.pd[2])]));
 
-w('blocks.csv', ['Block', 'Purpose', 'Variations', '# Variations', 'Usage Count', 'Example URLs', 'Complexity', 'Estimate Best (pd)', 'Estimate Expected (pd)', 'Estimate High (pd)'],
-  BLOCKS.map((b) => [b.name, b.purpose, b.variations.join(' | '), b.variations.length, b.usage, b.examples.join(' | '), b.cx, b.pd[0], b.pd[1], b.pd[2]]));
+w('blocks.csv', ['Block', 'Purpose', 'Variations', '# Variations', 'Usage Count', 'Example URLs', 'Complexity', 'Estimate Best (hrs)', 'Estimate Expected (hrs)', 'Estimate High (hrs)'],
+  BLOCKS.map((b) => [b.name, b.purpose, b.variations.join(' | '), b.variations.length, b.usage, b.examples.join(' | '), b.cx, H(b.pd[0]), H(b.pd[1]), H(b.pd[2])]));
 
-w('integrations.csv', ['Integration', 'Pages', 'Purpose', 'EDS Approach', 'Complexity', 'Estimate Best (pd)', 'Estimate Expected (pd)', 'Estimate High (pd)', 'Validation'],
-  INTEG.map((i) => [i.name, i.pages, i.purpose, i.eds, i.cx, i.pd[0], i.pd[1], i.pd[2], i.val || 'Verified']));
+w('integrations.csv', ['Integration', 'Pages', 'Purpose', 'EDS Approach', 'Complexity', 'Estimate Best (hrs)', 'Estimate Expected (hrs)', 'Estimate High (hrs)', 'Validation'],
+  INTEG.map((i) => [i.name, i.pages, i.purpose, i.eds, i.cx, H(i.pd[0]), H(i.pd[1]), H(i.pd[2]), i.val || 'Verified']));
 
-w('migration.csv', ['Page Type / Method', 'Page Count', 'Pages/Day', 'Templates', 'Effort Best (pd)', 'Effort Expected (pd)', 'Effort High (pd)'],
-  migRows.map((r) => [r.method, r.count, r.rate, r.templates.join('; '), rnd(r.best), rnd(r.expd), rnd(r.high)])
-    .concat(MIG_STREAMS.map((s) => [s.name, '', '', '', rnd(s.best), rnd(s.expd), rnd(s.high)])));
+w('migration.csv', ['Page Type / Method', 'Page Count', 'Pages/Day', 'Templates', 'Effort Best (hrs)', 'Effort Expected (hrs)', 'Effort High (hrs)'],
+  migRows.map((r) => [r.method, r.count, r.rate, r.templates.join('; '), H(r.best), H(r.expd), H(r.high)])
+    .concat(MIG_STREAMS.map((s) => [s.name, '', '', '', H(s.best), H(s.expd), H(s.high)])));
 
-w('estimates.csv', ['Area', 'Best (pd)', 'Expected (pd)', 'High (pd)'],
-  ESTIMATE.map(([n, pd]) => [n, rnd(pd[0]), rnd(pd[1]), rnd(pd[2])]).concat([['TOTAL', rnd(TOTAL[0]), rnd(TOTAL[1]), rnd(TOTAL[2])]]));
+w('estimates.csv', ['Area', 'Best (hrs)', 'Expected (hrs)', 'High (hrs)'],
+  ESTIMATE.map(([n, pd]) => [n, H(pd[0]), H(pd[1]), H(pd[2])]).concat([['TOTAL', H(TOTAL[0]), H(TOTAL[1]), H(TOTAL[2])]]));
 
 // =============== DASHBOARD HTML ===============
 const cxCls = (c) => ({ Simple: 'cx-Low', Low: 'cx-Low', Medium: 'cx-Medium', High: 'cx-High', Complex: 'cx-High', 'Very High': 'cx-VeryHigh' }[c] || 'cx-Medium');
 const cx = (c) => `<span class="cx ${cxCls(c)}">${esc(c)}</span>`;
 const kpi = (n, l, alt) => `<div class="kpi${alt ? ' alt' : ''}"><div class="n">${n}</div><div class="l">${l}</div></div>`;
-const pdCell = (pd) => `${rnd(pd[0])} / <b>${rnd(pd[1])}</b> / ${rnd(pd[2])}`;
+const pdCell = Hc; // render Best/Expected/High as hours
 
 const pagesRows = pages.map((p) => `<tr class="prow" data-tpl="${esc(p.error ? 'unavailable' : p.template)}" data-red="${p.redirected}">
   <td><a href="${esc(p.finalUrl)}" target="_blank" rel="noopener">${esc(pth(p.finalUrl) || p.url)}</a>${p.redirected ? ` <span class="tag redir">↳ from ${esc(pth(p.url))}</span>` : ''}</td>
@@ -252,10 +256,10 @@ const integRows = INTEG.map((i) => `<tr><td><b>${esc(i.name)}</b>${i.val ? ` <sp
 const migMethodRows = migRows.map((r) => `<tr><td><b>${esc(r.method)}</b><div class="found">${esc(r.templates.join(', '))}</div></td><td class="num">${r.count}</td><td class="num">${r.rate}/day</td><td class="num">${pdCell([r.best, r.expd, r.high])}</td></tr>`).join('\n');
 const migStreamRows = MIG_STREAMS.map((s) => `<tr><td>${esc(s.name)}</td><td class="num">${pdCell([s.best, s.expd, s.high])}</td></tr>`).join('\n');
 
-const estRows = ESTIMATE.map(([n, pd]) => `<tr><td>${esc(n)}</td><td class="num">${rnd(pd[0])}</td><td class="num ai">${rnd(pd[1])}</td><td class="num">${rnd(pd[2])}</td></tr>`).join('\n');
+const estRows = ESTIMATE.map(([n, pd]) => `<tr><td>${esc(n)}</td><td class="num">${H(pd[0])}</td><td class="num ai">${H(pd[1])}</td><td class="num">${H(pd[2])}</td></tr>`).join('\n');
 
 const ASSUMPTIONS = [
-  '1 person-day = 8 hours; estimates are planning-grade (Best/Expected/High), not a fixed bid.',
+  'Estimates are in hours on an 8h/day basis; planning-grade (Best/Expected/High), not a fixed bid.',
   'Reusable blocks are built ONCE — page volume drives migration & QA, not repeated block dev.',
   'Scope is the /en global locale set in ds-com.txt; other locales reuse the same blocks/templates (translation excluded).',
   'Migration rates: Automated 12 pg/day, Semi-Automated 5, Manual 2.5, Recreate 1 (per person).',
@@ -329,7 +333,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 <header class="hero">
 <div class="badge">ADOBE EDGE DELIVERY SERVICES · DISCOVERY &amp; ESTIMATION DASHBOARD</div>
 <h1>Dentsply Sirona (<code>/en</code>) → EDS · Discovery Dashboard</h1>
-<div class="sub">Rebuild + migration estimation for the <b>${pages.length} URLs</b> in <code>ds-com.txt</code> (the <code>/en</code> global locale). Platform: <b>Adobe AEM Sites (Core Components) + SAP Hybris + Coveo + Scene7 + Adobe Launch + OneTrust</b>. Blocks/templates read from AEM markup (<code>cmp-*</code>, <code>meta[template]</code>). Estimates in <b>person-days</b> as <b>Best / Expected / High</b>. Evidence-based; unknowns marked <b>Needs Validation</b>.</div>
+<div class="sub">Rebuild + migration estimation for the <b>${pages.length} URLs</b> in <code>ds-com.txt</code> (the <code>/en</code> global locale). Platform: <b>Adobe AEM Sites (Core Components) + SAP Hybris + Coveo + Scene7 + Adobe Launch + OneTrust</b>. Blocks/templates read from AEM markup (<code>cmp-*</code>, <code>meta[template]</code>). Estimates in <b>hours</b> (8h/day basis) as <b>Best / Expected / High</b>. Evidence-based; unknowns marked <b>Needs Validation</b>.</div>
 </header>
 <nav class="toc">
   <a href="#summary">Summary</a><a href="#pages">Pages</a><a href="#templates">Templates</a><a href="#blocks">Blocks</a><a href="#global">Global</a><a href="#integ">Integrations</a><a href="#migration">Migration</a><a href="#estimates">Estimates</a><a href="#notes">Assumptions / Risks</a><a href="#files">Files</a>
@@ -345,8 +349,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
   <span class="step">${BLOCKS.length} blocks</span><span class="arr">→</span>
   <span class="step">${totalVariations} variations</span><span class="arr">→</span>
   <span class="step">${INTEG.length} integrations</span><span class="arr">→</span>
-  <span class="step">${rnd(migPD[1])} pd migration</span><span class="arr">→</span>
-  <span class="step" style="background:#dcfce7;border-color:#a7e0bd">${rnd(TOTAL[1])} pd total (Expected)</span>
+  <span class="step">${H(migPD[1])}h migration</span><span class="arr">→</span>
+  <span class="step" style="background:#dcfce7;border-color:#a7e0bd">${H(TOTAL[1])}h total (Expected)</span>
 </div>
 <div class="kpis">
   ${kpi(pages.length, 'URLs in list')}
@@ -356,11 +360,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
   ${kpi(BLOCKS.length, 'Blocks', true)}
   ${kpi(totalVariations, 'Variations', true)}
   ${kpi(INTEG.length, 'Integrations')}
-  ${kpi(rnd(TOTAL[0]) + ' pd', 'Best')}
-  ${kpi(rnd(TOTAL[1]) + ' pd', 'Expected', true)}
-  ${kpi(rnd(TOTAL[2]) + ' pd', 'High')}
+  ${kpi(H(TOTAL[0]) + 'h', 'Best')}
+  ${kpi(H(TOTAL[1]) + 'h', 'Expected', true)}
+  ${kpi(H(TOTAL[2]) + 'h', 'High')}
 </div>
-<p class="lead">The <code>/en</code> set is <b>content/marketing-heavy</b> (Explore, Discover, Academy) with minimal commerce (1 shop-home page in scope). ${pages.length} source URLs include <b>${agg.redirected} redirects</b> that collapse to <b>${edsReps.length} distinct live pages</b> across <b>${templates.length} templates</b>, built from <b>${BLOCKS.length} reusable blocks (${totalVariations} variations)</b>. Answers: <b>(1)</b> ~${templates.length} unique templates · <b>(2)</b> ${BLOCKS.length} blocks / ${totalVariations} variations · <b>(3)</b> ${INTEG.length} integrations · <b>(4)</b> build ≈ ${rnd(FOUNDATION[1] + globalPD[1] + blockPD[1] + templatePD[1] + integPD[1])} pd · <b>(5)</b> migration ≈ ${rnd(migPD[1])} pd · <b>(6)</b> total <b>${rnd(TOTAL[0])}–${rnd(TOTAL[2])} pd (Expected ${rnd(TOTAL[1])})</b> · <b>(7)</b> see Assumptions/Risks.</p>
+<p class="lead">The <code>/en</code> set is <b>content/marketing-heavy</b> (Explore, Discover, Academy) with minimal commerce (1 shop-home page in scope). ${pages.length} source URLs include <b>${agg.redirected} redirects</b> that collapse to <b>${edsReps.length} distinct live pages</b> across <b>${templates.length} templates</b>, built from <b>${BLOCKS.length} reusable blocks (${totalVariations} variations)</b>. Answers: <b>(1)</b> ~${templates.length} unique templates · <b>(2)</b> ${BLOCKS.length} blocks / ${totalVariations} variations · <b>(3)</b> ${INTEG.length} integrations · <b>(4)</b> build ≈ ${H(FOUNDATION[1] + globalPD[1] + blockPD[1] + templatePD[1] + integPD[1])}h · <b>(5)</b> migration ≈ ${H(migPD[1])}h · <b>(6)</b> total <b>${H(TOTAL[0])}–${H(TOTAL[2])}h (Expected ${H(TOTAL[1])}h)</b> · <b>(7)</b> see Assumptions/Risks.</p>
 </section>
 
 <section id="pages">
@@ -376,8 +380,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 
 <section id="templates">
 <h2 class="sec">Templates <span class="found">(${templates.length})</span></h2>
-<p class="lead">Unique page structures. Effort is EDS template scaffolding/block wiring (per-page authoring is in Migration). Best / <b>Expected</b> / High person-days.</p>
-<table><thead><tr><th>Template</th><th class="num">Pages</th><th>Example URLs</th><th>Blocks</th><th>Complexity</th><th class="num">Estimate (pd)</th></tr></thead>
+<p class="lead">Unique page structures. Effort is EDS template scaffolding/block wiring (per-page authoring is in Migration). Best / <b>Expected</b> / High hours.</p>
+<table><thead><tr><th>Template</th><th class="num">Pages</th><th>Example URLs</th><th>Blocks</th><th>Complexity</th><th class="num">Estimate (hrs)</th></tr></thead>
 <tbody>${templateRows}
 <tr class="total-row"><td>TOTAL — ${templates.length} templates</td><td class="num">${edsReps.length}</td><td colspan="3"></td><td class="num">${pdCell(templatePD)}</td></tr></tbody></table>
 </section>
@@ -385,14 +389,14 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 <section id="blocks">
 <h2 class="sec">Blocks <span class="found">(${BLOCKS.length} · ${totalVariations} variations · built once)</span></h2>
 <p class="lead">Reusable EDS blocks. Visual differences are captured as <b>variations</b>, not duplicate blocks. Usage = distinct live pages where the block appears.</p>
-<table><thead><tr><th>Block</th><th>Variations</th><th class="num">Usage</th><th>Example URLs</th><th>Complexity</th><th class="num">Estimate (pd)</th></tr></thead>
+<table><thead><tr><th>Block</th><th>Variations</th><th class="num">Usage</th><th>Example URLs</th><th>Complexity</th><th class="num">Estimate (hrs)</th></tr></thead>
 <tbody>${blockRows}
 <tr class="total-row"><td>TOTAL — ${BLOCKS.length} blocks</td><td class="num">${totalVariations} var.</td><td class="num">—</td><td colspan="2"></td><td class="num">${pdCell(blockPD)}</td></tr></tbody></table>
 </section>
 
 <section id="global">
 <h2 class="sec">Global Components</h2>
-<table><thead><tr><th>Component</th><th>Complexity</th><th class="num">Estimate (pd)</th></tr></thead>
+<table><thead><tr><th>Component</th><th>Complexity</th><th class="num">Estimate (hrs)</th></tr></thead>
 <tbody>${globalRows}
 <tr class="total-row"><td>TOTAL — ${GLOBAL.length} global components</td><td>—</td><td class="num">${pdCell(globalPD)}</td></tr></tbody></table>
 </section>
@@ -400,7 +404,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 <section id="integ">
 <h2 class="sec">Third-Party Integrations <span class="found">(${INTEG.length})</span></h2>
 <p class="lead">"Pages" = pages where observed. Items assumed from the /en-us live-network capture are marked <span class="tag nv">Needs Validation</span>.</p>
-<table><thead><tr><th>Integration</th><th class="num">Pages</th><th>Purpose</th><th>EDS Approach</th><th>Complexity</th><th class="num">Estimate (pd)</th></tr></thead>
+<table><thead><tr><th>Integration</th><th class="num">Pages</th><th>Purpose</th><th>EDS Approach</th><th>Complexity</th><th class="num">Estimate (hrs)</th></tr></thead>
 <tbody>${integRows}
 <tr class="total-row"><td>TOTAL — ${INTEG.length} integrations</td><td class="num">—</td><td colspan="2"></td><td>—</td><td class="num">${pdCell(integPD)}</td></tr></tbody></table>
 </section>
@@ -410,20 +414,20 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 <p class="lead">Pages classified by method; volume drives migration + QA (not block dev). Rates are assumptions (see below).</p>
 <div class="cols">
 <div><h4 style="margin:4px 0;font-size:14px">By method</h4>
-<table><thead><tr><th>Method</th><th class="num">Pages</th><th class="num">Rate</th><th class="num">Execution (pd)</th></tr></thead><tbody>${migMethodRows}
+<table><thead><tr><th>Method</th><th class="num">Pages</th><th class="num">Rate</th><th class="num">Execution (hrs)</th></tr></thead><tbody>${migMethodRows}
 <tr class="total-row"><td>Execution subtotal</td><td class="num">${edsReps.length}</td><td class="num">—</td><td class="num">${pdCell(migExecPD)}</td></tr></tbody></table></div>
 <div><h4 style="margin:4px 0;font-size:14px">By stream (tooling + execution + remediation + QA)</h4>
-<table><thead><tr><th>Stream</th><th class="num">Estimate (pd)</th></tr></thead><tbody>${migStreamRows}
+<table><thead><tr><th>Stream</th><th class="num">Estimate (hrs)</th></tr></thead><tbody>${migStreamRows}
 <tr class="total-row"><td>Migration TOTAL</td><td class="num">${pdCell(migPD)}</td></tr></tbody></table></div>
 </div>
 </section>
 
 <section id="estimates">
-<h2 class="sec">Estimates <span class="found">(person-days · Best / Expected / High)</span></h2>
+<h2 class="sec">Estimates <span class="found">(hours · 8h/day basis · Best / Expected / High)</span></h2>
 <table><thead><tr><th>Area</th><th class="num">Best</th><th class="num">Expected</th><th class="num">High</th></tr></thead>
 <tbody>${estRows}
-<tr class="grand"><td>TOTAL</td><td class="num">${rnd(TOTAL[0])}</td><td class="num">${rnd(TOTAL[1])}</td><td class="num">${rnd(TOTAL[2])}</td></tr></tbody></table>
-<p class="lead"><b>Expected ≈ ${rnd(TOTAL[1])} person-days</b> (~${Math.round(rnd(TOTAL[1]) / 21)} person-months). Range <b>${rnd(TOTAL[0])}–${rnd(TOTAL[2])} pd</b>. Reusable blocks are counted once; page volume (${edsReps.length} live pages) mainly affects migration &amp; QA.</p>
+<tr class="grand"><td>TOTAL (hours)</td><td class="num">${H(TOTAL[0])}</td><td class="num">${H(TOTAL[1])}</td><td class="num">${H(TOTAL[2])}</td></tr></tbody></table>
+<p class="lead"><b>Expected ≈ ${H(TOTAL[1])} hours</b>. Range <b>${H(TOTAL[0])}–${H(TOTAL[2])} hours</b>. Reusable blocks are counted once; page volume (${edsReps.length} live pages) mainly affects migration &amp; QA.</p>
 </section>
 
 <section id="notes">
@@ -445,7 +449,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 </div>
 </section>
 
-<footer>Dentsply Sirona /en → EDS · Discovery dashboard · Generated 2026-08-19 · ${pages.length} URLs analyzed · ${edsReps.length} live pages · Person-days (8h/day), planning-grade.</footer>
+<footer>Dentsply Sirona /en → EDS · Discovery dashboard · Generated 2026-08-19 · ${pages.length} URLs analyzed · ${edsReps.length} live pages · Effort in hours (8h/day), planning-grade.</footer>
 </div>
 <script>
 function filterPages(){
@@ -470,4 +474,4 @@ fs.writeFileSync(path.join(DATA, 'estimate-model.json'), JSON.stringify({ templa
 
 console.log('Wrote dashboard.html + 6 CSVs + estimate-model.json');
 console.log('URLs', pages.length, '| live pages', edsReps.length, '| templates', templates.length, '| blocks', BLOCKS.length, '| variations', totalVariations, '| integrations', INTEG.length);
-console.log('TOTAL person-days  Best', rnd(TOTAL[0]), '| Expected', rnd(TOTAL[1]), '| High', rnd(TOTAL[2]));
+console.log('TOTAL hours  Best', H(TOTAL[0]), '| Expected', H(TOTAL[1]), '| High', H(TOTAL[2]));
