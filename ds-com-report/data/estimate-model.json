@@ -858,92 +858,27 @@
         "expd": 6,
         "high": 9
       }
-    ],
-    "migPD": [
-      75.3625,
-      104.15,
-      149.21
     ]
   },
   "estimate": [
     [
       "EDS setup / Foundation",
-      [
-        4,
-        6,
-        9
-      ]
+      72
     ],
     [
-      "Global components",
-      [
-        17.5,
-        25,
-        35.5
-      ]
+      "Block development (incl. global components)",
+      240
     ],
     [
-      "Blocks (reusable, built once)",
-      [
-        31.5,
-        43.5,
-        63
-      ]
-    ],
-    [
-      "Templates",
-      [
-        14.5,
-        21,
-        30.5
-      ]
-    ],
-    [
-      "Integrations",
-      [
-        17,
-        26,
-        37.5
-      ]
+      "Third-party integrations",
+      208
     ],
     [
       "Content migration",
-      [
-        75.3625,
-        104.15,
-        149.21
-      ]
-    ],
-    [
-      "QA / Testing",
-      [
-        6,
-        9,
-        13
-      ]
-    ],
-    [
-      "Accessibility / SEO / Performance",
-      [
-        4,
-        6,
-        9
-      ]
-    ],
-    [
-      "UAT & production readiness",
-      [
-        4,
-        6,
-        9
-      ]
+      300
     ]
   ],
-  "total": [
-    173.8625,
-    246.65,
-    355.71000000000004
-  ],
+  "totalHours": 820,
   "counts": {
     "urls": 478,
     "livePages": 329,

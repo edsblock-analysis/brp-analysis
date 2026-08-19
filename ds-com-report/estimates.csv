@@ -1,11 +1,6 @@
-Area,Best (hrs),Expected (hrs),High (hrs)
-EDS setup / Foundation,32,48,72
-Global components,140,200,284
-"Blocks (reusable, built once)",252,348,504
-Templates,116,168,244
-Integrations,136,208,300
-Content migration,603,833,1194
-QA / Testing,48,72,104
-Accessibility / SEO / Performance,32,48,72
-UAT & production readiness,32,48,72
-TOTAL,1391,1973,2846
+Area,Expected (hrs)
+EDS setup / Foundation,72
+Block development (incl. global components),240
+Third-party integrations,208
+Content migration,300
+TOTAL,820

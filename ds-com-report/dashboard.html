@@ -59,8 +59,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
   <span class="step">15 blocks</span><span class="arr">→</span>
   <span class="step">42 variations</span><span class="arr">→</span>
   <span class="step">10 integrations</span><span class="arr">→</span>
-  <span class="step">833h migration</span><span class="arr">→</span>
-  <span class="step" style="background:#dcfce7;border-color:#a7e0bd">1973h total (Expected)</span>
+  <span class="step">300h migration</span><span class="arr">→</span>
+  <span class="step" style="background:#dcfce7;border-color:#a7e0bd">820h total</span>
 </div>
 <div class="kpis">
   <div class="kpi"><div class="n">478</div><div class="l">URLs in list</div></div>
@@ -70,11 +70,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
   <div class="kpi alt"><div class="n">15</div><div class="l">Blocks</div></div>
   <div class="kpi alt"><div class="n">42</div><div class="l">Variations</div></div>
   <div class="kpi"><div class="n">10</div><div class="l">Integrations</div></div>
-  <div class="kpi"><div class="n">1391h</div><div class="l">Best</div></div>
-  <div class="kpi alt"><div class="n">1973h</div><div class="l">Expected</div></div>
-  <div class="kpi"><div class="n">2846h</div><div class="l">High</div></div>
+  <div class="kpi alt"><div class="n">240h</div><div class="l">Block dev</div></div>
+  <div class="kpi alt"><div class="n">300h</div><div class="l">Content migration</div></div>
+  <div class="kpi alt"><div class="n">820h</div><div class="l">Total</div></div>
 </div>
-<p class="lead">The <code>/en</code> set is <b>content/marketing-heavy</b> (Explore, Discover, Academy) with minimal commerce (1 shop-home page in scope). 478 source URLs include <b>195 redirects</b> that collapse to <b>329 distinct live pages</b> across <b>10 templates</b>, built from <b>15 reusable blocks (42 variations)</b>. Answers: <b>(1)</b> ~10 unique templates · <b>(2)</b> 15 blocks / 42 variations · <b>(3)</b> 10 integrations · <b>(4)</b> build ≈ 972h · <b>(5)</b> migration ≈ 833h · <b>(6)</b> total <b>1391–2846h (Expected 1973h)</b> · <b>(7)</b> see Assumptions/Risks.</p>
+<p class="lead">The <code>/en</code> set is <b>content/marketing-heavy</b> (Explore, Discover, Academy) with minimal commerce (1 shop-home page in scope). 478 source URLs include <b>195 redirects</b> that collapse to <b>329 distinct live pages</b> across <b>10 templates</b>, built from <b>15 reusable blocks (42 variations)</b>. Answers: <b>(1)</b> ~10 unique templates · <b>(2)</b> 15 blocks / 42 variations · <b>(3)</b> 10 integrations · <b>(4)</b> build ≈ 520h (setup + block dev + integrations) · <b>(5)</b> content migration ≈ 300h · <b>(6)</b> total <b>820h</b> · <b>(7)</b> see Assumptions/Risks.</p>
 </section>
 
 <section id="pages">
@@ -3435,7 +3435,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 
 <section id="templates">
 <h2 class="sec">Templates <span class="found">(10)</span></h2>
-<p class="lead">Unique page structures. Effort is EDS template scaffolding/block wiring (per-page authoring is in Migration). Best / <b>Expected</b> / High hours.</p>
+<p class="lead">Unique page structures (informational — template scaffolding is absorbed into block development in the consolidated estimate). Effort shown is Expected hours.</p>
 <table><thead><tr><th>Template</th><th class="num">Pages</th><th>Example URLs</th><th>Blocks</th><th>Complexity</th><th class="num">Estimate (hrs)</th></tr></thead>
 <tbody><tr>
   <td><b>Brand / Product Page</b><div class="found">brand-page-template · Product / Brand</div></td>
@@ -3443,71 +3443,71 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
   <td class="found"><a href="https://www.dentsplysirona.com/en/discover/discover-by-brand/ankylos.html" target="_blank" rel="noopener">/en/discover/discover-by-brand/ankylos.html</a><br><a href="https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system-ev.html" target="_blank" rel="noopener">/en/discover/discover-by-brand/astra-tech-implant-system-ev.html</a><br><a href="https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system.html" target="_blank" rel="noopener">/en/discover/discover-by-brand/astra-tech-implant-system.html</a></td>
   <td class="found">Hero, Feature / Media Row, Cards, Carousel, Accordion, Tabs, Step, Video, Rich Text</td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">12 / <b>16</b> / 24</td></tr>
+  <td class="num">16</td></tr>
 <tr>
   <td><b>Explore / Category Landing</b><div class="found">explore-page-template · Category / Landing</div></td>
   <td class="num">87</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en-us/legal/terms-of-use.html" target="_blank" rel="noopener">/en-us/legal/terms-of-use.html</a><br><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">/en</a><br><a href="https://www.dentsplysirona.com/en/learn" target="_blank" rel="noopener">/en/learn</a></td>
   <td class="found">Hero, Feature / Media Row, Cards, Carousel, Teaser / Promo, Banner, Video, Rich Text</td>
   <td><span class="cx cx-High">High</span></td>
-  <td class="num">16 / <b>24</b> / 32</td></tr>
+  <td class="num">24</td></tr>
 <tr>
   <td><b>Basic Content Page</b><div class="found">basic-template0 · Content</div></td>
   <td class="num">79</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/all-countries/view-all-country-websites.html" target="_blank" rel="noopener">/en/all-countries/view-all-country-websites.html</a><br><a href="https://www.dentsplysirona.com/en/company/careers/locations.html" target="_blank" rel="noopener">/en/company/careers/locations.html</a><br><a href="https://www.dentsplysirona.com/en/company/careers/our-teams.html" target="_blank" rel="noopener">/en/company/careers/our-teams.html</a></td>
   <td class="found">Hero, Rich Text, Cards, Accordion, Embed</td>
   <td><span class="cx cx-Low">Low</span></td>
-  <td class="num">8 / <b>12</b> / 16</td></tr>
+  <td class="num">12</td></tr>
 <tr>
   <td><b>Discover Hub / Homepage</b><div class="found">discover-homepage1 · Hub / Landing</div></td>
   <td class="num">18</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/academy/ce/courses.html" target="_blank" rel="noopener">/en/academy/ce/courses.html</a><br><a href="https://www.dentsplysirona.com/en/academy/ce/videos.html" target="_blank" rel="noopener">/en/academy/ce/videos.html</a><br><a href="https://www.dentsplysirona.com/en/academy/course-series.html" target="_blank" rel="noopener">/en/academy/course-series.html</a></td>
   <td class="found">Hero, Carousel, Cards, Teaser / Promo, Video</td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">12 / <b>16</b> / 24</td></tr>
+  <td class="num">16</td></tr>
 <tr>
   <td><b>Academy — Course Listing</b><div class="found">academy-course-listings-page · Listing (Coveo)</div></td>
   <td class="num">9</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/academy/ce/courses/dental-lab.html" target="_blank" rel="noopener">/en/academy/ce/courses/dental-lab.html</a><br><a href="https://www.dentsplysirona.com/en/academy/ce/courses/digital-dentistry-cbct.html" target="_blank" rel="noopener">/en/academy/ce/courses/digital-dentistry-cbct.html</a><br><a href="https://www.dentsplysirona.com/en/academy/ce/courses/implant-dentistry.html" target="_blank" rel="noopener">/en/academy/ce/courses/implant-dentistry.html</a></td>
   <td class="found">Hero, Course Listing (Coveo), Cards, Filter</td>
   <td><span class="cx cx-High">High</span></td>
-  <td class="num">16 / <b>24</b> / 32</td></tr>
+  <td class="num">24</td></tr>
 <tr>
   <td><b>Article / Editorial Detail</b><div class="found">article-details · Editorial</div></td>
   <td class="num">8</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/digital-dentistry/what-is-new-on-ds-core.html" target="_blank" rel="noopener">/en/discover/discover-by-topic/by-category/digital-dentistry/what-is-new-on-ds-core.html</a><br><a href="https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/class-II-depth-of-cure.html" target="_blank" rel="noopener">/en/discover/discover-by-topic/by-category/restorative/class-II-depth-of-cure.html</a><br><a href="https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/class-II-shade-matching-ceram-x-spectra-st.html" target="_blank" rel="noopener">/en/discover/discover-by-topic/by-category/restorative/class-II-shade-matching-ceram-x-spectra-st.html</a></td>
   <td class="found">Article Hero, Rich Text, Cards, Video</td>
   <td><span class="cx cx-Low">Low</span></td>
-  <td class="num">8 / <b>12</b> / 16</td></tr>
+  <td class="num">12</td></tr>
 <tr>
   <td><b>Academy — Content</b><div class="found">academy-content-page · Content</div></td>
   <td class="num">6</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/academy/about-academy.html" target="_blank" rel="noopener">/en/academy/about-academy.html</a><br><a href="https://www.dentsplysirona.com/en/academy/about-academy/partnerships.html" target="_blank" rel="noopener">/en/academy/about-academy/partnerships.html</a><br><a href="https://www.dentsplysirona.com/en/academy/about-academy/research-grants.html" target="_blank" rel="noopener">/en/academy/about-academy/research-grants.html</a></td>
   <td class="found">Hero, Rich Text, Cards, Accordion</td>
   <td><span class="cx cx-Low">Low</span></td>
-  <td class="num">8 / <b>12</b> / 16</td></tr>
+  <td class="num">12</td></tr>
 <tr>
   <td><b>Academy — Study</b><div class="found">academy-study-template · Editorial</div></td>
   <td class="num">1</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/academy/research-and-articles/atlantis-case-study-review.html" target="_blank" rel="noopener">/en/academy/research-and-articles/atlantis-case-study-review.html</a></td>
   <td class="found">Hero, Rich Text, Step, Cards</td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">8 / <b>12</b> / 20</td></tr>
+  <td class="num">12</td></tr>
 <tr>
   <td><b>Support — Contact</b><div class="found">customer-support-contact-us-template · Form / Contact</div></td>
   <td class="num">1</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/customer-support/contact-us.html" target="_blank" rel="noopener">/en/customer-support/contact-us.html</a></td>
   <td class="found">Hero, Form (AEM Forms), Contact Cards, Embed</td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">12 / <b>16</b> / 24</td></tr>
+  <td class="num">16</td></tr>
 <tr>
   <td><b>Shop Home (Hybris)</b><div class="found">shop-home-page-template · Commerce (Hybris)</div></td>
   <td class="num">1</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/shop" target="_blank" rel="noopener">/en/shop</a></td>
   <td class="found">Shop Hero, Carousel, Cards, Commerce widgets</td>
   <td><span class="cx cx-High">High</span></td>
-  <td class="num">16 / <b>24</b> / 40</td></tr>
-<tr class="total-row"><td>TOTAL — 10 templates</td><td class="num">329</td><td colspan="3"></td><td class="num">116 / <b>168</b> / 244</td></tr></tbody></table>
+  <td class="num">24</td></tr>
+<tr class="total-row"><td>TOTAL — 10 templates</td><td class="num">329</td><td colspan="3"></td><td class="num">168</td></tr></tbody></table>
 </section>
 
 <section id="blocks">
@@ -3520,181 +3520,176 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
   <td class="num">86</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en-us/legal/terms-of-use.html" target="_blank" rel="noopener">terms-of-use.html</a><br><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">en</a><br><a href="https://www.dentsplysirona.com/en/learn" target="_blank" rel="noopener">learn</a></td>
   <td><span class="cx cx-High">Complex</span></td>
-  <td class="num">24 / <b>32</b> / 48</td></tr>
+  <td class="num">32</td></tr>
 <tr>
   <td><b>Feature / Media Row</b><div class="found">Alternating image/text content rows with optional CTA (workhorse marketing block).</div></td>
   <td class="found"><span class="tag">Media left</span> <span class="tag">Media right</span> <span class="tag">Background</span> <span class="tag">With CTA</span></td>
   <td class="num">329</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en-us/legal/terms-of-use.html" target="_blank" rel="noopener">terms-of-use.html</a><br><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">en</a><br><a href="https://www.dentsplysirona.com/en/learn" target="_blank" rel="noopener">learn</a></td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">20 / <b>28</b> / 40</td></tr>
+  <td class="num">28</td></tr>
 <tr>
   <td><b>Cards</b><div class="found">Card grids: icon, download (asset), video, image-tile, jump/anchor, course cards.</div></td>
   <td class="found"><span class="tag">Icon</span> <span class="tag">Download</span> <span class="tag">Video</span> <span class="tag">Image-tile</span> <span class="tag">Jump</span> <span class="tag">Course</span></td>
   <td class="num">64</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">en</a><br><a href="https://www.dentsplysirona.com/en/learn" target="_blank" rel="noopener">learn</a><br><a href="https://www.dentsplysirona.com/en/why-ds/our-company/sustainability.html" target="_blank" rel="noopener">sustainability.html</a></td>
   <td><span class="cx cx-High">Complex</span></td>
-  <td class="num">28 / <b>40</b> / 56</td></tr>
+  <td class="num">40</td></tr>
 <tr>
   <td><b>Carousel / Slider</b><div class="found">Rotating content carousels + Swiper sliders (very high reuse).</div></td>
   <td class="found"><span class="tag">Core carousel</span> <span class="tag">Swiper</span> <span class="tag">Scrollable</span></td>
   <td class="num">177</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">en</a><br><a href="https://www.dentsplysirona.com/en/learn" target="_blank" rel="noopener">learn</a><br><a href="https://www.dentsplysirona.com/en/academy/about-academy.html" target="_blank" rel="noopener">about-academy.html</a></td>
   <td><span class="cx cx-High">Complex</span></td>
-  <td class="num">24 / <b>32</b> / 48</td></tr>
+  <td class="num">32</td></tr>
 <tr>
   <td><b>Teaser / Promo</b><div class="found">Promotional teasers and promo/banner-ad cards.</div></td>
   <td class="found"><span class="tag">Teaser</span> <span class="tag">Promo card</span> <span class="tag">Banner ad</span></td>
   <td class="num">63</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">en</a><br><a href="https://www.dentsplysirona.com/en/learn" target="_blank" rel="noopener">learn</a><br><a href="https://www.dentsplysirona.com/en/why-ds/our-company/sustainability.html" target="_blank" rel="noopener">sustainability.html</a></td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">16 / <b>24</b> / 32</td></tr>
+  <td class="num">24</td></tr>
 <tr>
   <td><b>Accordion</b><div class="found">Expand/collapse FAQ &amp; content groups.</div></td>
   <td class="found"><span class="tag">Default</span> <span class="tag">FAQ</span></td>
   <td class="num">42</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/support" target="_blank" rel="noopener">support</a><br><a href="https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html" target="_blank" rel="noopener">atlantis-abutment.html</a><br><a href="https://www.dentsplysirona.com/en/explore/restorative/brands/other/cerec-cercon-4d.html" target="_blank" rel="noopener">cerec-cercon-4d.html</a></td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">12 / <b>16</b> / 24</td></tr>
+  <td class="num">16</td></tr>
 <tr>
   <td><b>Tabs</b><div class="found">Tabbed content panels.</div></td>
   <td class="found"><span class="tag">Default</span></td>
   <td class="num">7</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/discover/discover-by-brand/atlantis.html" target="_blank" rel="noopener">atlantis.html</a><br><a href="https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/infection-prevention-for-treatment-centers-.html" target="_blank" rel="noopener">infection-prevention-for-treatment-centers-.html</a><br><a href="https://www.dentsplysirona.com/en/discover/discover-by-brand/sicat.html" target="_blank" rel="noopener">sicat.html</a></td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">12 / <b>20</b> / 28</td></tr>
+  <td class="num">20</td></tr>
 <tr>
   <td><b>Step / Process</b><div class="found">Numbered step / how-it-works sequences.</div></td>
   <td class="found"><span class="tag">Default</span></td>
   <td class="num">37</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/why-ds/our-company/sustainability.html" target="_blank" rel="noopener">sustainability.html</a><br><a href="https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html" target="_blank" rel="noopener">atlantis-abutment.html</a><br><a href="https://www.dentsplysirona.com/en/explore/restorative/brands/other/cerec-cercon-4d.html" target="_blank" rel="noopener">cerec-cercon-4d.html</a></td>
   <td><span class="cx cx-Low">Simple</span></td>
-  <td class="num">8 / <b>12</b> / 16</td></tr>
+  <td class="num">12</td></tr>
 <tr>
   <td><b>Video</b><div class="found">Embedded YouTube/Vimeo with lazy facade.</div></td>
   <td class="found"><span class="tag">YouTube</span> <span class="tag">Vimeo</span> <span class="tag">Video card</span></td>
   <td class="num">48</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/discover/discover-by-brand/ankylos.html" target="_blank" rel="noopener">ankylos.html</a><br><a href="https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system-ev.html" target="_blank" rel="noopener">astra-tech-implant-system-ev.html</a><br><a href="https://www.dentsplysirona.com/en/discover/discover-by-brand/atlantis/atlantis-suprastructures.html" target="_blank" rel="noopener">atlantis-suprastructures.html</a></td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">12 / <b>16</b> / 24</td></tr>
+  <td class="num">16</td></tr>
 <tr>
   <td><b>Banner / Callout</b><div class="found">Promo banners and callout strips.</div></td>
   <td class="found"><span class="tag">Banner</span> <span class="tag">Callout</span></td>
   <td class="num">33</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/why-ds/our-company/sustainability.html" target="_blank" rel="noopener">sustainability.html</a><br><a href="https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html" target="_blank" rel="noopener">atlantis-abutment.html</a><br><a href="https://www.dentsplysirona.com/en/explore/restorative/brands/other/cerec-cercon-4d.html" target="_blank" rel="noopener">cerec-cercon-4d.html</a></td>
   <td><span class="cx cx-Low">Simple</span></td>
-  <td class="num">8 / <b>12</b> / 16</td></tr>
+  <td class="num">12</td></tr>
 <tr>
   <td><b>Embed</b><div class="found">Generic third-party / iframe embeds preserved as-is.</div></td>
   <td class="found"><span class="tag">iFrame</span> <span class="tag">Script</span></td>
   <td class="num">128</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en-us/legal/terms-of-use.html" target="_blank" rel="noopener">terms-of-use.html</a><br><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">en</a><br><a href="https://www.dentsplysirona.com/en/learn" target="_blank" rel="noopener">learn</a></td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">12 / <b>16</b> / 24</td></tr>
+  <td class="num">16</td></tr>
 <tr>
   <td><b>Rich Text / Title / Image</b><div class="found">Core authored content: rich text, titles, standalone Scene7 images, spacing/separators.</div></td>
   <td class="found"><span class="tag">Text</span> <span class="tag">Title</span> <span class="tag">Image</span></td>
   <td class="num">329</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en-us/legal/terms-of-use.html" target="_blank" rel="noopener">terms-of-use.html</a><br><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">en</a><br><a href="https://www.dentsplysirona.com/en/learn" target="_blank" rel="noopener">learn</a></td>
   <td><span class="cx cx-Low">Simple</span></td>
-  <td class="num">12 / <b>16</b> / 24</td></tr>
+  <td class="num">16</td></tr>
 <tr>
   <td><b>List / Alphabetical (A–Z)</b><div class="found">Content lists and the A–Z alphabetical brand listing.</div></td>
   <td class="found"><span class="tag">Content list</span> <span class="tag">Alphabetical A–Z</span></td>
   <td class="num">329</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/explore/all-brands.html" target="_blank" rel="noopener">all-brands.html</a><br><a href="https://www.dentsplysirona.com/en-us/legal/terms-of-use.html" target="_blank" rel="noopener">terms-of-use.html</a><br><a href="https://www.dentsplysirona.com/en" target="_blank" rel="noopener">en</a></td>
   <td><span class="cx cx-Medium">Medium</span></td>
-  <td class="num">16 / <b>20</b> / 28</td></tr>
+  <td class="num">20</td></tr>
 <tr>
   <td><b>Course Listing (Coveo)</b><div class="found">Academy course listing with Coveo-powered filter/sort/pagination.</div></td>
   <td class="found"><span class="tag">Listing</span> <span class="tag">Filtered</span></td>
   <td class="num">9</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/academy/ce/courses/dental-lab.html" target="_blank" rel="noopener">dental-lab.html</a><br><a href="https://www.dentsplysirona.com/en/academy/ce/courses/digital-dentistry-cbct.html" target="_blank" rel="noopener">digital-dentistry-cbct.html</a><br><a href="https://www.dentsplysirona.com/en/academy/ce/courses/implant-dentistry.html" target="_blank" rel="noopener">implant-dentistry.html</a></td>
   <td><span class="cx cx-High">Complex</span></td>
-  <td class="num">24 / <b>32</b> / 48</td></tr>
+  <td class="num">32</td></tr>
 <tr>
   <td><b>Form (AEM Forms)</b><div class="found">Native lead/contact forms (name/email/practice/topic) → CRM routing.</div></td>
   <td class="found"><span class="tag">Contact</span> <span class="tag">Lead</span> <span class="tag">Request</span></td>
   <td class="num">1</td>
   <td class="found"><a href="https://www.dentsplysirona.com/en/customer-support/contact-us.html" target="_blank" rel="noopener">contact-us.html</a></td>
   <td><span class="cx cx-High">Complex</span></td>
-  <td class="num">24 / <b>32</b> / 48</td></tr>
-<tr class="total-row"><td>TOTAL — 15 blocks</td><td class="num">42 var.</td><td class="num">—</td><td colspan="2"></td><td class="num">252 / <b>348</b> / 504</td></tr></tbody></table>
+  <td class="num">32</td></tr>
+<tr class="total-row"><td>TOTAL — 15 blocks</td><td class="num">42 var.</td><td class="num">—</td><td colspan="2"></td><td class="num">348</td></tr></tbody></table>
 </section>
 
 <section id="global">
 <h2 class="sec">Global Components</h2>
 <table><thead><tr><th>Component</th><th>Complexity</th><th class="num">Estimate (hrs)</th></tr></thead>
-<tbody><tr><td><b>Header + Mega-menu</b><div class="found">Multi-level mega-menu, utility nav, language navigation.</div></td><td><span class="cx cx-High">Complex</span></td><td class="num">32 / <b>48</b> / 64</td></tr>
-<tr><td><b>Footer</b><div class="found">Multi-column footer + social + legal + language nav.</div></td><td><span class="cx cx-Medium">Medium</span></td><td class="num">12 / <b>16</b> / 24</td></tr>
-<tr><td><b>Search (Coveo)</b><div class="found">Site search + type-ahead suggestions wired to Coveo org + searchkey token service.</div></td><td><span class="cx cx-High">Complex</span></td><td class="num">32 / <b>40</b> / 56</td></tr>
-<tr><td><b>Breadcrumbs</b><div class="found">Path breadcrumb (auto-block from path/metadata).</div></td><td><span class="cx cx-Low">Simple</span></td><td class="num">4 / <b>8</b> / 12</td></tr>
-<tr><td><b>Cookie Consent (OneTrust)</b><div class="found">Consent banner + tag gating in delayed phase.</div></td><td><span class="cx cx-Medium">Medium</span></td><td class="num">8 / <b>12</b> / 16</td></tr>
-<tr><td><b>Analytics (Adobe Launch + data layer)</b><div class="found">Launch embed + digitalData data-layer parity so downstream tags fire.</div></td><td><span class="cx cx-High">Complex</span></td><td class="num">24 / <b>32</b> / 48</td></tr>
-<tr><td><b>SEO / Schema / Metadata</b><div class="found">Canonicals, OG, structured data, sitemap, per-page metadata framework.</div></td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16 / <b>24</b> / 32</td></tr>
-<tr><td><b>Redirect map (SEO parity)</b><div class="found">Recreate legacy→canonical redirects (195 observed among source URLs).</div></td><td><span class="cx cx-Medium">Medium</span></td><td class="num">12 / <b>20</b> / 32</td></tr>
-<tr class="total-row"><td>TOTAL — 8 global components</td><td>—</td><td class="num">140 / <b>200</b> / 284</td></tr></tbody></table>
+<tbody><tr><td><b>Header + Mega-menu</b><div class="found">Multi-level mega-menu, utility nav, language navigation.</div></td><td><span class="cx cx-High">Complex</span></td><td class="num">48</td></tr>
+<tr><td><b>Footer</b><div class="found">Multi-column footer + social + legal + language nav.</div></td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16</td></tr>
+<tr><td><b>Search (Coveo)</b><div class="found">Site search + type-ahead suggestions wired to Coveo org + searchkey token service.</div></td><td><span class="cx cx-High">Complex</span></td><td class="num">40</td></tr>
+<tr><td><b>Breadcrumbs</b><div class="found">Path breadcrumb (auto-block from path/metadata).</div></td><td><span class="cx cx-Low">Simple</span></td><td class="num">8</td></tr>
+<tr><td><b>Cookie Consent (OneTrust)</b><div class="found">Consent banner + tag gating in delayed phase.</div></td><td><span class="cx cx-Medium">Medium</span></td><td class="num">12</td></tr>
+<tr><td><b>Analytics (Adobe Launch + data layer)</b><div class="found">Launch embed + digitalData data-layer parity so downstream tags fire.</div></td><td><span class="cx cx-High">Complex</span></td><td class="num">32</td></tr>
+<tr><td><b>SEO / Schema / Metadata</b><div class="found">Canonicals, OG, structured data, sitemap, per-page metadata framework.</div></td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24</td></tr>
+<tr><td><b>Redirect map (SEO parity)</b><div class="found">Recreate legacy→canonical redirects (195 observed among source URLs).</div></td><td><span class="cx cx-Medium">Medium</span></td><td class="num">20</td></tr>
+<tr class="total-row"><td>TOTAL — 8 global components</td><td>—</td><td class="num">200</td></tr></tbody></table>
 </section>
 
 <section id="integ">
 <h2 class="sec">Third-Party Integrations <span class="found">(10)</span></h2>
 <p class="lead">"Pages" = pages where observed. Items assumed from the /en-us live-network capture are marked <span class="tag nv">Needs Validation</span>.</p>
 <table><thead><tr><th>Integration</th><th class="num">Pages</th><th>Purpose</th><th>EDS Approach</th><th>Complexity</th><th class="num">Estimate (hrs)</th></tr></thead>
-<tbody><tr><td><b>Adobe Launch (Tag Manager)</b></td><td class="num">470</td><td class="found">Loads analytics/marketing tags + owns digitalData layer.</td><td class="found">Re-add via delayed.js; rebuild data layer.</td><td><span class="cx cx-High">Complex</span></td><td class="num">24 / <b>32</b> / 48</td></tr>
-<tr><td><b>Adobe Analytics</b> <span class="tag nv">Needs Validation</span></td><td class="num">470</td><td class="found">Web analytics via Launch.</td><td class="found">Fires through Launch; re-instate as observed.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">8 / <b>12</b> / 20</td></tr>
-<tr><td><b>Adobe Scene7 / Dynamic Media</b></td><td class="num">470</td><td class="found">DAM image/video delivery.</td><td class="found">Keep Scene7 URLs or serve via EDS images.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16 / <b>24</b> / 32</td></tr>
-<tr><td><b>Coveo Search</b></td><td class="num">470</td><td class="found">Site search + suggestions + Academy course listing.</td><td class="found">Search + listing blocks wired to Coveo org; reuse searchkey service.</td><td><span class="cx cx-High">Complex</span></td><td class="num">32 / <b>48</b> / 64</td></tr>
-<tr><td><b>SAP Hybris + Commerce GraphQL</b> <span class="tag nv">Needs Validation</span></td><td class="num">470</td><td class="found">Commerce config present site-wide; only 1 shop-home page in this set.</td><td class="found">Minimal for /en: link to storefront; consume GraphQL only if shop pages are built.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16 / <b>24</b> / 40</td></tr>
-<tr><td><b>OneTrust (Consent)</b></td><td class="num">470</td><td class="found">Cookie consent + geo banner; gates tags.</td><td class="found">Load delayed with same config.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">8 / <b>12</b> / 16</td></tr>
-<tr><td><b>reCAPTCHA v3</b></td><td class="num">470</td><td class="found">Bot protection on forms/search.</td><td class="found">Re-add on EDS forms; keys from DS.</td><td><span class="cx cx-Low">Simple</span></td><td class="num">4 / <b>8</b> / 12</td></tr>
-<tr><td><b>YouTube / Vimeo</b></td><td class="num">53</td><td class="found">Video embeds in content.</td><td class="found">Lazy facade video block.</td><td><span class="cx cx-Low">Simple</span></td><td class="num">4 / <b>8</b> / 12</td></tr>
-<tr><td><b>Salesforce (CRM + Live Agent)</b> <span class="tag nv">Needs Validation</span></td><td class="num">470</td><td class="found">CRM lead routing + live chat (seen site-wide in /en-us; assumed same).</td><td class="found">Re-embed chat/CRM snippet; forms route to Salesforce.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16 / <b>24</b> / 32</td></tr>
-<tr><td><b>ContentSquare / Heap / Google Ads</b> <span class="tag nv">Needs Validation</span></td><td class="num">470</td><td class="found">Runtime analytics/marketing tags injected by Launch (not in static HTML).</td><td class="found">Re-instated with Launch + data layer; consent-gated.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">8 / <b>16</b> / 24</td></tr>
-<tr class="total-row"><td>TOTAL — 10 integrations</td><td class="num">—</td><td colspan="2"></td><td>—</td><td class="num">136 / <b>208</b> / 300</td></tr></tbody></table>
+<tbody><tr><td><b>Adobe Launch (Tag Manager)</b></td><td class="num">470</td><td class="found">Loads analytics/marketing tags + owns digitalData layer.</td><td class="found">Re-add via delayed.js; rebuild data layer.</td><td><span class="cx cx-High">Complex</span></td><td class="num">32</td></tr>
+<tr><td><b>Adobe Analytics</b> <span class="tag nv">Needs Validation</span></td><td class="num">470</td><td class="found">Web analytics via Launch.</td><td class="found">Fires through Launch; re-instate as observed.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">12</td></tr>
+<tr><td><b>Adobe Scene7 / Dynamic Media</b></td><td class="num">470</td><td class="found">DAM image/video delivery.</td><td class="found">Keep Scene7 URLs or serve via EDS images.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24</td></tr>
+<tr><td><b>Coveo Search</b></td><td class="num">470</td><td class="found">Site search + suggestions + Academy course listing.</td><td class="found">Search + listing blocks wired to Coveo org; reuse searchkey service.</td><td><span class="cx cx-High">Complex</span></td><td class="num">48</td></tr>
+<tr><td><b>SAP Hybris + Commerce GraphQL</b> <span class="tag nv">Needs Validation</span></td><td class="num">470</td><td class="found">Commerce config present site-wide; only 1 shop-home page in this set.</td><td class="found">Minimal for /en: link to storefront; consume GraphQL only if shop pages are built.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24</td></tr>
+<tr><td><b>OneTrust (Consent)</b></td><td class="num">470</td><td class="found">Cookie consent + geo banner; gates tags.</td><td class="found">Load delayed with same config.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">12</td></tr>
+<tr><td><b>reCAPTCHA v3</b></td><td class="num">470</td><td class="found">Bot protection on forms/search.</td><td class="found">Re-add on EDS forms; keys from DS.</td><td><span class="cx cx-Low">Simple</span></td><td class="num">8</td></tr>
+<tr><td><b>YouTube / Vimeo</b></td><td class="num">53</td><td class="found">Video embeds in content.</td><td class="found">Lazy facade video block.</td><td><span class="cx cx-Low">Simple</span></td><td class="num">8</td></tr>
+<tr><td><b>Salesforce (CRM + Live Agent)</b> <span class="tag nv">Needs Validation</span></td><td class="num">470</td><td class="found">CRM lead routing + live chat (seen site-wide in /en-us; assumed same).</td><td class="found">Re-embed chat/CRM snippet; forms route to Salesforce.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">24</td></tr>
+<tr><td><b>ContentSquare / Heap / Google Ads</b> <span class="tag nv">Needs Validation</span></td><td class="num">470</td><td class="found">Runtime analytics/marketing tags injected by Launch (not in static HTML).</td><td class="found">Re-instated with Launch + data layer; consent-gated.</td><td><span class="cx cx-Medium">Medium</span></td><td class="num">16</td></tr>
+<tr class="total-row"><td>TOTAL — 10 integrations</td><td class="num">—</td><td colspan="2"></td><td>—</td><td class="num">208</td></tr></tbody></table>
 </section>
 
 <section id="migration">
 <h2 class="sec">Content Migration</h2>
-<p class="lead">Pages classified by method; volume drives migration + QA (not block dev). Rates are assumptions (see below).</p>
+<p class="lead">Pages classified by method (indicative sizing — the consolidated estimate carries the agreed <b>300h</b> for content migration). Rates are assumptions (see below).</p>
 <div class="cols">
 <div><h4 style="margin:4px 0;font-size:14px">By method</h4>
-<table><thead><tr><th>Method</th><th class="num">Pages</th><th class="num">Rate</th><th class="num">Execution (hrs)</th></tr></thead><tbody><tr><td><b>Automated</b><div class="found">Academy — Content, Basic Content Page, Article / Editorial Detail</div></td><td class="num">93</td><td class="num">12/day</td><td class="num">47 / <b>62</b> / 87</td></tr>
-<tr><td><b>Semi-Automated</b><div class="found">Discover Hub / Homepage, Academy — Study, Brand / Product Page</div></td><td class="num">138</td><td class="num">5/day</td><td class="num">166 / <b>221</b> / 309</td></tr>
-<tr><td><b>Manual</b><div class="found">Explore / Category Landing, Academy — Course Listing, Support — Contact</div></td><td class="num">97</td><td class="num">2.5/day</td><td class="num">233 / <b>310</b> / 435</td></tr>
-<tr><td><b>Recreate</b><div class="found">Shop Home (Hybris)</div></td><td class="num">1</td><td class="num">1/day</td><td class="num">6 / <b>8</b> / 11</td></tr>
-<tr class="total-row"><td>Execution subtotal</td><td class="num">329</td><td class="num">—</td><td class="num">451 / <b>601</b> / 842</td></tr></tbody></table></div>
+<table><thead><tr><th>Method</th><th class="num">Pages</th><th class="num">Rate</th><th class="num">Execution (hrs)</th></tr></thead><tbody><tr><td><b>Automated</b><div class="found">Academy — Content, Basic Content Page, Article / Editorial Detail</div></td><td class="num">93</td><td class="num">12/day</td><td class="num">62</td></tr>
+<tr><td><b>Semi-Automated</b><div class="found">Discover Hub / Homepage, Academy — Study, Brand / Product Page</div></td><td class="num">138</td><td class="num">5/day</td><td class="num">221</td></tr>
+<tr><td><b>Manual</b><div class="found">Explore / Category Landing, Academy — Course Listing, Support — Contact</div></td><td class="num">97</td><td class="num">2.5/day</td><td class="num">310</td></tr>
+<tr><td><b>Recreate</b><div class="found">Shop Home (Hybris)</div></td><td class="num">1</td><td class="num">1/day</td><td class="num">8</td></tr>
+<tr class="total-row"><td>Execution subtotal</td><td class="num">329</td><td class="num">—</td><td class="num">601</td></tr></tbody></table></div>
 <div><h4 style="margin:4px 0;font-size:14px">By stream (tooling + execution + remediation + QA)</h4>
-<table><thead><tr><th>Stream</th><th class="num">Estimate (hrs)</th></tr></thead><tbody><tr><td>Migration tooling (importer, parsers, transforms)</td><td class="num">32 / <b>48</b> / 72</td></tr>
-<tr><td>Migration execution (329 pages by method)</td><td class="num">451 / <b>601</b> / 842</td></tr>
-<tr><td>Asset migration (~8,394 images, Scene7 refs)</td><td class="num">24 / <b>40</b> / 56</td></tr>
-<tr><td>Document / PDF migration (1,303 PDF links)</td><td class="num">16 / <b>24</b> / 40</td></tr>
-<tr><td>Metadata &amp; SEO (22 no-meta, 2 multi-H1) + link fixups</td><td class="num">24 / <b>32</b> / 48</td></tr>
-<tr><td>Remediation (broken links, embeds, redirects)</td><td class="num">24 / <b>40</b> / 64</td></tr>
-<tr><td>Migration QA (spot-check + reconcile)</td><td class="num">32 / <b>48</b> / 72</td></tr>
-<tr class="total-row"><td>Migration TOTAL</td><td class="num">603 / <b>833</b> / 1194</td></tr></tbody></table></div>
+<table><thead><tr><th>Stream</th><th class="num">Estimate (hrs)</th></tr></thead><tbody><tr><td>Migration tooling (importer, parsers, transforms)</td><td class="num">48</td></tr>
+<tr><td>Migration execution (329 pages by method)</td><td class="num">601</td></tr>
+<tr><td>Asset migration (~8,394 images, Scene7 refs)</td><td class="num">40</td></tr>
+<tr><td>Document / PDF migration (1,303 PDF links)</td><td class="num">24</td></tr>
+<tr><td>Metadata &amp; SEO (22 no-meta, 2 multi-H1) + link fixups</td><td class="num">32</td></tr>
+<tr><td>Remediation (broken links, embeds, redirects)</td><td class="num">40</td></tr>
+<tr><td>Migration QA (spot-check + reconcile)</td><td class="num">48</td></tr>
+<tr class="total-row"><td>Migration TOTAL</td><td class="num">833</td></tr></tbody></table></div>
 </div>
 </section>
 
 <section id="estimates">
-<h2 class="sec">Estimates <span class="found">(hours · 8h/day basis · Best / Expected / High)</span></h2>
-<table><thead><tr><th>Area</th><th class="num">Best</th><th class="num">Expected</th><th class="num">High</th></tr></thead>
-<tbody><tr><td>EDS setup / Foundation</td><td class="num">32</td><td class="num ai">48</td><td class="num">72</td></tr>
-<tr><td>Global components</td><td class="num">140</td><td class="num ai">200</td><td class="num">284</td></tr>
-<tr><td>Blocks (reusable, built once)</td><td class="num">252</td><td class="num ai">348</td><td class="num">504</td></tr>
-<tr><td>Templates</td><td class="num">116</td><td class="num ai">168</td><td class="num">244</td></tr>
-<tr><td>Integrations</td><td class="num">136</td><td class="num ai">208</td><td class="num">300</td></tr>
-<tr><td>Content migration</td><td class="num">603</td><td class="num ai">833</td><td class="num">1194</td></tr>
-<tr><td>QA / Testing</td><td class="num">48</td><td class="num ai">72</td><td class="num">104</td></tr>
-<tr><td>Accessibility / SEO / Performance</td><td class="num">32</td><td class="num ai">48</td><td class="num">72</td></tr>
-<tr><td>UAT &amp; production readiness</td><td class="num">32</td><td class="num ai">48</td><td class="num">72</td></tr>
-<tr class="grand"><td>TOTAL (hours)</td><td class="num">1391</td><td class="num">1973</td><td class="num">2846</td></tr></tbody></table>
-<p class="lead"><b>Expected ≈ 1973 hours</b>. Range <b>1391–2846 hours</b>. Reusable blocks are counted once; page volume (329 live pages) mainly affects migration &amp; QA.</p>
+<h2 class="sec">Estimates <span class="found">(Expected hours · 8h/day basis)</span></h2>
+<table><thead><tr><th>Area</th><th class="num">Expected (hrs)</th></tr></thead>
+<tbody><tr><td>EDS setup / Foundation</td><td class="num ai">72</td></tr>
+<tr><td>Block development (incl. global components)</td><td class="num ai">240</td></tr>
+<tr><td>Third-party integrations</td><td class="num ai">208</td></tr>
+<tr><td>Content migration</td><td class="num ai">300</td></tr>
+<tr class="grand"><td>TOTAL (hours)</td><td class="num">820</td></tr></tbody></table>
+<p class="lead"><b>Total ≈ 820 hours</b> — development + content migration only. Setup 72h · block development 240h (includes global components) · integrations 208h (as analysed) · content migration 300h. Reusable blocks are counted once; page volume (329 live pages) is absorbed in content migration.</p>
 </section>
 
 <section id="notes">
 <h2 class="sec">Assumptions · Risks · Unknowns · Needs Validation</h2>
 <div class="cols">
-<div class="card"><h4>Assumptions</h4><ul><li>Estimates are in hours on an 8h/day basis; planning-grade (Best/Expected/High), not a fixed bid.</li><li>Reusable blocks are built ONCE — page volume drives migration &amp; QA, not repeated block dev.</li><li>Scope is the /en global locale set in ds-com.txt; other locales reuse the same blocks/templates (translation excluded).</li><li>Migration rates: Automated 12 pg/day, Semi-Automated 5, Manual 2.5, Recreate 1 (per person).</li><li>Analytics/marketing tags (Launch, ContentSquare, Heap, Google Ads) are re-instated as observed via a rebuilt data layer; new tracking is separate.</li><li>Scene7 assets referenced (or moved to EDS) without re-mastering.</li><li>Coveo search/listing re-wired to the existing org; index/relevance owned by DS search team.</li><li>External subdomains (careers., coresupport.) and the Hybris storefront are linked, not rebuilt.</li><li>The 195 redirecting source URLs collapse to fewer live pages; the redirect MAP is recreated for SEO parity.</li></ul></div>
+<div class="card"><h4>Assumptions</h4><ul><li>Estimates are in hours on an 8h/day basis; planning-grade (Best/Expected/High), not a fixed bid.</li><li>Reusable blocks are built ONCE — page volume drives content migration, not repeated block dev.</li><li>Consolidated estimate uses agreed figures: setup 72h, block development 240h (includes global components), integrations as analysed, content migration 300h. The per-method migration breakdown below is indicative sizing; the estimate carries the agreed 300h.</li><li>Scope is the /en global locale set in ds-com.txt; other locales reuse the same blocks/templates (translation excluded).</li><li>Migration rates: Automated 12 pg/day, Semi-Automated 5, Manual 2.5, Recreate 1 (per person).</li><li>Analytics/marketing tags (Launch, ContentSquare, Heap, Google Ads) are re-instated as observed via a rebuilt data layer; new tracking is separate.</li><li>Scene7 assets referenced (or moved to EDS) without re-mastering.</li><li>Coveo search/listing re-wired to the existing org; index/relevance owned by DS search team.</li><li>External subdomains (careers., coresupport.) and the Hybris storefront are linked, not rebuilt.</li><li>The 195 redirecting source URLs collapse to fewer live pages; the redirect MAP is recreated for SEO parity.</li></ul></div>
 <div class="card"><h4>Risks</h4><ul><li>Commerce scope on /en is ambiguous — Hybris config is site-wide but only 1 shop page appears in this set. If full commerce is required, add PDP/PLP/cart effort (see /en-us analysis).</li><li>The authenticated commerce/account journey was not exercised (auth-gated).</li><li>Coveo relevance/index migration depends on the DS search team's availability.</li><li>Form → CRM (Salesforce) routing and reCAPTCHA keys must be provided by DS.</li><li>The large redirect map (195 URLs) implies ongoing IA churn; the live map must be exported at cutover.</li><li>Runtime-injected tags (ContentSquare/Heap/Google Ads) were confirmed on /en-us via live capture; assumed identical on /en — confirm.</li></ul></div>
 <div class="card"><h4>Unknowns</h4><ul><li>Exact Adobe Analytics report-suite / Launch property for /en.</li><li>Whether /en commerce (shop) pages are in migration scope.</li><li>Personalization / Adobe Target usage (not observed statically — Needs Validation via live capture).</li><li>Total real asset count behind Scene7 (only on-page refs counted).</li><li>DAM re-hosting requirement (keep Scene7 vs migrate).</li></ul></div>
 <div class="card"><h4>Needs Validation</h4><ul><li>Adobe Analytics — report suite/config</li><li>SAP Hybris + Commerce GraphQL — is /en commerce in scope?</li><li>Salesforce (CRM + Live Agent) — confirm on /en + routing</li><li>ContentSquare / Heap / Google Ads — live capture confirmed on /en-us</li></ul></div>

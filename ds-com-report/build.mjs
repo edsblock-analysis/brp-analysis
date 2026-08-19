@@ -160,26 +160,23 @@ const migPD = MIG_STREAMS.reduce((a, s) => [a[0] + s.best, a[1] + s.expd, a[2] +
 // ============================================================
 // PROGRAM-LEVEL ESTIMATE
 // ============================================================
-const FOUNDATION = [4, 6, 9];
-const QA = [6, 9, 13];
-const A11Y_SEO_PERF = [4, 6, 9];
-const UAT = [4, 6, 9];
-const ESTIMATE = [
-  ['EDS setup / Foundation', FOUNDATION],
-  ['Global components', globalPD],
-  ['Blocks (reusable, built once)', blockPD],
-  ['Templates', templatePD],
-  ['Integrations', integPD],
-  ['Content migration', migPD],
-  ['QA / Testing', QA],
-  ['Accessibility / SEO / Performance', A11Y_SEO_PERF],
-  ['UAT & production readiness', UAT],
-];
-const TOTAL = ESTIMATE.reduce((a, [, pd]) => [a[0] + pd[0], a[1] + pd[1], a[2] + pd[2]], [0, 0, 0]);
 const rnd = (n) => Math.round(n * 10) / 10;
 const HPD = 8;
 const H = (days) => Math.round(days * HPD); // days -> whole hours
-const Hc = (pd) => `${H(pd[0])} / <b>${H(pd[1])}</b> / ${H(pd[2])}`; // Best/Expected/High in hours
+// Consolidated estimate — Expected hours only. Dev + content migration effort.
+// Setup and block development are agreed fixed figures; integrations kept as analysed;
+// content migration agreed at 300h. Global components are folded into block development.
+const SETUP_HRS = 72;
+const BLOCK_DEV_HRS = 240; // includes global components (header/nav, footer, search, consent, analytics, SEO, redirects)
+const INTEG_HRS = H(integPD[1]); // keep integrations as analysed (Expected)
+const CONTENT_HRS = 300;
+const EST_HRS = [
+  ['EDS setup / Foundation', SETUP_HRS],
+  ['Block development (incl. global components)', BLOCK_DEV_HRS],
+  ['Third-party integrations', INTEG_HRS],
+  ['Content migration', CONTENT_HRS],
+];
+const TOTAL_HRS = EST_HRS.reduce((s, [, h]) => s + h, 0);
 
 // ============================================================
 // PER-PAGE traceability (all 478 URLs)
@@ -203,27 +200,27 @@ const w = (name, header, rows) => fs.writeFileSync(path.join(OUT, name), [header
 w('pages.csv', ['URL', 'Final URL', 'Redirected', 'Status', 'Template', 'Blocks', 'Integrations', 'Complexity', 'Migration Method'],
   pages.map((p) => [p.url, p.finalUrl, p.redirected ? 'yes' : 'no', p.status, p.error ? '(unavailable)' : (TNAME[p.template] || p.template), pageBlocksLabel(p), (p.integrations || []).join('; '), pageCx(p), migCx(p)]));
 
-w('templates.csv', ['Template', 'Type', 'Page Count', 'Complexity', 'Example URLs', 'Blocks', 'Estimate Best (hrs)', 'Estimate Expected (hrs)', 'Estimate High (hrs)'],
-  templates.map((t) => [t.name, t.type, t.count, t.cx, t.examples.join(' | '), t.blocks.join('; '), H(t.pd[0]), H(t.pd[1]), H(t.pd[2])]));
+w('templates.csv', ['Template', 'Type', 'Page Count', 'Complexity', 'Example URLs', 'Blocks', 'Estimate Expected (hrs)'],
+  templates.map((t) => [t.name, t.type, t.count, t.cx, t.examples.join(' | '), t.blocks.join('; '), H(t.pd[1])]));
 
-w('blocks.csv', ['Block', 'Purpose', 'Variations', '# Variations', 'Usage Count', 'Example URLs', 'Complexity', 'Estimate Best (hrs)', 'Estimate Expected (hrs)', 'Estimate High (hrs)'],
-  BLOCKS.map((b) => [b.name, b.purpose, b.variations.join(' | '), b.variations.length, b.usage, b.examples.join(' | '), b.cx, H(b.pd[0]), H(b.pd[1]), H(b.pd[2])]));
+w('blocks.csv', ['Block', 'Purpose', 'Variations', '# Variations', 'Usage Count', 'Example URLs', 'Complexity', 'Estimate Expected (hrs)'],
+  BLOCKS.map((b) => [b.name, b.purpose, b.variations.join(' | '), b.variations.length, b.usage, b.examples.join(' | '), b.cx, H(b.pd[1])]));
 
-w('integrations.csv', ['Integration', 'Pages', 'Purpose', 'EDS Approach', 'Complexity', 'Estimate Best (hrs)', 'Estimate Expected (hrs)', 'Estimate High (hrs)', 'Validation'],
-  INTEG.map((i) => [i.name, i.pages, i.purpose, i.eds, i.cx, H(i.pd[0]), H(i.pd[1]), H(i.pd[2]), i.val || 'Verified']));
+w('integrations.csv', ['Integration', 'Pages', 'Purpose', 'EDS Approach', 'Complexity', 'Estimate Expected (hrs)', 'Validation'],
+  INTEG.map((i) => [i.name, i.pages, i.purpose, i.eds, i.cx, H(i.pd[1]), i.val || 'Verified']));
 
-w('migration.csv', ['Page Type / Method', 'Page Count', 'Pages/Day', 'Templates', 'Effort Best (hrs)', 'Effort Expected (hrs)', 'Effort High (hrs)'],
-  migRows.map((r) => [r.method, r.count, r.rate, r.templates.join('; '), H(r.best), H(r.expd), H(r.high)])
-    .concat(MIG_STREAMS.map((s) => [s.name, '', '', '', H(s.best), H(s.expd), H(s.high)])));
+w('migration.csv', ['Page Type / Method', 'Page Count', 'Pages/Day', 'Templates', 'Effort Expected (hrs)'],
+  migRows.map((r) => [r.method, r.count, r.rate, r.templates.join('; '), H(r.expd)])
+    .concat(MIG_STREAMS.map((s) => [s.name, '', '', '', H(s.expd)])));
 
-w('estimates.csv', ['Area', 'Best (hrs)', 'Expected (hrs)', 'High (hrs)'],
-  ESTIMATE.map(([n, pd]) => [n, H(pd[0]), H(pd[1]), H(pd[2])]).concat([['TOTAL', H(TOTAL[0]), H(TOTAL[1]), H(TOTAL[2])]]));
+w('estimates.csv', ['Area', 'Expected (hrs)'],
+  EST_HRS.map(([n, h]) => [n, h]).concat([['TOTAL', TOTAL_HRS]]));
 
 // =============== DASHBOARD HTML ===============
 const cxCls = (c) => ({ Simple: 'cx-Low', Low: 'cx-Low', Medium: 'cx-Medium', High: 'cx-High', Complex: 'cx-High', 'Very High': 'cx-VeryHigh' }[c] || 'cx-Medium');
 const cx = (c) => `<span class="cx ${cxCls(c)}">${esc(c)}</span>`;
 const kpi = (n, l, alt) => `<div class="kpi${alt ? ' alt' : ''}"><div class="n">${n}</div><div class="l">${l}</div></div>`;
-const pdCell = Hc; // render Best/Expected/High as hours
+const pdCell = (pd) => `${H(pd[1])}`; // single Expected value in hours
 
 const pagesRows = pages.map((p) => `<tr class="prow" data-tpl="${esc(p.error ? 'unavailable' : p.template)}" data-red="${p.redirected}">
   <td><a href="${esc(p.finalUrl)}" target="_blank" rel="noopener">${esc(pth(p.finalUrl) || p.url)}</a>${p.redirected ? ` <span class="tag redir">↳ from ${esc(pth(p.url))}</span>` : ''}</td>
@@ -256,11 +253,12 @@ const integRows = INTEG.map((i) => `<tr><td><b>${esc(i.name)}</b>${i.val ? ` <sp
 const migMethodRows = migRows.map((r) => `<tr><td><b>${esc(r.method)}</b><div class="found">${esc(r.templates.join(', '))}</div></td><td class="num">${r.count}</td><td class="num">${r.rate}/day</td><td class="num">${pdCell([r.best, r.expd, r.high])}</td></tr>`).join('\n');
 const migStreamRows = MIG_STREAMS.map((s) => `<tr><td>${esc(s.name)}</td><td class="num">${pdCell([s.best, s.expd, s.high])}</td></tr>`).join('\n');
 
-const estRows = ESTIMATE.map(([n, pd]) => `<tr><td>${esc(n)}</td><td class="num">${H(pd[0])}</td><td class="num ai">${H(pd[1])}</td><td class="num">${H(pd[2])}</td></tr>`).join('\n');
+const estRows = EST_HRS.map(([n, h]) => `<tr><td>${esc(n)}</td><td class="num ai">${h}</td></tr>`).join('\n');
 
 const ASSUMPTIONS = [
   'Estimates are in hours on an 8h/day basis; planning-grade (Best/Expected/High), not a fixed bid.',
-  'Reusable blocks are built ONCE — page volume drives migration & QA, not repeated block dev.',
+  'Reusable blocks are built ONCE — page volume drives content migration, not repeated block dev.',
+  'Consolidated estimate uses agreed figures: setup 72h, block development 240h (includes global components), integrations as analysed, content migration 300h. The per-method migration breakdown below is indicative sizing; the estimate carries the agreed 300h.',
   'Scope is the /en global locale set in ds-com.txt; other locales reuse the same blocks/templates (translation excluded).',
   'Migration rates: Automated 12 pg/day, Semi-Automated 5, Manual 2.5, Recreate 1 (per person).',
   'Analytics/marketing tags (Launch, ContentSquare, Heap, Google Ads) are re-instated as observed via a rebuilt data layer; new tracking is separate.',
@@ -349,8 +347,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
   <span class="step">${BLOCKS.length} blocks</span><span class="arr">→</span>
   <span class="step">${totalVariations} variations</span><span class="arr">→</span>
   <span class="step">${INTEG.length} integrations</span><span class="arr">→</span>
-  <span class="step">${H(migPD[1])}h migration</span><span class="arr">→</span>
-  <span class="step" style="background:#dcfce7;border-color:#a7e0bd">${H(TOTAL[1])}h total (Expected)</span>
+  <span class="step">${CONTENT_HRS}h migration</span><span class="arr">→</span>
+  <span class="step" style="background:#dcfce7;border-color:#a7e0bd">${TOTAL_HRS}h total</span>
 </div>
 <div class="kpis">
   ${kpi(pages.length, 'URLs in list')}
@@ -360,11 +358,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
   ${kpi(BLOCKS.length, 'Blocks', true)}
   ${kpi(totalVariations, 'Variations', true)}
   ${kpi(INTEG.length, 'Integrations')}
-  ${kpi(H(TOTAL[0]) + 'h', 'Best')}
-  ${kpi(H(TOTAL[1]) + 'h', 'Expected', true)}
-  ${kpi(H(TOTAL[2]) + 'h', 'High')}
+  ${kpi(BLOCK_DEV_HRS + 'h', 'Block dev', true)}
+  ${kpi(CONTENT_HRS + 'h', 'Content migration', true)}
+  ${kpi(TOTAL_HRS + 'h', 'Total', true)}
 </div>
-<p class="lead">The <code>/en</code> set is <b>content/marketing-heavy</b> (Explore, Discover, Academy) with minimal commerce (1 shop-home page in scope). ${pages.length} source URLs include <b>${agg.redirected} redirects</b> that collapse to <b>${edsReps.length} distinct live pages</b> across <b>${templates.length} templates</b>, built from <b>${BLOCKS.length} reusable blocks (${totalVariations} variations)</b>. Answers: <b>(1)</b> ~${templates.length} unique templates · <b>(2)</b> ${BLOCKS.length} blocks / ${totalVariations} variations · <b>(3)</b> ${INTEG.length} integrations · <b>(4)</b> build ≈ ${H(FOUNDATION[1] + globalPD[1] + blockPD[1] + templatePD[1] + integPD[1])}h · <b>(5)</b> migration ≈ ${H(migPD[1])}h · <b>(6)</b> total <b>${H(TOTAL[0])}–${H(TOTAL[2])}h (Expected ${H(TOTAL[1])}h)</b> · <b>(7)</b> see Assumptions/Risks.</p>
+<p class="lead">The <code>/en</code> set is <b>content/marketing-heavy</b> (Explore, Discover, Academy) with minimal commerce (1 shop-home page in scope). ${pages.length} source URLs include <b>${agg.redirected} redirects</b> that collapse to <b>${edsReps.length} distinct live pages</b> across <b>${templates.length} templates</b>, built from <b>${BLOCKS.length} reusable blocks (${totalVariations} variations)</b>. Answers: <b>(1)</b> ~${templates.length} unique templates · <b>(2)</b> ${BLOCKS.length} blocks / ${totalVariations} variations · <b>(3)</b> ${INTEG.length} integrations · <b>(4)</b> build ≈ ${SETUP_HRS + BLOCK_DEV_HRS + INTEG_HRS}h (setup + block dev + integrations) · <b>(5)</b> content migration ≈ ${CONTENT_HRS}h · <b>(6)</b> total <b>${TOTAL_HRS}h</b> · <b>(7)</b> see Assumptions/Risks.</p>
 </section>
 
 <section id="pages">
@@ -380,7 +378,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 
 <section id="templates">
 <h2 class="sec">Templates <span class="found">(${templates.length})</span></h2>
-<p class="lead">Unique page structures. Effort is EDS template scaffolding/block wiring (per-page authoring is in Migration). Best / <b>Expected</b> / High hours.</p>
+<p class="lead">Unique page structures (informational — template scaffolding is absorbed into block development in the consolidated estimate). Effort shown is Expected hours.</p>
 <table><thead><tr><th>Template</th><th class="num">Pages</th><th>Example URLs</th><th>Blocks</th><th>Complexity</th><th class="num">Estimate (hrs)</th></tr></thead>
 <tbody>${templateRows}
 <tr class="total-row"><td>TOTAL — ${templates.length} templates</td><td class="num">${edsReps.length}</td><td colspan="3"></td><td class="num">${pdCell(templatePD)}</td></tr></tbody></table>
@@ -411,7 +409,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 
 <section id="migration">
 <h2 class="sec">Content Migration</h2>
-<p class="lead">Pages classified by method; volume drives migration + QA (not block dev). Rates are assumptions (see below).</p>
+<p class="lead">Pages classified by method (indicative sizing — the consolidated estimate carries the agreed <b>300h</b> for content migration). Rates are assumptions (see below).</p>
 <div class="cols">
 <div><h4 style="margin:4px 0;font-size:14px">By method</h4>
 <table><thead><tr><th>Method</th><th class="num">Pages</th><th class="num">Rate</th><th class="num">Execution (hrs)</th></tr></thead><tbody>${migMethodRows}
@@ -423,11 +421,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 </section>
 
 <section id="estimates">
-<h2 class="sec">Estimates <span class="found">(hours · 8h/day basis · Best / Expected / High)</span></h2>
-<table><thead><tr><th>Area</th><th class="num">Best</th><th class="num">Expected</th><th class="num">High</th></tr></thead>
+<h2 class="sec">Estimates <span class="found">(Expected hours · 8h/day basis)</span></h2>
+<table><thead><tr><th>Area</th><th class="num">Expected (hrs)</th></tr></thead>
 <tbody>${estRows}
-<tr class="grand"><td>TOTAL (hours)</td><td class="num">${H(TOTAL[0])}</td><td class="num">${H(TOTAL[1])}</td><td class="num">${H(TOTAL[2])}</td></tr></tbody></table>
-<p class="lead"><b>Expected ≈ ${H(TOTAL[1])} hours</b>. Range <b>${H(TOTAL[0])}–${H(TOTAL[2])} hours</b>. Reusable blocks are counted once; page volume (${edsReps.length} live pages) mainly affects migration &amp; QA.</p>
+<tr class="grand"><td>TOTAL (hours)</td><td class="num">${TOTAL_HRS}</td></tr></tbody></table>
+<p class="lead"><b>Total ≈ ${TOTAL_HRS} hours</b> — development + content migration only. Setup ${SETUP_HRS}h · block development ${BLOCK_DEV_HRS}h (includes global components) · integrations ${INTEG_HRS}h (as analysed) · content migration ${CONTENT_HRS}h. Reusable blocks are counted once; page volume (${edsReps.length} live pages) is absorbed in content migration.</p>
 </section>
 
 <section id="notes">
@@ -470,8 +468,8 @@ filterPages();
 </body></html>`;
 
 fs.writeFileSync(path.join(OUT, 'dashboard.html'), html);
-fs.writeFileSync(path.join(DATA, 'estimate-model.json'), JSON.stringify({ templates, blocks: BLOCKS, global: GLOBAL, integrations: INTEG, migration: { migRows, MIG_STREAMS, migPD }, estimate: ESTIMATE, total: TOTAL, counts: { urls: pages.length, livePages: edsReps.length, templates: templates.length, blocks: BLOCKS.length, variations: totalVariations, integrations: INTEG.length } }, null, 2));
+fs.writeFileSync(path.join(DATA, 'estimate-model.json'), JSON.stringify({ templates, blocks: BLOCKS, global: GLOBAL, integrations: INTEG, migration: { migRows, MIG_STREAMS }, estimate: EST_HRS, totalHours: TOTAL_HRS, counts: { urls: pages.length, livePages: edsReps.length, templates: templates.length, blocks: BLOCKS.length, variations: totalVariations, integrations: INTEG.length } }, null, 2));
 
 console.log('Wrote dashboard.html + 6 CSVs + estimate-model.json');
 console.log('URLs', pages.length, '| live pages', edsReps.length, '| templates', templates.length, '| blocks', BLOCKS.length, '| variations', totalVariations, '| integrations', INTEG.length);
-console.log('TOTAL hours  Best', H(TOTAL[0]), '| Expected', H(TOTAL[1]), '| High', H(TOTAL[2]));
+console.log('ESTIMATE (Expected hours):', EST_HRS.map(([n, h]) => `${n}=${h}`).join(' | '), '| TOTAL', TOTAL_HRS);

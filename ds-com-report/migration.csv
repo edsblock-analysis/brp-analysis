@@ -1,12 +1,12 @@
-Page Type / Method,Page Count,Pages/Day,Templates,Effort Best (hrs),Effort Expected (hrs),Effort High (hrs)
-Automated,93,12,Academy — Content; Basic Content Page; Article / Editorial Detail,47,62,87
-Semi-Automated,138,5,Discover Hub / Homepage; Academy — Study; Brand / Product Page,166,221,309
-Manual,97,2.5,Explore / Category Landing; Academy — Course Listing; Support — Contact,233,310,435
-Recreate,1,1,Shop Home (Hybris),6,8,11
-"Migration tooling (importer, parsers, transforms)",,,,32,48,72
-Migration execution (329 pages by method),,,,451,601,842
-"Asset migration (~8,394 images, Scene7 refs)",,,,24,40,56
-"Document / PDF migration (1,303 PDF links)",,,,16,24,40
-"Metadata & SEO (22 no-meta, 2 multi-H1) + link fixups",,,,24,32,48
-"Remediation (broken links, embeds, redirects)",,,,24,40,64
-Migration QA (spot-check + reconcile),,,,32,48,72
+Page Type / Method,Page Count,Pages/Day,Templates,Effort Expected (hrs)
+Automated,93,12,Academy — Content; Basic Content Page; Article / Editorial Detail,62
+Semi-Automated,138,5,Discover Hub / Homepage; Academy — Study; Brand / Product Page,221
+Manual,97,2.5,Explore / Category Landing; Academy — Course Listing; Support — Contact,310
+Recreate,1,1,Shop Home (Hybris),8
+"Migration tooling (importer, parsers, transforms)",,,,48
+Migration execution (329 pages by method),,,,601
+"Asset migration (~8,394 images, Scene7 refs)",,,,40
+"Document / PDF migration (1,303 PDF links)",,,,24
+"Metadata & SEO (22 no-meta, 2 multi-H1) + link fixups",,,,32
+"Remediation (broken links, embeds, redirects)",,,,40
+Migration QA (spot-check + reconcile),,,,48
