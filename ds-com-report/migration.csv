@@ -1,0 +1,12 @@
+Page Type / Method,Page Count,Pages/Day,Templates,Effort Best (pd),Effort Expected (pd),Effort High (pd)
+Automated,93,12,Academy — Content; Basic Content Page; Article / Editorial Detail,5.8,7.8,10.9
+Semi-Automated,138,5,Discover Hub / Homepage; Academy — Study; Brand / Product Page,20.7,27.6,38.6
+Manual,97,2.5,Explore / Category Landing; Academy — Course Listing; Support — Contact,29.1,38.8,54.3
+Recreate,1,1,Shop Home (Hybris),0.8,1,1.4
+"Migration tooling (importer, parsers, transforms)",,,,4,6,9
+Migration execution (329 pages by method),,,,56.4,75.2,105.2
+"Asset migration (~8,394 images, Scene7 refs)",,,,3,5,7
+"Document / PDF migration (1,303 PDF links)",,,,2,3,5
+"Metadata & SEO (22 no-meta, 2 multi-H1) + link fixups",,,,3,4,6
+"Remediation (broken links, embeds, redirects)",,,,3,5,8
+Migration QA (spot-check + reconcile),,,,4,6,9

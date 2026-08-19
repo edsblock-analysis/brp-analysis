@@ -1,0 +1,955 @@
+{
+  "templates": [
+    {
+      "id": "brand-page-template",
+      "name": "Brand / Product Page",
+      "type": "Product / Brand",
+      "cx": "Medium",
+      "count": 119,
+      "pd": [
+        1.5,
+        2,
+        3
+      ],
+      "blocks": [
+        "Hero",
+        "Feature / Media Row",
+        "Cards",
+        "Carousel",
+        "Accordion",
+        "Tabs",
+        "Step",
+        "Video",
+        "Rich Text"
+      ],
+      "examples": [
+        "/en/discover/discover-by-brand/ankylos.html",
+        "/en/discover/discover-by-brand/astra-tech-implant-system-ev.html",
+        "/en/discover/discover-by-brand/astra-tech-implant-system.html"
+      ]
+    },
+    {
+      "id": "explore-page-template",
+      "name": "Explore / Category Landing",
+      "type": "Category / Landing",
+      "cx": "High",
+      "count": 87,
+      "pd": [
+        2,
+        3,
+        4
+      ],
+      "blocks": [
+        "Hero",
+        "Feature / Media Row",
+        "Cards",
+        "Carousel",
+        "Teaser / Promo",
+        "Banner",
+        "Video",
+        "Rich Text"
+      ],
+      "examples": [
+        "/en-us/legal/terms-of-use.html",
+        "/en",
+        "/en/learn"
+      ]
+    },
+    {
+      "id": "basic-template0",
+      "name": "Basic Content Page",
+      "type": "Content",
+      "cx": "Low",
+      "count": 79,
+      "pd": [
+        1,
+        1.5,
+        2
+      ],
+      "blocks": [
+        "Hero",
+        "Rich Text",
+        "Cards",
+        "Accordion",
+        "Embed"
+      ],
+      "examples": [
+        "/en/all-countries/view-all-country-websites.html",
+        "/en/company/careers/locations.html",
+        "/en/company/careers/our-teams.html"
+      ]
+    },
+    {
+      "id": "discover-homepage1",
+      "name": "Discover Hub / Homepage",
+      "type": "Hub / Landing",
+      "cx": "Medium",
+      "count": 18,
+      "pd": [
+        1.5,
+        2,
+        3
+      ],
+      "blocks": [
+        "Hero",
+        "Carousel",
+        "Cards",
+        "Teaser / Promo",
+        "Video"
+      ],
+      "examples": [
+        "/en/academy/ce/courses.html",
+        "/en/academy/ce/videos.html",
+        "/en/academy/course-series.html"
+      ]
+    },
+    {
+      "id": "academy-course-listings-page",
+      "name": "Academy — Course Listing",
+      "type": "Listing (Coveo)",
+      "cx": "High",
+      "count": 9,
+      "pd": [
+        2,
+        3,
+        4
+      ],
+      "blocks": [
+        "Hero",
+        "Course Listing (Coveo)",
+        "Cards",
+        "Filter"
+      ],
+      "examples": [
+        "/en/academy/ce/courses/dental-lab.html",
+        "/en/academy/ce/courses/digital-dentistry-cbct.html",
+        "/en/academy/ce/courses/implant-dentistry.html"
+      ]
+    },
+    {
+      "id": "article-details",
+      "name": "Article / Editorial Detail",
+      "type": "Editorial",
+      "cx": "Low",
+      "count": 8,
+      "pd": [
+        1,
+        1.5,
+        2
+      ],
+      "blocks": [
+        "Article Hero",
+        "Rich Text",
+        "Cards",
+        "Video"
+      ],
+      "examples": [
+        "/en/discover/discover-by-topic/by-category/digital-dentistry/what-is-new-on-ds-core.html",
+        "/en/discover/discover-by-topic/by-category/restorative/class-II-depth-of-cure.html",
+        "/en/discover/discover-by-topic/by-category/restorative/class-II-shade-matching-ceram-x-spectra-st.html"
+      ]
+    },
+    {
+      "id": "academy-content-page",
+      "name": "Academy — Content",
+      "type": "Content",
+      "cx": "Low",
+      "count": 6,
+      "pd": [
+        1,
+        1.5,
+        2
+      ],
+      "blocks": [
+        "Hero",
+        "Rich Text",
+        "Cards",
+        "Accordion"
+      ],
+      "examples": [
+        "/en/academy/about-academy.html",
+        "/en/academy/about-academy/partnerships.html",
+        "/en/academy/about-academy/research-grants.html"
+      ]
+    },
+    {
+      "id": "academy-study-template",
+      "name": "Academy — Study",
+      "type": "Editorial",
+      "cx": "Medium",
+      "count": 1,
+      "pd": [
+        1,
+        1.5,
+        2.5
+      ],
+      "blocks": [
+        "Hero",
+        "Rich Text",
+        "Step",
+        "Cards"
+      ],
+      "examples": [
+        "/en/academy/research-and-articles/atlantis-case-study-review.html"
+      ]
+    },
+    {
+      "id": "customer-support-contact-us-template",
+      "name": "Support — Contact",
+      "type": "Form / Contact",
+      "cx": "Medium",
+      "count": 1,
+      "pd": [
+        1.5,
+        2,
+        3
+      ],
+      "blocks": [
+        "Hero",
+        "Form (AEM Forms)",
+        "Contact Cards",
+        "Embed"
+      ],
+      "examples": [
+        "/en/customer-support/contact-us.html"
+      ]
+    },
+    {
+      "id": "shop-home-page-template",
+      "name": "Shop Home (Hybris)",
+      "type": "Commerce (Hybris)",
+      "cx": "High",
+      "count": 1,
+      "pd": [
+        2,
+        3,
+        5
+      ],
+      "blocks": [
+        "Shop Hero",
+        "Carousel",
+        "Cards",
+        "Commerce widgets"
+      ],
+      "examples": [
+        "/en/shop"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Hero",
+      "purpose": "Full-width page intro band: media + headline + eyebrow + CTA.",
+      "variations": [
+        "Default",
+        "Image",
+        "Video",
+        "CTA",
+        "Shop hero"
+      ],
+      "usage": 86,
+      "examples": [
+        "/en-us/legal/terms-of-use.html",
+        "/en",
+        "/en/learn"
+      ],
+      "cx": "Complex",
+      "pd": [
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "name": "Feature / Media Row",
+      "purpose": "Alternating image/text content rows with optional CTA (workhorse marketing block).",
+      "variations": [
+        "Media left",
+        "Media right",
+        "Background",
+        "With CTA"
+      ],
+      "usage": 329,
+      "examples": [
+        "/en-us/legal/terms-of-use.html",
+        "/en",
+        "/en/learn"
+      ],
+      "cx": "Medium",
+      "pd": [
+        2.5,
+        3.5,
+        5
+      ]
+    },
+    {
+      "name": "Cards",
+      "purpose": "Card grids: icon, download (asset), video, image-tile, jump/anchor, course cards.",
+      "variations": [
+        "Icon",
+        "Download",
+        "Video",
+        "Image-tile",
+        "Jump",
+        "Course"
+      ],
+      "usage": 64,
+      "examples": [
+        "/en",
+        "/en/learn",
+        "/en/why-ds/our-company/sustainability.html"
+      ],
+      "cx": "Complex",
+      "pd": [
+        3.5,
+        5,
+        7
+      ]
+    },
+    {
+      "name": "Carousel / Slider",
+      "purpose": "Rotating content carousels + Swiper sliders (very high reuse).",
+      "variations": [
+        "Core carousel",
+        "Swiper",
+        "Scrollable"
+      ],
+      "usage": 177,
+      "examples": [
+        "/en",
+        "/en/learn",
+        "/en/academy/about-academy.html"
+      ],
+      "cx": "Complex",
+      "pd": [
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "name": "Teaser / Promo",
+      "purpose": "Promotional teasers and promo/banner-ad cards.",
+      "variations": [
+        "Teaser",
+        "Promo card",
+        "Banner ad"
+      ],
+      "usage": 63,
+      "examples": [
+        "/en",
+        "/en/learn",
+        "/en/why-ds/our-company/sustainability.html"
+      ],
+      "cx": "Medium",
+      "pd": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "Accordion",
+      "purpose": "Expand/collapse FAQ & content groups.",
+      "variations": [
+        "Default",
+        "FAQ"
+      ],
+      "usage": 42,
+      "examples": [
+        "/en/support",
+        "/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html",
+        "/en/explore/restorative/brands/other/cerec-cercon-4d.html"
+      ],
+      "cx": "Medium",
+      "pd": [
+        1.5,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Tabs",
+      "purpose": "Tabbed content panels.",
+      "variations": [
+        "Default"
+      ],
+      "usage": 7,
+      "examples": [
+        "/en/discover/discover-by-brand/atlantis.html",
+        "/en/discover/discover-by-topic/by-category/treatment-centers/infection-prevention-for-treatment-centers-.html",
+        "/en/discover/discover-by-brand/sicat.html"
+      ],
+      "cx": "Medium",
+      "pd": [
+        1.5,
+        2.5,
+        3.5
+      ]
+    },
+    {
+      "name": "Step / Process",
+      "purpose": "Numbered step / how-it-works sequences.",
+      "variations": [
+        "Default"
+      ],
+      "usage": 37,
+      "examples": [
+        "/en/why-ds/our-company/sustainability.html",
+        "/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html",
+        "/en/explore/restorative/brands/other/cerec-cercon-4d.html"
+      ],
+      "cx": "Simple",
+      "pd": [
+        1,
+        1.5,
+        2
+      ]
+    },
+    {
+      "name": "Video",
+      "purpose": "Embedded YouTube/Vimeo with lazy facade.",
+      "variations": [
+        "YouTube",
+        "Vimeo",
+        "Video card"
+      ],
+      "usage": 48,
+      "examples": [
+        "/en/discover/discover-by-brand/ankylos.html",
+        "/en/discover/discover-by-brand/astra-tech-implant-system-ev.html",
+        "/en/discover/discover-by-brand/atlantis/atlantis-suprastructures.html"
+      ],
+      "cx": "Medium",
+      "pd": [
+        1.5,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Banner / Callout",
+      "purpose": "Promo banners and callout strips.",
+      "variations": [
+        "Banner",
+        "Callout"
+      ],
+      "usage": 33,
+      "examples": [
+        "/en/why-ds/our-company/sustainability.html",
+        "/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html",
+        "/en/explore/restorative/brands/other/cerec-cercon-4d.html"
+      ],
+      "cx": "Simple",
+      "pd": [
+        1,
+        1.5,
+        2
+      ]
+    },
+    {
+      "name": "Embed",
+      "purpose": "Generic third-party / iframe embeds preserved as-is.",
+      "variations": [
+        "iFrame",
+        "Script"
+      ],
+      "usage": 128,
+      "examples": [
+        "/en-us/legal/terms-of-use.html",
+        "/en",
+        "/en/learn"
+      ],
+      "cx": "Medium",
+      "pd": [
+        1.5,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Rich Text / Title / Image",
+      "purpose": "Core authored content: rich text, titles, standalone Scene7 images, spacing/separators.",
+      "variations": [
+        "Text",
+        "Title",
+        "Image"
+      ],
+      "usage": 329,
+      "examples": [
+        "/en-us/legal/terms-of-use.html",
+        "/en",
+        "/en/learn"
+      ],
+      "cx": "Simple",
+      "pd": [
+        1.5,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "List / Alphabetical (A–Z)",
+      "purpose": "Content lists and the A–Z alphabetical brand listing.",
+      "variations": [
+        "Content list",
+        "Alphabetical A–Z"
+      ],
+      "usage": 329,
+      "examples": [
+        "/en/explore/all-brands.html",
+        "/en-us/legal/terms-of-use.html",
+        "/en"
+      ],
+      "cx": "Medium",
+      "pd": [
+        2,
+        2.5,
+        3.5
+      ]
+    },
+    {
+      "name": "Course Listing (Coveo)",
+      "purpose": "Academy course listing with Coveo-powered filter/sort/pagination.",
+      "variations": [
+        "Listing",
+        "Filtered"
+      ],
+      "usage": 9,
+      "examples": [
+        "/en/academy/ce/courses/dental-lab.html",
+        "/en/academy/ce/courses/digital-dentistry-cbct.html",
+        "/en/academy/ce/courses/implant-dentistry.html"
+      ],
+      "cx": "Complex",
+      "pd": [
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "name": "Form (AEM Forms)",
+      "purpose": "Native lead/contact forms (name/email/practice/topic) → CRM routing.",
+      "variations": [
+        "Contact",
+        "Lead",
+        "Request"
+      ],
+      "usage": 1,
+      "examples": [
+        "/en/customer-support/contact-us.html"
+      ],
+      "cx": "Complex",
+      "pd": [
+        3,
+        4,
+        6
+      ]
+    }
+  ],
+  "global": [
+    {
+      "name": "Header + Mega-menu",
+      "purpose": "Multi-level mega-menu, utility nav, language navigation.",
+      "cx": "Complex",
+      "pd": [
+        4,
+        6,
+        8
+      ]
+    },
+    {
+      "name": "Footer",
+      "purpose": "Multi-column footer + social + legal + language nav.",
+      "cx": "Medium",
+      "pd": [
+        1.5,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Search (Coveo)",
+      "purpose": "Site search + type-ahead suggestions wired to Coveo org + searchkey token service.",
+      "cx": "Complex",
+      "pd": [
+        4,
+        5,
+        7
+      ]
+    },
+    {
+      "name": "Breadcrumbs",
+      "purpose": "Path breadcrumb (auto-block from path/metadata).",
+      "cx": "Simple",
+      "pd": [
+        0.5,
+        1,
+        1.5
+      ]
+    },
+    {
+      "name": "Cookie Consent (OneTrust)",
+      "purpose": "Consent banner + tag gating in delayed phase.",
+      "cx": "Medium",
+      "pd": [
+        1,
+        1.5,
+        2
+      ]
+    },
+    {
+      "name": "Analytics (Adobe Launch + data layer)",
+      "purpose": "Launch embed + digitalData data-layer parity so downstream tags fire.",
+      "cx": "Complex",
+      "pd": [
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "name": "SEO / Schema / Metadata",
+      "purpose": "Canonicals, OG, structured data, sitemap, per-page metadata framework.",
+      "cx": "Medium",
+      "pd": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "Redirect map (SEO parity)",
+      "purpose": "Recreate legacy→canonical redirects (195 observed among source URLs).",
+      "cx": "Medium",
+      "pd": [
+        1.5,
+        2.5,
+        4
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "name": "Adobe Launch (Tag Manager)",
+      "pages": 470,
+      "purpose": "Loads analytics/marketing tags + owns digitalData layer.",
+      "eds": "Re-add via delayed.js; rebuild data layer.",
+      "cx": "Complex",
+      "pd": [
+        3,
+        4,
+        6
+      ],
+      "val": ""
+    },
+    {
+      "name": "Adobe Analytics",
+      "pages": 470,
+      "purpose": "Web analytics via Launch.",
+      "eds": "Fires through Launch; re-instate as observed.",
+      "cx": "Medium",
+      "pd": [
+        1,
+        1.5,
+        2.5
+      ],
+      "val": "Needs Validation (report suite/config)"
+    },
+    {
+      "name": "Adobe Scene7 / Dynamic Media",
+      "pages": 470,
+      "purpose": "DAM image/video delivery.",
+      "eds": "Keep Scene7 URLs or serve via EDS images.",
+      "cx": "Medium",
+      "pd": [
+        2,
+        3,
+        4
+      ],
+      "val": ""
+    },
+    {
+      "name": "Coveo Search",
+      "pages": 470,
+      "purpose": "Site search + suggestions + Academy course listing.",
+      "eds": "Search + listing blocks wired to Coveo org; reuse searchkey service.",
+      "cx": "Complex",
+      "pd": [
+        4,
+        6,
+        8
+      ],
+      "val": ""
+    },
+    {
+      "name": "SAP Hybris + Commerce GraphQL",
+      "pages": 470,
+      "purpose": "Commerce config present site-wide; only 1 shop-home page in this set.",
+      "eds": "Minimal for /en: link to storefront; consume GraphQL only if shop pages are built.",
+      "cx": "Medium",
+      "pd": [
+        2,
+        3,
+        5
+      ],
+      "val": "Needs Validation (is /en commerce in scope?)"
+    },
+    {
+      "name": "OneTrust (Consent)",
+      "pages": 470,
+      "purpose": "Cookie consent + geo banner; gates tags.",
+      "eds": "Load delayed with same config.",
+      "cx": "Medium",
+      "pd": [
+        1,
+        1.5,
+        2
+      ],
+      "val": ""
+    },
+    {
+      "name": "reCAPTCHA v3",
+      "pages": 470,
+      "purpose": "Bot protection on forms/search.",
+      "eds": "Re-add on EDS forms; keys from DS.",
+      "cx": "Simple",
+      "pd": [
+        0.5,
+        1,
+        1.5
+      ],
+      "val": ""
+    },
+    {
+      "name": "YouTube / Vimeo",
+      "pages": 53,
+      "purpose": "Video embeds in content.",
+      "eds": "Lazy facade video block.",
+      "cx": "Simple",
+      "pd": [
+        0.5,
+        1,
+        1.5
+      ],
+      "val": ""
+    },
+    {
+      "name": "Salesforce (CRM + Live Agent)",
+      "pages": 470,
+      "purpose": "CRM lead routing + live chat (seen site-wide in /en-us; assumed same).",
+      "eds": "Re-embed chat/CRM snippet; forms route to Salesforce.",
+      "cx": "Medium",
+      "pd": [
+        2,
+        3,
+        4
+      ],
+      "val": "Needs Validation (confirm on /en + routing)"
+    },
+    {
+      "name": "ContentSquare / Heap / Google Ads",
+      "pages": 470,
+      "purpose": "Runtime analytics/marketing tags injected by Launch (not in static HTML).",
+      "eds": "Re-instated with Launch + data layer; consent-gated.",
+      "cx": "Medium",
+      "pd": [
+        1,
+        2,
+        3
+      ],
+      "val": "Needs Validation (live capture confirmed on /en-us)"
+    }
+  ],
+  "migration": {
+    "migRows": [
+      {
+        "method": "Automated",
+        "count": 93,
+        "rate": 12,
+        "templates": [
+          "Academy — Content",
+          "Basic Content Page",
+          "Article / Editorial Detail"
+        ],
+        "best": 5.8125,
+        "expd": 7.75,
+        "high": 10.85
+      },
+      {
+        "method": "Semi-Automated",
+        "count": 138,
+        "rate": 5,
+        "templates": [
+          "Discover Hub / Homepage",
+          "Academy — Study",
+          "Brand / Product Page"
+        ],
+        "best": 20.700000000000003,
+        "expd": 27.6,
+        "high": 38.64
+      },
+      {
+        "method": "Manual",
+        "count": 97,
+        "rate": 2.5,
+        "templates": [
+          "Explore / Category Landing",
+          "Academy — Course Listing",
+          "Support — Contact"
+        ],
+        "best": 29.099999999999998,
+        "expd": 38.8,
+        "high": 54.31999999999999
+      },
+      {
+        "method": "Recreate",
+        "count": 1,
+        "rate": 1,
+        "templates": [
+          "Shop Home (Hybris)"
+        ],
+        "best": 0.75,
+        "expd": 1,
+        "high": 1.4
+      }
+    ],
+    "MIG_STREAMS": [
+      {
+        "name": "Migration tooling (importer, parsers, transforms)",
+        "best": 4,
+        "expd": 6,
+        "high": 9
+      },
+      {
+        "name": "Migration execution (329 pages by method)",
+        "best": 56.3625,
+        "expd": 75.15,
+        "high": 105.21000000000001
+      },
+      {
+        "name": "Asset migration (~8,394 images, Scene7 refs)",
+        "best": 3,
+        "expd": 5,
+        "high": 7
+      },
+      {
+        "name": "Document / PDF migration (1,303 PDF links)",
+        "best": 2,
+        "expd": 3,
+        "high": 5
+      },
+      {
+        "name": "Metadata & SEO (22 no-meta, 2 multi-H1) + link fixups",
+        "best": 3,
+        "expd": 4,
+        "high": 6
+      },
+      {
+        "name": "Remediation (broken links, embeds, redirects)",
+        "best": 3,
+        "expd": 5,
+        "high": 8
+      },
+      {
+        "name": "Migration QA (spot-check + reconcile)",
+        "best": 4,
+        "expd": 6,
+        "high": 9
+      }
+    ],
+    "migPD": [
+      75.3625,
+      104.15,
+      149.21
+    ]
+  },
+  "estimate": [
+    [
+      "EDS setup / Foundation",
+      [
+        4,
+        6,
+        9
+      ]
+    ],
+    [
+      "Global components",
+      [
+        17.5,
+        25,
+        35.5
+      ]
+    ],
+    [
+      "Blocks (reusable, built once)",
+      [
+        31.5,
+        43.5,
+        63
+      ]
+    ],
+    [
+      "Templates",
+      [
+        14.5,
+        21,
+        30.5
+      ]
+    ],
+    [
+      "Integrations",
+      [
+        17,
+        26,
+        37.5
+      ]
+    ],
+    [
+      "Content migration",
+      [
+        75.3625,
+        104.15,
+        149.21
+      ]
+    ],
+    [
+      "QA / Testing",
+      [
+        6,
+        9,
+        13
+      ]
+    ],
+    [
+      "Accessibility / SEO / Performance",
+      [
+        4,
+        6,
+        9
+      ]
+    ],
+    [
+      "UAT & production readiness",
+      [
+        4,
+        6,
+        9
+      ]
+    ]
+  ],
+  "total": [
+    173.8625,
+    246.65,
+    355.71000000000004
+  ],
+  "counts": {
+    "urls": 478,
+    "livePages": 329,
+    "templates": 10,
+    "blocks": 15,
+    "variations": 42,
+    "integrations": 10
+  }
+}

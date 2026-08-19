@@ -1,0 +1,254 @@
+{
+  "totalUrls": 478,
+  "okUrls": 472,
+  "unavailable": 6,
+  "redirected": 195,
+  "distinctFinalPages": 333,
+  "templatesByUrl": {
+    "brand-page-template": 168,
+    "explore-page-template": 120,
+    "basic-template0": 107,
+    "discover-homepage1": 43,
+    "academy-course-listings-page": 10,
+    "academy-content-page": 9,
+    "article-details": 9,
+    "customer-support-contact-us-template": 2,
+    "(none)": 2,
+    "academy-study-template": 1,
+    "shop-home-page-template": 1
+  },
+  "templatesByDistinctPage": {
+    "brand-page-template": 119,
+    "explore-page-template": 87,
+    "basic-template0": 81,
+    "discover-homepage1": 18,
+    "academy-course-listings-page": 9,
+    "article-details": 8,
+    "academy-content-page": 6,
+    "(none)": 2,
+    "academy-study-template": 1,
+    "customer-support-contact-us-template": 1,
+    "shop-home-page-template": 1
+  },
+  "cmpComponents": {
+    "container": {
+      "count": 33719,
+      "pages": 470
+    },
+    "experiencefragment": {
+      "count": 3496,
+      "pages": 470
+    },
+    "text": {
+      "count": 14826,
+      "pages": 470
+    },
+    "image": {
+      "count": 26070,
+      "pages": 470
+    },
+    "gradient": {
+      "count": 1033,
+      "pages": 470
+    },
+    "label": {
+      "count": 55479,
+      "pages": 470
+    },
+    "clear": {
+      "count": 474,
+      "pages": 470
+    },
+    "coveoresults": {
+      "count": 474,
+      "pages": 470
+    },
+    "suggested": {
+      "count": 948,
+      "pages": 470
+    },
+    "searchresults": {
+      "count": 474,
+      "pages": 470
+    },
+    "suggestions": {
+      "count": 2820,
+      "pages": 470
+    },
+    "top": {
+      "count": 2820,
+      "pages": 470
+    },
+    "title": {
+      "count": 30113,
+      "pages": 470
+    },
+    "btn": {
+      "count": 2820,
+      "pages": 470
+    },
+    "button": {
+      "count": 125572,
+      "pages": 470
+    },
+    "subnavcontainer": {
+      "count": 2821,
+      "pages": 470
+    },
+    "verticalspacing": {
+      "count": 4652,
+      "pages": 470
+    },
+    "separator": {
+      "count": 2034,
+      "pages": 470
+    },
+    "languagenavigation": {
+      "count": 17836,
+      "pages": 470
+    },
+    "social": {
+      "count": 1428,
+      "pages": 470
+    },
+    "icon": {
+      "count": 1542,
+      "pages": 470
+    },
+    "list": {
+      "count": 6113,
+      "pages": 470
+    },
+    "maintitle": {
+      "count": 940,
+      "pages": 467
+    },
+    "carousel": {
+      "count": 7235,
+      "pages": 206
+    },
+    "embed": {
+      "count": 224,
+      "pages": 173
+    },
+    "hero": {
+      "count": 1288,
+      "pages": 119
+    },
+    "teaser": {
+      "count": 3649,
+      "pages": 93
+    },
+    "iconcard": {
+      "count": 872,
+      "pages": 88
+    },
+    "swiper": {
+      "count": 260,
+      "pages": 77
+    },
+    "imagetile": {
+      "count": 829,
+      "pages": 69
+    },
+    "accordion": {
+      "count": 2597,
+      "pages": 57
+    },
+    "step": {
+      "count": 1678,
+      "pages": 52
+    },
+    "banner": {
+      "count": 42,
+      "pages": 42
+    },
+    "bannerad": {
+      "count": 42,
+      "pages": 42
+    },
+    "browsemenu": {
+      "count": 134,
+      "pages": 34
+    },
+    "downloadcard": {
+      "count": 768,
+      "pages": 34
+    },
+    "tier": {
+      "count": 1016,
+      "pages": 15
+    },
+    "card": {
+      "count": 15,
+      "pages": 15
+    },
+    "horizontal": {
+      "count": 24,
+      "pages": 15
+    },
+    "dam": {
+      "count": 15,
+      "pages": 14
+    },
+    "coursecard": {
+      "count": 13,
+      "pages": 13
+    },
+    "videocard": {
+      "count": 20,
+      "pages": 11
+    },
+    "scrollable": {
+      "count": 45,
+      "pages": 9
+    },
+    "print": {
+      "count": 18,
+      "pages": 9
+    },
+    "tabs": {
+      "count": 92,
+      "pages": 7
+    },
+    "newscard": {
+      "count": 5,
+      "pages": 5
+    },
+    "facts": {
+      "count": 16,
+      "pages": 4
+    },
+    "case": {
+      "count": 6,
+      "pages": 3
+    },
+    "jumpcard": {
+      "count": 30,
+      "pages": 3
+    },
+    "alphabetical": {
+      "count": 136,
+      "pages": 2
+    },
+    "promocard": {
+      "count": 54,
+      "pages": 1
+    },
+    "shop": {
+      "count": 2,
+      "pages": 1
+    }
+  },
+  "integrations": {
+    "Adobe DTM / Launch": 470,
+    "Adobe Scene7 / Dynamic Media": 470,
+    "SAP Hybris Commerce": 470,
+    "Commerce GraphQL API": 470,
+    "Coveo Search": 470,
+    "reCAPTCHA": 470,
+    "OneTrust": 470,
+    "Google Fonts": 470,
+    "YouTube": 53
+  }
+}

@@ -1,0 +1,11 @@
+Integration,Pages,Purpose,EDS Approach,Complexity,Estimate Best (pd),Estimate Expected (pd),Estimate High (pd),Validation
+Adobe Launch (Tag Manager),470,Loads analytics/marketing tags + owns digitalData layer.,Re-add via delayed.js; rebuild data layer.,Complex,3,4,6,Verified
+Adobe Analytics,470,Web analytics via Launch.,Fires through Launch; re-instate as observed.,Medium,1,1.5,2.5,Needs Validation (report suite/config)
+Adobe Scene7 / Dynamic Media,470,DAM image/video delivery.,Keep Scene7 URLs or serve via EDS images.,Medium,2,3,4,Verified
+Coveo Search,470,Site search + suggestions + Academy course listing.,Search + listing blocks wired to Coveo org; reuse searchkey service.,Complex,4,6,8,Verified
+SAP Hybris + Commerce GraphQL,470,Commerce config present site-wide; only 1 shop-home page in this set.,Minimal for /en: link to storefront; consume GraphQL only if shop pages are built.,Medium,2,3,5,Needs Validation (is /en commerce in scope?)
+OneTrust (Consent),470,Cookie consent + geo banner; gates tags.,Load delayed with same config.,Medium,1,1.5,2,Verified
+reCAPTCHA v3,470,Bot protection on forms/search.,Re-add on EDS forms; keys from DS.,Simple,0.5,1,1.5,Verified
+YouTube / Vimeo,53,Video embeds in content.,Lazy facade video block.,Simple,0.5,1,1.5,Verified
+Salesforce (CRM + Live Agent),470,CRM lead routing + live chat (seen site-wide in /en-us; assumed same).,Re-embed chat/CRM snippet; forms route to Salesforce.,Medium,2,3,4,Needs Validation (confirm on /en + routing)
+ContentSquare / Heap / Google Ads,470,Runtime analytics/marketing tags injected by Launch (not in static HTML).,Re-instated with Launch + data layer; consent-gated.,Medium,1,2,3,Needs Validation (live capture confirmed on /en-us)

@@ -1,0 +1,3348 @@
+[
+  {
+    "url": "http://www.dentsplysirona.com/terms-of-use",
+    "status": 200,
+    "bytes": 326202,
+    "finalUrl": "https://www.dentsplysirona.com/en-us/legal/terms-of-use.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en",
+    "status": 200,
+    "bytes": 368716,
+    "finalUrl": "https://www.dentsplysirona.com/en",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy.html",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/about-academy.html",
+    "status": 200,
+    "bytes": 225184,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/about-academy.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/about-academy/partnerships.html",
+    "status": 200,
+    "bytes": 204820,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/about-academy/partnerships.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/about-academy/research-grants.html",
+    "status": 200,
+    "bytes": 209222,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/about-academy/research-grants.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/about-academy/SCADA-Program.html",
+    "status": 200,
+    "bytes": 206780,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/about-academy/SCADA-Program.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/ce/courses.html",
+    "status": 200,
+    "bytes": 204246,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/courses.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/ce/courses/dental-lab.html",
+    "status": 200,
+    "bytes": 210379,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/courses/dental-lab.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/ce/courses/digital-dentistry-cbct.html",
+    "status": 200,
+    "bytes": 212645,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/courses/digital-dentistry-cbct.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/ce/courses/implant-dentistry.html",
+    "status": 200,
+    "bytes": 211745,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/courses/implant-dentistry.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/ce/courses/orthodontics.html",
+    "status": 200,
+    "bytes": 212583,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/courses/orthodontics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/ce/courses/preventive.html",
+    "status": 200,
+    "bytes": 216945,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/courses/preventive.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/ce/courses/restorative-prosthodontics.html",
+    "status": 200,
+    "bytes": 213306,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/courses/restorative-prosthodontics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/ce/videos.html",
+    "status": 200,
+    "bytes": 209236,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/videos.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/course-series.html",
+    "status": 200,
+    "bytes": 241273,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/course-series/aligner-course-series.html",
+    "status": 200,
+    "bytes": 252645,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series/aligner-course-series.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/course-series/dental-diagnosis-course-series.html",
+    "status": 200,
+    "bytes": 236268,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series/dental-diagnosis-course-series.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/course-series/endodontics-course-series.html",
+    "status": 200,
+    "bytes": 269787,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series/endodontics-course-series.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/course-series/implant-course-series.html",
+    "status": 200,
+    "bytes": 259248,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series/implant-course-series.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/course-series/indirect-restorative-course-series.html",
+    "status": 200,
+    "bytes": 265552,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series/indirect-restorative-course-series.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/course-series/sustainability-course-series.html",
+    "status": 200,
+    "bytes": 230984,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series/sustainability-course-series.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/courses.html",
+    "status": 200,
+    "bytes": 207896,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/courses.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/courses/endodontics.html",
+    "status": 200,
+    "bytes": 202220,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/courses/endodontics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/education-centers.html",
+    "status": 200,
+    "bytes": 211768,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/education-centers.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/blog-posts.html",
+    "status": 200,
+    "bytes": 204435,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/blog-posts.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html",
+    "status": 200,
+    "bytes": 210095,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Finfection-prevention%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 210096,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Finfection-prevention%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Fmanagement-productivity%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 210096,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Fmanagement-productivity%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Fmarketing-strategies%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 210096,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Fmarketing-strategies%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Fpatient-experience%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 210096,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Fpatient-experience%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Fsustainable-dentistry%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 210096,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/practice-management-marketing/courses.html?coursefilter=Practice-Management%3Dacademy%253Alearning-area%252Fpractice-management%252Fsustainable-dentistry%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/courses.html",
+    "status": 200,
+    "bytes": 203881,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/courses.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html",
+    "status": 200,
+    "bytes": 206608,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Brands%3Dbrands%253Aprimescan%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206664,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Brands%3Dbrands%253Aprimescan%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fcad-cam%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206712,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fcad-cam%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fcloud-services%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206719,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fcloud-services%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fdental-chairs%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206718,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fdental-chairs%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fdental-hygiene%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206719,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fdental-hygiene%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fdental-lab%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206715,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fdental-lab%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fendodontics%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206715,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fendodontics%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fimplant-dentistry%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206721,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fimplant-dentistry%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Finfection-control%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206722,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Finfection-control%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Finstruments%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206716,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Finstruments%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Forthodontics%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206717,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Forthodontics%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Frestorative%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206716,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Frestorative%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fx-ray-devices%26sort%3Ddesc",
+    "status": 200,
+    "bytes": 206717,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html?videofilter=Product-Training%3Dacademy%253Alearning-area%252Fproduct-training%252Fx-ray-devices%26sort%3Ddesc",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/research-and-articles.html",
+    "status": 200,
+    "bytes": 201418,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/research-and-articles.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/research-and-articles/atlantis-case-study-review.html",
+    "status": 200,
+    "bytes": 264109,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/research-and-articles/atlantis-case-study-review.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/academy/videos.html",
+    "status": 200,
+    "bytes": 208360,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/videos.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/all-countries.html",
+    "status": 200,
+    "bytes": 199599,
+    "finalUrl": "https://www.dentsplysirona.com/en/all-countries/view-all-country-websites.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/all-countries/view-all-country-websites.html",
+    "status": 200,
+    "bytes": 199599,
+    "finalUrl": "https://www.dentsplysirona.com/en/all-countries/view-all-country-websites.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/archived-pages/ds-world/ds-world-events.html",
+    "status": 404,
+    "bytes": 181072,
+    "finalUrl": "https://www.dentsplysirona.com/en/archived-pages/ds-world/ds-world-events.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company.html",
+    "status": 200,
+    "bytes": 259653,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/careers.html",
+    "status": 200,
+    "bytes": 268877,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/careers.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/careers/early-careers.html",
+    "status": 200,
+    "bytes": 247242,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/careers/early-careers.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/careers/locations.html",
+    "status": 200,
+    "bytes": 251663,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/careers/locations.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/careers/our-teams.html",
+    "status": 200,
+    "bytes": 253371,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/careers/our-teams.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/careers/perks-benefits.html",
+    "status": 200,
+    "bytes": 237531,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/careers/perks-benefits.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/careers/recruitment-process.html",
+    "status": 200,
+    "bytes": 268523,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/careers/recruitment-process.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/newsroom.html",
+    "status": 200,
+    "bytes": 196745,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/newsroom.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/our-company.html",
+    "status": 200,
+    "bytes": 248146,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/our-company.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/our-company/compliance-ethics.html",
+    "status": 200,
+    "bytes": 213911,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/our-company/compliance-ethics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/our-company/history.html",
+    "status": 200,
+    "bytes": 389517,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/our-company/history.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/our-company/innovation.html",
+    "status": 200,
+    "bytes": 274695,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/our-company/innovation.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/company/our-sustainability.html",
+    "status": 200,
+    "bytes": 259653,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/cookie-settings.html",
+    "status": 200,
+    "bytes": 181117,
+    "finalUrl": "https://www.dentsplysirona.com/en/cookie-settings",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/customer-support.html",
+    "status": 200,
+    "bytes": 262831,
+    "finalUrl": "https://www.dentsplysirona.com/en/support",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/customer-support/contact-us.html",
+    "status": 200,
+    "bytes": 201813,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/contact-us.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/customer-support/dealer-search.html",
+    "status": 200,
+    "bytes": 185782,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/dealer-search.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/customer-support/download-center.html",
+    "status": 200,
+    "bytes": 286991,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/download-center.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/customer-support/download-center/archived-downloads.html",
+    "status": 200,
+    "bytes": 249771,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/download-center/archived-downloads.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/customer-support/download-center/contact.html",
+    "status": 200,
+    "bytes": 231064,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/download-center/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/customer-support/help-topics/access-product-resources.html",
+    "status": 200,
+    "bytes": 215422,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/help-topics/access-product-resources.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand.html",
+    "status": 200,
+    "bytes": 273605,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/all-brands.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ankylos.html",
+    "status": 200,
+    "bytes": 274761,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ankylos.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system-ev.html",
+    "status": 200,
+    "bytes": 322977,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system-ev.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system.html",
+    "status": 200,
+    "bytes": 288138,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/atlantis-abutments.html",
+    "status": 200,
+    "bytes": 307659,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/atlantis-suprastructures.html",
+    "status": 200,
+    "bytes": 347047,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/atlantis/atlantis-suprastructures.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/axano-pure.html",
+    "status": 200,
+    "bytes": 264933,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/axano-pure.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/axano.html",
+    "status": 200,
+    "bytes": 329193,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/axano.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/axano/advantages.html",
+    "status": 200,
+    "bytes": 409291,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/axano/advantages.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/calibra-cements.html",
+    "status": 200,
+    "bytes": 270304,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/calibra-cements.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/calibra-cements/calibra-ceram.html",
+    "status": 200,
+    "bytes": 286435,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/calibra-cements/calibra-ceram.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/calibra-cements/calibra-universal.html",
+    "status": 200,
+    "bytes": 277656,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/calibra-cements/calibra-universal.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/celtra-duo.html",
+    "status": 200,
+    "bytes": 327166,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/celtra-duo.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family.html",
+    "status": 200,
+    "bytes": 311009,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family/ceram-x-spectra-st-flow.html",
+    "status": 200,
+    "bytes": 296898,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family/ceram-x-spectra-st-flow.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family/ceram-x-spectra-st.html",
+    "status": 200,
+    "bytes": 328733,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family/ceram-x-spectra-st.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family/ceramx-spectra-st-effects.html",
+    "status": 200,
+    "bytes": 267842,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family/ceramx-spectra-st-effects.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cercon-4d-abutment-block.html",
+    "status": 200,
+    "bytes": 406230,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative/brands/other/cerec-cercon-4d.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-mtl-zirconia.html",
+    "status": 200,
+    "bytes": 351495,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-mtl-zirconia.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-primemill.html",
+    "status": 200,
+    "bytes": 361963,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-primemill.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-software.html",
+    "status": 200,
+    "bytes": 340055,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-software.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-speedfire.html",
+    "status": 200,
+    "bytes": 313937,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-speedfire.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-tessera.html",
+    "status": 200,
+    "bytes": 442287,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-tessera.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/dac-universal-d.html",
+    "status": 200,
+    "bytes": 317703,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/instruments/brands/dac-universal-d.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core.html",
+    "status": 200,
+    "bytes": 387052,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/digital-dentistry/brands/ds-core.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core/contact.html",
+    "status": 200,
+    "bytes": 230973,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core/ds-core-care.html",
+    "status": 200,
+    "bytes": 282338,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core/ds-core-care.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core/ds-core-create.html",
+    "status": 200,
+    "bytes": 300491,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core/ds-core-create.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-omnitaper-implant-system.html",
+    "status": 200,
+    "bytes": 314805,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-omnitaper-implant-system.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-primetaper.html",
+    "status": 200,
+    "bytes": 323181,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-primetaper.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/endoactivator.html",
+    "status": 200,
+    "bytes": 253338,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/endoactivator.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/enhance.html",
+    "status": 200,
+    "bytes": 282538,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/enhance.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/essix-plastics.html",
+    "status": 200,
+    "bytes": 276166,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/essix-plastics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/gutta-smart.html",
+    "status": 200,
+    "bytes": 257402,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/gutta-smart.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/guttacore-obturators.html",
+    "status": 200,
+    "bytes": 295446,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/guttacore-obturators.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/inlab-cad-software.html",
+    "status": 200,
+    "bytes": 431373,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/inlab-cad-software.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/intego.html",
+    "status": 200,
+    "bytes": 480030,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/intego.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/intego/intego-pro.html",
+    "status": 200,
+    "bytes": 345230,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/intego/intego-pro.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/lucitone-digital-print-denture-system.html",
+    "status": 200,
+    "bytes": 281422,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/lucitone-digital-print-denture-system.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/multimat-cube.html",
+    "status": 200,
+    "bytes": 272275,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/multimat-cube.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/neo-spectra--st-family.html",
+    "status": 200,
+    "bytes": 311514,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/neo-spectra--st-family.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/nitradem-direct-connect-2.html",
+    "status": 200,
+    "bytes": 263673,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/nitradem-direct-connect-2.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/orthophos-e.html",
+    "status": 200,
+    "bytes": 288680,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/orthophos-e.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/orthophos-s.html",
+    "status": 200,
+    "bytes": 345085,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/orthophos-s.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ossix-agile.html",
+    "status": 200,
+    "bytes": 319202,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ossix-agile.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ossix-bone.html",
+    "status": 200,
+    "bytes": 258176,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ossix-bone.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ossix-plus.html",
+    "status": 200,
+    "bytes": 273974,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ossix-plus.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ossix-volumax.html",
+    "status": 200,
+    "bytes": 266200,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ossix-volumax.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/palodent-family.html",
+    "status": 200,
+    "bytes": 269716,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/palodent-family.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/prime-bond-universal.html",
+    "status": 200,
+    "bytes": 354740,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/prime-bond-universal.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/digital-workflows.html",
+    "status": 200,
+    "bytes": 359007,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/digital-workflows.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/indications-and-materials.html",
+    "status": 200,
+    "bytes": 306778,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/indications-and-materials.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/primeprint-clinical-cases.html",
+    "status": 200,
+    "bytes": 293879,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/primeprint-clinical-cases.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/resources.html",
+    "status": 200,
+    "bytes": 411298,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/resources.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/software-downloads.html",
+    "status": 200,
+    "bytes": 336468,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint/software-downloads.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primescan.html",
+    "status": 200,
+    "bytes": 355260,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primescan.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/pureclave.html",
+    "status": 200,
+    "bytes": 262963,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/pureclave.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sdr-flow--.html",
+    "status": 200,
+    "bytes": 344639,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sdr-flow--.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sdr-flow-plus.html",
+    "status": 200,
+    "bytes": 371782,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sdr-flow-plus.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sidexis-4.html",
+    "status": 200,
+    "bytes": 246355,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sidexis-4.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sidexis-4/downloads.html",
+    "status": 200,
+    "bytes": 252645,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sidexis-4/downloads.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/simplant.html",
+    "status": 200,
+    "bytes": 321848,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/simplant.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sinius.html",
+    "status": 200,
+    "bytes": 469687,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sinius.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/siroseal.html",
+    "status": 200,
+    "bytes": 207831,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/infection-control-systems.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/smartlite-pro.html",
+    "status": 200,
+    "bytes": 338322,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/smartlite-pro.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sprayvit.html",
+    "status": 200,
+    "bytes": 252544,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sprayvit.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners.html",
+    "status": 200,
+    "bytes": 264716,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/become-a-provider.html",
+    "status": 200,
+    "bytes": 235624,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/become-a-provider.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/cases-and-results.html",
+    "status": 200,
+    "bytes": 237717,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/cases-and-results.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/education-and-support.html",
+    "status": 200,
+    "bytes": 231862,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/education-and-support.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/suresmile-simulator.html",
+    "status": 200,
+    "bytes": 265952,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/suresmile-simulator.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/suresmile-system.html",
+    "status": 200,
+    "bytes": 241447,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/suresmile-system.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/value-of-suresmile.html",
+    "status": 200,
+    "bytes": 259941,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/value-of-suresmile.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/symbios.html",
+    "status": 200,
+    "bytes": 285305,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/symbios.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/vionex.html",
+    "status": 200,
+    "bytes": 261217,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/vionex.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/x-smart-pro-plus.html",
+    "status": 200,
+    "bytes": 286014,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/x-smart-pro-plus.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-brand/x-smart-pro-plus/resources.html",
+    "status": 200,
+    "bytes": 220073,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/x-smart-pro-plus/resources.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category.html",
+    "status": 200,
+    "bytes": 228169,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/all-categories.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam.html",
+    "status": 200,
+    "bytes": 316761,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/cerec.html",
+    "status": 200,
+    "bytes": 303765,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/cerec.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/contact.html",
+    "status": 200,
+    "bytes": 232764,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/downloads.html",
+    "status": 200,
+    "bytes": 811267,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/downloads.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab.html",
+    "status": 200,
+    "bytes": 344547,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/cad-cam-materials-for-dental-laboratories.html",
+    "status": 200,
+    "bytes": 366360,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/cad-cam-materials-for-dental-laboratories.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/contact.html",
+    "status": 200,
+    "bytes": 232287,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/digital-dentures/digital-mill-dentures.html",
+    "status": 200,
+    "bytes": 267464,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/digital-dentures/digital-mill-dentures.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/inlab-downloads.html",
+    "status": 200,
+    "bytes": 462542,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/inlab-downloads.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/endodontics.html",
+    "status": 200,
+    "bytes": 291450,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/endodontics/contact.html",
+    "status": 200,
+    "bytes": 249760,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/contact.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/endodontics/root-canal-cleaning.html",
+    "status": 200,
+    "bytes": 276856,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/root-canal-cleaning.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/endodontics/root-canal-shaping.html",
+    "status": 200,
+    "bytes": 268810,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/root-canal-shaping.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/imaging-systems.html",
+    "status": 200,
+    "bytes": 220165,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/imaging-systems.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/imaging-systems/contact.html",
+    "status": 200,
+    "bytes": 232336,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/imaging-systems/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/imaging-systems/extraoral-imaging.html",
+    "status": 200,
+    "bytes": 259294,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/imaging-systems/extraoral-imaging.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry.html",
+    "status": 200,
+    "bytes": 264068,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/bone-and-soft-tissue-regeneration.html",
+    "status": 200,
+    "bytes": 261239,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/bone-and-soft-tissue-regeneration.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/contact.html",
+    "status": 200,
+    "bytes": 232751,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/ev-implant-family.html",
+    "status": 200,
+    "bytes": 301351,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/ev-implant-family.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/ev-prosthetics.html",
+    "status": 200,
+    "bytes": 285604,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/ev-prosthetics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/implant-systems.html",
+    "status": 200,
+    "bytes": 246174,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/implant-systems.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/infection-control-systems.html",
+    "status": 200,
+    "bytes": 207831,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/infection-control-systems.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/infection-control-systems/contact.html",
+    "status": 200,
+    "bytes": 232457,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/infection-control-systems/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/electric-handpieces.html",
+    "status": 200,
+    "bytes": 344239,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/electric-handpieces.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/software-downloads.html",
+    "status": 200,
+    "bytes": 197801,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/software-downloads.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/turbines.html",
+    "status": 200,
+    "bytes": 278505,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/turbines.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/intraoral-scanners.html",
+    "status": 200,
+    "bytes": 314974,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/intraoral-scanners.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/intraoral-scanners/downloads.html",
+    "status": 200,
+    "bytes": 315030,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/intraoral-scanners/downloads.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/intraoral-scanners/resources.html",
+    "status": 200,
+    "bytes": 254238,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/intraoral-scanners/resources.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics.html",
+    "status": 200,
+    "bytes": 249132,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/appliance-fabrication.html",
+    "status": 200,
+    "bytes": 235142,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/appliance-fabrication.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/contact.html",
+    "status": 200,
+    "bytes": 232371,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/interproximal-reduction.html",
+    "status": 200,
+    "bytes": 316199,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/interproximal-reduction.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/patient-care-and-records.html",
+    "status": 200,
+    "bytes": 249650,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/patient-care-and-records.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/restorative.html",
+    "status": 200,
+    "bytes": 278376,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/restorative/cad-cam-materials-for-the-dental-practice.html",
+    "status": 200,
+    "bytes": 281530,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/restorative/cad-cam-materials-for-the-dental-practice.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/restorative/contact.html",
+    "status": 200,
+    "bytes": 249930,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative/contact.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers.html",
+    "status": 200,
+    "bytes": 257018,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/contact.html",
+    "status": 200,
+    "bytes": 233292,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/dental-chairs.html",
+    "status": 200,
+    "bytes": 258721,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/dental-chairs.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/dental-operating-lights.html",
+    "status": 200,
+    "bytes": 297292,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/dental-operating-lights.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/working-stools.html",
+    "status": 200,
+    "bytes": 325823,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/working-stools.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure.html",
+    "status": 200,
+    "bytes": 295200,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/class-II-restorative-solution.html",
+    "status": 200,
+    "bytes": 443185,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/class-II-restorative-solution.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/class-II-restorative-solution/class-ii-clinical-cases.html",
+    "status": 200,
+    "bytes": 270341,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/class-II-restorative-solution/class-ii-clinical-cases.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/digital-implant-dentistry.html",
+    "status": 200,
+    "bytes": 273908,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/digital-implant-dentistry.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/digital-mill-denture-workflow.html",
+    "status": 200,
+    "bytes": 252000,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/digital-mill-denture-workflow.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/digital-orthodontics.html",
+    "status": 200,
+    "bytes": 223653,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/digital-orthodontics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/implant-dentistry-with-cerec.html",
+    "status": 200,
+    "bytes": 298662,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/implant-dentistry-with-cerec.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/lucitone-digital-print-denture-workflow.html",
+    "status": 200,
+    "bytes": 253527,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/lucitone-digital-print-denture-workflow.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/trios-meets-prime.html",
+    "status": 200,
+    "bytes": 268070,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/trios-meets-prime.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic.html",
+    "status": 200,
+    "bytes": 295200,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/cad-cam/inhouse-manufacturing-solutions.html",
+    "status": 200,
+    "bytes": 323921,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/inhouse-manufacturing-solutions.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/cerec/cerec-club.html",
+    "status": 200,
+    "bytes": 201945,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/cerec/cerec-club.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/cerec/cerec-integration.html",
+    "status": 200,
+    "bytes": 235712,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/cerec/cerec-integration.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/digital-dentistry.html",
+    "status": 200,
+    "bytes": 228902,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/digital-dentistry.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/digital-dentistry/connect-case-center-to-ds-core.html",
+    "status": 200,
+    "bytes": 321428,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/digital-dentistry/connect-case-center-to-ds-core.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/digital-dentistry/what-is-new-on-ds-core.html",
+    "status": 200,
+    "bytes": 256722,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/digital-dentistry/what-is-new-on-ds-core.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/imaging/exceptional-experience-imaging.html",
+    "status": 200,
+    "bytes": 262851,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/imaging/exceptional-experience-imaging.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/implant-dentistry/atlantis.html",
+    "status": 200,
+    "bytes": 283776,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/atlantis.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/implant-dentistry/implants-warranty.html",
+    "status": 200,
+    "bytes": 222911,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/implant-dentistry/implants-warranty.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/class-II-depth-of-cure.html",
+    "status": 200,
+    "bytes": 267127,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/class-II-depth-of-cure.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/class-II-shade-matching-ceram-x-spectra-st.html",
+    "status": 200,
+    "bytes": 251796,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/class-II-shade-matching-ceram-x-spectra-st.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/contact-creation-palodent-v3.html",
+    "status": 200,
+    "bytes": 250034,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/contact-creation-palodent-v3.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/direct-post-endo-restorations-with-tight-seal.html",
+    "status": 200,
+    "bytes": 293568,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/direct-post-endo-restorations-with-tight-seal.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/game-changer-posterior-restorations.html",
+    "status": 200,
+    "bytes": 299336,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/game-changer-posterior-restorations.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/microleakage.html",
+    "status": 200,
+    "bytes": 277991,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/microleakage.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/recurrent-caries-causes.html",
+    "status": 200,
+    "bytes": 290696,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/recurrent-caries-causes.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/sensitivity-in-composite-restorations.html",
+    "status": 200,
+    "bytes": 300312,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/sensitivity-in-composite-restorations.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/tooth-isolation.html",
+    "status": 200,
+    "bytes": 229990,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/tooth-isolation.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/dental-chair-design.html",
+    "status": 200,
+    "bytes": 262412,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/dental-chair-design.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/digitally-connected-treatment-centers.html",
+    "status": 200,
+    "bytes": 286541,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/digitally-connected-treatment-centers.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/ergonomics.html",
+    "status": 200,
+    "bytes": 283832,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/ergonomics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/infection-prevention-for-treatment-centers-.html",
+    "status": 200,
+    "bytes": 326497,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/infection-prevention-for-treatment-centers-.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/quality-beyond-reliability.html",
+    "status": 200,
+    "bytes": 261726,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/treatment-centers/quality-beyond-reliability.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/discover/discover-by-topic/resources/ds-dental-cements-guide.html",
+    "status": 200,
+    "bytes": 202423,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/resources/ds-dental-cements-guide.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore.html",
+    "status": 200,
+    "bytes": 295200,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/all-brands.html",
+    "status": 200,
+    "bytes": 273605,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/all-brands.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/all-categories.html",
+    "status": 200,
+    "bytes": 228169,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/all-categories.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam.html",
+    "status": 200,
+    "bytes": 316761,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/brands/cerec-primemill.html",
+    "status": 200,
+    "bytes": 361963,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-primemill.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/brands/cerec-speedfire.html",
+    "status": 200,
+    "bytes": 313937,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-speedfire.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/brands/other/cerec-software.html",
+    "status": 200,
+    "bytes": 340055,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-software.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/brands/other/connect-software.html",
+    "status": 200,
+    "bytes": 387052,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/digital-dentistry/brands/ds-core.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/brands/other/prepcheck.html",
+    "status": 200,
+    "bytes": 263261,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/prepcheck.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/brands/primeprint.html",
+    "status": 200,
+    "bytes": 413315,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primeprint.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/contact.html",
+    "status": 200,
+    "bytes": 232764,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/contact.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/cerec-milling-units.html",
+    "status": 200,
+    "bytes": 328795,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/cerec-milling-units.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/cerec.html",
+    "status": 200,
+    "bytes": 303765,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/cerec.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/dental-cad-software.html",
+    "status": 200,
+    "bytes": 251286,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/dental-cad-software.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/dental-design.html",
+    "status": 200,
+    "bytes": 294268,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/dental-design.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/dental-milling-machines.html",
+    "status": 200,
+    "bytes": 276368,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/dental-milling-machines.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/cad-cam/product-topics/other/implant-dentistry-with-cerec.html",
+    "status": 200,
+    "bytes": 298662,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/implant-dentistry-with-cerec.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-chairs.html",
+    "status": 200,
+    "bytes": 257018,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-chairs/brands/axano.html",
+    "status": 200,
+    "bytes": 329194,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/axano.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-chairs/brands/other/dental-saddle-chairs.html",
+    "status": 200,
+    "bytes": 235985,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/dental-saddle-chairs.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-chairs/brands/other/intego.html",
+    "status": 200,
+    "bytes": 480030,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/intego.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-chairs/brands/other/sinius.html",
+    "status": 200,
+    "bytes": 469687,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sinius.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-chairs/brands/other/working-stools.html",
+    "status": 200,
+    "bytes": 325823,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/treatment-centers/working-stools.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab.html",
+    "status": 200,
+    "bytes": 344547,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/celtra-press.html",
+    "status": 200,
+    "bytes": 337935,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/celtra-press.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/cercon/cercon-ht-ml.html",
+    "status": 200,
+    "bytes": 293677,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cercon-ht-ml.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/cercon/cercon-xt-ml.html",
+    "status": 200,
+    "bytes": 285279,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cercon-xt-ml.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/cercon/cercon-yo-ml.html",
+    "status": 200,
+    "bytes": 274030,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cercon-yo.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/ineos-x5.html",
+    "status": 200,
+    "bytes": 319596,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ineos-x5.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/inlab.html",
+    "status": 200,
+    "bytes": 462542,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/inlab-downloads.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/inlab/inlab-cad-cam-equipment.html",
+    "status": 200,
+    "bytes": 276948,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/cad-cam-equipment-for-the-dental-lab.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/inlab/inlab-mc-x5.html",
+    "status": 200,
+    "bytes": 341441,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/inlab-mc-x5.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/inlab/inlab-profire.html",
+    "status": 200,
+    "bytes": 271934,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/inlab-profire.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/kiss-ceramics.html",
+    "status": 200,
+    "bytes": 331964,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/kiss-ceramics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/lucitone/lucitone-digital-ipn.html",
+    "status": 200,
+    "bytes": 279730,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/lucitone-digital-print-denture-system/lucitone-digital-ipn.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/lucitone/lucitone-digital-print-denture-system.html",
+    "status": 200,
+    "bytes": 281422,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/lucitone-digital-print-denture-system.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/other/ipn-3d.html",
+    "status": 200,
+    "bytes": 262455,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ipn-3d.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/brands/portrait-ipn.html",
+    "status": 200,
+    "bytes": 283134,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/portrait-ipn.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/product-topics/cad-cam-dental-lab.html",
+    "status": 200,
+    "bytes": 366360,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/cad-cam-materials-for-dental-laboratories.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/dental-lab/product-topics/digital-dentures.html",
+    "status": 200,
+    "bytes": 221900,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/dental-lab/digital-dentures.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry.html",
+    "status": 200,
+    "bytes": 309397,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/digital-dentistry.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/brands/ds-core.html",
+    "status": 200,
+    "bytes": 387052,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/digital-dentistry/brands/ds-core.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/brands/other/primescan-connect.html",
+    "status": 200,
+    "bytes": 293433,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primescan-connect.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/brands/primescan-2.html",
+    "status": 200,
+    "bytes": 313637,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primescan2.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/brands/primescan.html",
+    "status": 200,
+    "bytes": 355260,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/primescan.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/contact.html",
+    "status": 200,
+    "bytes": 232764,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/cad-cam/contact.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/cloud-solutions-dental-lab.html",
+    "status": 200,
+    "bytes": 303130,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/cloud-solutions-dental-lab.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/design-services.html",
+    "status": 200,
+    "bytes": 300490,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core/ds-core-create.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/equipment-service.html",
+    "status": 200,
+    "bytes": 282338,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-core/ds-core-care.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/inhouse-manufacturing-solutions.html",
+    "status": 200,
+    "bytes": 323921,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/inhouse-manufacturing-solutions.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/intraoral-scanning-and-digital-impression.html",
+    "status": 200,
+    "bytes": 314974,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/intraoral-scanners.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/other/ds-core-for-endo.html",
+    "status": 200,
+    "bytes": 243832,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/other/ds-core-for-endo.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/digital-dentistry/product-topics/other/how-ds-core-can-elevate-digital-impressions-in-dentistry-to-the-.html",
+    "status": 200,
+    "bytes": 229328,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/digital-dentistry/how-ds-core-can-elevate-digital-impressions-in-dentistry-to-the-next-level.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics.html",
+    "status": 200,
+    "bytes": 291450,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/ah-plus.html",
+    "status": 200,
+    "bytes": 319338,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/ah-plus.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/irrigation-needle.html",
+    "status": 200,
+    "bytes": 302052,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/irrigation-needle.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/conform-fit-gutta-percha-point.html",
+    "status": 200,
+    "bytes": 242587,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/conform-fit-gutta-percha-point.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/eddy.html",
+    "status": 200,
+    "bytes": 323820,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/eddy.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/fluoropost.html",
+    "status": 200,
+    "bytes": 235725,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/fluoropost.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/gutta-fusion.html",
+    "status": 200,
+    "bytes": 291450,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/gutta-smart.html",
+    "status": 200,
+    "bytes": 257402,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/gutta-smart.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/guttacore-obturators.html",
+    "status": 200,
+    "bytes": 295446,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/guttacore-obturators.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/propex-pixi.html",
+    "status": 200,
+    "bytes": 244182,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/propex-pixi.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/proroot-bio-sealer.html",
+    "status": 200,
+    "bytes": 312737,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/proroot-bio-sealer.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/r-pilot.html",
+    "status": 200,
+    "bytes": 277640,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/r-pilot.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/readysteel.html",
+    "status": 200,
+    "bytes": 270811,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/readysteel.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/vdw-rotate.html",
+    "status": 200,
+    "bytes": 351923,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/vdw-rotate.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/x-smart-apex-locator.html",
+    "status": 200,
+    "bytes": 316575,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/x-smart-apex-locator.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/x-smart-go.html",
+    "status": 200,
+    "bytes": 297249,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/other/x-smart-go.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/protaper-ultimate.html",
+    "status": 200,
+    "bytes": 363158,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/protaper-ultimate.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/protaper-ultimate/protaper-gold.html",
+    "status": 200,
+    "bytes": 306722,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/protaper-ultimate/protaper-gold.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/protaper-ultimate/protaper-next.html",
+    "status": 200,
+    "bytes": 282519,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/protaper-next.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/reciproc-family.html",
+    "status": 200,
+    "bytes": 388403,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/reciproc-family.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/reciproc-family/reciproc-blue.html",
+    "status": 200,
+    "bytes": 388404,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/reciproc-family.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/smartlite-pro-endoactivator.html",
+    "status": 200,
+    "bytes": 335348,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/smartlite-pro-endoactivator.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/trunatomy.html",
+    "status": 200,
+    "bytes": 342898,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/trunatomy.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/waveone-gold.html",
+    "status": 200,
+    "bytes": 328475,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/waveone-gold.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/brands/x-smart-pro-plus.html",
+    "status": 200,
+    "bytes": 286014,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/brands/x-smart-pro-plus.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/contact.html",
+    "status": 200,
+    "bytes": 249760,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/contact.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/other/active-irrigation-key-to-endo-success.html",
+    "status": 200,
+    "bytes": 255151,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/other/active-irrigation-key-to-endo-success.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/root-canal-cleaning.html",
+    "status": 200,
+    "bytes": 276856,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/root-canal-cleaning.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/root-canal-obturation.html",
+    "status": 200,
+    "bytes": 233707,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/endodontics/root-canal-obturation.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/root-canal-shaping.html",
+    "status": 200,
+    "bytes": 268810,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/endodontics/product-topics/root-canal-shaping.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry.html",
+    "status": 200,
+    "bytes": 264068,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/ankylos.html",
+    "status": 200,
+    "bytes": 274760,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ankylos.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/astra-tech-implant-system-ev.html",
+    "status": 200,
+    "bytes": 322977,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system-ev.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html",
+    "status": 200,
+    "bytes": 307659,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/atlantis/atlantis-abutment.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/atlantis/atlantis-suprastructures.html",
+    "status": 200,
+    "bytes": 347047,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/atlantis/atlantis-suprastructures.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/azento.html",
+    "status": 200,
+    "bytes": 373298,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/azento.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/omnitaper-implant-system.html",
+    "status": 200,
+    "bytes": 314805,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-omnitaper-implant-system.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/ossix.html",
+    "status": 200,
+    "bytes": 261239,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/bone-and-soft-tissue-regeneration.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/other/acuris-conometric-concept.html",
+    "status": 200,
+    "bytes": 289958,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/acuris-conometric-concept.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/other/astra-tech.html",
+    "status": 200,
+    "bytes": 288138,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/astra-tech-implant-system.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/primetaper-implant-system.html",
+    "status": 200,
+    "bytes": 323181,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ds-primetaper.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/simplant.html",
+    "status": 200,
+    "bytes": 321848,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/simplant.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/brands/symbios.html",
+    "status": 200,
+    "bytes": 285305,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/symbios.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/product-topics/bone-and-soft-tissue-regeneration.html",
+    "status": 200,
+    "bytes": 261239,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/bone-and-soft-tissue-regeneration.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/product-topics/ev-prosthetics.html",
+    "status": 200,
+    "bytes": 285604,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/ev-prosthetics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/product-topics/implant-systems.html",
+    "status": 200,
+    "bytes": 246174,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/implant-dentistry/implant-systems.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/implant-dentistry/product-topics/product-selection-guide.html",
+    "status": 404,
+    "bytes": 181072,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/implant-dentistry/product-topics/product-selection-guide.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/instruments.html",
+    "status": 200,
+    "bytes": 286073,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/instruments/brands/energo.html",
+    "status": 200,
+    "bytes": 344239,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/electric-handpieces.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/instruments/brands/other/sirolaser-advance-plus.html",
+    "status": 200,
+    "bytes": 275859,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sirolaser-advance-plus.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/instruments/brands/other/sirolaser-blue.html",
+    "status": 200,
+    "bytes": 263506,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sirolaser-blue.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/instruments/brands/sirosonic.html",
+    "status": 200,
+    "bytes": 286073,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/instruments/product-topics/handpieces.html",
+    "status": 200,
+    "bytes": 344239,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/electric-handpieces.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/instruments/product-topics/high-speeds.html",
+    "status": 200,
+    "bytes": 278505,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/instruments/turbines.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics.html",
+    "status": 200,
+    "bytes": 249133,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/brands/essix.html",
+    "status": 200,
+    "bytes": 276166,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/essix-plastics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/brands/suresmile-clear-aligner.html",
+    "status": 200,
+    "bytes": 264716,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/brands/suresmile-simulator.html",
+    "status": 200,
+    "bytes": 265952,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/suresmile-simulator.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/brands/suresmile-system/suresmile-retainers.html",
+    "status": 200,
+    "bytes": 248743,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/suresmile-retainers.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/brands/suresmile-system/suresmile-vpro.html",
+    "status": 200,
+    "bytes": 232944,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/suresmile-aligners/suresmile-vpro.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/product-topics/appliance-fabrication.html",
+    "status": 200,
+    "bytes": 235142,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/appliance-fabrication.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/product-topics/digital-orthodontics.html",
+    "status": 200,
+    "bytes": 223653,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/digital-orthodontics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/product-topics/interproximal-reduction.html",
+    "status": 200,
+    "bytes": 316199,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/orthodontics/interproximal-reduction.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/orthodontics/product-topics/other/suresmile--clear-aligners-signature-workflow.html",
+    "status": 200,
+    "bytes": 219330,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/ds-signature-workflows/suresmile-clear-aligner-signature-workflow.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive.html",
+    "status": 200,
+    "bytes": 288990,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/preventive.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive/brands/cavitron-300.html",
+    "status": 200,
+    "bytes": 355567,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/preventive/brands/cavitron-300.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive/brands/nupro/nupro-prophy-angles.html",
+    "status": 200,
+    "bytes": 289199,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/preventive/brands/nupro/nupro-prophy-angles.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive/brands/nupro/nupro-prophy-paste.html",
+    "status": 200,
+    "bytes": 288652,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/preventive/brands/nupro/nupro-prophy-paste.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive/brands/nupro/nupro-white-varnish.html",
+    "status": 200,
+    "bytes": 261330,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/preventive/brands/nupro.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive/brands/other/oraqix.html",
+    "status": 200,
+    "bytes": 288990,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/preventive.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive/brands/other/xylocaine.html",
+    "status": 200,
+    "bytes": 222828,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/xylocaine.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive/brands/purevac-hve.html",
+    "status": 200,
+    "bytes": 274699,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/purevac-hve.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/preventive/product-topics/dental-anesthetics.html",
+    "status": 200,
+    "bytes": 197522,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/preventive/anesthetics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative.html",
+    "status": 200,
+    "bytes": 278376,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/algin-x-ultra.html",
+    "status": 200,
+    "bytes": 265579,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/algin-x-ultra.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/aquasil-ultra-plus.html",
+    "status": 200,
+    "bytes": 300582,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/aquasil-ultra-plus.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/cad---cam-blocks.html",
+    "status": 200,
+    "bytes": 281530,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/restorative/cad-cam-materials-for-the-dental-practice.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/calibra.html",
+    "status": 200,
+    "bytes": 270304,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/calibra-cements.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/ceram-x-spectra-st-family.html",
+    "status": 200,
+    "bytes": 311009,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/ceram-x-spectra-st-family/ceram-x-spectra-st.html",
+    "status": 200,
+    "bytes": 328733,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/ceram-x-spectra-st-family/ceram-x-spectra-st.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/enhance-flex.html",
+    "status": 200,
+    "bytes": 322228,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative/brands/enhance-flex.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/enhance.html",
+    "status": 200,
+    "bytes": 282538,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/enhance.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/integrity.html",
+    "status": 200,
+    "bytes": 278376,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/integrity/integrity-multicure.html",
+    "status": 200,
+    "bytes": 270135,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/integrity-multicure.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/integrity/integrity-tempgrip.html",
+    "status": 200,
+    "bytes": 254452,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/integrity-tempgrip.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/other/celtra-duo.html",
+    "status": 200,
+    "bytes": 327166,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/celtra-duo.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/other/cerec-cercon-4d.html",
+    "status": 200,
+    "bytes": 406230,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative/brands/other/cerec-cercon-4d.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/other/cerec-mtl--zirconia.html",
+    "status": 200,
+    "bytes": 351495,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-mtl-zirconia.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/other/cerec-tessera.html",
+    "status": 200,
+    "bytes": 442287,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/cerec-tessera.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/other/hemoban-gel.html",
+    "status": 200,
+    "bytes": 243818,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/hemoban-gel.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/palodent-matrix-systems.html",
+    "status": 200,
+    "bytes": 269716,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/palodent-family.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/prime-bond-active.html",
+    "status": 200,
+    "bytes": 362848,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/prime-bond-active.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/prime-bond-universal.html",
+    "status": 200,
+    "bytes": 354740,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/prime-bond-universal.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/sdr--plus.html",
+    "status": 200,
+    "bytes": 371782,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sdr-flow-plus.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/sdr-flow-plus.html",
+    "status": 200,
+    "bytes": 344639,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sdr-flow--.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/brands/smartlite-pro.html",
+    "status": 200,
+    "bytes": 338322,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/smartlite-pro.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/cad-cam-materials-for-dental-practice.html",
+    "status": 404,
+    "bytes": 181071,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative/cad-cam-materials-for-dental-practice.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/cementation.html",
+    "status": 200,
+    "bytes": 270304,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/calibra-cements.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/composites---flowables.html",
+    "status": 200,
+    "bytes": 443186,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/class-II-restorative-solution.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/other/class-ii-restorative.html",
+    "status": 200,
+    "bytes": 443186,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/class-II-restorative-solution.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/other/direct-post-endodontic-restorations-with-a-tight-seal.html",
+    "status": 200,
+    "bytes": 293568,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/direct-post-endo-restorations-with-tight-seal.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/other/post-op-sensitivity-after-composite-fillings.html",
+    "status": 200,
+    "bytes": 300312,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/sensitivity-in-composite-restorations.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/other/single-unit-crown-tissue-management.html",
+    "status": 200,
+    "bytes": 251455,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/Single-Unit-Crown-Tissue-Management.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/other/spectra-st-composite-suresmile-aligners.html",
+    "status": 200,
+    "bytes": 333290,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-procedure/tph-spectra-st-for-suresmile-attachments.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/other/tooth-isolation-in-dentistry.html",
+    "status": 200,
+    "bytes": 229990,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/restorative/tooth-isolation.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/single-unit-crown-workflow.html",
+    "status": 200,
+    "bytes": 253655,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/single-unit-crown-workflow.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/single-unit-crown-workflow/digital-in-office.html",
+    "status": 200,
+    "bytes": 231803,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/single-unit-crown-workflow/digital-in-office.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/single-unit-crown-workflow/digital-lab.html",
+    "status": 200,
+    "bytes": 231917,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/restorative/product-topics/single-unit-crown-workflow/digital-lab.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions.html",
+    "status": 200,
+    "bytes": 220165,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/imaging-systems.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/axeos.html",
+    "status": 200,
+    "bytes": 366554,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/axeos.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/heliodent-plus.html",
+    "status": 200,
+    "bytes": 282396,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/heliodent-plus.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/magnetom.html",
+    "status": 200,
+    "bytes": 337361,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/magnetom.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/orthophos-sl.html",
+    "status": 200,
+    "bytes": 362740,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/orthophos-sl.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/orthophos-sl/orthophos-e.html",
+    "status": 200,
+    "bytes": 288680,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/orthophos-e.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/orthophos-sl/orthophos-s.html",
+    "status": 200,
+    "bytes": 345085,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/orthophos-s.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/other/xios-intraoral-holder-system.html",
+    "status": 200,
+    "bytes": 266164,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/xios-intraoral-holder-systems.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/other/xios-xg-supreme.html",
+    "status": 200,
+    "bytes": 282657,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/xios-xg-supreme.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/rinn.html",
+    "status": 200,
+    "bytes": 279567,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/rinn-intraoral-imaging-accessories.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/sicat.html",
+    "status": 200,
+    "bytes": 347136,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sicat.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/sidexis/sidexis-4.html",
+    "status": 200,
+    "bytes": 246355,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sidexis-4.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/brands/sidexis/sidexis-ix.html",
+    "status": 200,
+    "bytes": 264322,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-brand/sidexis-ix.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/product-topics/ds-core-imaging.html",
+    "status": 200,
+    "bytes": 322645,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/product-topics/ds-core-imaging.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/product-topics/extraoral-imaging.html",
+    "status": 200,
+    "bytes": 259294,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-category/imaging-systems/extraoral-imaging.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/explore/x-ray-solutions/product-topics/imaging.html",
+    "status": 200,
+    "bytes": 262851,
+    "finalUrl": "https://www.dentsplysirona.com/en/discover/discover-by-topic/by-category/imaging/exceptional-experience-imaging.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn.html",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/ds-academy.html",
+    "status": 200,
+    "bytes": 225185,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/about-academy.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/ds-academy/about-ds-academy.html",
+    "status": 200,
+    "bytes": 225185,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/about-academy.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/ds-academy/ds-academy-series.html",
+    "status": 200,
+    "bytes": 241273,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/continuing-education.html",
+    "status": 200,
+    "bytes": 258568,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/continuing-education/continuing-education-videos.html",
+    "status": 200,
+    "bytes": 209237,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/ce/videos.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-catalogue.html",
+    "status": 200,
+    "bytes": 207896,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/courses.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-catalogue/endodontics.html",
+    "status": 200,
+    "bytes": 202220,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/courses/endodontics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-catalogue/live-courses.html",
+    "status": 200,
+    "bytes": 191319,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/courses/live-courses.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-catalogue/webinars.html",
+    "status": 200,
+    "bytes": 191473,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/courses/webinars.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2021/improving-endodontic-outcomes-anatomy-disinfection-and-obturation.html",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2021/obturation-a-practical-proficiency-in-endodontics-learning-module.html",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2022/ec1-endodontic-diagnosis-i.html",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2022/ec3-fundamentals-of-the-pulp-the-etiology-of-pulpal-diseases.html",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2022/new-protocol-and-benefits-of-the-protaper-ultimate-workflow.html",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2022/protaper-ultimate-the-latest-innovation-in-endodontic-care.html",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/diagnosis-analog-digital-approache",
+    "status": 200,
+    "bytes": 254128,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/digital-restoration-design-for-crowns-and-onlays",
+    "status": 200,
+    "bytes": 221784,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/digital-restoration-design-for-crowns-and-onlays",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/ds-core--how-to-set-up-ds-core",
+    "status": 200,
+    "bytes": 221563,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/ds-core--how-to-set-up-ds-core",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/ds-core-new-user-tutorial-us",
+    "status": 200,
+    "bytes": 221519,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/ds-core-new-user-tutorial-us",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/elevating-your-practice-the-new-patient-experience-team-excellence-digital-dentistry",
+    "status": 200,
+    "bytes": 222362,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn/education/course-details.html/content/dam/master/content-fragments/en/en/courses-events/on-demand/2023/elevating-your-practice-the-new-patient-experience-team-excellence-digital-dentistry",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/learning-path.html",
+    "status": 200,
+    "bytes": 241273,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/learning-path/sustainability.html",
+    "status": 200,
+    "bytes": 230984,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/course-series/sustainability-course-series.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/practice-management.html",
+    "status": 200,
+    "bytes": 229894,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/practice-management-marketing.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/product-training.html",
+    "status": 200,
+    "bytes": 258132,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/product-training/product-training-courses.html",
+    "status": 200,
+    "bytes": 203881,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/courses.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/product-training/product-training-research.html",
+    "status": 200,
+    "bytes": 201418,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/research-and-articles.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/product-training/product-training-videos.html",
+    "status": 200,
+    "bytes": 206608,
+    "finalUrl": "https://www.dentsplysirona.com/en/academy/product-training/videos.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/learn/education/research-articles.html",
+    "status": 200,
+    "bytes": 200678,
+    "finalUrl": "https://www.dentsplysirona.com/en/learn/education/research-articles.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/legal/dentsply-sirona-inc.html",
+    "status": 200,
+    "bytes": 466236,
+    "finalUrl": "https://www.dentsplysirona.com/en/legal/dentsply-sirona-inc.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/legal/privacy-policy.html",
+    "status": 200,
+    "bytes": 486923,
+    "finalUrl": "https://www.dentsplysirona.com/en/legal/privacy-policy.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/legal/terms-of-use.html",
+    "status": 200,
+    "bytes": 251326,
+    "finalUrl": "https://www.dentsplysirona.com/en/legal/terms-of-use.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/lp.html",
+    "status": 200,
+    "bytes": 186407,
+    "finalUrl": "https://www.dentsplysirona.com/en/lp",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/lp/suresmile-whitepaper.html",
+    "status": 200,
+    "bytes": 220276,
+    "finalUrl": "https://www.dentsplysirona.com/en/lp/suresmile-whitepaper.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/lp/trusted-endo-partner.html",
+    "status": 200,
+    "bytes": 285452,
+    "finalUrl": "https://www.dentsplysirona.com/en/lp/trusted-endo-partner.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/lp/windows-11-security-package.html",
+    "status": 200,
+    "bytes": 211707,
+    "finalUrl": "https://www.dentsplysirona.com/en/lp/windows-11-security-package.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/shop.html",
+    "status": 200,
+    "bytes": 224671,
+    "finalUrl": "https://www.dentsplysirona.com/en/shop",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/shop/categories/implant-dentistry.html",
+    "status": 404,
+    "bytes": 181072,
+    "finalUrl": "https://www.dentsplysirona.com/en/shop/categories/implant-dentistry.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/shop/product-page.html/R-BP-1000170039/sdr-flow.html",
+    "status": 404,
+    "bytes": 181072,
+    "finalUrl": "https://www.dentsplysirona.com/en/shop/product-page.html/R-BP-1000170039/sdr-flow.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support.html",
+    "status": 200,
+    "bytes": 262831,
+    "finalUrl": "https://www.dentsplysirona.com/en/support",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/account-support.html",
+    "status": 200,
+    "bytes": 208094,
+    "finalUrl": "https://www.dentsplysirona.com/en/support/account-support.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/account-support/dealer-search.html",
+    "status": 200,
+    "bytes": 185782,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/dealer-search.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/account-support/faq.html",
+    "status": 200,
+    "bytes": 205574,
+    "finalUrl": "https://www.dentsplysirona.com/en/support/account-support/faq.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/contact-support.html",
+    "status": 200,
+    "bytes": 201813,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/contact-us.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/help-topics.html",
+    "status": 200,
+    "bytes": 211342,
+    "finalUrl": "https://www.dentsplysirona.com/en/support/help-topics.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/resources.html",
+    "status": 200,
+    "bytes": 214950,
+    "finalUrl": "https://www.dentsplysirona.com/en/support/resources.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/resources/download-center.html",
+    "status": 200,
+    "bytes": 286992,
+    "finalUrl": "https://www.dentsplysirona.com/en/customer-support/download-center.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/resources/primescan-2-resource-hub.html",
+    "status": 200,
+    "bytes": 285120,
+    "finalUrl": "https://www.dentsplysirona.com/en/support/resources/primescan-2-resource-hub.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/technical-support/ds-core-care-not-available.html",
+    "status": 200,
+    "bytes": 206217,
+    "finalUrl": "https://www.dentsplysirona.com/en/support/technical-support/ds-core-care-not-available.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/support/technical-support/ds-core-care-support.html",
+    "status": 200,
+    "bytes": 13139,
+    "finalUrl": "https://coresupport.dentsplysirona.com/doc/cm-products-en-US/-",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds.html",
+    "status": 200,
+    "bytes": 280344,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/about-ds/mission-vision.html",
+    "status": 200,
+    "bytes": 216046,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/our-company/mission-vision.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/about-ds/newsroom.html",
+    "status": 200,
+    "bytes": 209106,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/about-ds/newsroom.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/about-ds/newsroom/media-list-subscription.html",
+    "status": 200,
+    "bytes": 233633,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/about-ds/newsroom/media-list-subscription.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/careers/job-opportunities.html",
+    "status": 200,
+    "bytes": 103520,
+    "finalUrl": "https://careers.dentsplysirona.com/",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/careers/working-at-ds.html",
+    "status": 200,
+    "bytes": 268877,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/careers.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/compliance-ethics.html",
+    "status": 200,
+    "bytes": 213911,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/our-company/compliance-ethics.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/esg-disclosure.html",
+    "status": 200,
+    "bytes": 240706,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/esg-disclosure.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/events/all-events.html",
+    "status": 200,
+    "bytes": 231909,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/events/all-events.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/events/all-events/implants-solutions-world-summit.html",
+    "status": 200,
+    "bytes": 265346,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/events/all-events/implants-solutions-world-summit.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/inclusion-engagement.html",
+    "status": 200,
+    "bytes": 319596,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/inclusion-engagement.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/board-of-directors.html",
+    "status": 200,
+    "bytes": 266170,
+    "finalUrl": "https://www.dentsplysirona.com/en/company/our-company/board-of-directors.html",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/executive-team.html",
+    "status": 200,
+    "bytes": 237132,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/executive-team.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability.html",
+    "status": 200,
+    "bytes": 259653,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/healthy-business.html",
+    "status": 200,
+    "bytes": 229542,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/healthy-business.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/healthy-planet.html",
+    "status": 200,
+    "bytes": 223554,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/healthy-planet.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/healthy-smiles.html",
+    "status": 200,
+    "bytes": 233422,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/healthy-smiles.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/sustainability-partners.html",
+    "status": 200,
+    "bytes": 302443,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/sustainability-partners.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/sustainability-resource-kit.html",
+    "status": 200,
+    "bytes": 232482,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/sustainability-resource-kit.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/sustainability-strategy.html",
+    "status": 200,
+    "bytes": 243796,
+    "finalUrl": "https://www.dentsplysirona.com/en/why-ds/our-company/sustainability/sustainability-strategy.html",
+    "redirected": false
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-programs.html",
+    "status": 200,
+    "bytes": 295200,
+    "finalUrl": "https://www.dentsplysirona.com/en/explore",
+    "redirected": true
+  },
+  {
+    "url": "https://www.dentsplysirona.com/en/why-ds/our-programs/one-ds-loyalty.html",
+    "status": 404,
+    "bytes": 181071,
+    "finalUrl": "https://www.dentsplysirona.com/content/dentsply-sirona-dt/en/en/customer-support/one-ds-loyalty-benefits",
+    "redirected": true
+  }
+]

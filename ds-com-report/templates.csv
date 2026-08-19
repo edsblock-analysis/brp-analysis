@@ -1,0 +1,11 @@
+Template,Type,Page Count,Complexity,Example URLs,Blocks,Estimate Best (pd),Estimate Expected (pd),Estimate High (pd)
+Brand / Product Page,Product / Brand,119,Medium,/en/discover/discover-by-brand/ankylos.html | /en/discover/discover-by-brand/astra-tech-implant-system-ev.html | /en/discover/discover-by-brand/astra-tech-implant-system.html,Hero; Feature / Media Row; Cards; Carousel; Accordion; Tabs; Step; Video; Rich Text,1.5,2,3
+Explore / Category Landing,Category / Landing,87,High,/en-us/legal/terms-of-use.html | /en | /en/learn,Hero; Feature / Media Row; Cards; Carousel; Teaser / Promo; Banner; Video; Rich Text,2,3,4
+Basic Content Page,Content,79,Low,/en/all-countries/view-all-country-websites.html | /en/company/careers/locations.html | /en/company/careers/our-teams.html,Hero; Rich Text; Cards; Accordion; Embed,1,1.5,2
+Discover Hub / Homepage,Hub / Landing,18,Medium,/en/academy/ce/courses.html | /en/academy/ce/videos.html | /en/academy/course-series.html,Hero; Carousel; Cards; Teaser / Promo; Video,1.5,2,3
+Academy — Course Listing,Listing (Coveo),9,High,/en/academy/ce/courses/dental-lab.html | /en/academy/ce/courses/digital-dentistry-cbct.html | /en/academy/ce/courses/implant-dentistry.html,Hero; Course Listing (Coveo); Cards; Filter,2,3,4
+Article / Editorial Detail,Editorial,8,Low,/en/discover/discover-by-topic/by-category/digital-dentistry/what-is-new-on-ds-core.html | /en/discover/discover-by-topic/by-category/restorative/class-II-depth-of-cure.html | /en/discover/discover-by-topic/by-category/restorative/class-II-shade-matching-ceram-x-spectra-st.html,Article Hero; Rich Text; Cards; Video,1,1.5,2
+Academy — Content,Content,6,Low,/en/academy/about-academy.html | /en/academy/about-academy/partnerships.html | /en/academy/about-academy/research-grants.html,Hero; Rich Text; Cards; Accordion,1,1.5,2
+Academy — Study,Editorial,1,Medium,/en/academy/research-and-articles/atlantis-case-study-review.html,Hero; Rich Text; Step; Cards,1,1.5,2.5
+Support — Contact,Form / Contact,1,Medium,/en/customer-support/contact-us.html,Hero; Form (AEM Forms); Contact Cards; Embed,1.5,2,3
+Shop Home (Hybris),Commerce (Hybris),1,High,/en/shop,Shop Hero; Carousel; Cards; Commerce widgets,2,3,5
